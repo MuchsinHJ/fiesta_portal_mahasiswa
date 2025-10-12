@@ -11,7 +11,7 @@ Program ini berfungsi sebagai sistem sederhana yang memungkinkan **admin dan mah
 - Menambahkan, menampilkan, dan menghapus data mahasiswa
 - Menyimpan data ke file (opsional)
 - Menampilkan daftar mahasiswa yang terdaftar
-- - **On Progress**  
+- **On Progress**  
 
 ---
 
