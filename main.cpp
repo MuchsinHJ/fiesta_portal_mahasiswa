@@ -1,8 +1,7 @@
-#include <iostream>
 #include "admin.cpp"
 using namespace std;
 
-int main(){
+void displayAdmin(){
   AdminPortal admin("admin", "12345");
 
     string userInput, passInput;
@@ -15,5 +14,9 @@ int main(){
     if (admin.login(userInput, passInput)) {
         admin.showAdminMenu();
     }
+}
+
+int main(){
+  displayAdmin();
   return 0;
 }
