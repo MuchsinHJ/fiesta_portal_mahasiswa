@@ -2,17 +2,14 @@
 using namespace std;
 
 void displayAdmin(){
-  AdminPortal admin("admin", "12345");
+  AdminPortal portal("admin", "123");
+    string u, p;
+    cout << "Username: "; cin >> u;
+    cout << "Password: "; cin >> p;
 
-    string userInput, passInput;
-    cout << "=== PORTAL MAHASISWA ===" << endl;
-    cout << "Masukkan username: ";
-    cin >> userInput;
-    cout << "Masukkan password: ";
-    cin >> passInput;
-
-    if (admin.login(userInput, passInput)) {
-        admin.showAdminMenu();
+    if (portal.login(u, p)) {
+        AdminDashboard dashboard;
+        dashboard.tampilMenuMnj();
     }
 }
 
