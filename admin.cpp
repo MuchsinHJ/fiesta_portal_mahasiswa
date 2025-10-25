@@ -126,6 +126,7 @@ private:
     int jumlah = 0;
 public:
 
+
     void tambahMahasiswa() {
         cout << "=====MENU TAMBAH MAHASISWA=====" << endl;
         cout << "Masukkan nama mahasiswa: ";
@@ -219,6 +220,7 @@ public:
         }
     }
 };
+
 
 class ManajemenDosen{
     public:
@@ -321,6 +323,7 @@ class ManajemenDosen{
                 cout<<"--------------------------"<<endl;
             }
 
+
             ofstream in("dataDosen.txt");
             if(in.is_open()){
                 for(int i=0;i<jumlah;i++){
@@ -362,11 +365,216 @@ class ManajemenDosen{
         }
 };
 
+//class untuk menu utama matakuliah
+class ManajemenMatakuliah {
+private:
+    struct NodeMataKuliah {
+        MataKuliah data;          // Data mata kuliah
+        NodeMataKuliah* next;     // Pointer ke node berikutnya
+    };
+
+    NodeMataKuliah* head;         // Pointer ke head linked list
+
+public:
+    
+    ManajemenMatakuliah() {
+        head = nullptr;
+
+        tambahMataKuliahLangsung({"IF101", "Dasar Pemrograman", 3, "Dasar-dasar pemrograman", 1, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF102", "Dasar Sistem Komputer", 3, "Dasar Dasar Komputer", 1, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF103", "Kalkulus Informatika", 3, "Dasar-dasar Perhitungan ", 1, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF104", "Logika Informatika ", 3, "Dsar Logika Pemprograman", 1, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF105", "Manajemen Data dan Informasi", 3, "Dasar Manajemen data", 1, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF106", "Pancasila", 2, "Pemahaman Tata Negara", 1, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF107", "Praktikum Dasar Pempograman", 1, "Praktikum ", 1, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF108", "AL-Qur'an dan Hadits", 2, "Pengertian Al-Qur'an ", 1, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+    
+        tambahMataKuliahLangsung({"IF111", "Pemrograman Web", 3, " Dasar Pemprograman Web ", 2, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF112", "Matematika Diskrit", 3, "Perhitungan Berbasis program", 2, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF113", "Bahasa Indonesia", 3, "Penerapan Dasar Bahasa Indonesia", 2, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF114", "Aljabar Linear Matrik", 2, "Perhitungan aljabar", 2, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF115", "Algoritma Pemprograman", 3, "Dasar dasar Pemprograman", 2, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF116", "Aristektur Komputer", 3, "Dasar Susunan komputer", 2, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF117", "Kemuhammadiyahan", 2, "Pembelajaran Muhammadiyah", 2, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+
+        tambahMataKuliahLangsung({"IF121", "Algoritma dan Pemrograman", 3, "Dasar-dasar pemrograman", 3, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF122", "Struktur Data", 3, "Pengelolaan data dalam memori", 3, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF123", "Basis Data", 4, "Dasar-dasar basis data", 3, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF124", "Pemrograman Berorientasi Objek", 3, "Konsep OOP", 3, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF125", "Sistem Operasi", 3, "Operasi Sistem Komputer", 3, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF126", "Bahasa Inggris", 2, "Pembelajarann bahasa Inggris IT", 3, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF127", "Statistika Informatika", 4, "Konsep penerapan statistik ", 3, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF128", "Akidah Akhlak", 2, "Perbaikan Akhlak ", 3, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+
+        tambahMataKuliahLangsung({"IF131", "AnalisiS Dan Perancangan Perangkat Lunak", 3, "Konsep Perancangan Perangkat Lunak", 4, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF132", "Grafika Komputer", 3, "Penerapan Grafik Komputer", 4, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF133", "Interaksi Manusia dan Komputer", 3, "Interaksi Manusia dan Sistem Komputer", 4, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF134", "Islam Inerdisipliner", 3, "Pengajaran Islam ", 4, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF135", "Kecedarsan Buatan", 3, "Operasi sistem cerdas", 4, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF136", "Komunikasi Data dan Jaringan Komputer", 3, "Komunikasi data jaringan", 4, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF137", "Strategi Algoritma", 3, "Strategi Pemprograman ", 4, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+
+        tambahMataKuliahLangsung({"IF141", "Forensik Digital", 3, "Pemeriksa Kasus Digital", 5, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF142", "Keamanan Komputer", 3, "Computer Security", 5, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF143", "Pembelajar Mesin", 3, "Pembelajaran Konsep Mesin Learning", 5, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF144", "Pemprograman Mobile", 3, "Pembuatan Aplikasi Mobile ", 5, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF145", "Pemprograman Web Dinamis", 3, "Pembuatan Web", 5, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF146", "Data Mining", 3, "Penambangan Data", 5, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF147", "Pengantar Manajemen dan Prinsip Proyek", 2, "Penerapan Managemen Konsep Dalam Proyek ", 5, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF148", "Penjaminan Kualitas Perangkat Lunak", 3, "Penjamin Kualitas Perangkat Lunak ", 5, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF149", "Robotika Informatika", 3, "Perancangan Robot", 5, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF150", "Sistem Pendukung Keputusan", 3, "Pendukung Keputusan", 5, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF151", "Sistem Temu Balik Informasi", 3, "Temu Balik ", 5, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF152", "Teknik Optimasi", 3, "Optimasi", 5, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF153", "Teori Bahasa Otomata", 2, "Bahasa Otomata ", 5, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+
+        tambahMataKuliahLangsung({"IF156", "Manajemen Proyek Teknologi Informasi", 2, "Konsep Perancangan Perangkat Lunak", 6, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF157", "Pengajaran TPQ", 0, "NGaji", 6, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF158", "Tahsinul Quran", 0, "Perbaikan Cara baca AL-Qur'an", 6, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+
+        tambahMataKuliahLangsung({"IF161", "Bahasa Inggris Profesional", 2, "Bahasa Internasional", 7, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF162", "Fiqih Ibadah", 0, "Fikih", 7, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF163", "Kapita Selekta", 2, "Kapita Selekta", 7, "Informatika", "Teknik", "12347", {}, true, 40, {}, "Rabu", "08:00-10:00", "Lab 3", true});
+        tambahMataKuliahLangsung({"IF164", "Kewirausahaan", 2, "Pelatihan Ber wirausahaan ", 7, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF165", "komunikasi Interpersonal", 2, "Komunikasi", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
+        tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
+        tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
+        tambahMataKuliahLangsung({"IF1669", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF1670", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+
+        tambahMataKuliahLangsung({"IF1681", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        
+        
+        
+
+        
+    }
+
+    
+    void tambahMataKuliahLangsung(const MataKuliah& mk) {
+        NodeMataKuliah* newNode = new NodeMataKuliah();
+        newNode->data = mk;
+        newNode->next = nullptr;
+
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            NodeMataKuliah* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+    }
+
+   
+    void tampilSemuaMataKuliah() {
+        if (head == nullptr) {
+            cout << "Belum ada mata kuliah yang terdaftar." << endl;
+            return;
+        }
+
+        cout << "\n=== Daftar Semua Mata Kuliah Berdasarkan Semester ===" << endl;
+        for (int semester = 1; semester <= 8; semester++) {
+            cout << "\n--- Semester " << semester << " ---" << endl;
+            NodeMataKuliah* temp = head;
+            bool ditemukan = false;
+            while (temp != nullptr) {
+                if (temp->data.semester == semester) {
+                    cout << "Kode: " << temp->data.kodeMK << ", Nama: " << temp->data.namaMK
+                         << ", SKS: " << temp->data.sks << ", Wajib: " << (temp->data.wajib ? "Ya" : "Tidak") << endl;
+                    ditemukan = true;
+                }
+                temp = temp->next;
+            }
+            if (!ditemukan) {
+                cout << "Tidak ada mata kuliah untuk semester ini." << endl;
+            }
+        }
+    }
+
+    
+    void tampilMataKuliahPerSemester() {
+        int semester;
+        cout << "Masukkan semester yang ingin ditampilkan: ";
+        cin >> semester;
+
+        cout << "\n=== Mata Kuliah Semester " << semester << " ===" << endl;
+        NodeMataKuliah* temp = head;
+        bool ditemukan = false;
+        while (temp != nullptr) {
+            if (temp->data.semester == semester) {
+                cout << "Kode: " << temp->data.kodeMK << ", Nama: " << temp->data.namaMK
+                     << ", SKS: " << temp->data.sks << ", Wajib: " << (temp->data.wajib ? "Ya" : "Tidak") << endl;
+                ditemukan = true;
+            }
+            temp = temp->next;
+        }
+        if (!ditemukan) {
+            cout << "Tidak ada mata kuliah untuk semester ini." << endl;
+        }
+    }
+
+    
+    void tambahMataKuliah() {
+        NodeMataKuliah* newNode = new NodeMataKuliah();
+        cout << "\n=== Tambah Mata Kuliah Baru ===" << endl;
+        cout << "Masukkan kode mata kuliah: ";
+        cin >> newNode->data.kodeMK;
+        cin.ignore();
+        cout << "Masukkan nama mata kuliah: ";
+        getline(cin, newNode->data.namaMK);
+        cout << "Masukkan jumlah SKS: ";
+        cin >> newNode->data.sks;
+        cin.ignore();
+        cout << "Masukkan deskripsi mata kuliah: ";
+        getline(cin, newNode->data.deskripsi);
+        cout << "Masukkan semester: ";
+        cin >> newNode->data.semester;
+        cin.ignore();
+        cout << "Masukkan jurusan: ";
+        getline(cin, newNode->data.jurusan);
+        cout << "Masukkan fakultas: ";
+        getline(cin, newNode->data.fakultas);
+        cout << "Masukkan NIDN dosen pengampu: ";
+        cin >> newNode->data.nidnDosen;
+        cout << "Apakah mata kuliah ini wajib? (1. Ya, 2. Tidak): ";
+        int pilihWajib;
+        cin >> pilihWajib;
+        newNode->data.wajib = (pilihWajib == 1);
+        cout << "Masukkan kapasitas mahasiswa: ";
+        cin >> newNode->data.kapasitas;
+        cin.ignore();
+        cout << "Masukkan hari (misal: Senin): ";
+        getline(cin, newNode->data.hari);
+        cout << "Masukkan jam (misal: 08:00-10:00): ";
+        getline(cin, newNode->data.jam);
+        cout << "Masukkan ruang (misal: Lab 1): ";
+        getline(cin, newNode->data.ruang);
+        newNode->data.aktif = true;
+        newNode->next = nullptr;
+
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            NodeMataKuliah* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+
+        cout << "Mata kuliah berhasil ditambahkan!" << endl;
+    }
+};
+
 // === Class untuk menu utama admin ===
 class AdminDashboard {
 private:
     ManajemenMahasiswa mnjMhs;
     ManajemenDosen mnjDosen;
+    ManajemenMatakuliah mnjMatkul;
 public:
     void tampilMenuDash() {
         int pilih;
@@ -384,14 +592,21 @@ public:
             cout << "Pilih: ";
             cin >> pilih;
             switch (pilih) {
-                case 1: tampilMenuMnj(); 
+                case 1: 
+                    tampilMenuMnj(); 
+                    break;
+
+                case 2: 
+                    tampilMenuDosen();
+                    break;
+
+                case 3:
+                    tampilMenuMatakuliah();
+                    break; 
+
                 break;
-                case 2: tampilMenuDosen();
-                break;
-                case 3: cout << "Keluar dari dashboard admin...\n"; 
-                break;
-                default: cout << "Pilihan tidak valid!\n";
-                break;
+                    default: cout << "Pilihan tidak valid!\n";
+                    break;
             }
         } while (pilih != 9);
     }
@@ -441,6 +656,35 @@ public:
             }
         } while (pilih != 3);
     }
+
+    void tampilMenuMatakuliah() {
+        int pilih;
+        cout<<"====MENU MANAJEMEN MATAKULIAH===="<<endl;
+        cout<<"1. Tambah Mata Kuliah"<<endl;
+        cout<<"2. Lihat Mata Kuliah per Semester"<<endl;
+        cout<<"3. Lihat Semua Mata Kuliah"<<endl;
+        cout<<"4. Keluar"<<endl;
+        cout<<"Masukkan Pilihan:";
+        cin>>pilih;
+
+        switch(pilih){
+            case 1:
+                mnjMatkul.tambahMataKuliah();
+                break;
+            case 2:
+                mnjMatkul.tampilMataKuliahPerSemester();
+                break;
+            case 3:
+                mnjMatkul.tampilSemuaMataKuliah();
+                break;
+            case 4:
+                cout<<"Keluar dari dashboard manajemen mata kuliah..."<<endl;
+                break;
+            default:
+                cout<<"Pilihan tidak valid!"<<endl;
+                break;
+    }
+}
 };
 
 
