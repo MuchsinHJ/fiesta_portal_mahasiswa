@@ -183,6 +183,10 @@ public:
         data[jumlah] = mhsBaru;
         jumlah++;
 
+        updateFileMhs();
+    }
+
+    void updateFileMhs(){
         // Simpan ke file
         ofstream in("dataMahasiswa.txt", ios::app);
         if (in.is_open()) {
@@ -210,6 +214,11 @@ public:
         cout << "Mahasiswa berhasil ditambahkan!\n";
     }
 
+    void clearFileMhs(){
+        ofstream in("dataMahasiswa.txt", ios::trunc);
+        in.close();
+    }
+
     void tampilMahasiswa() {
         cout << "\n=== Data Mahasiswa ===\n";
         ifstream out;
@@ -219,150 +228,265 @@ public:
             cout << cetak << endl;
         }
     }
+
+    void editMahasiswa() {
+        cout << "=====MENU EDIT MAHASISWA=====" << endl;
+        string nimCari;
+        cout << "Masukkan NIM mahasiswa yang akan diedit: ";
+        cin >> nimCari;
+        bool ditemukan = false;
+        for (int i = 0; i < jumlah; i++) {
+            if (data[i].nim == nimCari) {
+                ditemukan = true;
+                cout << "Data ditemukan. Masukkan data baru:\n";
+                cout << "==============================\n";
+                cout << " Data Sebelumnya \n";
+                cout << "==============================\n";
+                tampilMahasiswa();
+                cout << "==============================\n";
+                cout << " Masukkan Data Baru: \n";
+                cout << "\nMasukkan nama mahasiswa: ";
+                cin.ignore();
+                getline(cin, data[i].nama);
+                cout << "Masukkan semester: ";
+                cin >> data[i].semester;
+                cout << "Masukkan tahun masuk: ";
+                cin >> data[i].tahunMasuk;
+                cout << "Masukkan angkatan: ";
+                cin >> data[i].angkatan;
+                cin.ignore();
+                cout << "Masukkan jurusan: ";
+                getline(cin, data[i].jurusan);
+                cout << "Masukkan fakultas: ";
+                getline(cin, data[i].fakultas);
+                cout << "Masukkan tempat lahir: ";
+                getline(cin, data[i].tempatLahir);
+                cout << "Masukkan tanggal lahir (DD-MM-YYYY): ";
+                getline(cin, data[i].tanggalLahir);
+                cout << "Masukkan alamat: ";
+                getline(cin, data[i].alamat);
+                cout << "Masukkan email: ";
+                getline(cin, data[i].email);
+                cout << "Masukkan nomor HP: ";
+                getline(cin, data[i].noHp);
+
+                // Input jenis kelamin (enum)
+                int pilihGender;
+                cout << "Pilih jenis kelamin (1. Laki-laki, 2. Perempuan): ";
+                cin >> pilihGender;
+                data[i].g = (pilihGender == 1) ? JenisKelamin::LakiLaki : JenisKelamin::Perempuan;
+
+                cout << "Data mahasiswa berhasil diperbarui!\n";
+                break;
+            }
+            clearFileMhs();
+            updateFileMhs();
+        }
+    }
 };
 
 
 class ManajemenDosen{
-    public:
-    Dosen data[1000];
-    int jumlah = 0;
-        
-        void tambahDosen(){
-            cout<<"=====MENU TAMBAH DOSEN====="<<endl;
-            cout<<"Masukkan nama dosen: ";
-            cin.ignore();
-            getline(cin, data[jumlah].nama);
-            cout<<"Masukkan NIDN:";
-            cin>>data[jumlah].nidn;
-            cout<<"Masukkan NIP:";
-            cin>>data[jumlah].nip;
-            cout<<"Masukkan fakultas:";
-            cin>>data[jumlah].fakultas;
-            cout<<"Masukkan jurusan:";
-            cin>>data[jumlah].jurusan;
-            cout<<"Gelar Depan:";
-            cin>>data[jumlah].gelarDepan;
-            cout<<"Gelar Belakang:";
-            cin>>data[jumlah].gelarBelakang;
-            cout<<"Jabatan Akademik:";
-            cin>>data[jumlah].jabatanAkademik;
-            cout<<"Pendidikan Terakhir:";
-            cin>>data[jumlah].pendidikanTerakhir;
-            cout<<"Email:";
-            cin>>data[jumlah].email;
-            cout<<"No HP:";
-            cin>>data[jumlah].noHp;
-            cout<<"Alamat:";
-            cin>>data[jumlah].alamat;
-            cout<<"Jenis Kelamin (1. Laki-laki, 2. Perempuan):";
-            int pilihGender;
-            cin>>pilihGender;
-            data[jumlah].gender = (pilihGender == 1) ? JenisKelamin::LakiLaki : JenisKelamin::Perempuan;
-            cout<<"Tahun Masuk:";
-            cin>>data[jumlah].tahunMasuk;
-            cout<<"Status (1. Aktif, 2. Cuti, 3. Pensiun, 4. Tidak Aktif):";
-            int pilihStatus;
-            cin>>pilihStatus;
-            switch(pilihStatus){
-                case 1:
-                    data[jumlah].status = StatusDosen::Aktif;
-                    break;
-                case 2:
-                    data[jumlah].status = StatusDosen::Cuti;
-                    break;
-                case 3:
-                    data[jumlah].status = StatusDosen::Pensiun;
-                    break;
-                case 4:
-                    data[jumlah].status = StatusDosen::TidakAktif;
-                    break;
-                default:
-                    cout<<"Pilihan tidak valid! Mengatur status ke Aktif secara default."<<endl;
-                    data[jumlah].status = StatusDosen::Aktif;
-                    break;
-            }
-            jumlah++;
-            cout<<"Dosen berhasil ditambahkan!"<<endl;  
+public:
+Dosen data[1000];
+Dosen dosenBaru;
+int jumlahDosen = 0;
+    
+    void tambahDosen(){
+        cout<<"=====MENU TAMBAH DOSEN====="<<endl;
+        cout<<"Masukkan nama dosen: ";
+        cin.ignore();
+        getline(cin, dosenBaru.nama);
+        cout<<"Masukkan NIDN:";
+        cin>>dosenBaru.nidn;
+        cout<<"Masukkan NIP:";
+        cin>>dosenBaru.nip;
+        cout<<"Masukkan fakultas:";
+        cin>>dosenBaru.fakultas;
+        cout<<"Masukkan jurusan:";
+        cin>>dosenBaru.jurusan;
+        cout<<"Gelar Depan:";
+        cin>>dosenBaru.gelarDepan;
+        cout<<"Gelar Belakang:";
+        cin>>dosenBaru.gelarBelakang;
+        cout<<"Jabatan Akademik:";
+        cin>>dosenBaru.jabatanAkademik;
+        cout<<"Pendidikan Terakhir:";
+        cin>>dosenBaru.pendidikanTerakhir;
+        cout<<"Email:";
+        cin>>dosenBaru.email;
+        cout<<"No HP:";
+        cin>>dosenBaru.noHp;
+        cout<<"Alamat:";
+        cin>>dosenBaru.alamat;
+        cout<<"Jenis Kelamin (1. Laki-laki, 2. Perempuan):";
+        int pilihGender;
+        cin>>pilihGender;
+        dosenBaru.gender = (pilihGender == 1) ? JenisKelamin::LakiLaki : JenisKelamin::Perempuan;
+        cout<<"Tahun Masuk:";
+        cin>>dosenBaru.tahunMasuk;
+        cout<<"Status (1. Aktif, 2. Cuti, 3. Pensiun, 4. Tidak Aktif):";
+        int pilihStatus;
+        cin>>pilihStatus;
+        switch(pilihStatus){
+            case 1:
+                dosenBaru.status = StatusDosen::Aktif;
+                break;
+            case 2:
+                dosenBaru.status = StatusDosen::Cuti;
+                break;
+            case 3:
+                dosenBaru.status = StatusDosen::Pensiun;
+                break;
+            case 4:
+                dosenBaru.status = StatusDosen::TidakAktif;
+                break;
+            default:
+                cout<<"Pilihan tidak valid! Mengatur status ke Aktif secara default."<<endl;
+                dosenBaru.status = StatusDosen::Aktif;
+                break;
         }
+        data[jumlahDosen] = dosenBaru;
+        jumlahDosen++;
+        cout<<"Dosen berhasil ditambahkan!"<<endl;
 
-        
-        
-        void tampilDosen(){
-            cout<<"\n=== Data Dosen ===\n";
-            for(int i=0;i<jumlah;i++){
-                cout<<"Dosen ke-"<<i+1<<":"<<endl;
-                cout<<"Nama: "<<data[i].nama<<endl;
-                cout<<"NIDN: "<<data[i].nidn<<endl;
-                cout<<"NIP: "<<data[i].nip<<endl;
-                cout<<"Fakultas: "<<data[i].fakultas<<endl;
-                cout<<"Jurusan: "<<data[i].jurusan<<endl;
-                cout<<"Gelar Depan: "<<data[i].gelarDepan<<endl;
-                cout<<"Gelar Belakang: "<<data[i].gelarBelakang<<endl;
-                cout<<"Jabatan Akademik: "<<data[i].jabatanAkademik<<endl;
-                cout<<"Pendidikan Terakhir: "<<data[i].pendidikanTerakhir<<endl;
-                cout<<"Email: "<<data[i].email<<endl;
-                cout<<"No HP: "<<data[i].noHp<<endl;
-                cout<<"Alamat: "<<data[i].alamat<<endl;
-                cout<<"Jenis Kelamin: "<<(data[i].gender == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan")<<endl;
-                cout<<"Tahun Masuk: "<<data[i].tahunMasuk<<endl;
-                cout<<"Status: ";
+        updateFileDosen();
+    }
+
+    void updateFileDosen(){
+        ofstream in("dataDosen.txt");
+        if(in.is_open()){
+            for(int i=0;i<jumlahDosen;i++){
+                in<<"Dosen ke-"<<i+1<<":"<<"\n";
+                in<<"Nama: "<<data[i].nama<<"\n";
+                in<<"NIDN: "<<data[i].nidn<<"\n";
+                in<<"NIP: "<<data[i].nip<<"\n";
+                in<<"Fakultas: "<<data[i].fakultas<<"\n";
+                in<<"Jurusan: "<<data[i].jurusan<<"\n";
+                in<<"Gelar Depan: "<<data[i].gelarDepan<<"\n";
+                in<<"Gelar Belakang: "<<data[i].gelarBelakang<<"\n";
+                in<<"Jabatan Akademik: "<<data[i].jabatanAkademik<<"\n";
+                in<<"Pendidikan Terakhir: "<<data[i].pendidikanTerakhir<<"\n";
+                in<<"Email: "<<data[i].email<<"\n";
+                in<<"No HP: "<<data[i].noHp<<"\n";
+                in<<"Alamat: "<<data[i].alamat<<"\n";
+                in<<"Jenis Kelamin: "<<(data[i].gender == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan")<<"\n";
+                in<<"Tahun Masuk: "<<data[i].tahunMasuk<<"\n";
+                in<<"Status: ";
                 switch(data[i].status){
                     case StatusDosen::Aktif:
-                        cout<<"Aktif"<<endl;
+                        in<<"Aktif"<<"\n";
                         break;
                     case StatusDosen::Cuti:
-                        cout<<"Cuti"<<endl;
+                        in<<"Cuti"<<"\n";
                         break;
                     case StatusDosen::Pensiun:
-                        cout<<"Pensiun"<<endl;
+                        in<<"Pensiun"<<"\n";
                         break;
                     case StatusDosen::TidakAktif:
-                        cout<<"Tidak Aktif"<<endl;
+                        in<<"Tidak Aktif"<<"\n";
                         break;
                 }
-                cout<<"--------------------------"<<endl;
             }
-
-
-            ofstream in("dataDosen.txt");
-            if(in.is_open()){
-                for(int i=0;i<jumlah;i++){
-                    in<<"Dosen ke-"<<i+1<<":"<<"\n";
-                    in<<"Nama: "<<data[i].nama<<"\n";
-                    in<<"NIDN: "<<data[i].nidn<<"\n";
-                    in<<"NIP: "<<data[i].nip<<"\n";
-                    in<<"Fakultas: "<<data[i].fakultas<<"\n";
-                    in<<"Jurusan: "<<data[i].jurusan<<"\n";
-                    in<<"Gelar Depan: "<<data[i].gelarDepan<<"\n";
-                    in<<"Gelar Belakang: "<<data[i].gelarBelakang<<"\n";
-                    in<<"Jabatan Akademik: "<<data[i].jabatanAkademik<<"\n";
-                    in<<"Pendidikan Terakhir: "<<data[i].pendidikanTerakhir<<"\n";
-                    in<<"Email: "<<data[i].email<<"\n";
-                    in<<"No HP: "<<data[i].noHp<<"\n";
-                    in<<"Alamat: "<<data[i].alamat<<"\n";
-                    in<<"Jenis Kelamin: "<<(data[i].gender == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan")<<"\n";
-                    in<<"Tahun Masuk: "<<data[i].tahunMasuk<<"\n";
-                    in<<"Status: ";
-                    switch(data[i].status){
-                        case StatusDosen::Aktif:
-                            in<<"Aktif"<<"\n";
-                            break;
-                        case StatusDosen::Cuti:
-                            in<<"Cuti"<<"\n";
-                            break;
-                        case StatusDosen::Pensiun:
-                            in<<"Pensiun"<<"\n";
-                            break;
-                        case StatusDosen::TidakAktif:
-                            in<<"Tidak Aktif"<<"\n";
-                            break;
-                    }
-                }
-                in.close();
-            }else{
-                cout<<"Gagal membuka file untuk menyimpan data dosen."<<endl;
-            }
+            in.close();
+        }else{
+            cout<<"Gagal membuka file untuk menyimpan data dosen."<<endl;
         }
+    }
+
+    void clearFileDosen(){
+        ofstream in("dataDosen.txt", ios::trunc);
+        in.close();
+    }
+    
+    void tampilDosen(){
+        cout<<"\n=== Data Dosen ===\n";
+        ifstream out;
+        out.open("dataDosen.txt");
+        string cetak;
+        int i=1;
+        while(getline(out,cetak)){
+            cout << "Dosen ke-" << i << ":" << endl;
+            cout<<cetak<<endl;
+            i++;
+        }
+        out.close();
+
+    }
+
+    void editDosen(){
+        cout << "=====MENU EDIT DOSEN=====" << endl;
+        string nidnCari;
+        cout << "Masukkan NIDN dosen yang akan diedit: ";
+        cin >> nidnCari;
+        bool ditemukan = false;
+        for (int i = 0; i < jumlahDosen; i++) {
+            if (data[i].nidn == nidnCari) {
+                ditemukan = true;
+                cout << "Data ditemukan. Masukkan data baru:\n";
+                cout << "==============================\n";
+                cout << " Data Sebelumnya \n";
+                cout << "==============================\n";
+                tampilDosen();
+                cout << "==============================\n";
+                cout << " Masukkan Data Baru: \n";
+                cout << "\nMasukkan nama dosen: ";
+                cin.ignore();
+                getline(cin, data[i].nama);
+                cout << "Masukkan NIP:";
+                cin >> data[i].nip;
+                cout << "Masukkan fakultas:";
+                cin >> data[i].fakultas;
+                cout << "Masukkan jurusan:";
+                cin >> data[i].jurusan;
+                cout << "Gelar Depan:";
+                cin >> data[i].gelarDepan;
+                cout << "Gelar Belakang:";
+                cin >> data[i].gelarBelakang;
+                cout << "Jabatan Akademik:";
+                cin >> data[i].jabatanAkademik;
+                cout << "Pendidikan Terakhir:";
+                cin >> data[i].pendidikanTerakhir;
+                cout << "Email:";
+                cin >> data[i].email;
+                cout << "No HP:";
+                cin >> data[i].noHp;
+                cout << "Alamat:";
+                cin >> data[i].alamat;
+                cout << "Jenis Kelamin (1. Laki-laki, 2. Perempuan):";
+                int pilihGender;
+                cin >> pilihGender;
+                data[i].gender = (pilihGender == 1) ? JenisKelamin::LakiLaki : JenisKelamin::Perempuan;
+                cout << "Tahun Masuk:";
+                cin >> data[i].tahunMasuk;
+                cout << "Status (1. Aktif, 2. Cuti, 3. Pensiun, 4. Tidak Aktif):";
+                int pilihStatus;
+                cin >> pilihStatus;
+                switch(pilihStatus){
+                    case 1:
+                        data[i].status = StatusDosen::Aktif;
+                        break;
+                    case 2:
+                        data[i].status = StatusDosen::Cuti;
+                        break;
+                    case 3:
+                        data[i].status = StatusDosen::Pensiun;
+                        break;
+                    case 4:
+                        data[i].status = StatusDosen::TidakAktif;
+                        break;
+                    default:
+                        cout<<"Pilihan tidak valid! Mengatur status ke Aktif secara default."<<endl;
+                        data[i].status = StatusDosen::Aktif;
+                        break;
+                }
+                cout << "Data dosen berhasil diperbarui!\n";
+                break;
+            }
+        clearFileDosen();
+        updateFileDosen();
+        }
+    }
 };
 
 //class untuk menu utama matakuliah
@@ -440,10 +564,10 @@ public:
         tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "Teknik", "12345", {}, true, 40, {}, "Senin", "08:00-10:00", "Lab 1", true});
         tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "Teknik", "12346", {}, true, 40, {}, "Selasa", "10:00-12:00", "Lab 2", true});
         tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "Teknik", "12348", {}, true, 40, {}, "Kamis", "10:00-12:00", "Lab 4", true});
-        tambahMataKuliahLangsung({"IF1669", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
-        tambahMataKuliahLangsung({"IF1670", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF169", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF170", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
 
-        tambahMataKuliahLangsung({"IF1681", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
+        tambahMataKuliahLangsung({"IF181", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "Teknik", "12349", {}, true, 40, {}, "Jumat", "08:00-10:00", "Lab 5", true});
         
         
         
@@ -569,122 +693,7 @@ public:
     }
 };
 
-// === Class untuk menu utama admin ===
-class AdminDashboard {
-private:
-    ManajemenMahasiswa mnjMhs;
-    ManajemenDosen mnjDosen;
-    ManajemenMatakuliah mnjMatkul;
-public:
-    void tampilMenuDash() {
-        int pilih;
-        do {
-            cout << "\n=== DASHBOARD ADMIN ===" << endl;
-            cout << "1. Manajemen Mahasiswa" << endl;
-            cout << "2. Manajemen Dosen" << endl;
-            cout << "3. Manajemen Mata Kuliah" << endl;
-            cout << "4. Manajemen Kelas" << endl;
-            cout << "5. Validasi KRS" << endl;
-            cout << "6. Input dan Koreksi Nilai" << endl;
-            cout << "7. Verifikasi Pembayaran" << endl;
-            cout << "8. Layanan Akademik" << endl;
-            cout << "9. Keluar" << endl;
-            cout << "Pilih: ";
-            cin >> pilih;
-            switch (pilih) {
-                case 1: 
-                    tampilMenuMnj(); 
-                    break;
 
-                case 2: 
-                    tampilMenuDosen();
-                    break;
 
-                case 3:
-                    tampilMenuMatakuliah();
-                    break; 
-
-                break;
-                    default: cout << "Pilihan tidak valid!\n";
-                    break;
-            }
-        } while (pilih != 9);
-    }
-
-    void tampilMenuDosen() {
-        int pilih;
-        do {
-            cout << "\n=== DASHBOARD MANAJEMEN DOSEN ===" << endl;
-            cout << "1. Tambah Dosen" << endl;
-            cout << "2. Lihat Dosen" << endl;
-            cout << "3. Keluar" << endl;
-            cout << "Pilih: ";
-            cin >> pilih;
-
-            switch (pilih) {
-                case 1: mnjDosen.tambahDosen(); 
-                break;
-                case 2: mnjDosen.tampilDosen();
-                break;
-                case 3: cout << "Keluar dari dashboard manajemen dosen...\n"; 
-                break;
-                default: cout << "Pilihan tidak valid!\n";
-                break;
-            }
-        } while (pilih != 3);
-    }
-
-    void tampilMenuMnj() {
-        int pilih;
-        do {
-            cout << "\n=== DASHBOARD MANAJEMEN MAHASISWA ===" << endl;
-            cout << "1. Tambah Mahasiswa" << endl;
-            cout << "2. Lihat Mahasiswa" << endl;
-            cout << "3. Keluar" << endl;
-            cout << "Pilih: ";
-            cin >> pilih;
-
-            switch (pilih) {
-                case 1: mnjMhs.tambahMahasiswa(); 
-                break;
-                case 2: mnjMhs.tampilMahasiswa(); 
-                break;
-                case 3: cout << "Keluar dari dashboard manajemen mahasiswa...\n"; 
-                break;
-                default: cout << "Pilihan tidak valid!\n"; 
-                break;
-            }
-        } while (pilih != 3);
-    }
-
-    void tampilMenuMatakuliah() {
-        int pilih;
-        cout<<"====MENU MANAJEMEN MATAKULIAH===="<<endl;
-        cout<<"1. Tambah Mata Kuliah"<<endl;
-        cout<<"2. Lihat Mata Kuliah per Semester"<<endl;
-        cout<<"3. Lihat Semua Mata Kuliah"<<endl;
-        cout<<"4. Keluar"<<endl;
-        cout<<"Masukkan Pilihan:";
-        cin>>pilih;
-
-        switch(pilih){
-            case 1:
-                mnjMatkul.tambahMataKuliah();
-                break;
-            case 2:
-                mnjMatkul.tampilMataKuliahPerSemester();
-                break;
-            case 3:
-                mnjMatkul.tampilSemuaMataKuliah();
-                break;
-            case 4:
-                cout<<"Keluar dari dashboard manajemen mata kuliah..."<<endl;
-                break;
-            default:
-                cout<<"Pilihan tidak valid!"<<endl;
-                break;
-    }
-}
-};
 
 
