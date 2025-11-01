@@ -9,6 +9,7 @@ private:
     ManajemenMatakuliah mnjMatkul;
 public:
     void tampilMenuDash() {
+        mnjMhs.tarikMahasiswadarifile();
         int pilih;
         do {
             cout << "\n=== DASHBOARD ADMIN ===" << endl;
@@ -77,7 +78,8 @@ public:
             cout << "1. Tambah Mahasiswa" << endl;
             cout << "2. Lihat Mahasiswa" << endl;
             cout << "3. Edit data Mahasiswa" << endl;
-            cout << "4. Keluar" << endl;
+            cout << "4. Hapus Mahasiswa" << endl;
+            cout << "5. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
@@ -88,41 +90,57 @@ public:
                 break;
                 case 3: mnjMhs.editMahasiswa(); 
                 break;
-                case 4: cout << "Keluar dari dashboard manajemen mahasiswa...\n"; 
+                case 4: mnjMhs.hapusMahasiswa();
+                break;
+                case 5: cout << "Keluar dari dashboard manajemen mahasiswa...\n"; 
                 break;
                 default: cout << "Pilihan tidak valid!\n"; 
                 break;
             }
-        } while (pilih != 4);
+        } while (pilih != 5);
     }
 
     void tampilMenuMatakuliah() {
-        int pilih;
-        cout<<"====MENU MANAJEMEN MATAKULIAH===="<<endl;
-        cout<<"1. Tambah Mata Kuliah"<<endl;
-        cout<<"2. Lihat Mata Kuliah per Semester"<<endl;
-        cout<<"3. Lihat Semua Mata Kuliah"<<endl;
-        cout<<"4. Keluar"<<endl;
-        cout<<"Masukkan Pilihan:";
-        cin>>pilih;
 
-        switch(pilih){
-            case 1:
-                mnjMatkul.tambahMataKuliah();
-                break;
-            case 2:
-                mnjMatkul.tampilMataKuliahPerSemester();
-                break;
-            case 3:
-                mnjMatkul.tampilSemuaMataKuliah();
-                break;
-            case 4:
-                cout<<"Keluar dari dashboard manajemen mata kuliah..."<<endl;
-                break;
+
+        int pilih;
+
+        do{
+            cout<<"====MENU MANAJEMEN MATAKULIAH===="<<endl;
+            cout<<"1. Tambah Mata Kuliah"<<endl;
+            cout<<"2. Lihat Mata Kuliah per Semester"<<endl;
+            cout<<"3. Lihat Semua Mata Kuliah"<<endl;
+            cout<<"4. Edit Mata Kuliah"<<endl;
+            cout<<"5. Hapus Mata Kuliah"<<endl;
+            cout<<"6. Keluar"<<endl;
+            cout<<"Masukkan Pilihan:";
+            cin>>pilih;
+
+            switch(pilih){
+                case 1:
+                    mnjMatkul.tambahMataKuliah();
+                    break;
+                case 2:
+                    mnjMatkul.tampilMataKuliahPerSemester();
+                    break;
+                case 3:
+                    mnjMatkul.tampilSemuaMataKuliah();
+                    break;
+                case 4:
+                    mnjMatkul.editMataKuliah();
+                    break;
+                case 5:
+                    mnjMatkul.hapusMataKuliah();
+                    break;
+                case 6:
+                    cout<<"Keluar dari menu manajemen mata kuliah..."<<endl;
+                    break;
             default:
                 cout<<"Pilihan tidak valid!"<<endl;
                 break;
-    }
+         }
+        }while(pilih!=6);
+        
 }
 };
 
