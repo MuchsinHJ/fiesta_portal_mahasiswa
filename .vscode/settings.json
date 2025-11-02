@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.wmls": "javascriptlite",
+        "iostream": "cpp"
+    }
+}
