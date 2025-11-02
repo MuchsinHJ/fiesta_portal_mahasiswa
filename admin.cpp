@@ -101,7 +101,6 @@ struct Krs {
     float nilaiAngka;      // contoh: 4.0, 3.5, dst.
 };
 
-
 // CLASS UNTUK LOGIN PORTAL ADMIN DAN AUTENTIKASI
 class AdminPortal {
 private:
@@ -133,6 +132,7 @@ private:
     Mahasiswa data[1000];
     int jumlah = 0;
 public:
+
 
 ManajemenMahasiswa() {
 
@@ -322,7 +322,6 @@ void tambahMahasiswa() {
     cout << "Masukkan nama mahasiswa: ";
     cin.ignore();
     getline(cin, mhsBaru.nama);
-
     bool nimDuplikat;
     do {
         nimDuplikat = false;
@@ -437,7 +436,6 @@ void tambahMahasiswa() {
                 mhsSementara.aktif = (statusStr == "Aktif");
             } else if (line.find("--------------------------") != string::npos) {
                 // Tambahkan ke array setiap selesai 1 blok data mahasiswa
-                tambahMahasiswa();
                 data[jumlah] = mhsSementara;
                 jumlah++;
             }
@@ -541,7 +539,6 @@ void tambahMahasiswa() {
         }
     }
 };
-
 
 //CLASS UNTUK MENU UTAMA DOSEN
 class ManajemenDosen{
@@ -919,8 +916,6 @@ int jumlahDosen = 0;
     }
 };
 
-
-
 //CLASS UNTUK MENU UTAMA MATAKULIAH
 class ManajemenMatakuliah {
 private:
@@ -1101,7 +1096,6 @@ public:
         }
     }
 
-
     void tarikDataDariFileMataKuliah() {
         ifstream inFile("dataMataKuliah.txt");
         if (inFile.is_open()) {
@@ -1183,7 +1177,6 @@ public:
         cout << "Data mata kuliah berhasil diperbarui ke file." << endl;
     }
 
-
     void clearFileMataKuliah(){
         ofstream in("dataMataKuliah.txt", ios::trunc);
         in.close();
@@ -1237,7 +1230,6 @@ public:
         cout<<"Masukkan Kode Matakuliah yang akan di edit :";
         cin>>kodeCari;
         bool ditemukan = false;
-
         for(NodeMataKuliah* temp=head;temp!=nullptr;temp=temp->next){
             if(temp->data.kodeMK==kodeCari){
                 ditemukan=true;
@@ -1254,7 +1246,6 @@ public:
                 cout<<"Wajib :"<<(temp->data.wajib ? "Ya" : "Tidak")<<endl;
                 cout<<"=============================="<<endl;
                 cout<<"\n";
-
                 cout<<"--------------------------------------"<<endl;
                 cout<<"           MASUKKAN DATA BARU         "<<endl;
                 cout<<"--------------------------------------"<<endl;
@@ -1289,7 +1280,6 @@ public:
 
     }
 };
-
 
 //CLASS UNTUK MENU UTAMA DOSEN MATA KULIAH (CIRCULAR LINKED LIST)
 class ManajemenDosenMataKuliah {
