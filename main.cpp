@@ -102,8 +102,6 @@ public:
     }
 
     void tampilMenuMatakuliah() {
-
-
         int pilih;
 
         do{
@@ -185,7 +183,7 @@ public:
 };
 
 void displayAdmin(){
-  AdminPortal portal("admin", "123");
+    AdminPortal portal("admin", "123");
     string u, p;
     cout << "Username: "; cin >> u;
     cout << "Password: "; cin >> p;

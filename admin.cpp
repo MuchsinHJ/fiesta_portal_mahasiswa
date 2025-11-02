@@ -341,7 +341,6 @@ void tambahMahasiswa() {
     cin >> mhsBaru.semester;
     cout << "Masukkan tahun masuk: "; 
     cin >> mhsBaru.tahunMasuk;
-    
     cin.ignore();
     cout << "Masukkan jurusan: "; 
     getline(cin, mhsBaru.jurusan);
@@ -413,7 +412,6 @@ void tambahMahasiswa() {
                 mhsSementara.semester = stoi(line.substr(10));
             } else if (line.find("Tahun Masuk: ") != string::npos) {
                 mhsSementara.tahunMasuk = stoi(line.substr(13));
-           
             } else if (line.find("Jurusan: ") != string::npos) {
                 mhsSementara.jurusan = line.substr(9);
             } else if (line.find("Fakultas: ") != string::npos) {
@@ -439,7 +437,6 @@ void tambahMahasiswa() {
                 mhsSementara.aktif = (statusStr == "Aktif");
             } else if (line.find("--------------------------") != string::npos) {
                 // Tambahkan ke array setiap selesai 1 blok data mahasiswa
-               
                 tambahMahasiswa();
                 data[jumlah] = mhsSementara;
                 jumlah++;
@@ -450,23 +447,12 @@ void tambahMahasiswa() {
 
     }
 
-    void clearFileMhs(){
-        ofstream in("dataMahasiswa.txt", ios::trunc);
-        in.close();
-    }
-
     void updateFileMhs() {
-
-        tarikMahasiswadarifile();
-
-        clearFileMhs();
-
     ofstream out("dataMahasiswa.txt", ios::trunc); // hapus isi lama
     if (!out.is_open()) {
         cout << "Gagal membuka file untuk menyimpan data.\n";
         return;
     }
-
 
     for (int i = 0; i < jumlah; i++) {
         out << "Data Mahasiswa ke-" << i + 1 << ":\n";
@@ -474,7 +460,6 @@ void tambahMahasiswa() {
         out << "NIM: " << data[i].nim << "\n";
         out << "Semester: " << data[i].semester << "\n";
         out << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
-  
         out << "Jurusan: " << data[i].jurusan << "\n";
         out << "Fakultas: " << data[i].fakultas << "\n";
         out << "Tempat Lahir: " << data[i].tempatLahir << "\n";
@@ -490,7 +475,6 @@ void tambahMahasiswa() {
     out.close();
     cout << "File dataMahasiswa.txt berhasil diperbarui!\n";
     }
-
 
     void tampilMahasiswa() {
         cout << "\n=== Data Mahasiswa ===\n";
