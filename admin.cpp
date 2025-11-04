@@ -1287,8 +1287,9 @@ private:
     struct NodeDosenMataKuliah {
         DosenMataKuliah data;
         NodeDosenMataKuliah* next;
-        
-        NodeDosenMataKuliah(const DosenMataKuliah& dmk) : data(dmk), next(nullptr) {}
+        NodeDosenMataKuliah* prev;
+
+        NodeDosenMataKuliah(const DosenMataKuliah& dmk) : data(dmk), next(nullptr), prev(nullptr) {}
     };
     
     NodeDosenMataKuliah* head;
@@ -1383,12 +1384,14 @@ public:
             // List kosong
             head = newNode;
             tail = newNode;
-            newNode->next = head; // Circular reference
+            newNode->next = NULL;
+            newNode->prev = NULL;
         } else {
             // Tambah di akhir
             tail->next = newNode;
+            newNode->prev = tail;
             tail = newNode;
-            tail->next = head; // Circular reference
+            tail->next = NULL;
         }
         jumlah++;
     }
@@ -1446,7 +1449,6 @@ public:
         cin >> kdCari;
 
         NodeDosenMataKuliah* current = head;
-        NodeDosenMataKuliah* prev = tail; 
         
         bool ditemukan = false;
 
@@ -1460,14 +1462,16 @@ public:
                 } else if (current == head) {
                     // Kasus 2: Hapus head
                     head = head->next;
-                    tail->next = head;
+                    head->prev = NULL;
+                    tail->next = NULL;
                 } else if (current == tail) {
                     // Kasus 3: Hapus tail
-                    tail = prev;
-                    tail->next = head;
+                    tail = tail->prev;
+                    tail->next = NULL;
                 } else {
                     // Kasus 4: Hapus node di tengah
-                    prev->next = current->next;
+                    current->prev->next = current->next;
+                    current->next->prev = current->prev;
                 }
                 
                 delete current;
@@ -1476,7 +1480,6 @@ public:
                 updateFileDosenMataKuliah();
                 break;
             }
-            prev = current;
             current = current->next;
         } while (current != head);
 
