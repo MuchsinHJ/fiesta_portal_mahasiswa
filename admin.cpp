@@ -38,7 +38,7 @@ struct Mahasiswa {
 //     // Akun portal
 //     string username;
 //     string password;
- };
+};
 
 struct Dosen {
     // Identitas dasar
@@ -135,177 +135,181 @@ public:
 
 
 ManajemenMahasiswa() {
-
+    tarikMahasiswadarifile();
     // 300 data mahasiswa baru dengan NIM 2400018001 - 2400018300
-    tambahMahasiswaLangsung({"Adi Pratama", "2400018001", 3, 2024, "Informatika", "FTI", "Jakarta", "10-03-2002", "Jl. Mangga No. 5", "adi@example.com", "081200000001", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Bunga Sari", "2400018002", 3, 2024, "Informatika", "FTI", "Bandung", "15-04-2002", "Jl. Anggrek No. 12", "bunga@example.com", "081200000002", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Cahyo Nugroho", "2400018003", 3, 2024, "Informatika", "FTI", "Surabaya", "20-05-2002", "Jl. Melati No. 8", "cahyo@example.com", "081200000003", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Dewi Lestari", "2400018004", 3, 2024, "Informatika", "FTI", "Semarang", "25-06-2002", "Jl. Kenanga No. 15", "dewi@example.com", "081200000004", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Eko Prasetyo", "2400018005", 3, 2024, "Informatika", "FTI", "Yogyakarta", "30-07-2002", "Jl. Mawar No. 20", "eko@example.com", "081200000005", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Fitri Handayani", "2400018006", 3, 2024,"Informatika", "FTI", "Malang", "05-08-2002", "Jl. Flamboyan No. 25", "fitri@example.com", "081200000006", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Gilang Ramadhan", "2400018007", 3, 2024, "Informatika", "FTI", "Medan", "10-09-2002", "Jl. Cempaka No. 30", "gilang@example.com", "081200000007", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Hana Wijaya", "2400018008", 3, 2024, "Informatika", "FTI", "Palembang", "15-10-2002", "Jl. Teratai No. 35", "hana@example.com", "081200000008", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Irfan Setiawan", "2400018009", 3, 2024,"Informatika", "FTI", "Makassar", "20-11-2002", "Jl. Kamboja No. 40", "irfan@example.com", "081200000009", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Jihan Amelia", "2400018010", 3, 2024, "Informatika", "FTI", "Denpasar", "25-12-2002", "Jl. Sakura No. 45", "jihan@example.com", "081200000010", JenisKelamin::Perempuan, true});
+    if (jumlah == 0){
+        
+        tambahMahasiswaLangsung({"Adi Pratama", "2400018001", 3, 2024, "Informatika", "FTI", "Jakarta", "10-03-2002", "Jl. Mangga No. 5", "adi@example.com", "081200000001", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Bunga Sari", "2400018002", 3, 2024, "Informatika", "FTI", "Bandung", "15-04-2002", "Jl. Anggrek No. 12", "bunga@example.com", "081200000002", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Cahyo Nugroho", "2400018003", 3, 2024, "Informatika", "FTI", "Surabaya", "20-05-2002", "Jl. Melati No. 8", "cahyo@example.com", "081200000003", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Dewi Lestari", "2400018004", 3, 2024, "Informatika", "FTI", "Semarang", "25-06-2002", "Jl. Kenanga No. 15", "dewi@example.com", "081200000004", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Eko Prasetyo", "2400018005", 3, 2024, "Informatika", "FTI", "Yogyakarta", "30-07-2002", "Jl. Mawar No. 20", "eko@example.com", "081200000005", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Fitri Handayani", "2400018006", 3, 2024,"Informatika", "FTI", "Malang", "05-08-2002", "Jl. Flamboyan No. 25", "fitri@example.com", "081200000006", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Gilang Ramadhan", "2400018007", 3, 2024, "Informatika", "FTI", "Medan", "10-09-2002", "Jl. Cempaka No. 30", "gilang@example.com", "081200000007", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Hana Wijaya", "2400018008", 3, 2024, "Informatika", "FTI", "Palembang", "15-10-2002", "Jl. Teratai No. 35", "hana@example.com", "081200000008", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Irfan Setiawan", "2400018009", 3, 2024,"Informatika", "FTI", "Makassar", "20-11-2002", "Jl. Kamboja No. 40", "irfan@example.com", "081200000009", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Jihan Amelia", "2400018010", 3, 2024, "Informatika", "FTI", "Denpasar", "25-12-2002", "Jl. Sakura No. 45", "jihan@example.com", "081200000010", JenisKelamin::Perempuan, true});
+        
+        tambahMahasiswaLangsung({"Kurniawan", "2400018011", 3, 2024, "Informatika", "FTI", "Bandung", "03-01-2002", "Jl. Dahlia No. 50", "kurnia@example.com", "081200000011", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Lestari", "2400018012", 3, 2024, "Informatika", "FTI", "Jakarta", "08-02-2002", "Jl. Tulip No. 55", "lestari@example.com", "081200000012", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Mulyadi", "2400018013", 3, 2024, "Informatika", "FTI", "Surabaya", "13-03-2002", "Jl. Lavender No. 60", "mulyadi@example.com", "081200000013", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Nadia Putri", "2400018014", 3, 2024, "Informatika", "FTI", "Semarang", "18-04-2002", "Jl. Aster No. 65", "nadia@example.com", "081200000014", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Oki Pratama", "2400018015", 3, 2024,"Informatika", "FTI", "Yogyakarta", "23-05-2002", "Jl. Lily No. 70", "oki@example.com", "081200000015", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Putri Ayu", "2400018016", 3, 2024, "Informatika", "FTI", "Malang", "28-06-2002", "Jl. Orchid No. 75", "putri@example.com", "081200000016", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rizki Maulana", "2400018017", 3, 2024,"Informatika", "FTI", "Medan", "03-07-2002", "Jl. Jasmine No. 80", "rizki@example.com", "081200000017", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Sari Dewi", "2400018018", 3, 2024, "Informatika", "FTI", "Palembang", "08-08-2002", "Jl. Sunflower No. 85", "sari@example.com", "081200000018", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Teguh Santoso", "2400018019", 3, 2024, "Informatika", "FTI", "Makassar", "13-09-2002", "Jl. Rose No. 90", "teguh@example.com", "081200000019", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Umi Kulsum", "2400018020", 3, 2024, "Informatika", "FTI", "Denpasar", "18-10-2002", "Jl. Daisy No. 95", "umi@example.com", "081200000020", JenisKelamin::Perempuan, true});
+       
+        tambahMahasiswaLangsung({"Vino Gustomo", "2400018021", 3, 2024, "Informatika", "FTI", "Bandung", "23-11-2002", "Jl. Magnolia No. 100", "vino@example.com", "081200000021", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Wulan Sari", "2400018022", 3, 2024, "Informatika", "FTI", "Jakarta", "28-12-2002", "Jl. Peony No. 105", "wulan@example.com", "081200000022", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Yoga Perdana", "2400018023", 3, 2024, "Informatika", "FTI", "Surabaya", "02-01-2002", "Jl. Hibiscus No. 110", "yoga@example.com", "081200000023", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Zahra Amanda", "2400018024", 3, 2024, "Informatika", "FTI", "Semarang", "07-02-2002", "Jl. Camellia No. 115", "zahra@example.com", "081200000024", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Agus Salim", "2400018025", 3, 2024, "Informatika", "FTI", "Yogyakarta", "12-03-2002", "Jl. Azalea No. 120", "agus@example.com", "081200000025", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Bella Nurul", "2400018026", 3, 2024, "Informatika", "FTI", "Malang", "17-04-2002", "Jl. Bougainvillea No. 125", "bella@example.com", "081200000026", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Candra Wijaya", "2400018027", 3, 2024, "Informatika", "FTI", "Medan", "22-05-2002", "Jl. Carnation No. 130", "candra@example.com", "081200000027", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Dina Marlina", "2400018028", 3, 2024, "Informatika", "FTI", "Palembang", "27-06-2002", "Jl. Chrysanthemum No. 135", "dina@example.com", "081200000028", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Eri Gunawan", "2400018029", 3, 2024, "Informatika", "FTI", "Makassar", "02-07-2002", "Jl. Daffodil No. 140", "eri@example.com", "081200000029", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Fajar Nugraha", "2400018030", 3, 2024, "Informatika", "FTI", "Denpasar", "07-08-2002", "Jl. Edelweiss No. 145", "fajar@example.com", "081200000030", JenisKelamin::LakiLaki, true});
+       
+        tambahMahasiswaLangsung({"Gita Purnama", "2400018031", 3, 2024, "Informatika", "FTI", "Bandung", "12-09-2002", "Jl. Forsythia No. 150", "gita@example.com", "081200000031", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Hendra Saputra", "2400018032", 3, 2024, "Informatika", "FTI", "Jakarta", "17-10-2002", "Jl. Gardenia No. 155", "hendra@example.com", "081200000032", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Indah Permata", "2400018033", 3, 2024, "Informatika", "FTI", "Surabaya", "22-11-2002", "Jl. Heather No. 160", "indah@example.com", "081200000033", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Joko Susilo", "2400018034", 3, 2024, "Informatika", "FTI", "Semarang", "27-12-2002", "Jl. Iris No. 165", "joko@example.com", "081200000034", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Kartika Sari", "2400018035", 3, 2024, "Informatika", "FTI", "Yogyakarta", "01-01-2002", "Jl. Jonquil No. 170", "kartika@example.com", "081200000035", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Lukman Hakim", "2400018036", 3, 2024, "Informatika", "FTI", "Malang", "06-02-2002", "Jl. Kangaroo Paw No. 175", "lukman@example.com", "081200000036", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Mira Utami", "2400018037", 3, 2024, "Informatika", "FTI", "Medan", "11-03-2002", "Jl. Lantana No. 180", "mira@example.com", "081200000037", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Nugroho", "2400018038", 3, 2024, "Informatika", "FTI", "Palembang", "16-04-2002", "Jl. Marigold No. 185", "nugroho@example.com", "081200000038", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Olivia Tan", "2400018039", 3, 2024, "Informatika", "FTI", "Makassar", "21-05-2002", "Jl. Nasturtium No. 190", "olivia@example.com", "081200000039", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Pandu Winata", "2400018040", 3, 2024, "Informatika", "FTI", "Denpasar", "26-06-2002", "Jl. Oleander No. 195", "pandu@example.com", "081200000040", JenisKelamin::LakiLaki, true});
+       
+        tambahMahasiswaLangsung({"Qory Sandioriva", "2400018041", 3, 2024, "Informatika", "FTI", "Bandung", "01-07-2002", "Jl. Pansy No. 200", "qory@example.com", "081200000041", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rendra Mahesa", "2400018042", 3, 2024, "Informatika", "FTI", "Jakarta", "06-08-2002", "Jl. Queen Anne's Lace No. 205", "rendra@example.com", "081200000042", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Siska Wulandari", "2400018043", 3, 2024, "Informatika", "FTI", "Surabaya", "11-09-2002", "Jl. Ranunculus No. 210", "siska@example.com", "081200000043", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Taufik Hidayat", "2400018044", 3, 2024, "Informatika", "FTI", "Semarang", "16-10-2002", "Jl. Snapdragon No. 215", "taufik@example.com", "081200000044", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Uci Sanjaya", "2400018045", 3, 2024, "Informatika", "FTI", "Yogyakarta", "21-11-2002", "Jl. Tulip No. 220", "uci@example.com", "081200000045", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Viktor Siregar", "2400018046", 3, 2024, "Informatika", "FTI", "Malang", "26-12-2002", "Jl. Ulex No. 225", "viktor@example.com", "081200000046", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Winda Puspita", "2400018047", 3, 2024, "Informatika", "FTI", "Medan", "31-01-2002", "Jl. Verbena No. 230", "winda@example.com", "081200000047", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Xavier Tanoto", "2400018048", 3, 2024, "Informatika", "FTI", "Palembang", "05-02-2002", "Jl. Wisteria No. 235", "xavier@example.com", "081200000048", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Yuni Astuti", "2400018049", 3, 2024, "Informatika", "FTI", "Makassar", "10-03-2002", "Jl. Xeranthemum No. 240", "yuni@example.com", "081200000049", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Zulkifli", "2400018050", 3, 2024,"Informatika", "FTI", "Denpasar", "15-04-2002", "Jl. Yarrow No. 245", "zulkifli@example.com", "081200000050", JenisKelamin::LakiLaki, true});
     
-    tambahMahasiswaLangsung({"Kurniawan", "2400018011", 3, 2024, "Informatika", "FTI", "Bandung", "03-01-2002", "Jl. Dahlia No. 50", "kurnia@example.com", "081200000011", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Lestari", "2400018012", 3, 2024, "Informatika", "FTI", "Jakarta", "08-02-2002", "Jl. Tulip No. 55", "lestari@example.com", "081200000012", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Mulyadi", "2400018013", 3, 2024, "Informatika", "FTI", "Surabaya", "13-03-2002", "Jl. Lavender No. 60", "mulyadi@example.com", "081200000013", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Nadia Putri", "2400018014", 3, 2024, "Informatika", "FTI", "Semarang", "18-04-2002", "Jl. Aster No. 65", "nadia@example.com", "081200000014", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Oki Pratama", "2400018015", 3, 2024,"Informatika", "FTI", "Yogyakarta", "23-05-2002", "Jl. Lily No. 70", "oki@example.com", "081200000015", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Putri Ayu", "2400018016", 3, 2024, "Informatika", "FTI", "Malang", "28-06-2002", "Jl. Orchid No. 75", "putri@example.com", "081200000016", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rizki Maulana", "2400018017", 3, 2024,"Informatika", "FTI", "Medan", "03-07-2002", "Jl. Jasmine No. 80", "rizki@example.com", "081200000017", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Sari Dewi", "2400018018", 3, 2024, "Informatika", "FTI", "Palembang", "08-08-2002", "Jl. Sunflower No. 85", "sari@example.com", "081200000018", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Teguh Santoso", "2400018019", 3, 2024, "Informatika", "FTI", "Makassar", "13-09-2002", "Jl. Rose No. 90", "teguh@example.com", "081200000019", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Umi Kulsum", "2400018020", 3, 2024, "Informatika", "FTI", "Denpasar", "18-10-2002", "Jl. Daisy No. 95", "umi@example.com", "081200000020", JenisKelamin::Perempuan, true});
-   
-    tambahMahasiswaLangsung({"Vino Gustomo", "2400018021", 3, 2024, "Informatika", "FTI", "Bandung", "23-11-2002", "Jl. Magnolia No. 100", "vino@example.com", "081200000021", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Wulan Sari", "2400018022", 3, 2024, "Informatika", "FTI", "Jakarta", "28-12-2002", "Jl. Peony No. 105", "wulan@example.com", "081200000022", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Yoga Perdana", "2400018023", 3, 2024, "Informatika", "FTI", "Surabaya", "02-01-2002", "Jl. Hibiscus No. 110", "yoga@example.com", "081200000023", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Zahra Amanda", "2400018024", 3, 2024, "Informatika", "FTI", "Semarang", "07-02-2002", "Jl. Camellia No. 115", "zahra@example.com", "081200000024", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Agus Salim", "2400018025", 3, 2024, "Informatika", "FTI", "Yogyakarta", "12-03-2002", "Jl. Azalea No. 120", "agus@example.com", "081200000025", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Bella Nurul", "2400018026", 3, 2024, "Informatika", "FTI", "Malang", "17-04-2002", "Jl. Bougainvillea No. 125", "bella@example.com", "081200000026", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Candra Wijaya", "2400018027", 3, 2024, "Informatika", "FTI", "Medan", "22-05-2002", "Jl. Carnation No. 130", "candra@example.com", "081200000027", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Dina Marlina", "2400018028", 3, 2024, "Informatika", "FTI", "Palembang", "27-06-2002", "Jl. Chrysanthemum No. 135", "dina@example.com", "081200000028", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Eri Gunawan", "2400018029", 3, 2024, "Informatika", "FTI", "Makassar", "02-07-2002", "Jl. Daffodil No. 140", "eri@example.com", "081200000029", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Fajar Nugraha", "2400018030", 3, 2024, "Informatika", "FTI", "Denpasar", "07-08-2002", "Jl. Edelweiss No. 145", "fajar@example.com", "081200000030", JenisKelamin::LakiLaki, true});
-   
-    tambahMahasiswaLangsung({"Gita Purnama", "2400018031", 3, 2024, "Informatika", "FTI", "Bandung", "12-09-2002", "Jl. Forsythia No. 150", "gita@example.com", "081200000031", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Hendra Saputra", "2400018032", 3, 2024, "Informatika", "FTI", "Jakarta", "17-10-2002", "Jl. Gardenia No. 155", "hendra@example.com", "081200000032", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Indah Permata", "2400018033", 3, 2024, "Informatika", "FTI", "Surabaya", "22-11-2002", "Jl. Heather No. 160", "indah@example.com", "081200000033", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Joko Susilo", "2400018034", 3, 2024, "Informatika", "FTI", "Semarang", "27-12-2002", "Jl. Iris No. 165", "joko@example.com", "081200000034", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Kartika Sari", "2400018035", 3, 2024, "Informatika", "FTI", "Yogyakarta", "01-01-2002", "Jl. Jonquil No. 170", "kartika@example.com", "081200000035", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Lukman Hakim", "2400018036", 3, 2024, "Informatika", "FTI", "Malang", "06-02-2002", "Jl. Kangaroo Paw No. 175", "lukman@example.com", "081200000036", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Mira Utami", "2400018037", 3, 2024, "Informatika", "FTI", "Medan", "11-03-2002", "Jl. Lantana No. 180", "mira@example.com", "081200000037", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Nugroho", "2400018038", 3, 2024, "Informatika", "FTI", "Palembang", "16-04-2002", "Jl. Marigold No. 185", "nugroho@example.com", "081200000038", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Olivia Tan", "2400018039", 3, 2024, "Informatika", "FTI", "Makassar", "21-05-2002", "Jl. Nasturtium No. 190", "olivia@example.com", "081200000039", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Pandu Winata", "2400018040", 3, 2024, "Informatika", "FTI", "Denpasar", "26-06-2002", "Jl. Oleander No. 195", "pandu@example.com", "081200000040", JenisKelamin::LakiLaki, true});
-   
-    tambahMahasiswaLangsung({"Qory Sandioriva", "2400018041", 3, 2024, "Informatika", "FTI", "Bandung", "01-07-2002", "Jl. Pansy No. 200", "qory@example.com", "081200000041", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rendra Mahesa", "2400018042", 3, 2024, "Informatika", "FTI", "Jakarta", "06-08-2002", "Jl. Queen Anne's Lace No. 205", "rendra@example.com", "081200000042", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Siska Wulandari", "2400018043", 3, 2024, "Informatika", "FTI", "Surabaya", "11-09-2002", "Jl. Ranunculus No. 210", "siska@example.com", "081200000043", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Taufik Hidayat", "2400018044", 3, 2024, "Informatika", "FTI", "Semarang", "16-10-2002", "Jl. Snapdragon No. 215", "taufik@example.com", "081200000044", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Uci Sanjaya", "2400018045", 3, 2024, "Informatika", "FTI", "Yogyakarta", "21-11-2002", "Jl. Tulip No. 220", "uci@example.com", "081200000045", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Viktor Siregar", "2400018046", 3, 2024, "Informatika", "FTI", "Malang", "26-12-2002", "Jl. Ulex No. 225", "viktor@example.com", "081200000046", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Winda Puspita", "2400018047", 3, 2024, "Informatika", "FTI", "Medan", "31-01-2002", "Jl. Verbena No. 230", "winda@example.com", "081200000047", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Xavier Tanoto", "2400018048", 3, 2024, "Informatika", "FTI", "Palembang", "05-02-2002", "Jl. Wisteria No. 235", "xavier@example.com", "081200000048", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Yuni Astuti", "2400018049", 3, 2024, "Informatika", "FTI", "Makassar", "10-03-2002", "Jl. Xeranthemum No. 240", "yuni@example.com", "081200000049", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Zulkifli", "2400018050", 3, 2024,"Informatika", "FTI", "Denpasar", "15-04-2002", "Jl. Yarrow No. 245", "zulkifli@example.com", "081200000050", JenisKelamin::LakiLaki, true});
+    
+        // Data 51-60
+        tambahMahasiswaLangsung({"Arya Dharma", "2400018051", 3, 2024, "Informatika", "FTI", "Bandung", "20-05-2002", "Jl. Zinnia No. 250", "arya@example.com", "081200000051", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Bimo Satrio", "2400018052", 3, 2024, "Informatika", "FTI", "Jakarta", "25-06-2002", "Jl. Acacia No. 255", "bimo@example.com", "081200000052", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Cindy Laura", "2400018053", 3, 2024, "Informatika", "FTI", "Surabaya", "30-07-2002", "Jl. Bamboo No. 260", "cindy@example.com", "081200000053", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Dodi Pranata", "2400018054", 3, 2024, "Informatika", "FTI", "Semarang", "04-08-2002", "Jl. Cedar No. 265", "dodi@example.com", "081200000054", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Eva Yuliana", "2400018055", 3, 2024, "Informatika", "FTI", "Yogyakarta", "09-09-2002", "Jl. Dogwood No. 270", "eva@example.com", "081200000055", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Fadli Zon", "2400018056", 3, 2024,"Informatika", "FTI", "Malang", "14-10-2002", "Jl. Elm No. 275", "fadli@example.com", "081200000056", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Gina Melati", "2400018057", 3, 2024, "Informatika", "FTI", "Medan", "19-11-2002", "Jl. Fir No. 280", "gina@example.com", "081200000057", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Haryanto", "2400018058", 3, 2024, "Informatika", "FTI", "Palembang", "24-12-2002", "Jl. Ginkgo No. 285", "haryanto@example.com", "081200000058", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Ira Wahyuni", "2400018059", 3, 2024,"Informatika", "FTI", "Makassar", "29-01-2002", "Jl. Hazel No. 290", "ira@example.com", "081200000059", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Jefri Nicholas", "2400018060", 3, 2024, "Informatika", "FTI", "Denpasar", "03-02-2002", "Jl. Ironwood No. 295", "jefri@example.com", "081200000060", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Kurniawan", "2400018061", 3, 2024, "Informatika", "FTI", "Bandung", "03-01-2002", "Jl. Dahlia No. 50", "kurnia@example.com", "081200000011", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Lestari", "2400018062", 3, 2024, "Informatika", "FTI", "Jakarta", "08-02-2002", "Jl. Tulip No. 55", "lestari@example.com", "081200000012", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Mulyadi", "2400018063", 3, 2024, "Informatika", "FTI", "Surabaya", "13-03-2002", "Jl. Lavender No. 60", "mulyadi@example.com", "081200000013", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Nadia Putri", "2400018064", 3, 2024, "Informatika", "FTI", "Semarang", "18-04-2002", "Jl. Aster No. 65", "nadia@example.com", "081200000014", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Oki Pratama", "2400018065", 3, 2024,"Informatika", "FTI", "Yogyakarta", "23-05-2002", "Jl. Lily No. 70", "oki@example.com", "081200000015", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Putri Ayu", "2400018066", 3, 2024, "Informatika", "FTI", "Malang", "28-06-2002", "Jl. Orchid No. 75", "putri@example.com", "081200000016", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rizki Maulana", "2400018067", 3, 2024, "Informatika", "FTI", "Medan", "03-07-2002", "Jl. Jasmine No. 80", "rizki@example.com", "081200000017", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Sari Dewi", "2400018068", 3, 2024, "Informatika", "FTI", "Palembang", "08-08-2002", "Jl. Sunflower No. 85", "sari@example.com", "081200000018", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Teguh Santoso", "2400018069", 3, 2024, "Informatika", "FTI", "Makassar", "13-09-2002", "Jl. Rose No. 90", "teguh@example.com", "081200000019", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Umi Kulsum", "2400018070", 3, 2024, "Informatika", "FTI", "Denpasar", "18-10-2002", "Jl. Daisy No. 95", "umi@example.com", "081200000020", JenisKelamin::Perempuan, true});
+        
+        tambahMahasiswaLangsung({"Vino Gustomo", "2400018071", 3, 2024, "Informatika", "FTI", "Bandung", "23-11-2002", "Jl. Magnolia No. 100", "vino@example.com", "081200000021", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Wulan Sari", "2400018072", 3, 2024, "Informatika", "FTI", "Jakarta", "28-12-2002", "Jl. Peony No. 105", "wulan@example.com", "081200000022", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Yoga Perdana", "2400018073", 3, 2024,"Informatika", "FTI", "Surabaya", "02-01-2002", "Jl. Hibiscus No. 110", "yoga@example.com", "081200000023", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Zahra Amanda", "2400018074", 3, 2024, "Informatika", "FTI", "Semarang", "07-02-2002", "Jl. Camellia No. 115", "zahra@example.com", "081200000024", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Agus Salim", "2400018075", 3, 2024, "Informatika", "FTI", "Yogyakarta", "12-03-2002", "Jl. Azalea No. 120", "agus@example.com", "081200000025", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Bella Nurul", "2400018076", 3, 2024, "Informatika", "FTI", "Malang", "17-04-2002", "Jl. Bougainvillea No. 125", "bella@example.com", "081200000026", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Candra Wijaya", "2400018077", 3, 2024,"Informatika", "FTI", "Medan", "22-05-2002", "Jl. Carnation No. 130", "candra@example.com", "081200000027", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Dina Marlina", "2400018078", 3, 2024, "Informatika", "FTI", "Palembang", "27-06-2002", "Jl. Chrysanthemum No. 135", "dina@example.com", "081200000028", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Eri Gunawan", "2400018079", 3, 2024, "Informatika", "FTI", "Makassar", "02-07-2002", "Jl. Daffodil No. 140", "eri@example.com", "081200000029", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Fajar Nugraha", "2400018080", 3, 2024, "Informatika", "FTI", "Denpasar", "07-08-2002", "Jl. Edelweiss No. 145", "fajar@example.com", "081200000030", JenisKelamin::LakiLaki, true});
+       
+        tambahMahasiswaLangsung({"Gita Purnama", "2400018081", 3, 2024, "Informatika", "FTI", "Bandung", "12-09-2002", "Jl. Forsythia No. 150", "gita@example.com", "081200000031", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Hendra Saputra", "2400018082", 3, 2024, "Informatika", "FTI", "Jakarta", "17-10-2002", "Jl. Gardenia No. 155", "hendra@example.com", "081200000032", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Indah Permata", "2400018083", 3, 2024, "Informatika", "FTI", "Surabaya", "22-11-2002", "Jl. Heather No. 160", "indah@example.com", "081200000033", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Joko Susilo", "2400018084", 3, 2024, "Informatika", "FTI", "Semarang", "27-12-2002", "Jl. Iris No. 165", "joko@example.com", "081200000034", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Kartika Sari", "2400018085", 3, 2024, "Informatika", "FTI", "Yogyakarta", "01-01-2002", "Jl. Jonquil No. 170", "kartika@example.com", "081200000035", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Lukman Hakim", "2400018086", 3, 2024, "Informatika", "FTI", "Malang", "06-02-2002", "Jl. Kangaroo Paw No. 175", "lukman@example.com", "081200000036", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Mira Utami", "2400018087", 3, 2024, "Informatika", "FTI", "Medan", "11-03-2002", "Jl. Lantana No. 180", "mira@example.com", "081200000037", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Nugroho", "2400018088", 3, 2024, "Informatika", "FTI", "Palembang", "16-04-2002", "Jl. Marigold No. 185", "nugroho@example.com", "081200000038", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Olivia Tan", "2400018089", 3, 2024, "Informatika", "FTI", "Makassar", "21-05-2002", "Jl. Nasturtium No. 190", "olivia@example.com", "081200000039", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Pandu Winata", "2400018090", 3, 2024, "Informatika", "FTI", "Denpasar", "26-06-2002", "Jl. Oleander No. 195", "pandu@example.com", "081200000040", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Qory Sandioriva", "2400018091", 3, 2024, "Informatika", "FTI", "Bandung", "01-07-2002", "Jl. Pansy No. 200", "qory@example.com", "081200000041", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rendra Mahesa", "2400018092", 3, 2024,"Informatika", "FTI", "Jakarta", "06-08-2002", "Jl. Queen Anne's Lace No. 205", "rendra@example.com", "081200000042", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Siska Wulandari", "2400018093", 3, 2024, "Informatika", "FTI", "Surabaya", "11-09-2002", "Jl. Ranunculus No. 210", "siska@example.com", "081200000043", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Taufik Hidayat", "2400018094", 3, 2024,"Informatika", "FTI", "Semarang", "16-10-2002", "Jl. Snapdragon No. 215", "taufik@example.com", "081200000044", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Uci Sanjaya", "2400018095", 3, 2024, "Informatika", "FTI", "Yogyakarta", "21-11-2002", "Jl. Tulip No. 220", "uci@example.com", "081200000045", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Viktor Siregar", "2400018096", 3, 2024, "Informatika", "FTI", "Malang", "26-12-2002", "Jl. Ulex No. 225", "viktor@example.com", "081200000046", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Winda Puspita", "2400018097", 3, 2024, "Informatika", "FTI", "Medan", "31-01-2002", "Jl. Verbena No. 230", "winda@example.com", "081200000047", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Xavier Tanoto", "2400018098", 3, 2024, "Informatika", "FTI", "Palembang", "05-02-2002", "Jl. Wisteria No. 235", "xavier@example.com", "081200000048", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Yuni Astuti", "2400018099", 3, 2024, "Informatika", "FTI", "Makassar", "10-03-2002", "Jl. Xeranthemum No. 240", "yuni@example.com", "081200000049", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Zulkifli", "2400018100", 3, 2024, "Informatika", "FTI", "Denpasar", "15-04-2002", "Jl. Yarrow No. 245", "zulkifli@example.com", "081200000050", JenisKelamin::LakiLaki, true});
+    
+    
+    
+        tambahMahasiswaLangsung({"Rina Marlina", "2400018101", 3, 2024, "Informatika", "FTI", "Bogor", "12-03-2002", "Jl. Seroja No. 10", "rina@example.com", "081200010001", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Surya Aditya", "2400018102", 3, 2024, "Informatika", "FTI", "Tangerang", "18-04-2002", "Jl. Teratai No. 15", "surya@example.com", "081200010002", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Maya Sari", "2400018103", 3, 2024, "Informatika", "FTI", "Bekasi", "22-05-2002", "Jl. Kamboja No. 20", "maya@example.com", "081200010003", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Doni Pratama", "2400018104", 3, 2024, "Informatika", "FTI", "Depok", "28-06-2002", "Jl. Mawar No. 25", "doni@example.com", "081200010004", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Lia Anggraini", "2400018105", 3, 2024, "Informatika", "FTI", "Cirebon", "03-07-2002", "Jl. Melati No. 30", "lia@example.com", "081200010005", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rizky Fadilah", "2400018106", 3, 2024, "Informatika", "FTI", "Cimahi", "08-08-2002", "Jl. Anggrek No. 35", "rizky@example.com", "081200010006", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Diana Putri", "2400018107", 3, 2024, "Informatika", "FTI", "Tasikmalaya", "13-09-2002", "Jl. Flamboyan No. 40", "diana@example.com", "081200010007", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Fajar Ramadan", "2400018108", 3, 2024, "Informatika", "FTI", "Banjar", "18-10-2002", "Jl. Cempaka No. 45", "fajar@example.com", "081200010008", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Nina Rosita", "2400018109", 3, 2024, "Informatika", "FTI", "Magelang", "23-11-2002", "Jl. Kenanga No. 50", "nina@example.com", "081200010009", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Hadi Susanto", "2400018110", 3, 2024, "Informatika", "FTI", "Purwokerto", "28-12-2002", "Jl. Dahlia No. 55", "hadi@example.com", "081200010010", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Anisa Rahma", "2400018111", 3, 2024, "Informatika", "FTI", "Pekalongan", "02-01-2002", "Jl. Sakura No. 60", "anisa@example.com", "081200010011", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Bayu Kurniawan", "2400018112", 3, 2024, "Informatika", "FTI", "Salatiga", "07-02-2002", "Jl. Lavender No. 65", "bayu@example.com", "081200010012", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Citra Dewi", "2400018113", 3, 2024, "Informatika", "FTI", "Semarang", "12-03-2002", "Jl. Aster No. 70", "citra@example.com", "081200010013", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Dodi Hermawan", "2400018114", 3, 2024, "Informatika", "FTI", "Surakarta", "17-04-2002", "Jl. Lily No. 75", "dodi@example.com", "081200010014", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Elsa Fitriani", "2400018115", 3, 2024, "Informatika", "FTI", "Klaten", "22-05-2002", "Jl. Orchid No. 80", "elsa@example.com", "081200010015", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Firman Syah", "2400018116", 3, 2024, "Informatika", "FTI", "Sragen", "27-06-2002", "Jl. Jasmine No. 85", "firman@example.com", "081200010016", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Gita Permatasari", "2400018117", 3, 2024, "Informatika", "FTI", "Wonogiri", "02-07-2002", "Jl. Sunflower No. 90", "gita@example.com", "081200010017", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Hendra Wijaya", "2400018118", 3, 2024, "Informatika", "FTI", "Karanganyar", "07-08-2002", "Jl. Rose No. 95", "hendra@example.com", "081200010018", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Intan Permata", "2400018119", 3, 2024, "Informatika", "FTI", "Sukoharjo", "12-09-2002", "Jl. Daisy No. 100", "intan@example.com", "081200010019", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Joni Saputra", "2400018120", 3, 2024, "Informatika", "FTI", "Boyolali", "17-10-2002", "Jl. Magnolia No. 105", "joni@example.com", "081200010020", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Kartika Sari", "2400018121", 3, 2024, "Informatika", "FTI", "Pati", "22-11-2002", "Jl. Peony No. 110", "kartika@example.com", "081200010021", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Luthfi Rahman", "2400018122", 3, 2024, "Informatika", "FTI", "Rembang", "27-12-2002", "Jl. Hibiscus No. 115", "luthfi@example.com", "081200010022", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Melia Utami", "2400018123", 3, 2024, "Informatika", "FTI", "Blora", "01-01-2002", "Jl. Camellia No. 120", "melia@example.com", "081200010023", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Nando Pratama", "2400018124", 3, 2024, "Informatika", "FTI", "Grobogan", "06-02-2002", "Jl. Azalea No. 125", "nando@example.com", "081200010024", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Oktavia Nur", "2400018125", 3, 2024, "Informatika", "FTI", "Demak", "11-03-2002", "Jl. Bougainvillea No. 130", "oktavia@example.com", "081200010025", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Pandu Setiawan", "2400018126", 3, 2024, "Informatika", "FTI", "Kudus", "16-04-2002", "Jl. Carnation No. 135", "pandu@example.com", "081200010026", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Queen Amelia", "2400018127", 3, 2024, "Informatika", "FTI", "Jepara", "21-05-2002", "Jl. Chrysanthemum No. 140", "queen@example.com", "081200010027", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Rafi Akbar", "2400018128", 3, 2024, "Informatika", "FTI", "Pemalang", "26-06-2002", "Jl. Daffodil No. 145", "rafi@example.com", "081200010028", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Salsa Bila", "2400018129", 3, 2024, "Informatika", "FTI", "Brebes", "01-07-2002", "Jl. Edelweiss No. 150", "salsa@example.com", "081200010029", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Toni Gunawan", "2400018130", 3, 2024, "Informatika", "FTI", "Tegal", "06-08-2002", "Jl. Forsythia No. 155", "toni@example.com", "081200010030", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Umi Kalsum", "2400018131", 3, 2024, "Informatika", "FTI", "Slawi", "11-09-2002", "Jl. Gardenia No. 160", "umi@example.com", "081200010031", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Viktor Surya", "2400018132", 3, 2024, "Informatika", "FTI", "Purwodadi", "16-10-2002", "Jl. Heather No. 165", "viktor@example.com", "081200010032", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Winda Puspita", "2400018133", 3, 2024, "Informatika", "FTI", "Ungaran", "21-11-2002", "Jl. Iris No. 170", "winda@example.com", "081200010033", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Yoga Maulana", "2400018134", 3, 2024, "Informatika", "FTI", "Ambarawa", "26-12-2002", "Jl. Jonquil No. 175", "yoga@example.com", "081200010034", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Zahra Nabila", "2400018135", 3, 2024, "Informatika", "FTI", "Banyumanik", "31-01-2002", "Jl. Kangaroo Paw No. 180", "zahra@example.com", "081200010035", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Aldi Firmansyah", "2400018136", 3, 2024, "Informatika", "FTI", "Gunungpati", "05-02-2002", "Jl. Lantana No. 185", "aldi@example.com", "081200010036", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Bella Anastasia", "2400018137", 3, 2024, "Informatika", "FTI", "Mijen", "10-03-2002", "Jl. Marigold No. 190", "bella@example.com", "081200010037", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Cakra Bumi", "2400018138", 3, 2024, "Informatika", "FTI", "Ngaliyan", "15-04-2002", "Jl. Nasturtium No. 195", "cakra@example.com", "081200010038", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Dinda Maharani", "2400018139", 3, 2024, "Informatika", "FTI", "Tembalang", "20-05-2002", "Jl. Oleander No. 200", "dinda@example.com", "081200010039", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Eko Purnomo", "2400018140", 3, 2024, "Informatika", "FTI", "Banyuwangi", "25-06-2002", "Jl. Pansy No. 205", "eko@example.com", "081200010040", JenisKelamin::LakiLaki, true});
+        
+        tambahMahasiswaLangsung({"Fani Oktaviani", "2400018141", 3, 2024, "Informatika", "FTI", "Jember", "30-07-2002", "Jl. Queen Anne's Lace No. 210", "fani@example.com", "081200010041", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Gilang Persada", "2400018142", 3, 2024, "Informatika", "FTI", "Lumajang", "04-08-2002", "Jl. Ranunculus No. 215", "gilang@example.com", "081200010042", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Hesti Wulandari", "2400018143", 3, 2024, "Informatika", "FTI", "Probolinggo", "09-09-2002", "Jl. Snapdragon No. 220", "hesti@example.com", "081200010043", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Ivan Kurnia", "2400018144", 3, 2024, "Informatika", "FTI", "Pasuruan", "14-10-2002", "Jl. Tulip No. 225", "ivan@example.com", "081200010044", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Jeni Anggraeni", "2400018145", 3, 2024, "Informatika", "FTI", "Mojokerto", "19-11-2002", "Jl. Ulex No. 230", "jeni@example.com", "081200010045", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Kevin Ardian", "2400018146", 3, 2024, "Informatika", "FTI", "Madiun", "24-12-2002", "Jl. Verbena No. 235", "kevin@example.com", "081200010046", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Lala Safitri", "2400018147", 3, 2024, "Informatika", "FTI", "Kediri", "29-01-2002", "Jl. Wisteria No. 240", "lala@example.com", "081200010047", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Miko Andika", "2400018148", 3, 2024, "Informatika", "FTI", "Blitar", "03-02-2002", "Jl. Xeranthemum No. 245", "miko@example.com", "081200010048", JenisKelamin::LakiLaki, true});
+        tambahMahasiswaLangsung({"Nia Kurniasih", "2400018149", 3, 2024, "Informatika", "FTI", "Tulungagung", "08-03-2002", "Jl. Yarrow No. 250", "nia@example.com", "081200010049", JenisKelamin::Perempuan, true});
+        tambahMahasiswaLangsung({"Omar Syahputra", "2400018150", 3, 2024, "Informatika", "FTI", "Trenggalek", "13-04-2002", "Jl. Zinnia No. 255", "omar@example.com", "081200010050", JenisKelamin::LakiLaki, true});
+    }
 
-
-    // Data 51-60
-    tambahMahasiswaLangsung({"Arya Dharma", "2400018051", 3, 2024, "Informatika", "FTI", "Bandung", "20-05-2002", "Jl. Zinnia No. 250", "arya@example.com", "081200000051", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Bimo Satrio", "2400018052", 3, 2024, "Informatika", "FTI", "Jakarta", "25-06-2002", "Jl. Acacia No. 255", "bimo@example.com", "081200000052", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Cindy Laura", "2400018053", 3, 2024, "Informatika", "FTI", "Surabaya", "30-07-2002", "Jl. Bamboo No. 260", "cindy@example.com", "081200000053", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Dodi Pranata", "2400018054", 3, 2024, "Informatika", "FTI", "Semarang", "04-08-2002", "Jl. Cedar No. 265", "dodi@example.com", "081200000054", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Eva Yuliana", "2400018055", 3, 2024, "Informatika", "FTI", "Yogyakarta", "09-09-2002", "Jl. Dogwood No. 270", "eva@example.com", "081200000055", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Fadli Zon", "2400018056", 3, 2024,"Informatika", "FTI", "Malang", "14-10-2002", "Jl. Elm No. 275", "fadli@example.com", "081200000056", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Gina Melati", "2400018057", 3, 2024, "Informatika", "FTI", "Medan", "19-11-2002", "Jl. Fir No. 280", "gina@example.com", "081200000057", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Haryanto", "2400018058", 3, 2024, "Informatika", "FTI", "Palembang", "24-12-2002", "Jl. Ginkgo No. 285", "haryanto@example.com", "081200000058", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Ira Wahyuni", "2400018059", 3, 2024,"Informatika", "FTI", "Makassar", "29-01-2002", "Jl. Hazel No. 290", "ira@example.com", "081200000059", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Jefri Nicholas", "2400018060", 3, 2024, "Informatika", "FTI", "Denpasar", "03-02-2002", "Jl. Ironwood No. 295", "jefri@example.com", "081200000060", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Kurniawan", "2400018061", 3, 2024, "Informatika", "FTI", "Bandung", "03-01-2002", "Jl. Dahlia No. 50", "kurnia@example.com", "081200000011", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Lestari", "2400018062", 3, 2024, "Informatika", "FTI", "Jakarta", "08-02-2002", "Jl. Tulip No. 55", "lestari@example.com", "081200000012", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Mulyadi", "2400018063", 3, 2024, "Informatika", "FTI", "Surabaya", "13-03-2002", "Jl. Lavender No. 60", "mulyadi@example.com", "081200000013", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Nadia Putri", "2400018064", 3, 2024, "Informatika", "FTI", "Semarang", "18-04-2002", "Jl. Aster No. 65", "nadia@example.com", "081200000014", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Oki Pratama", "2400018065", 3, 2024,"Informatika", "FTI", "Yogyakarta", "23-05-2002", "Jl. Lily No. 70", "oki@example.com", "081200000015", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Putri Ayu", "2400018066", 3, 2024, "Informatika", "FTI", "Malang", "28-06-2002", "Jl. Orchid No. 75", "putri@example.com", "081200000016", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rizki Maulana", "2400018067", 3, 2024, "Informatika", "FTI", "Medan", "03-07-2002", "Jl. Jasmine No. 80", "rizki@example.com", "081200000017", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Sari Dewi", "2400018068", 3, 2024, "Informatika", "FTI", "Palembang", "08-08-2002", "Jl. Sunflower No. 85", "sari@example.com", "081200000018", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Teguh Santoso", "2400018069", 3, 2024, "Informatika", "FTI", "Makassar", "13-09-2002", "Jl. Rose No. 90", "teguh@example.com", "081200000019", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Umi Kulsum", "2400018070", 3, 2024, "Informatika", "FTI", "Denpasar", "18-10-2002", "Jl. Daisy No. 95", "umi@example.com", "081200000020", JenisKelamin::Perempuan, true});
-    
-    tambahMahasiswaLangsung({"Vino Gustomo", "2400018071", 3, 2024, "Informatika", "FTI", "Bandung", "23-11-2002", "Jl. Magnolia No. 100", "vino@example.com", "081200000021", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Wulan Sari", "2400018072", 3, 2024, "Informatika", "FTI", "Jakarta", "28-12-2002", "Jl. Peony No. 105", "wulan@example.com", "081200000022", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Yoga Perdana", "2400018073", 3, 2024,"Informatika", "FTI", "Surabaya", "02-01-2002", "Jl. Hibiscus No. 110", "yoga@example.com", "081200000023", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Zahra Amanda", "2400018074", 3, 2024, "Informatika", "FTI", "Semarang", "07-02-2002", "Jl. Camellia No. 115", "zahra@example.com", "081200000024", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Agus Salim", "2400018075", 3, 2024, "Informatika", "FTI", "Yogyakarta", "12-03-2002", "Jl. Azalea No. 120", "agus@example.com", "081200000025", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Bella Nurul", "2400018076", 3, 2024, "Informatika", "FTI", "Malang", "17-04-2002", "Jl. Bougainvillea No. 125", "bella@example.com", "081200000026", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Candra Wijaya", "2400018077", 3, 2024,"Informatika", "FTI", "Medan", "22-05-2002", "Jl. Carnation No. 130", "candra@example.com", "081200000027", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Dina Marlina", "2400018078", 3, 2024, "Informatika", "FTI", "Palembang", "27-06-2002", "Jl. Chrysanthemum No. 135", "dina@example.com", "081200000028", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Eri Gunawan", "2400018079", 3, 2024, "Informatika", "FTI", "Makassar", "02-07-2002", "Jl. Daffodil No. 140", "eri@example.com", "081200000029", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Fajar Nugraha", "2400018080", 3, 2024, "Informatika", "FTI", "Denpasar", "07-08-2002", "Jl. Edelweiss No. 145", "fajar@example.com", "081200000030", JenisKelamin::LakiLaki, true});
-   
-    tambahMahasiswaLangsung({"Gita Purnama", "2400018081", 3, 2024, "Informatika", "FTI", "Bandung", "12-09-2002", "Jl. Forsythia No. 150", "gita@example.com", "081200000031", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Hendra Saputra", "2400018082", 3, 2024, "Informatika", "FTI", "Jakarta", "17-10-2002", "Jl. Gardenia No. 155", "hendra@example.com", "081200000032", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Indah Permata", "2400018083", 3, 2024, "Informatika", "FTI", "Surabaya", "22-11-2002", "Jl. Heather No. 160", "indah@example.com", "081200000033", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Joko Susilo", "2400018084", 3, 2024, "Informatika", "FTI", "Semarang", "27-12-2002", "Jl. Iris No. 165", "joko@example.com", "081200000034", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Kartika Sari", "2400018085", 3, 2024, "Informatika", "FTI", "Yogyakarta", "01-01-2002", "Jl. Jonquil No. 170", "kartika@example.com", "081200000035", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Lukman Hakim", "2400018086", 3, 2024, "Informatika", "FTI", "Malang", "06-02-2002", "Jl. Kangaroo Paw No. 175", "lukman@example.com", "081200000036", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Mira Utami", "2400018087", 3, 2024, "Informatika", "FTI", "Medan", "11-03-2002", "Jl. Lantana No. 180", "mira@example.com", "081200000037", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Nugroho", "2400018088", 3, 2024, "Informatika", "FTI", "Palembang", "16-04-2002", "Jl. Marigold No. 185", "nugroho@example.com", "081200000038", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Olivia Tan", "2400018089", 3, 2024, "Informatika", "FTI", "Makassar", "21-05-2002", "Jl. Nasturtium No. 190", "olivia@example.com", "081200000039", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Pandu Winata", "2400018090", 3, 2024, "Informatika", "FTI", "Denpasar", "26-06-2002", "Jl. Oleander No. 195", "pandu@example.com", "081200000040", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Qory Sandioriva", "2400018091", 3, 2024, "Informatika", "FTI", "Bandung", "01-07-2002", "Jl. Pansy No. 200", "qory@example.com", "081200000041", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rendra Mahesa", "2400018092", 3, 2024,"Informatika", "FTI", "Jakarta", "06-08-2002", "Jl. Queen Anne's Lace No. 205", "rendra@example.com", "081200000042", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Siska Wulandari", "2400018093", 3, 2024, "Informatika", "FTI", "Surabaya", "11-09-2002", "Jl. Ranunculus No. 210", "siska@example.com", "081200000043", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Taufik Hidayat", "2400018094", 3, 2024,"Informatika", "FTI", "Semarang", "16-10-2002", "Jl. Snapdragon No. 215", "taufik@example.com", "081200000044", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Uci Sanjaya", "2400018095", 3, 2024, "Informatika", "FTI", "Yogyakarta", "21-11-2002", "Jl. Tulip No. 220", "uci@example.com", "081200000045", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Viktor Siregar", "2400018096", 3, 2024, "Informatika", "FTI", "Malang", "26-12-2002", "Jl. Ulex No. 225", "viktor@example.com", "081200000046", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Winda Puspita", "2400018097", 3, 2024, "Informatika", "FTI", "Medan", "31-01-2002", "Jl. Verbena No. 230", "winda@example.com", "081200000047", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Xavier Tanoto", "2400018098", 3, 2024, "Informatika", "FTI", "Palembang", "05-02-2002", "Jl. Wisteria No. 235", "xavier@example.com", "081200000048", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Yuni Astuti", "2400018099", 3, 2024, "Informatika", "FTI", "Makassar", "10-03-2002", "Jl. Xeranthemum No. 240", "yuni@example.com", "081200000049", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Zulkifli", "2400018100", 3, 2024, "Informatika", "FTI", "Denpasar", "15-04-2002", "Jl. Yarrow No. 245", "zulkifli@example.com", "081200000050", JenisKelamin::LakiLaki, true});
-
-
-
-    tambahMahasiswaLangsung({"Rina Marlina", "2400018101", 3, 2024, "Informatika", "FTI", "Bogor", "12-03-2002", "Jl. Seroja No. 10", "rina@example.com", "081200010001", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Surya Aditya", "2400018102", 3, 2024, "Informatika", "FTI", "Tangerang", "18-04-2002", "Jl. Teratai No. 15", "surya@example.com", "081200010002", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Maya Sari", "2400018103", 3, 2024, "Informatika", "FTI", "Bekasi", "22-05-2002", "Jl. Kamboja No. 20", "maya@example.com", "081200010003", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Doni Pratama", "2400018104", 3, 2024, "Informatika", "FTI", "Depok", "28-06-2002", "Jl. Mawar No. 25", "doni@example.com", "081200010004", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Lia Anggraini", "2400018105", 3, 2024, "Informatika", "FTI", "Cirebon", "03-07-2002", "Jl. Melati No. 30", "lia@example.com", "081200010005", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rizky Fadilah", "2400018106", 3, 2024, "Informatika", "FTI", "Cimahi", "08-08-2002", "Jl. Anggrek No. 35", "rizky@example.com", "081200010006", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Diana Putri", "2400018107", 3, 2024, "Informatika", "FTI", "Tasikmalaya", "13-09-2002", "Jl. Flamboyan No. 40", "diana@example.com", "081200010007", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Fajar Ramadan", "2400018108", 3, 2024, "Informatika", "FTI", "Banjar", "18-10-2002", "Jl. Cempaka No. 45", "fajar@example.com", "081200010008", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Nina Rosita", "2400018109", 3, 2024, "Informatika", "FTI", "Magelang", "23-11-2002", "Jl. Kenanga No. 50", "nina@example.com", "081200010009", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Hadi Susanto", "2400018110", 3, 2024, "Informatika", "FTI", "Purwokerto", "28-12-2002", "Jl. Dahlia No. 55", "hadi@example.com", "081200010010", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Anisa Rahma", "2400018111", 3, 2024, "Informatika", "FTI", "Pekalongan", "02-01-2002", "Jl. Sakura No. 60", "anisa@example.com", "081200010011", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Bayu Kurniawan", "2400018112", 3, 2024, "Informatika", "FTI", "Salatiga", "07-02-2002", "Jl. Lavender No. 65", "bayu@example.com", "081200010012", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Citra Dewi", "2400018113", 3, 2024, "Informatika", "FTI", "Semarang", "12-03-2002", "Jl. Aster No. 70", "citra@example.com", "081200010013", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Dodi Hermawan", "2400018114", 3, 2024, "Informatika", "FTI", "Surakarta", "17-04-2002", "Jl. Lily No. 75", "dodi@example.com", "081200010014", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Elsa Fitriani", "2400018115", 3, 2024, "Informatika", "FTI", "Klaten", "22-05-2002", "Jl. Orchid No. 80", "elsa@example.com", "081200010015", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Firman Syah", "2400018116", 3, 2024, "Informatika", "FTI", "Sragen", "27-06-2002", "Jl. Jasmine No. 85", "firman@example.com", "081200010016", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Gita Permatasari", "2400018117", 3, 2024, "Informatika", "FTI", "Wonogiri", "02-07-2002", "Jl. Sunflower No. 90", "gita@example.com", "081200010017", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Hendra Wijaya", "2400018118", 3, 2024, "Informatika", "FTI", "Karanganyar", "07-08-2002", "Jl. Rose No. 95", "hendra@example.com", "081200010018", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Intan Permata", "2400018119", 3, 2024, "Informatika", "FTI", "Sukoharjo", "12-09-2002", "Jl. Daisy No. 100", "intan@example.com", "081200010019", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Joni Saputra", "2400018120", 3, 2024, "Informatika", "FTI", "Boyolali", "17-10-2002", "Jl. Magnolia No. 105", "joni@example.com", "081200010020", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Kartika Sari", "2400018121", 3, 2024, "Informatika", "FTI", "Pati", "22-11-2002", "Jl. Peony No. 110", "kartika@example.com", "081200010021", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Luthfi Rahman", "2400018122", 3, 2024, "Informatika", "FTI", "Rembang", "27-12-2002", "Jl. Hibiscus No. 115", "luthfi@example.com", "081200010022", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Melia Utami", "2400018123", 3, 2024, "Informatika", "FTI", "Blora", "01-01-2002", "Jl. Camellia No. 120", "melia@example.com", "081200010023", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Nando Pratama", "2400018124", 3, 2024, "Informatika", "FTI", "Grobogan", "06-02-2002", "Jl. Azalea No. 125", "nando@example.com", "081200010024", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Oktavia Nur", "2400018125", 3, 2024, "Informatika", "FTI", "Demak", "11-03-2002", "Jl. Bougainvillea No. 130", "oktavia@example.com", "081200010025", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Pandu Setiawan", "2400018126", 3, 2024, "Informatika", "FTI", "Kudus", "16-04-2002", "Jl. Carnation No. 135", "pandu@example.com", "081200010026", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Queen Amelia", "2400018127", 3, 2024, "Informatika", "FTI", "Jepara", "21-05-2002", "Jl. Chrysanthemum No. 140", "queen@example.com", "081200010027", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Rafi Akbar", "2400018128", 3, 2024, "Informatika", "FTI", "Pemalang", "26-06-2002", "Jl. Daffodil No. 145", "rafi@example.com", "081200010028", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Salsa Bila", "2400018129", 3, 2024, "Informatika", "FTI", "Brebes", "01-07-2002", "Jl. Edelweiss No. 150", "salsa@example.com", "081200010029", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Toni Gunawan", "2400018130", 3, 2024, "Informatika", "FTI", "Tegal", "06-08-2002", "Jl. Forsythia No. 155", "toni@example.com", "081200010030", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Umi Kalsum", "2400018131", 3, 2024, "Informatika", "FTI", "Slawi", "11-09-2002", "Jl. Gardenia No. 160", "umi@example.com", "081200010031", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Viktor Surya", "2400018132", 3, 2024, "Informatika", "FTI", "Purwodadi", "16-10-2002", "Jl. Heather No. 165", "viktor@example.com", "081200010032", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Winda Puspita", "2400018133", 3, 2024, "Informatika", "FTI", "Ungaran", "21-11-2002", "Jl. Iris No. 170", "winda@example.com", "081200010033", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Yoga Maulana", "2400018134", 3, 2024, "Informatika", "FTI", "Ambarawa", "26-12-2002", "Jl. Jonquil No. 175", "yoga@example.com", "081200010034", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Zahra Nabila", "2400018135", 3, 2024, "Informatika", "FTI", "Banyumanik", "31-01-2002", "Jl. Kangaroo Paw No. 180", "zahra@example.com", "081200010035", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Aldi Firmansyah", "2400018136", 3, 2024, "Informatika", "FTI", "Gunungpati", "05-02-2002", "Jl. Lantana No. 185", "aldi@example.com", "081200010036", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Bella Anastasia", "2400018137", 3, 2024, "Informatika", "FTI", "Mijen", "10-03-2002", "Jl. Marigold No. 190", "bella@example.com", "081200010037", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Cakra Bumi", "2400018138", 3, 2024, "Informatika", "FTI", "Ngaliyan", "15-04-2002", "Jl. Nasturtium No. 195", "cakra@example.com", "081200010038", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Dinda Maharani", "2400018139", 3, 2024, "Informatika", "FTI", "Tembalang", "20-05-2002", "Jl. Oleander No. 200", "dinda@example.com", "081200010039", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Eko Purnomo", "2400018140", 3, 2024, "Informatika", "FTI", "Banyuwangi", "25-06-2002", "Jl. Pansy No. 205", "eko@example.com", "081200010040", JenisKelamin::LakiLaki, true});
-    
-    tambahMahasiswaLangsung({"Fani Oktaviani", "2400018141", 3, 2024, "Informatika", "FTI", "Jember", "30-07-2002", "Jl. Queen Anne's Lace No. 210", "fani@example.com", "081200010041", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Gilang Persada", "2400018142", 3, 2024, "Informatika", "FTI", "Lumajang", "04-08-2002", "Jl. Ranunculus No. 215", "gilang@example.com", "081200010042", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Hesti Wulandari", "2400018143", 3, 2024, "Informatika", "FTI", "Probolinggo", "09-09-2002", "Jl. Snapdragon No. 220", "hesti@example.com", "081200010043", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Ivan Kurnia", "2400018144", 3, 2024, "Informatika", "FTI", "Pasuruan", "14-10-2002", "Jl. Tulip No. 225", "ivan@example.com", "081200010044", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Jeni Anggraeni", "2400018145", 3, 2024, "Informatika", "FTI", "Mojokerto", "19-11-2002", "Jl. Ulex No. 230", "jeni@example.com", "081200010045", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Kevin Ardian", "2400018146", 3, 2024, "Informatika", "FTI", "Madiun", "24-12-2002", "Jl. Verbena No. 235", "kevin@example.com", "081200010046", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Lala Safitri", "2400018147", 3, 2024, "Informatika", "FTI", "Kediri", "29-01-2002", "Jl. Wisteria No. 240", "lala@example.com", "081200010047", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Miko Andika", "2400018148", 3, 2024, "Informatika", "FTI", "Blitar", "03-02-2002", "Jl. Xeranthemum No. 245", "miko@example.com", "081200010048", JenisKelamin::LakiLaki, true});
-    tambahMahasiswaLangsung({"Nia Kurniasih", "2400018149", 3, 2024, "Informatika", "FTI", "Tulungagung", "08-03-2002", "Jl. Yarrow No. 250", "nia@example.com", "081200010049", JenisKelamin::Perempuan, true});
-    tambahMahasiswaLangsung({"Omar Syahputra", "2400018150", 3, 2024, "Informatika", "FTI", "Trenggalek", "13-04-2002", "Jl. Zinnia No. 255", "omar@example.com", "081200010050", JenisKelamin::LakiLaki, true});
-   
+    updateFileMhs();
 }
 
 void tambahMahasiswaLangsung(const Mahasiswa& mhs) {
@@ -375,13 +379,29 @@ void tambahMahasiswa() {
         for (int i = 0; i < jumlah; i++) {
             if (data[i].nim == nimCari) {
                 ditemukan = true;
-                // Geser elemen setelahnya ke kiri
-                for (int j = i; j < jumlah - 1; j++) {
-                    data[j] = data[j + 1];
+                
+                cout << "Data Mahasiswa yang ditemukan:\n";
+                cout << "Nama: " << data[i].nama << "\n";
+                cout << "NIM: " << data[i].nim << "\n";
+                cout << "Semester: " << data[i].semester << "\n";
+                cout << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
+                cout << "Jurusan: " << data[i].jurusan << "\n";
+
+                //konfirmasi penghapusan
+                char konfirmasi;
+                cout << "Apakah Anda yakin ingin menghapus mahasiswa dengan NIM " << nimCari << "? (y/n): ";
+                cin >> konfirmasi;
+                if (konfirmasi == 'y' || konfirmasi == 'Y') {
+                    // Geser elemen setelahnya ke kiri
+                    for (int j = i; j < jumlah - 1; j++) {
+                        data[j] = data[j + 1];
+                    }
+                    jumlah--;
+                    cout << "Mahasiswa dengan NIM " << nimCari << " telah dihapus.\n";
+                    updateFileMhs();
+                } else {
+                    cout << "Penghapusan dibatalkan.\n";
                 }
-                jumlah--;
-                cout << "Mahasiswa dengan NIM " << nimCari << " telah dihapus.\n";
-                updateFileMhs();
                 break;
             }
         }
@@ -446,32 +466,31 @@ void tambahMahasiswa() {
     }
 
     void updateFileMhs() {
-    ofstream out("dataMahasiswa.txt", ios::trunc); // hapus isi lama
-    if (!out.is_open()) {
+    ofstream in("dataMahasiswa.txt", ios::trunc); // hapus isi lama
+    if (!in.is_open()) {
         cout << "Gagal membuka file untuk menyimpan data.\n";
         return;
     }
 
     for (int i = 0; i < jumlah; i++) {
-        out << "Data Mahasiswa ke-" << i + 1 << ":\n";
-        out << "Nama: " << data[i].nama << "\n";
-        out << "NIM: " << data[i].nim << "\n";
-        out << "Semester: " << data[i].semester << "\n";
-        out << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
-        out << "Jurusan: " << data[i].jurusan << "\n";
-        out << "Fakultas: " << data[i].fakultas << "\n";
-        out << "Tempat Lahir: " << data[i].tempatLahir << "\n";
-        out << "Tanggal Lahir: " << data[i].tanggalLahir << "\n";
-        out << "Alamat: " << data[i].alamat << "\n";
-        out << "Email: " << data[i].email << "\n";
-        out << "No HP: " << data[i].noHp << "\n";
-        out << "Jenis Kelamin: " << (data[i].g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << "\n";
-        out << "Status: " << (data[i].aktif ? "Aktif" : "Tidak Aktif") << "\n";
-        out << "--------------------------\n";
+        in << "Data Mahasiswa ke-" << i + 1 << ":\n";
+        in << "Nama: " << data[i].nama << "\n";
+        in << "NIM: " << data[i].nim << "\n";
+        in << "Semester: " << data[i].semester << "\n";
+        in << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
+        in << "Jurusan: " << data[i].jurusan << "\n";
+        in << "Fakultas: " << data[i].fakultas << "\n";
+        in << "Tempat Lahir: " << data[i].tempatLahir << "\n";
+        in << "Tanggal Lahir: " << data[i].tanggalLahir << "\n";
+        in << "Alamat: " << data[i].alamat << "\n";
+        in << "Email: " << data[i].email << "\n";
+        in << "No HP: " << data[i].noHp << "\n";
+        in << "Jenis Kelamin: " << (data[i].g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << "\n";
+        in << "Status: " << (data[i].aktif ? "Aktif" : "Tidak Aktif") << "\n";
+        in << "--------------------------\n";
     }
 
-    out.close();
-    cout << "File dataMahasiswa.txt berhasil diperbarui!\n";
+        in.close();
     }
 
     void tampilMahasiswa() {
@@ -481,6 +500,11 @@ void tambahMahasiswa() {
         string cetak;
         while (getline(out, cetak)) {
             cout << cetak << endl;
+        }
+        out.close();
+        if (jumlah == 0) {
+            cout << "Tidak ada data mahasiswa.\n";
+            return;
         }
     }
 
@@ -494,13 +518,26 @@ void tambahMahasiswa() {
         for (int i = 0; i < jumlah; i++) {
             if (data[i].nim == nimCari) {
                 ditemukan = true;
-                cout << "Data ditemukan. Masukkan data baru:\n";
+                cout << "Data ditemukan:\n";
                 cout << "==============================\n";
                 cout << " Data Sebelumnya \n";
                 cout << "==============================\n";
-                tampilMahasiswa();
+                cout << "Nama: " << data[i].nama << "\n";
+                cout << "NIM: " << data[i].nim << "\n";
+                cout << "Semester: " << data[i].semester << "\n";
+                cout << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
+                cout << "Jurusan: " << data[i].jurusan << "\n";
+                cout << "Fakultas: " << data[i].fakultas << "\n";
+                cout << "Tempat Lahir: " << data[i].tempatLahir << "\n";
+                cout << "Tanggal Lahir: " << data[i].tanggalLahir << "\n";
+                cout << "Alamat: " << data[i].alamat << "\n";
+                cout << "Email: " << data[i].email << "\n";
+                cout << "No HP: " << data[i].noHp << "\n";
+                cout << "Jenis Kelamin: " << (data[i].g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << "\n";
+                cout << "Status: " << (data[i].aktif ? "Aktif" : "Tidak Aktif") << "\n";
                 cout << "==============================\n";
                 cout << " Masukkan Data Baru: \n";
+                cout << "==============================\n";
                 cout << "\nMasukkan nama mahasiswa: ";
                 cin.ignore();
                 getline(cin, data[i].nama);
@@ -533,56 +570,82 @@ void tambahMahasiswa() {
                 updateFileMhs();
                 break;
             }
-            if (!ditemukan) {
-                cout << "Mahasiswa dengan NIM " << nimCari << " tidak ditemukan.\n";
+        }
+        if (!ditemukan) {
+            cout << "Mahasiswa dengan NIM " << nimCari << " tidak ditemukan.\n";
+        }
+    }
+
+    void cekKeaktifanMahasiswa() {
+        cout << "=====MENU CEK KEAKTIFAN MAHASISWA=====" << endl;
+        string nimCari;
+        cout << "Masukkan NIM mahasiswa yang akan dicek: ";
+        cin >> nimCari;
+        bool ditemukan = false;
+        for (int i = 0; i < jumlah; i++) {
+            if (data[i].nim == nimCari) {
+                ditemukan = true;
+                cout << "Status keaktifan mahasiswa dengan NIM " << nimCari << ": "
+                     << (data[i].aktif ? "Aktif" : "Tidak Aktif") << "\n";
+                break;
             }
+        }
+        if (!ditemukan) {
+            cout << "Mahasiswa dengan NIM " << nimCari << " tidak ditemukan.\n";
         }
     }
 };
 
 //CLASS UNTUK MENU UTAMA DOSEN
 class ManajemenDosen{
-public:
-Dosen data[1000];
-Dosen dosenBaru;
-int jumlahDosen = 0;
+    private:
+    Dosen data[1000];
+    Dosen dosenBaru;
+    int jumlahDosen = 0;
     
-
+    public:
     ManajemenDosen(){
-       
-    // Data dosen Informatika FTI
-    TambahDosenLangsung({"Dr. Ahmad Santoso", "1234567801", "196501011234", "Dr.", "M.Kom", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "ahmad.santoso@univ.ac.id", "081200000001", "Jl. Pendidikan No. 123", StatusDosen::Aktif, 2005});
-    TambahDosenLangsung({"Prof. Siti Rahayu", "1234567802", "196602021235", "Prof.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::Perempuan, "siti.rahayu@univ.ac.id", "081200000002", "Jl. Akademik No. 45", StatusDosen::Aktif, 2000});
-    TambahDosenLangsung({"Drs. Bambang Wijaya", "1234567803", "197003031236", "Drs.", "M.T", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "bambang.wijaya@univ.ac.id", "081200000003", "Jl. Teknologi No. 67", StatusDosen::Aktif, 2008});
-    TambahDosenLangsung({"Ir. Maria Dewi", "1234567804", "197104041237", "Ir.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::Perempuan, "maria.dewi@univ.ac.id", "081200000004", "Jl. Komputer No. 89", StatusDosen::Aktif, 2010});
-    TambahDosenLangsung({"Dr. Rudi Hermawan", "1234567805", "197205051238", "Dr.", "M.Sc", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "rudi.hermawan@univ.ac.id", "081200000005", "Jl. Programmer No. 12", StatusDosen::Aktif, 2007});
-    TambahDosenLangsung({"Diana Puspita, M.Kom", "1234567806", "198306061239", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "diana.puspita@univ.ac.id", "081200000006", "Jl. Algorithm No. 34", StatusDosen::Aktif, 2015});
-    TambahDosenLangsung({"Fajar Nugroho, M.T", "1234567807", "198407071240", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "fajar.nugroho@univ.ac.id", "081200000007", "Jl. Database No. 56", StatusDosen::Aktif, 2016});
-    TambahDosenLangsung({"Prof. Dr. Hendra Gunawan", "1234567808", "196508081241", "Prof. Dr.", "M.Eng", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "hendra.gunawan@univ.ac.id", "081200000008", "Jl. Network No. 78", StatusDosen::Aktif, 1998});
-    TambahDosenLangsung({"Lina Marlina, M.Kom", "1234567809", "198609091242", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "lina.marlina@univ.ac.id", "081200000009", "Jl. Software No. 90", StatusDosen::Aktif, 2017});
-    TambahDosenLangsung({"Eko Prasetyo, M.Sc", "1234567810", "197710101243", "", "M.Sc", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "eko.prasetyo@univ.ac.id", "081200000010", "Jl. Hardware No. 11", StatusDosen::Aktif, 2012});
+    
+        tarikDosenFile();
+        // Data dosen Informatika FTI
+        if (jumlahDosen == 0)
+        {
 
-    TambahDosenLangsung({"Dr. Ir. Anita Sari", "1234567811", "197811111244", "Dr. Ir.", "M.T", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::Perempuan, "anita.sari@univ.ac.id", "081200000011", "Jl. Artificial No. 22", StatusDosen::Aktif, 2009});
-    TambahDosenLangsung({"Rizki Maulana, M.Kom", "1234567812", "198912121245", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "rizki.maulana@univ.ac.id", "081200000012", "Jl. Intelligence No. 33", StatusDosen::Aktif, 2018});
-    TambahDosenLangsung({"Dewi Anggraeni, M.T", "1234567813", "199013131246", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "dewi.anggraeni@univ.ac.id", "081200000013", "Jl. Machine No. 44", StatusDosen::Aktif, 2019});
-    TambahDosenLangsung({"Prof. Dr. Ir. Joko Susilo", "1234567814", "196114141247", "Prof. Dr. Ir.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "joko.susilo@univ.ac.id", "081200000014", "Jl. Learning No. 55", StatusDosen::Aktif, 1995});
-    TambahDosenLangsung({"Maya Sari, M.Kom", "1234567815", "199215151248", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "maya.sari@univ.ac.id", "081200000015", "Jl. Data No. 66", StatusDosen::Aktif, 2020});
-    TambahDosenLangsung({"Dr. Adi Saputra", "1234567816", "197316161249", "Dr.", "M.Eng", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "adi.saputra@univ.ac.id", "081200000016", "Jl. Science No. 77", StatusDosen::Aktif, 2011});
-    TambahDosenLangsung({"Nina Permata, M.T", "1234567817", "199417171250", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "nina.permata@univ.ac.id", "081200000017", "Jl. Computing No. 88", StatusDosen::Aktif, 2021});
-    TambahDosenLangsung({"Drs. Toni Gunawan", "1234567818", "197518181251", "Drs.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "toni.gunawan@univ.ac.id", "081200000018", "Jl. Information No. 99", StatusDosen::Aktif, 2006});
-    TambahDosenLangsung({"Fitri Handayani, M.Sc", "1234567819", "199619191252", "", "M.Sc", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "fitri.handayani@univ.ac.id", "081200000019", "Jl. Technology No. 100", StatusDosen::Aktif, 2022});
-    TambahDosenLangsung({"Prof. Dr. Rendra Mahesa", "1234567820", "196720201253", "Prof. Dr.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "rendra.mahesa@univ.ac.id", "081200000020", "Jl. Innovation No. 111", StatusDosen::Aktif, 1999});
-
-    TambahDosenLangsung({"Ir. Sari Indah, M.T", "1234567821", "197821211254", "Ir.", "M.T", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::Perempuan, "sari.indah@univ.ac.id", "081200000021", "Jl. Digital No. 122", StatusDosen::Aktif, 2013});
-    TambahDosenLangsung({"Budi Santoso, M.Kom", "1234567822", "198922221255", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "budi.santoso@univ.ac.id", "081200000022", "Jl. Programming No. 133", StatusDosen::Aktif, 2023});
-    TambahDosenLangsung({"Dr. Citra Dewi", "1234567823", "197023231256", "Dr.", "M.Sc", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::Perempuan, "citra.dewi@univ.ac.id", "081200000023", "Jl. Development No. 144", StatusDosen::Aktif, 2014});
-    TambahDosenLangsung({"Agus Setiawan, M.T", "1234567824", "199124241257", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "agus.setiawan@univ.ac.id", "081200000024", "Jl. Engineering No. 155", StatusDosen::Aktif, 2024});
-    TambahDosenLangsung({"Prof. Dr. Wulan Sari", "1234567825", "196225251258", "Prof. Dr.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::Perempuan, "wulan.sari@univ.ac.id", "081200000025", "Jl. Research No. 166", StatusDosen::Aktif, 1997});
-    TambahDosenLangsung({"Drs. Heri Prabowo", "1234567826", "197326261259", "Drs.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "heri.prabowo@univ.ac.id", "081200000026", "Jl. Analysis No. 177", StatusDosen::Cuti, 2004});
-    TambahDosenLangsung({"Yuni Astuti, M.Sc", "1234567827", "199427271260", "", "M.Sc", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "yuni.astuti@univ.ac.id", "081200000027", "Jl. Design No. 188", StatusDosen::Aktif, 2023});
-    TambahDosenLangsung({"Dr. Ir. Farid Rahman", "1234567828", "196528281261", "Dr. Ir.", "M.Eng", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "farid.rahman@univ.ac.id", "081200000028", "Jl. System No. 199", StatusDosen::Pensiun, 1990});
-    TambahDosenLangsung({"Gita Permatasari, M.Kom", "1234567829", "199629291262", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "gita.permatasari@univ.ac.id", "081200000029", "Jl. Architecture No. 200", StatusDosen::Aktif, 2022});
-    TambahDosenLangsung({"Hadi Nugroho, M.T", "1234567830", "198730301263", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "hadi.nugroho@univ.ac.id", "081200000030", "Jl. Security No. 211", StatusDosen::Aktif, 2021});
+            TambahDosenLangsung({"Dr. Ahmad Santoso", "1234567801", "196501011234", "Dr.", "M.Kom", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "ahmad.santoso@univ.ac.id", "081200000001", "Jl. Pendidikan No. 123", StatusDosen::Aktif, 2005});
+            TambahDosenLangsung({"Prof. Siti Rahayu", "1234567802", "196602021235", "Prof.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::Perempuan, "siti.rahayu@univ.ac.id", "081200000002", "Jl. Akademik No. 45", StatusDosen::Aktif, 2000});
+            TambahDosenLangsung({"Drs. Bambang Wijaya", "1234567803", "197003031236", "Drs.", "M.T", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "bambang.wijaya@univ.ac.id", "081200000003", "Jl. Teknologi No. 67", StatusDosen::Aktif, 2008});
+            TambahDosenLangsung({"Ir. Maria Dewi", "1234567804", "197104041237", "Ir.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::Perempuan, "maria.dewi@univ.ac.id", "081200000004", "Jl. Komputer No. 89", StatusDosen::Aktif, 2010});
+            TambahDosenLangsung({"Dr. Rudi Hermawan", "1234567805", "197205051238", "Dr.", "M.Sc", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "rudi.hermawan@univ.ac.id", "081200000005", "Jl. Programmer No. 12", StatusDosen::Aktif, 2007});
+            TambahDosenLangsung({"Diana Puspita, M.Kom", "1234567806", "198306061239", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "diana.puspita@univ.ac.id", "081200000006", "Jl. Algorithm No. 34", StatusDosen::Aktif, 2015});
+            TambahDosenLangsung({"Fajar Nugroho, M.T", "1234567807", "198407071240", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "fajar.nugroho@univ.ac.id", "081200000007", "Jl. Database No. 56", StatusDosen::Aktif, 2016});
+            TambahDosenLangsung({"Prof. Dr. Hendra Gunawan", "1234567808", "196508081241", "Prof. Dr.", "M.Eng", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "hendra.gunawan@univ.ac.id", "081200000008", "Jl. Network No. 78", StatusDosen::Aktif, 1998});
+            TambahDosenLangsung({"Lina Marlina, M.Kom", "1234567809", "198609091242", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "lina.marlina@univ.ac.id", "081200000009", "Jl. Software No. 90", StatusDosen::Aktif, 2017});
+            TambahDosenLangsung({"Eko Prasetyo, M.Sc", "1234567810", "197710101243", "", "M.Sc", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "eko.prasetyo@univ.ac.id", "081200000010", "Jl. Hardware No. 11", StatusDosen::Aktif, 2012});
+        
+            TambahDosenLangsung({"Dr. Ir. Anita Sari", "1234567811", "197811111244", "Dr. Ir.", "M.T", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::Perempuan, "anita.sari@univ.ac.id", "081200000011", "Jl. Artificial No. 22", StatusDosen::Aktif, 2009});
+            TambahDosenLangsung({"Rizki Maulana, M.Kom", "1234567812", "198912121245", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "rizki.maulana@univ.ac.id", "081200000012", "Jl. Intelligence No. 33", StatusDosen::Aktif, 2018});
+            TambahDosenLangsung({"Dewi Anggraeni, M.T", "1234567813", "199013131246", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "dewi.anggraeni@univ.ac.id", "081200000013", "Jl. Machine No. 44", StatusDosen::Aktif, 2019});
+            TambahDosenLangsung({"Prof. Dr. Ir. Joko Susilo", "1234567814", "196114141247", "Prof. Dr. Ir.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "joko.susilo@univ.ac.id", "081200000014", "Jl. Learning No. 55", StatusDosen::Aktif, 1995});
+            TambahDosenLangsung({"Maya Sari, M.Kom", "1234567815", "199215151248", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "maya.sari@univ.ac.id", "081200000015", "Jl. Data No. 66", StatusDosen::Aktif, 2020});
+            TambahDosenLangsung({"Dr. Adi Saputra", "1234567816", "197316161249", "Dr.", "M.Eng", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "adi.saputra@univ.ac.id", "081200000016", "Jl. Science No. 77", StatusDosen::Aktif, 2011});
+            TambahDosenLangsung({"Nina Permata, M.T", "1234567817", "199417171250", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "nina.permata@univ.ac.id", "081200000017", "Jl. Computing No. 88", StatusDosen::Aktif, 2021});
+            TambahDosenLangsung({"Drs. Toni Gunawan", "1234567818", "197518181251", "Drs.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "toni.gunawan@univ.ac.id", "081200000018", "Jl. Information No. 99", StatusDosen::Aktif, 2006});
+            TambahDosenLangsung({"Fitri Handayani, M.Sc", "1234567819", "199619191252", "", "M.Sc", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "fitri.handayani@univ.ac.id", "081200000019", "Jl. Technology No. 100", StatusDosen::Aktif, 2022});
+            TambahDosenLangsung({"Prof. Dr. Rendra Mahesa", "1234567820", "196720201253", "Prof. Dr.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::LakiLaki, "rendra.mahesa@univ.ac.id", "081200000020", "Jl. Innovation No. 111", StatusDosen::Aktif, 1999});
+        
+            TambahDosenLangsung({"Ir. Sari Indah, M.T", "1234567821", "197821211254", "Ir.", "M.T", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::Perempuan, "sari.indah@univ.ac.id", "081200000021", "Jl. Digital No. 122", StatusDosen::Aktif, 2013});
+            TambahDosenLangsung({"Budi Santoso, M.Kom", "1234567822", "198922221255", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "budi.santoso@univ.ac.id", "081200000022", "Jl. Programming No. 133", StatusDosen::Aktif, 2023});
+            TambahDosenLangsung({"Dr. Citra Dewi", "1234567823", "197023231256", "Dr.", "M.Sc", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::Perempuan, "citra.dewi@univ.ac.id", "081200000023", "Jl. Development No. 144", StatusDosen::Aktif, 2014});
+            TambahDosenLangsung({"Agus Setiawan, M.T", "1234567824", "199124241257", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "agus.setiawan@univ.ac.id", "081200000024", "Jl. Engineering No. 155", StatusDosen::Aktif, 2024});
+            TambahDosenLangsung({"Prof. Dr. Wulan Sari", "1234567825", "196225251258", "Prof. Dr.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::Perempuan, "wulan.sari@univ.ac.id", "081200000025", "Jl. Research No. 166", StatusDosen::Aktif, 1997});
+            TambahDosenLangsung({"Drs. Heri Prabowo", "1234567826", "197326261259", "Drs.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "heri.prabowo@univ.ac.id", "081200000026", "Jl. Analysis No. 177", StatusDosen::Cuti, 2004});
+            TambahDosenLangsung({"Yuni Astuti, M.Sc", "1234567827", "199427271260", "", "M.Sc", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "yuni.astuti@univ.ac.id", "081200000027", "Jl. Design No. 188", StatusDosen::Aktif, 2023});
+            TambahDosenLangsung({"Dr. Ir. Farid Rahman", "1234567828", "196528281261", "Dr. Ir.", "M.Eng", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "farid.rahman@univ.ac.id", "081200000028", "Jl. System No. 199", StatusDosen::Pensiun, 1990});
+            TambahDosenLangsung({"Gita Permatasari, M.Kom", "1234567829", "199629291262", "", "M.Kom", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::Perempuan, "gita.permatasari@univ.ac.id", "081200000029", "Jl. Architecture No. 200", StatusDosen::Aktif, 2022});
+            TambahDosenLangsung({"Hadi Nugroho, M.T", "1234567830", "198730301263", "", "M.T", "FTI", "Informatika", "Asisten Ahli", "S2", JenisKelamin::LakiLaki, "hadi.nugroho@univ.ac.id", "081200000030", "Jl. Security No. 211", StatusDosen::Aktif, 2021});
+        }
+    
+        updateFileDosen();
 
     }
 
@@ -591,7 +654,7 @@ int jumlahDosen = 0;
         if (jumlahDosen < 200) { // Pastikan array tidak penuh
             data[jumlahDosen++] = dosen;
         } else {
-            cout << "Kapasitas data mahasiswa penuh!" << endl;
+            cout << "Kapasitas data Dosen penuh!" << endl;
         }
     }
 
@@ -658,7 +721,7 @@ int jumlahDosen = 0;
         updateFileDosen();
     }
 
-    void tarikDatadoosenDarifile(){
+    void tarikDosenFile(){
         jumlahDosen=0;
         ifstream in("dataDosen.txt");
 
@@ -721,7 +784,8 @@ int jumlahDosen = 0;
                     DsSementara.tahunMasuk=0;
                 }
             }else if(line.find("-------------------------------------")!=string::npos){
-                tambahDosen();
+                data[jumlahDosen]=DsSementara;
+                jumlahDosen++;
             }
            
         }
@@ -732,14 +796,10 @@ int jumlahDosen = 0;
 
     //update Dosen ke file txt
     void updateFileDosen(){
-
-        //Tarik data dari file ke Array
-        tarikDatadoosenDarifile();
-
         //clear isi file
-        clearFileDosen();
+        // clearFileDosen();
 
-        ofstream in("dataDosen.txt");
+        ofstream in("dataDosen.txt", ios::trunc);
         if(in.is_open()){
             for(int i=0;i<jumlahDosen;i++){
                 in<<"Dosen ke-"<<i+1<<":"<<"\n";
@@ -772,6 +832,7 @@ int jumlahDosen = 0;
                         in<<"Tidak Aktif"<<"\n";
                         break;
                 }
+                in<<"-------------------------------------"<<"\n";
             }
             in.close();
         }else{
@@ -789,11 +850,8 @@ int jumlahDosen = 0;
         ifstream out;
         out.open("dataDosen.txt");
         string cetak;
-        int i=1;
         while(getline(out,cetak)){
-            cout << "Dosen ke-" << i << ":" << endl;
             cout<<cetak<<endl;
-            i++;
         }
         out.close();
 
@@ -842,6 +900,7 @@ int jumlahDosen = 0;
 }
 
     void editDosen(){
+        updateFileDosen();
         cout << "=====MENU EDIT DOSEN=====" << endl;
         string nidnCari;
         cout << "Masukkan NIDN dosen yang akan diedit: ";
@@ -854,7 +913,22 @@ int jumlahDosen = 0;
                 cout << "==============================\n";
                 cout << " Data Sebelumnya \n";
                 cout << "==============================\n";
-                tampilDosen();
+                cout << "Nama: " << data[i].nama << "\n";
+                cout << "NIP: " << data[i].nip << "\n";
+                cout << "Fakultas: " << data[i].fakultas << "\n";
+                cout << "Jurusan: " << data[i].jurusan << "\n";
+                cout << "Gelar Depan: " << data[i].gelarDepan << "\n";
+                cout << "Gelar Belakang: " << data[i].gelarBelakang << "\n";
+                cout << "Jabatan Akademik: " << data[i].jabatanAkademik << "\n";
+                cout << "Pendidikan Terakhir: " << data[i].pendidikanTerakhir << "\n";
+                cout << "Email: " << data[i].email << "\n";
+                cout << "No HP: " << data[i].noHp << "\n";
+                cout << "Alamat: " << data[i].alamat << "\n";
+                cout << "Jenis Kelamin: " << (data[i].gender == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << "\n";
+                cout << "Tahun Masuk: " << data[i].tahunMasuk << "\n";
+                cout << "Status: " << (data[i].status == StatusDosen::Aktif ? "Aktif" :
+                                    data[i].status == StatusDosen::Cuti ? "Cuti" :
+                                    data[i].status == StatusDosen::Pensiun ? "Pensiun" : "Tidak Aktif") << "\n";
                 cout << "==============================\n";
                 cout << " Masukkan Data Baru: \n";
                 cout << "\nMasukkan nama dosen: ";
@@ -908,10 +982,35 @@ int jumlahDosen = 0;
                         break;
                 }
                 cout << "Data dosen berhasil diperbarui!\n";
+                updateFileDosen();
                 break;
             }
         
-        updateFileDosen();
+        }
+        if (!ditemukan) {
+            cout << "Dosen dengan NIDN " << nidnCari << " tidak ditemukan.\n";
+        }
+    }
+
+    void cekKeaktifanDosen() {
+        cout << "=====MENU CEK KEAKTIFAN DOSEN=====" << endl;
+        string nidnCari;
+        cout << "Masukkan NIDN dosen yang akan dicek: ";
+        cin >> nidnCari;
+        bool ditemukan = false;
+        for (int i = 0; i < jumlahDosen; i++) {
+            if (data[i].nidn == nidnCari) {
+                ditemukan = true;
+                cout << "Data ditemukan:\n";
+                cout << "Nama: " << data[i].nama << "\n";
+                cout << "Status: " << (data[i].status == StatusDosen::Aktif ? "Aktif" :
+                                    data[i].status == StatusDosen::Cuti ? "Cuti" :
+                                    data[i].status == StatusDosen::Pensiun ? "Pensiun" : "Tidak Aktif") << "\n";
+                break;
+            }
+        }
+        if (!ditemukan) {
+            cout << "Dosen dengan NIDN " << nidnCari << " tidak ditemukan.\n";
         }
     }
 };
@@ -924,13 +1023,13 @@ private:
         NodeMataKuliah* next;     // Pointer ke node berikutnya
     };
 
-    NodeMataKuliah* head;         // Pointer ke head linked list
+    NodeMataKuliah* head = nullptr;         // Pointer ke head linked list
 
 public:
     
     ManajemenMatakuliah() {
-        head = nullptr;
-
+        if (head == nullptr) {
+        // Jika file kosong, tambahkan data mata kuliah awal
         tambahMataKuliahLangsung({"IF101", "Dasar Pemrograman", 3, "Dasar-dasar pemrograman", 1, "Informatika", "FTI",true});
         tambahMataKuliahLangsung({"IF102", "Dasar Sistem Komputer", 3, "Dasar Dasar Komputer", 1, "Informatika", "FTI", true});
         tambahMataKuliahLangsung({"IF103", "Kalkulus Informatika", 3, "Dasar-dasar Perhitungan ", 1, "Informatika", "FTI", true});
@@ -940,61 +1039,64 @@ public:
         tambahMataKuliahLangsung({"IF107", "Praktikum Dasar Pempograman", 1, "Praktikum ", 1, "Informatika", "FTI", true});
         tambahMataKuliahLangsung({"IF108", "AL-Qur'an dan Hadits", 2, "Pengertian Al-Qur'an ", 1, "Informatika", "FTI", true});
     
-        tambahMataKuliahLangsung({"IF111", "Pemrograman Web", 3, " Dasar Pemprograman Web ", 2, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF112", "Matematika Diskrit", 3, "Perhitungan Berbasis program", 2, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF113", "Bahasa Indonesia", 3, "Penerapan Dasar Bahasa Indonesia", 2, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF114", "Aljabar Linear Matrik", 2, "Perhitungan aljabar", 2, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF115", "Algoritma Pemprograman", 3, "Dasar dasar Pemprograman", 2, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF116", "Aristektur Komputer", 3, "Dasar Susunan komputer", 2, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF117", "Kemuhammadiyahan", 2, "Pembelajaran Muhammadiyah", 2, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF111", "Pemrograman Web", 3, " Dasar Pemprograman Web ", 2, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF112", "Matematika Diskrit", 3, "Perhitungan Berbasis program", 2, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF113", "Bahasa Indonesia", 3, "Penerapan Dasar Bahasa Indonesia", 2, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF114", "Aljabar Linear Matrik", 2, "Perhitungan aljabar", 2, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF115", "Algoritma Pemprograman", 3, "Dasar dasar Pemprograman", 2, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF116", "Aristektur Komputer", 3, "Dasar Susunan komputer", 2, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF117", "Kemuhammadiyahan", 2, "Pembelajaran Muhammadiyah", 2, "Informatika", "FTI",  true});
 
-        tambahMataKuliahLangsung({"IF121", "Algoritma dan Pemrograman", 3, "Dasar-dasar pemrograman", 3, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF122", "Struktur Data", 3, "Pengelolaan data dalam memori", 3, "Informatika", "FTI",   true});
-        tambahMataKuliahLangsung({"IF123", "Basis Data", 4, "Dasar-dasar basis data", 3, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF124", "Pemrograman Berorientasi Objek", 3, "Konsep OOP", 3, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF125", "Sistem Operasi", 3, "Operasi Sistem Komputer", 3, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF126", "Bahasa Inggris", 2, "Pembelajarann bahasa Inggris IT", 3, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF127", "Statistika Informatika", 4, "Konsep penerapan statistik ", 3, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF128", "Akidah Akhlak", 2, "Perbaikan Akhlak ", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF121", "Algoritma dan Pemrograman", 3, "Dasar-dasar pemrograman", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF122", "Struktur Data", 3, "Pengelolaan data dalam memori", 3, "Informatika", "FTI",   true});
+        // tambahMataKuliahLangsung({"IF123", "Basis Data", 4, "Dasar-dasar basis data", 3, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF124", "Pemrograman Berorientasi Objek", 3, "Konsep OOP", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF125", "Sistem Operasi", 3, "Operasi Sistem Komputer", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF126", "Bahasa Inggris", 2, "Pembelajarann bahasa Inggris IT", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF127", "Statistika Informatika", 4, "Konsep penerapan statistik ", 3, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF128", "Akidah Akhlak", 2, "Perbaikan Akhlak ", 3, "Informatika", "FTI", true});
 
-        tambahMataKuliahLangsung({"IF131", "AnalisiS Dan Perancangan Perangkat Lunak", 3, "Konsep Perancangan Perangkat Lunak", 4, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF132", "Grafika Komputer", 3, "Penerapan Grafik Komputer", 4, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF133", "Interaksi Manusia dan Komputer", 3, "Interaksi Manusia dan Sistem Komputer", 4, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF134", "Islam Inerdisipliner", 3, "Pengajaran Islam ", 4, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF135", "Kecedarsan Buatan", 3, "Operasi sistem cerdas", 4, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF136", "Komunikasi Data dan Jaringan Komputer", 3, "Komunikasi data jaringan", 4, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF137", "Strategi Algoritma", 3, "Strategi Pemprograman ", 4, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF131", "AnalisiS Dan Perancangan Perangkat Lunak", 3, "Konsep Perancangan Perangkat Lunak", 4, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF132", "Grafika Komputer", 3, "Penerapan Grafik Komputer", 4, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF133", "Interaksi Manusia dan Komputer", 3, "Interaksi Manusia dan Sistem Komputer", 4, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF134", "Islam Inerdisipliner", 3, "Pengajaran Islam ", 4, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF135", "Kecedarsan Buatan", 3, "Operasi sistem cerdas", 4, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF136", "Komunikasi Data dan Jaringan Komputer", 3, "Komunikasi data jaringan", 4, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF137", "Strategi Algoritma", 3, "Strategi Pemprograman ", 4, "Informatika", "FTI",  true});
 
-        tambahMataKuliahLangsung({"IF141", "Forensik Digital", 3, "Pemeriksa Kasus Digital", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF142", "Keamanan Komputer", 3, "Computer Security", 5, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF143", "Pembelajar Mesin", 3, "Pembelajaran Konsep Mesin Learning", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF144", "Pemprograman Mobile", 3, "Pembuatan Aplikasi Mobile ", 5, "Informatika", "FTI",true});
-        tambahMataKuliahLangsung({"IF145", "Pemprograman Web Dinamis", 3, "Pembuatan Web", 5, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF146", "Data Mining", 3, "Penambangan Data", 5, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF147", "Pengantar Manajemen dan Prinsip Proyek", 2, "Penerapan Managemen Konsep Dalam Proyek ", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF148", "Penjaminan Kualitas Perangkat Lunak", 3, "Penjamin Kualitas Perangkat Lunak ", 5, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF149", "Robotika Informatika", 3, "Perancangan Robot", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF150", "Sistem Pendukung Keputusan", 3, "Pendukung Keputusan", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF151", "Sistem Temu Balik Informasi", 3, "Temu Balik ", 5, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF152", "FTI Optimasi", 3, "Optimasi", 5, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF153", "Teori Bahasa Otomata", 2, "Bahasa Otomata ", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF141", "Forensik Digital", 3, "Pemeriksa Kasus Digital", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF142", "Keamanan Komputer", 3, "Computer Security", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF143", "Pembelajar Mesin", 3, "Pembelajaran Konsep Mesin Learning", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF144", "Pemprograman Mobile", 3, "Pembuatan Aplikasi Mobile ", 5, "Informatika", "FTI",true});
+        // tambahMataKuliahLangsung({"IF145", "Pemprograman Web Dinamis", 3, "Pembuatan Web", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF146", "Data Mining", 3, "Penambangan Data", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF147", "Pengantar Manajemen dan Prinsip Proyek", 2, "Penerapan Managemen Konsep Dalam Proyek ", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF148", "Penjaminan Kualitas Perangkat Lunak", 3, "Penjamin Kualitas Perangkat Lunak ", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF149", "Robotika Informatika", 3, "Perancangan Robot", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF150", "Sistem Pendukung Keputusan", 3, "Pendukung Keputusan", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF151", "Sistem Temu Balik Informasi", 3, "Temu Balik ", 5, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF152", "FTI Optimasi", 3, "Optimasi", 5, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF153", "Teori Bahasa Otomata", 2, "Bahasa Otomata ", 5, "Informatika", "FTI",  true});
 
-        tambahMataKuliahLangsung({"IF156", "Manajemen Proyek Teknologi Informasi", 2, "Konsep Perancangan Perangkat Lunak", 6, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF157", "Pengajaran TPQ", 0, "NGaji", 6, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF158", "Tahsinul Quran", 0, "Perbaikan Cara baca AL-Qur'an", 6, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF156", "Manajemen Proyek Teknologi Informasi", 2, "Konsep Perancangan Perangkat Lunak", 6, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF157", "Pengajaran TPQ", 0, "NGaji", 6, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF158", "Tahsinul Quran", 0, "Perbaikan Cara baca AL-Qur'an", 6, "Informatika", "FTI",  true});
 
-        tambahMataKuliahLangsung({"IF161", "Bahasa Inggris Profesional", 2, "Bahasa Internasional", 7, "Informatika", "FTI",true});
-        tambahMataKuliahLangsung({"IF162", "Fiqih Ibadah", 0, "Fikih", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF163", "Kapita Selekta", 2, "Kapita Selekta", 7, "Informatika", "FTI",  true});
-        tambahMataKuliahLangsung({"IF164", "Kewirausahaan", 2, "Pelatihan Ber wirausahaan ", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF165", "komunikasi Interpersonal", 2, "Komunikasi", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF169", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "FTI", true});
-        tambahMataKuliahLangsung({"IF170", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF161", "Bahasa Inggris Profesional", 2, "Bahasa Internasional", 7, "Informatika", "FTI",true});
+        // tambahMataKuliahLangsung({"IF162", "Fiqih Ibadah", 0, "Fikih", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF163", "Kapita Selekta", 2, "Kapita Selekta", 7, "Informatika", "FTI",  true});
+        // tambahMataKuliahLangsung({"IF164", "Kewirausahaan", 2, "Pelatihan Ber wirausahaan ", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF165", "komunikasi Interpersonal", 2, "Komunikasi", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF169", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF170", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "FTI", true});
 
-        tambahMataKuliahLangsung({"IF181", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "FTI", true});
+        // tambahMataKuliahLangsung({"IF181", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "FTI", true});
+        }
+
+        UpdateFileMataKuliah();
     }
 
     
@@ -1063,126 +1165,6 @@ public:
         }
     }
 
-    void hapusMataKuliah(){
-        UpdateFileMataKuliah();
-        cout<<"=====MENU HAPUS MATA KULIAH====="<<endl;
-        string kodeCari;
-        cout<<"Masukkan Kode Matakuliah yang akan di hapus :";
-        cin>>kodeCari;
-        NodeMataKuliah* temp=head;
-        NodeMataKuliah* prev=nullptr;
-        bool ditemukan=false;
-
-        while(temp!=nullptr){
-            if(temp->data.kodeMK==kodeCari){
-                ditemukan=true;
-                if(prev==nullptr){
-                    head=temp->next;
-                }else{
-                    prev->next=temp->next;
-                }
-                delete temp;
-                cout<<"Mata kuliah dengan kode "<<kodeCari<<" berhasil dihapus."<<endl;
-                break;
-            }
-            prev=temp;
-            temp=temp->next;
-        }
-
-        if(!ditemukan){
-            cout<<"Mata kuliah dengan kode "<<kodeCari<<" tidak ditemukan."<<endl;
-        }else{
-            UpdateFileMataKuliah();
-        }
-    }
-
-    void tarikDataDariFileMataKuliah() {
-        ifstream inFile("dataMataKuliah.txt");
-        if (inFile.is_open()) {
-            string line;
-            MataKuliah mk;
-            while (getline(inFile, line)) {
-                if (line.find("Kode :") != string::npos) {
-                    mk.kodeMK = line.substr(7); // Ambil nilai setelah "Kode :"
-                } else if (line.find("Nama :") != string::npos) {
-                    mk.namaMK = line.substr(7);
-                }else if (line.find("SKS :") != string::npos) {
-                string sksStr = line.substr(5);
-                try {
-                    mk.sks = stoi(sksStr);
-                } catch (...) {
-                    mk.sks = 0; // jika error konversi
-                }
-                } else if (line.find("Deskripsi :") != string::npos) {
-                    mk.deskripsi = line.substr(12);
-                } else if (line.find("Jurusan :") != string::npos) {
-                    mk.jurusan = line.substr(10);
-                } else if (line.find("Fakultas :") != string::npos) {
-                    mk.fakultas = line.substr(11);
-                } else if (line.find("Wajib :") != string::npos) {
-                    mk.wajib = (line.substr(8) == "Ya");
-                } else if (line.find("------------------------------------------------------") != string::npos) {
-                    // Tambahkan mata kuliah ke linked list
-                    tambahMataKuliahLangsung(mk);
-                }
-            }
-            inFile.close();
-        } else {
-            cout << "File dataMataKuliah.txt tidak ditemukan atau gagal dibuka." << endl;
-        }
-    }
-
-    //update mata kuliah ke file per semester
-    void UpdateFileMataKuliah() {
-    // Tarik data dari file ke linked list
-    tarikDataDariFileMataKuliah();
-
-    // Clear isi file
-    clearFileMataKuliah();
-
-    // Tulis ulang data dari linked list ke file
-    ofstream outFile("dataMataKuliah.txt");
-        if (!outFile.is_open()) {
-            cout << "Gagal membuka file untuk menyimpan data mata kuliah." << endl;
-            return;
-        }
-
-        for (int semester = 1; semester <= 8; semester++) {
-            outFile << "====MATA KULIAH SEMESTER " << semester << "====" << endl;
-            NodeMataKuliah* temp = head;
-            bool ditemukan = false;
-
-            while (temp != nullptr) {
-                if (temp->data.semester == semester) {
-                    outFile << "Kode :" << temp->data.kodeMK << endl;
-                    outFile << "   Nama :" << temp->data.namaMK << endl;
-                    outFile << "   SKS :" << temp->data.sks << endl;
-                    outFile << "   Deskripsi :" << temp->data.deskripsi << endl;
-                    outFile << "   Jurusan :" << temp->data.jurusan << endl;
-                    outFile << "   Fakultas :" << temp->data.fakultas << endl;
-                    outFile << "   Wajib :" << (temp->data.wajib ? "Ya" : "Tidak") << endl;
-                    outFile << "------------------------------------------------------" << endl;
-                    ditemukan = true;
-                }
-                temp = temp->next;
-            }
-
-            if (!ditemukan) {
-            outFile << "Tidak ada mata kuliah untuk semester ini." << endl;
-            }
-            outFile << endl;
-        }
-
-        outFile.close();
-        cout << "Data mata kuliah berhasil diperbarui ke file." << endl;
-    }
-
-    void clearFileMataKuliah(){
-        ofstream in("dataMataKuliah.txt", ios::trunc);
-        in.close();
-    }
-
-    
     void tambahMataKuliah() {
         NodeMataKuliah* newNode = new NodeMataKuliah();
         cout << "\n=== Tambah Mata Kuliah Baru ===" << endl;
@@ -1225,6 +1207,7 @@ public:
     }
 
     void editMataKuliah(){
+        UpdateFileMataKuliah();
         cout<<"=====MENU EDIT MATA KULIAH====="<<endl;
         string kodeCari;
         cout<<"Masukkan Kode Matakuliah yang akan di edit :";
@@ -1233,7 +1216,7 @@ public:
         for(NodeMataKuliah* temp=head;temp!=nullptr;temp=temp->next){
             if(temp->data.kodeMK==kodeCari){
                 ditemukan=true;
-                cout<<"Data di temukan. Masukkan Data baru :\n";
+                cout<<"Data di temukan\n";
                 cout<<"=============================="<<endl;
                 cout<<"       DATA SEBELUM NYA       "<<endl;
                 cout<<"=============================="<<endl;
@@ -1271,14 +1254,168 @@ public:
                 cin>>pilihWajib;
                 temp->data.wajib = (pilihWajib == 1);
                 cout<<"Data mata kuliah berhasil diperbarui!\n";
+                UpdateFileMataKuliah();
                 break;
 
             }
             
+            if (!ditemukan){
+                cout<<"Mata kuliah dengan kode "<<kodeCari<<" tidak ditemukan."<<endl;
+            }
         }
-        UpdateFileMataKuliah();
-
     }
+
+    void hapusMataKuliah(){
+        cout<<"=====MENU HAPUS MATA KULIAH====="<<endl;
+        string kodeCari;
+        cout<<"Masukkan Kode Matakuliah yang akan di hapus :";
+        cin>>kodeCari;
+        NodeMataKuliah* temp=head;
+        NodeMataKuliah* prev=nullptr;
+        bool ditemukan=false;
+
+        while(temp!=nullptr){
+            if(temp->data.kodeMK==kodeCari){
+                ditemukan=true;
+
+                //konfirmasi penghapusan
+                char konfirmasi;
+                cout<<"Apakah anda yakin ingin menghapus mata kuliah ini? (y/n): ";
+                cin>>konfirmasi;
+                if(konfirmasi!='y' && konfirmasi!='Y'){
+                    cout<<"Penghapusan dibatalkan."<<endl;
+                    return;
+                }
+
+                if(prev==nullptr){
+                    head=temp->next;
+                }else{
+                    prev->next=temp->next;
+                }
+                delete temp;
+                cout<<"Mata kuliah dengan kode "<<kodeCari<<" berhasil dihapus."<<endl;
+                UpdateFileMataKuliah();
+                break;
+            }
+            prev=temp;
+            temp=temp->next;
+        }
+
+        if(!ditemukan){
+            cout<<"Mata kuliah dengan kode "<<kodeCari<<" tidak ditemukan."<<endl;
+        }
+    }
+
+    void tarikDataDariFileMataKuliah() {
+    head = nullptr;
+    ifstream inFile("dataMataKuliah.txt");
+
+    if (!inFile.is_open()) {
+        cout << "File dataMataKuliah.txt tidak ditemukan atau gagal dibuka." << endl;
+        return;
+    }
+
+    string line;
+    MataKuliah mk;
+
+    while (getline(inFile, line)) {
+
+        // Hapus spasi depan & belakang
+        while (!line.empty() && (line[0] == ' ' || line[0] == '\t'))
+            line.erase(0, 1);
+
+        if (line.find("Kode :") == 0) {
+            mk = MataKuliah(); // reset data MK baru
+            mk.kodeMK = line.substr(7);
+        } else if (line.find("Nama :") == 0) {
+            mk.namaMK = line.substr(7);
+        } else if (line.find("SKS :") == 0) {
+            try {
+                mk.sks = stoi(line.substr(line.find(":") + 1));
+            } catch (...) {
+                mk.sks = 0;
+            }
+        } else if (line.find("Deskripsi :") == 0) {
+            mk.deskripsi = line.substr(12);
+        } else if (line.find("Semester :") == 0) {
+            try {
+                mk.semester = stoi(line.substr(10));
+            } catch (...) {
+                mk.semester = 0;
+            }
+        }
+        else if (line.find("Jurusan :") == 0) {
+            mk.jurusan = line.substr(10);
+        }
+        else if (line.find("Fakultas :") == 0) {
+            mk.fakultas = line.substr(11);
+        }
+        else if (line.find("Wajib :") == 0) {
+            string wajibStr = line.substr(8);
+            mk.wajib = (wajibStr == "Ya");
+        }
+        else if (line.find("-----") != string::npos) {
+            // Akhir data 1 mata kuliah → masukkan ke linked list
+            tambahMataKuliahLangsung(mk);
+        }
+    }
+
+    inFile.close();
+}
+
+
+    //update mata kuliah ke file per semester
+    void UpdateFileMataKuliah() {
+    // Tarik data dari file ke linked list
+    // tarikDataDariFileMataKuliah();
+
+    // Clear isi file
+    // clearFileMataKuliah();
+
+    // Tulis ulang data dari linked list ke file
+    ofstream outFile("dataMataKuliah.txt", ios::trunc);
+        if (!outFile.is_open()) {
+            cout << "Gagal membuka file untuk menyimpan data mata kuliah." << endl;
+            return;
+        }
+
+        for (int semester = 1; semester <= 8; semester++) {
+            outFile << "====MATA KULIAH SEMESTER " << semester << "====" << endl;
+            NodeMataKuliah* temp = head;
+            bool ditemukan = false;
+
+            while (temp != nullptr) {
+                if (temp->data.semester == semester) {
+                    outFile << "Kode :" << temp->data.kodeMK << endl;
+                    outFile << "   Nama :" << temp->data.namaMK << endl;
+                    outFile << "   SKS :" << temp->data.sks << endl;
+                    outFile << "   Deskripsi :" << temp->data.deskripsi << endl;
+                    outFile << "   Semester :" << temp->data.semester << endl;
+                    outFile << "   Jurusan :" << temp->data.jurusan << endl;
+                    outFile << "   Fakultas :" << temp->data.fakultas << endl;
+                    outFile << "   Wajib :" << (temp->data.wajib ? "Ya" : "Tidak") << endl;
+                    outFile << "------------------------------------------------------" << endl;
+                    ditemukan = true;
+                }
+                temp = temp->next;
+            }
+
+            if (!ditemukan) {
+            outFile << "Tidak ada mata kuliah untuk semester ini." << endl;
+            }
+            outFile << endl;
+        }
+
+        outFile.close();
+    }
+
+    void clearFileMataKuliah(){
+        ofstream in("dataMataKuliah.txt", ios::trunc);
+        in.close();
+    }
+
+    
+    
 };
 
 //CLASS UNTUK MENU UTAMA DOSEN MATA KULIAH (CIRCULAR LINKED LIST)

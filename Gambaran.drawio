@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="XrHhuJpk2YQxBKXzgdbh">
-        <mxGraphModel dx="2471" dy="666" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1956" dy="214" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -31,7 +31,7 @@
                 <mxCell id="298" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="vxwZ2ynwk_jNYCJZXO2z-90" target="vxwZ2ynwk_jNYCJZXO2z-91" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="417" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="vxwZ2ynwk_jNYCJZXO2z-90" target="415">
+                <mxCell id="417" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="vxwZ2ynwk_jNYCJZXO2z-90" target="415" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="vxwZ2ynwk_jNYCJZXO2z-90" value="Login Admin&amp;nbsp;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
@@ -43,13 +43,13 @@
                 <mxCell id="VOGMMPc9eYCUuUgIyV1X-90" value="Manajemen Dosen&amp;nbsp;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-725" y="690" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="394" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-91" target="330">
+                <mxCell id="394" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-91" target="330" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="VOGMMPc9eYCUuUgIyV1X-91" value="Manajemen Mata kuliah" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-565" y="690" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="395" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-92" target="338">
+                <mxCell id="395" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-92" target="338" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="VOGMMPc9eYCUuUgIyV1X-92" value="Validasi KRS" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
@@ -61,7 +61,7 @@
                 <mxCell id="VOGMMPc9eYCUuUgIyV1X-94" value="Verivikasi Pembayan" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="375" y="680" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="399" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.421;entryY=0.896;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-95" target="363">
+                <mxCell id="399" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.421;entryY=0.896;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-95" target="363" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="520" y="430" as="targetPoint"/>
                     </mxGeometry>
@@ -365,43 +365,43 @@
                 <mxCell id="299" value="Menu Manajemen Mahasiswa" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-870" y="290" width="140" height="300" as="geometry"/>
                 </mxCell>
-                <mxCell id="301" value="Tambah Mahasiswa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="301" value="Tambah Mahasiswa" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="302" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Edit / Hapus Mata Mahasiswa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#FF80E4;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="303" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Detail Mahasiwa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="303" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Detail Mahasiwa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="304" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Status Mahasiswa (aktif, Cuti, Lulus, DO)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="304" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Status Mahasiswa (aktif, Cuti, Lulus, DO)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="305" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Riwayat Akademik (KHS, IPK, SKS)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="150" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="306" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Penetapan Dosen Wali&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="306" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Penetapan Dosen Wali&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#FF66FF;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="180" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="307" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Import / Export Data Mahasiswa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="307" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Import / Export Data Mahasiswa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#FF66FF;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="210" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="308" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Cetak Data Mahasiswa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="308" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Cetak Data Mahasiswa&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#FF66FF;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="240" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="300" value=" Daftar Mahasiswa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
+                <mxCell id="300" value=" Daftar Mahasiswa" style="text;strokeColor=none;fillColor=#FF66FF;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="299" vertex="1">
                     <mxGeometry y="270" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="311" value="Menu Manajemen Dosen" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-690" y="290" width="140" height="300" as="geometry"/>
                 </mxCell>
-                <mxCell id="312" value=" Daftar Dosen" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
+                <mxCell id="312" value=" Daftar Dosen" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="313" value="Tambah Dosen Baru" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
+                <mxCell id="313" value="Tambah Dosen Baru" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="314" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Edit / Hapus Dosen&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
+                <mxCell id="314" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Edit / Hapus Dosen&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="315" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Detail Profil Dosen&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
@@ -410,7 +410,7 @@
                 <mxCell id="316" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Penugasan Mata Kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="150" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="317" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Status Aktif (Tetap / Tidak Tetap)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
+                <mxCell id="317" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Status Aktif (Tetap / Tidak Tetap)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="180" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="318" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Jadwal Mengajar&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
@@ -422,7 +422,7 @@
                 <mxCell id="320" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Export Data Dosen&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="270" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="321" value="Manajemen Mata Kuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="321" value="Manajemen Mata Kuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FF6666;" parent="1" vertex="1">
                     <mxGeometry x="-510" y="290" width="140" height="210" as="geometry"/>
                 </mxCell>
                 <mxCell id="322" value=" Daftar Mata Kuliah" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
@@ -482,10 +482,10 @@
                 <mxCell id="347" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;validasi nilai (oleh kaprodi/admin)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="340" vertex="1">
                     <mxGeometry y="150" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="419" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;rekap nilai per kelas/mata kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="340">
+                <mxCell id="419" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;rekap nilai per kelas/mata kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="340" vertex="1">
                     <mxGeometry y="180" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="421" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;konversi nilai (huruf -&amp;gt;angka)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="340">
+                <mxCell id="421" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;konversi nilai (huruf -&amp;gt;angka)&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="340" vertex="1">
                     <mxGeometry y="210" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="348" value="Menu&amp;nbsp; Verifikasi Pembayaran" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -551,37 +551,37 @@
                 <mxCell id="371" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Persetujuan oleh Admin Fakultas&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="365" vertex="1">
                     <mxGeometry y="180" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="392" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.395;entryY=1.164;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="vxwZ2ynwk_jNYCJZXO2z-91" target="300">
+                <mxCell id="392" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.395;entryY=1.164;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="vxwZ2ynwk_jNYCJZXO2z-91" target="300" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="393" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.455;entryY=1.081;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-90" target="320">
+                <mxCell id="393" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.455;entryY=1.081;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-90" target="320" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="398" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.464;entryY=1.081;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-94" target="354">
+                <mxCell id="398" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.464;entryY=1.081;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-94" target="354" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="400" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.413;entryY=1.044;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-96" target="371">
+                <mxCell id="400" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.413;entryY=1.044;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-96" target="371" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="401" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.433;entryY=1.067;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-97" target="282">
+                <mxCell id="401" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.433;entryY=1.067;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-97" target="282" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="411" value="Manajemen Dosen Matakuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="411" value="Manajemen Dosen Matakuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-100" y="290" width="140" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="412" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot; style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Penetapan Dosen Pengampu mata kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="411">
+                <mxCell id="412" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot; style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Penetapan Dosen Pengampu mata kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="411" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="413" value="Edit pengampu mata kuliah" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="411">
+                <mxCell id="413" value="Edit pengampu mata kuliah" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="411" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="415" value="Manajemen Dosen Matakuliah" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                <mxCell id="415" value="Manajemen Dosen Matakuliah" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-80" y="700" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="416" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="415" target="413">
+                <mxCell id="416" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="415" target="413" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="422" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.437;entryY=1.022;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VOGMMPc9eYCUuUgIyV1X-93" target="421">
+                <mxCell id="422" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.437;entryY=1.022;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="VOGMMPc9eYCUuUgIyV1X-93" target="421" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>

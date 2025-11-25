@@ -11,6 +11,9 @@ private:
 public:
     void tampilMenuDash() {
         mnjMhs.tarikMahasiswadarifile();
+        mnjDosen.tarikDosenFile();
+        mnjMatkul.tarikDataDariFileMataKuliah();
+        // mnjdsmatkul.tarikDosenMatakuliahDariFile();
         int pilih;
         do {
             cout << "\n=== DASHBOARD ADMIN ===" << endl;
@@ -53,7 +56,9 @@ public:
             cout << "1. Tambah Dosen" << endl;
             cout << "2. Lihat Dosen" << endl;
             cout << "3. Edit data Dosen" << endl;
-            cout << "4. Keluar" << endl;
+            cout << "4. Hapus Dosen" << endl;
+            cout << "5. Cek Keaktifan Dosen" << endl;
+            cout << "6. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
@@ -66,10 +71,14 @@ public:
                 break;
                 case 4: mnjDosen.hapusDosen(); 
                 break;
+                case 5: mnjDosen.cekKeaktifanDosen();
+                break;
+                case 6: cout << "Keluar dari dashboard manajemen dosen...\n"; 
+                break;
                 default: cout << "Pilihan tidak valid!\n";
                 break;
             }
-        } while (pilih != 4);
+        } while (pilih != 6);
     }
 
     void tampilMenuMnj() {
@@ -80,7 +89,8 @@ public:
             cout << "2. Lihat Mahasiswa" << endl;
             cout << "3. Edit data Mahasiswa" << endl;
             cout << "4. Hapus Mahasiswa" << endl;
-            cout << "5. Keluar" << endl;
+            cout << "5. Cek Keaktifan Mahasiswa" << endl;
+            cout << "6. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
@@ -93,12 +103,14 @@ public:
                 break;
                 case 4: mnjMhs.hapusMahasiswa();
                 break;
-                case 5: cout << "Keluar dari dashboard manajemen mahasiswa...\n"; 
+                case 5: mnjMhs.cekKeaktifanMahasiswa();
+                break;
+                case 6: cout << "Keluar dari dashboard manajemen mahasiswa...\n"; 
                 break;
                 default: cout << "Pilihan tidak valid!\n"; 
                 break;
             }
-        } while (pilih != 5);
+        } while (pilih != 6);
     }
 
     void tampilMenuMatakuliah() {
