@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="XrHhuJpk2YQxBKXzgdbh">
-        <mxGraphModel dx="1956" dy="214" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2367" dy="394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -422,19 +422,19 @@
                 <mxCell id="320" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Export Data Dosen&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="311" vertex="1">
                     <mxGeometry y="270" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="321" value="Manajemen Mata Kuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FF6666;" parent="1" vertex="1">
+                <mxCell id="321" value="Manajemen Mata Kuliah" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="-510" y="290" width="140" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="322" value=" Daftar Mata Kuliah" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
+                <mxCell id="322" value=" Daftar Mata Kuliah" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="323" value="Tambah Mata Kuliah" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
+                <mxCell id="323" value="Tambah Mata Kuliah" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="324" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Edit / Hapus Mata Kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
+                <mxCell id="324" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Edit / Hapus Mata Kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="325" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Detail Mata Kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
+                <mxCell id="325" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Detail Mata Kuliah&lt;/strong&gt;" style="text;strokeColor=none;fillColor=#1BFF4D;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">
                     <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="329" value="&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;Import / Export Data Mata Kuliah&lt;/strong&gt;&lt;div&gt;&lt;strong data-start=&quot;1107&quot; data-end=&quot;1135&quot;&gt;&lt;br&gt;&lt;/strong&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="321" vertex="1">

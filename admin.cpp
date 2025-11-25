@@ -101,6 +101,13 @@ struct Krs {
     float nilaiAngka;      // contoh: 4.0, 3.5, dst.
 };
 
+struct Kelas{
+    string kdDosenMk;
+    string namaKelas;      // contoh: "IF-01", "IF-02"
+    string ruangan;        // contoh: "R101", "Lab Komputer 1"
+    string jadwal;         // contoh: "Senin 08:00-10:00"
+};
+
 // CLASS UNTUK LOGIN PORTAL ADMIN DAN AUTENTIKASI
 class AdminPortal {
 private:
@@ -1039,61 +1046,61 @@ public:
         tambahMataKuliahLangsung({"IF107", "Praktikum Dasar Pempograman", 1, "Praktikum ", 1, "Informatika", "FTI", true});
         tambahMataKuliahLangsung({"IF108", "AL-Qur'an dan Hadits", 2, "Pengertian Al-Qur'an ", 1, "Informatika", "FTI", true});
     
-        // tambahMataKuliahLangsung({"IF111", "Pemrograman Web", 3, " Dasar Pemprograman Web ", 2, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF112", "Matematika Diskrit", 3, "Perhitungan Berbasis program", 2, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF113", "Bahasa Indonesia", 3, "Penerapan Dasar Bahasa Indonesia", 2, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF114", "Aljabar Linear Matrik", 2, "Perhitungan aljabar", 2, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF115", "Algoritma Pemprograman", 3, "Dasar dasar Pemprograman", 2, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF116", "Aristektur Komputer", 3, "Dasar Susunan komputer", 2, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF117", "Kemuhammadiyahan", 2, "Pembelajaran Muhammadiyah", 2, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF111", "Pemrograman Web", 3, " Dasar Pemprograman Web ", 2, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF112", "Matematika Diskrit", 3, "Perhitungan Berbasis program", 2, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF113", "Bahasa Indonesia", 3, "Penerapan Dasar Bahasa Indonesia", 2, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF114", "Aljabar Linear Matrik", 2, "Perhitungan aljabar", 2, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF115", "Algoritma Pemprograman", 3, "Dasar dasar Pemprograman", 2, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF116", "Aristektur Komputer", 3, "Dasar Susunan komputer", 2, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF117", "Kemuhammadiyahan", 2, "Pembelajaran Muhammadiyah", 2, "Informatika", "FTI",  true});
 
-        // tambahMataKuliahLangsung({"IF121", "Algoritma dan Pemrograman", 3, "Dasar-dasar pemrograman", 3, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF122", "Struktur Data", 3, "Pengelolaan data dalam memori", 3, "Informatika", "FTI",   true});
-        // tambahMataKuliahLangsung({"IF123", "Basis Data", 4, "Dasar-dasar basis data", 3, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF124", "Pemrograman Berorientasi Objek", 3, "Konsep OOP", 3, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF125", "Sistem Operasi", 3, "Operasi Sistem Komputer", 3, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF126", "Bahasa Inggris", 2, "Pembelajarann bahasa Inggris IT", 3, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF127", "Statistika Informatika", 4, "Konsep penerapan statistik ", 3, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF128", "Akidah Akhlak", 2, "Perbaikan Akhlak ", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF121", "Algoritma dan Pemrograman", 3, "Dasar-dasar pemrograman", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF122", "Struktur Data", 3, "Pengelolaan data dalam memori", 3, "Informatika", "FTI",   true});
+        tambahMataKuliahLangsung({"IF123", "Basis Data", 4, "Dasar-dasar basis data", 3, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF124", "Pemrograman Berorientasi Objek", 3, "Konsep OOP", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF125", "Sistem Operasi", 3, "Operasi Sistem Komputer", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF126", "Bahasa Inggris", 2, "Pembelajarann bahasa Inggris IT", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF127", "Statistika Informatika", 4, "Konsep penerapan statistik ", 3, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF128", "Akidah Akhlak", 2, "Perbaikan Akhlak ", 3, "Informatika", "FTI", true});
 
-        // tambahMataKuliahLangsung({"IF131", "AnalisiS Dan Perancangan Perangkat Lunak", 3, "Konsep Perancangan Perangkat Lunak", 4, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF132", "Grafika Komputer", 3, "Penerapan Grafik Komputer", 4, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF133", "Interaksi Manusia dan Komputer", 3, "Interaksi Manusia dan Sistem Komputer", 4, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF134", "Islam Inerdisipliner", 3, "Pengajaran Islam ", 4, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF135", "Kecedarsan Buatan", 3, "Operasi sistem cerdas", 4, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF136", "Komunikasi Data dan Jaringan Komputer", 3, "Komunikasi data jaringan", 4, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF137", "Strategi Algoritma", 3, "Strategi Pemprograman ", 4, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF131", "AnalisiS Dan Perancangan Perangkat Lunak", 3, "Konsep Perancangan Perangkat Lunak", 4, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF132", "Grafika Komputer", 3, "Penerapan Grafik Komputer", 4, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF133", "Interaksi Manusia dan Komputer", 3, "Interaksi Manusia dan Sistem Komputer", 4, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF134", "Islam Inerdisipliner", 3, "Pengajaran Islam ", 4, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF135", "Kecedarsan Buatan", 3, "Operasi sistem cerdas", 4, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF136", "Komunikasi Data dan Jaringan Komputer", 3, "Komunikasi data jaringan", 4, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF137", "Strategi Algoritma", 3, "Strategi Pemprograman ", 4, "Informatika", "FTI",  true});
 
-        // tambahMataKuliahLangsung({"IF141", "Forensik Digital", 3, "Pemeriksa Kasus Digital", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF142", "Keamanan Komputer", 3, "Computer Security", 5, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF143", "Pembelajar Mesin", 3, "Pembelajaran Konsep Mesin Learning", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF144", "Pemprograman Mobile", 3, "Pembuatan Aplikasi Mobile ", 5, "Informatika", "FTI",true});
-        // tambahMataKuliahLangsung({"IF145", "Pemprograman Web Dinamis", 3, "Pembuatan Web", 5, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF146", "Data Mining", 3, "Penambangan Data", 5, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF147", "Pengantar Manajemen dan Prinsip Proyek", 2, "Penerapan Managemen Konsep Dalam Proyek ", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF148", "Penjaminan Kualitas Perangkat Lunak", 3, "Penjamin Kualitas Perangkat Lunak ", 5, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF149", "Robotika Informatika", 3, "Perancangan Robot", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF150", "Sistem Pendukung Keputusan", 3, "Pendukung Keputusan", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF151", "Sistem Temu Balik Informasi", 3, "Temu Balik ", 5, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF152", "FTI Optimasi", 3, "Optimasi", 5, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF153", "Teori Bahasa Otomata", 2, "Bahasa Otomata ", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF141", "Forensik Digital", 3, "Pemeriksa Kasus Digital", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF142", "Keamanan Komputer", 3, "Computer Security", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF143", "Pembelajar Mesin", 3, "Pembelajaran Konsep Mesin Learning", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF144", "Pemprograman Mobile", 3, "Pembuatan Aplikasi Mobile ", 5, "Informatika", "FTI",true});
+        tambahMataKuliahLangsung({"IF145", "Pemprograman Web Dinamis", 3, "Pembuatan Web", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF146", "Data Mining", 3, "Penambangan Data", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF147", "Pengantar Manajemen dan Prinsip Proyek", 2, "Penerapan Managemen Konsep Dalam Proyek ", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF148", "Penjaminan Kualitas Perangkat Lunak", 3, "Penjamin Kualitas Perangkat Lunak ", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF149", "Robotika Informatika", 3, "Perancangan Robot", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF150", "Sistem Pendukung Keputusan", 3, "Pendukung Keputusan", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF151", "Sistem Temu Balik Informasi", 3, "Temu Balik ", 5, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF152", "FTI Optimasi", 3, "Optimasi", 5, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF153", "Teori Bahasa Otomata", 2, "Bahasa Otomata ", 5, "Informatika", "FTI",  true});
 
-        // tambahMataKuliahLangsung({"IF156", "Manajemen Proyek Teknologi Informasi", 2, "Konsep Perancangan Perangkat Lunak", 6, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF157", "Pengajaran TPQ", 0, "NGaji", 6, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF158", "Tahsinul Quran", 0, "Perbaikan Cara baca AL-Qur'an", 6, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF156", "Manajemen Proyek Teknologi Informasi", 2, "Konsep Perancangan Perangkat Lunak", 6, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF157", "Pengajaran TPQ", 0, "NGaji", 6, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF158", "Tahsinul Quran", 0, "Perbaikan Cara baca AL-Qur'an", 6, "Informatika", "FTI",  true});
 
-        // tambahMataKuliahLangsung({"IF161", "Bahasa Inggris Profesional", 2, "Bahasa Internasional", 7, "Informatika", "FTI",true});
-        // tambahMataKuliahLangsung({"IF162", "Fiqih Ibadah", 0, "Fikih", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF163", "Kapita Selekta", 2, "Kapita Selekta", 7, "Informatika", "FTI",  true});
-        // tambahMataKuliahLangsung({"IF164", "Kewirausahaan", 2, "Pelatihan Ber wirausahaan ", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF165", "komunikasi Interpersonal", 2, "Komunikasi", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF169", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "FTI", true});
-        // tambahMataKuliahLangsung({"IF170", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF161", "Bahasa Inggris Profesional", 2, "Bahasa Internasional", 7, "Informatika", "FTI",true});
+        tambahMataKuliahLangsung({"IF162", "Fiqih Ibadah", 0, "Fikih", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF163", "Kapita Selekta", 2, "Kapita Selekta", 7, "Informatika", "FTI",  true});
+        tambahMataKuliahLangsung({"IF164", "Kewirausahaan", 2, "Pelatihan Ber wirausahaan ", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF165", "komunikasi Interpersonal", 2, "Komunikasi", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF166", "Pengukuran Arah Kiblat", 0, "Penentu Arah Kiblat", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF167", "Pra Nikah", 0, "Pra Nikah ", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF168", "Praktek Magang", 3, "Magang ", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF169", "Sosio Informatika", 2, "Sosio", 7, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF170", "Kuliah Kerja Nyata", 4, "KKN", 7, "Informatika", "FTI", true});
 
-        // tambahMataKuliahLangsung({"IF181", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "FTI", true});
+        tambahMataKuliahLangsung({"IF181", "Skripsi", 6, "Tugas Akhir", 8, "Informatika", "FTI", true});
         }
 
         UpdateFileMataKuliah();
@@ -1429,69 +1436,69 @@ private:
         NodeDosenMataKuliah(const DosenMataKuliah& dmk) : data(dmk), next(nullptr), prev(nullptr) {}
     };
     
-    NodeDosenMataKuliah* head;
-    NodeDosenMataKuliah* tail;
-    int jumlah;
+    NodeDosenMataKuliah* head = nullptr;
+    NodeDosenMataKuliah* tail = nullptr;
+    int jumlah = 0;
 
 public:
     ManajemenDosenMataKuliah() {
-        head = nullptr;
-        tail = nullptr;
-        jumlah = 0;
-        
+
+    if (head == nullptr) {
     // Dosen pertama
-    tambahDosenMataKuliahLangsung({"1001234501", "IF101", "DMK001"});
-    tambahDosenMataKuliahLangsung({"1001234501", "IF102", "DMK002"});
-    tambahDosenMataKuliahLangsung({"1001234501", "IF103", "DMK003"});
+    tambahDosenMataKuliahLangsung({"1234567801", "IF101", "DMK001"});
+    tambahDosenMataKuliahLangsung({"1234567801", "IF102", "DMK002"});
+    tambahDosenMataKuliahLangsung({"1234567801", "IF103", "DMK003"});
     // Dosen ke 2
-    tambahDosenMataKuliahLangsung({"1001234502", "IF104", "DMK004"});
-    tambahDosenMataKuliahLangsung({"1001234502", "IF105", "DMK005"});
+    tambahDosenMataKuliahLangsung({"1234567802", "IF104", "DMK004"});
+    tambahDosenMataKuliahLangsung({"1234567802", "IF105", "DMK005"});
     // Dosen ke 3
-    tambahDosenMataKuliahLangsung({"1001234503", "IF106", "DMK006"});
-    tambahDosenMataKuliahLangsung({"1001234503", "IF107", "DMK007"});
-    tambahDosenMataKuliahLangsung({"1001234503", "IF108", "DMK008"}); 
+    tambahDosenMataKuliahLangsung({"1234567803", "IF106", "DMK006"});
+    tambahDosenMataKuliahLangsung({"1234567803", "IF107", "DMK007"});
+    tambahDosenMataKuliahLangsung({"1234567803", "IF108", "DMK008"}); 
     // Dosen ke 4
-    tambahDosenMataKuliahLangsung({"1001234504", "IF111", "DMK009"});
-    tambahDosenMataKuliahLangsung({"1001234504", "IF112", "DMK010"}); 
+    tambahDosenMataKuliahLangsung({"1234567804", "IF111", "DMK009"});
+    tambahDosenMataKuliahLangsung({"1234567804", "IF112", "DMK010"}); 
     // Dosen ke 5
-    tambahDosenMataKuliahLangsung({"1001234505", "IF113", "DMK011"});
-    tambahDosenMataKuliahLangsung({"1001234505", "IF114", "DMK012"});
-    tambahDosenMataKuliahLangsung({"1001234505", "IF115", "DMK013"});  
+    tambahDosenMataKuliahLangsung({"1234567805", "IF113", "DMK011"});
+    tambahDosenMataKuliahLangsung({"1234567805", "IF114", "DMK012"});
+    tambahDosenMataKuliahLangsung({"1234567805", "IF115", "DMK013"});  
     // Dosen ke 6
-    tambahDosenMataKuliahLangsung({"1001234506", "IF116", "DMK014"});
-    tambahDosenMataKuliahLangsung({"1001234506", "IF117", "DMK015"}); 
+    tambahDosenMataKuliahLangsung({"1234567806", "IF116", "DMK014"});
+    tambahDosenMataKuliahLangsung({"1234567806", "IF117", "DMK015"}); 
     // Dosen ke 7
-    tambahDosenMataKuliahLangsung({"1001234507", "IF121", "DMK016"});
-    tambahDosenMataKuliahLangsung({"1001234507", "IF122", "DMK017"});
-    tambahDosenMataKuliahLangsung({"1001234507", "IF123", "DMK018"}); 
+    tambahDosenMataKuliahLangsung({"1234567807", "IF121", "DMK016"});
+    tambahDosenMataKuliahLangsung({"1234567807", "IF122", "DMK017"});
+    tambahDosenMataKuliahLangsung({"1234567807", "IF123", "DMK018"}); 
     // Dosen ke 8
-    tambahDosenMataKuliahLangsung({"1001234508", "IF124", "DMK019"});
-    tambahDosenMataKuliahLangsung({"1001234508", "IF125", "DMK020"});  
+    tambahDosenMataKuliahLangsung({"1234567808", "IF124", "DMK019"});
+    tambahDosenMataKuliahLangsung({"1234567808", "IF125", "DMK020"});  
     // Dosen ke 9
-    tambahDosenMataKuliahLangsung({"1001234509", "IF126", "DMK021"});
-    tambahDosenMataKuliahLangsung({"1001234509", "IF127", "DMK022"});
-    tambahDosenMataKuliahLangsung({"1001234509", "IF128", "DMK023"}); 
+    tambahDosenMataKuliahLangsung({"1234567809", "IF126", "DMK021"});
+    tambahDosenMataKuliahLangsung({"1234567809", "IF127", "DMK022"});
+    tambahDosenMataKuliahLangsung({"1234567809", "IF128", "DMK023"}); 
     // Dosen ke 10
-    tambahDosenMataKuliahLangsung({"1001234510", "IF131", "DMK024"});
-    tambahDosenMataKuliahLangsung({"1001234510", "IF132", "DMK025"}); 
+    tambahDosenMataKuliahLangsung({"1234567810", "IF131", "DMK024"});
+    tambahDosenMataKuliahLangsung({"1234567810", "IF132", "DMK025"}); 
     // Dosen ke 11
-    tambahDosenMataKuliahLangsung({"1001234511", "IF133", "DMK026"});
-    tambahDosenMataKuliahLangsung({"1001234511", "IF134", "DMK027"});
-    tambahDosenMataKuliahLangsung({"1001234511", "IF135", "DMK028"});  
+    tambahDosenMataKuliahLangsung({"1234567811", "IF133", "DMK026"});
+    tambahDosenMataKuliahLangsung({"1234567811", "IF134", "DMK027"});
+    tambahDosenMataKuliahLangsung({"1234567811", "IF135", "DMK028"});  
     // Dosen ke 12
-    tambahDosenMataKuliahLangsung({"1001234512", "IF136", "DMK029"});
-    tambahDosenMataKuliahLangsung({"1001234512", "IF137", "DMK030"});  
+    tambahDosenMataKuliahLangsung({"1234567812", "IF136", "DMK029"});
+    tambahDosenMataKuliahLangsung({"1234567812", "IF137", "DMK030"});  
     // Dosen ke 13
-    tambahDosenMataKuliahLangsung({"1001234513", "IF141", "DMK031"});
-    tambahDosenMataKuliahLangsung({"1001234513", "IF142", "DMK032"});
-    tambahDosenMataKuliahLangsung({"1001234513", "IF143", "DMK033"});  
+    tambahDosenMataKuliahLangsung({"1234567813", "IF141", "DMK031"});
+    tambahDosenMataKuliahLangsung({"1234567813", "IF142", "DMK032"});
+    tambahDosenMataKuliahLangsung({"1234567813", "IF143", "DMK033"});  
     // Dosen ke 14
-    tambahDosenMataKuliahLangsung({"1001234514", "IF144", "DMK034"});
-    tambahDosenMataKuliahLangsung({"1001234514", "IF145", "DMK035"}); 
+    tambahDosenMataKuliahLangsung({"1234567814", "IF144", "DMK034"});
+    tambahDosenMataKuliahLangsung({"1234567814", "IF145", "DMK035"}); 
     // Dosen ke 15
-    tambahDosenMataKuliahLangsung({"1001234515", "IF146", "DMK036"});
-    tambahDosenMataKuliahLangsung({"1001234515", "IF147", "DMK037"});
-    tambahDosenMataKuliahLangsung({"1001234515", "IF148", "DMK038"});
+    tambahDosenMataKuliahLangsung({"1234567815", "IF146", "DMK036"});
+    tambahDosenMataKuliahLangsung({"1234567815", "IF147", "DMK037"});
+    tambahDosenMataKuliahLangsung({"1234567815", "IF148", "DMK038"});
+    }
+    updateFileDosenMataKuliah();
     }
 
     // Menghapus semua node (digantikan destructor)
@@ -1516,22 +1523,23 @@ public:
     // Tambah data dosen mata kuliah ke circular linked list
     void tambahDosenMataKuliahLangsung(const DosenMataKuliah& dmk) {
         NodeDosenMataKuliah* newNode = new NodeDosenMataKuliah(dmk);
-        
+
         if (head == nullptr) {
-            // List kosong
             head = newNode;
             tail = newNode;
-            newNode->next = NULL;
-            newNode->prev = NULL;
+            newNode->next = head;
+            newNode->prev = tail;
         } else {
-            // Tambah di akhir
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
-            tail->next = NULL;
+
+            tail->next = head;
+            head->prev = tail;
         }
         jumlah++;
     }
+
 
     // Tambah data dosen mata kuliah melalui input
     void tambahDosenMataKuliah() {
@@ -1742,9 +1750,7 @@ public:
     // Update data ke file
     void updateFileDosenMataKuliah() {
 
-        tarikDataDariFileDosenMataKuliah();
-
-        clearFileDosenMataKuliah();
+        // clearFileDosenMataKuliah();
 
         ofstream outFile("dataDosenMataKuliah.txt", ios::trunc);
         if (!outFile.is_open()) {
@@ -1777,14 +1783,14 @@ public:
         } while (current != head);
 
         outFile.close();
-        cout << "Data dosen mata kuliah berhasil disimpan ke file." << endl;
+        // cout << "Data dosen mata kuliah berhasil disimpan ke file." << endl;
     }
 
     // Tarik data dari file
     void tarikDataDariFileDosenMataKuliah() {
         ifstream inFile("dataDosenMataKuliah.txt");
         if (!inFile.is_open()) {
-            cout << "File dataDosenMataKuliah.txt tidak ditemukan. Akan dibuat file baru." << endl;
+            // cout << "File dataDosenMataKuliah.txt tidak ditemukan. Akan dibuat file baru." << endl;
             return;
         }
 
@@ -1811,7 +1817,6 @@ public:
         }
 
         inFile.close();
-        cout << "Berhasil memuat " << jumlah << " data dosen mata kuliah dari file." << endl;
     }
 
     // Clear file
