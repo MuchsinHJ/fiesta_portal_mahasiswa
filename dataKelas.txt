@@ -1,0 +1,96 @@
+Kode Kelas: IF101-A
+Nama Kelas: A
+Kapasitas: 30
+--------------------------
+Kode Kelas: IF101-B
+Nama Kelas: B
+Kapasitas: 30
+--------------------------
+Kode Kelas: IF101-C
+Nama Kelas: C
+Kapasitas: 30
+--------------------------
+Kode Kelas: IF102-A
+Nama Kelas: A
+Kapasitas: 25
+--------------------------
+Kode Kelas: IF102-B
+Nama Kelas: B
+Kapasitas: 25
+--------------------------
+Kode Kelas: IF102-C
+Nama Kelas: C
+Kapasitas: 25
+--------------------------
+Kode Kelas: IF103-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF103-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF103-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF104-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF104-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF104-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF105-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF105-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF105-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF106-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF106-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF106-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF107-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF107-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF107-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF108-A
+Nama Kelas: A
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF108-B
+Nama Kelas: B
+Kapasitas: 20
+--------------------------
+Kode Kelas: IF108-C
+Nama Kelas: C
+Kapasitas: 20
+--------------------------

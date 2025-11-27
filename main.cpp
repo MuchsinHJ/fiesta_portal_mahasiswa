@@ -40,6 +40,7 @@ private:
     ManajemenMatakuliah mnjMatkul;
     ManajemenDosenMataKuliah mnjdsmatkul;
     ManajemenKelas mnjKelas;
+    ManajemenKelasMahasiswa mnjKelasMahasiswa;
 public:
 
     void tarikData(){
@@ -48,6 +49,7 @@ public:
         mnjMatkul.tarikDataDariFileMataKuliah();
         mnjdsmatkul.tarikDataDariFileDosenMataKuliah();
         mnjKelas.tarikDataDariFileKelas();
+        mnjKelasMahasiswa.tarikDataDariFileKelasMahasiswa();
     }
 
     void tampilMenuDash() {
@@ -62,11 +64,12 @@ public:
             cout << "3. Manajemen Mata Kuliah" << endl;
             cout << "4. Manajemen Dosen Mata Kuliah" << endl;
             cout << "5. Manajemen Kelas" << endl;
-            cout << "6. Validasi KRS" << endl;
-            cout << "7. Input dan Koreksi Nilai" << endl;
-            cout << "8. Verifikasi Pembayaran" << endl;
-            cout << "9. Layanan Akademik" << endl;
-            cout << "10. Keluar" << endl;
+            cout << "6. Manajemen Kelas Mahasiswa" << endl;
+            cout << "7. Validasi KRS" << endl;
+            cout << "8. Input dan Koreksi Nilai" << endl;
+            cout << "9. Verifikasi Pembayaran" << endl;
+            cout << "10. Layanan Akademik" << endl;
+            cout << "11. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
             switch (pilih) {
@@ -86,6 +89,9 @@ public:
                     break;
                 case 5:
                     tampilMenuKelas();
+                    break;
+                case 6:
+                    tampilMenuKelasMahasiswa();
                     break;
                 case 10: 
                     nav.pop();
@@ -286,7 +292,45 @@ public:
             }
         } while (pilih != 3);
     }
+
+    void tampilMenuKelasMahasiswa() {
+        nav.push("Dashboard Manajemen Kelas Mahasiswa");
+        int pilih;
+        do {
+            cout << "1. Tambah Kelas Mahasiswa" << endl;
+            cout << "2. Lihat Semua Kelas Mahasiswa" << endl;
+            cout << "3. Edit Kelas Mahasiswa" << endl;
+            cout << "4. Hapus Kelas Mahasiswa" << endl;
+            cout << "5. Keluar" << endl;
+            cout << "Pilih: ";
+            cin >> pilih;
+
+            switch(pilih) {
+                case 1:
+                     mnjKelasMahasiswa.tambahKelasMahasiswa();
+                    break;
+                case 2:
+                     mnjKelasMahasiswa.tampilSemuaKelasMahasiswa();
+                    break;
+                case 3:
+                    // mnjKelasMahasiswa.editKelasMahasiswa();
+                    break;
+                case 4:
+                    // mnjKelasMahasiswa.hapusKelasMahasiswa();
+                    break;
+                case 5:
+                    nav.pop();
+                    cout << "Kembalikan ke dashboard admin...\n";
+                    return;
+                default:
+                    cout << "Pilihan tidak valid!" << endl;
+                    break;
+            }
+        } while (pilih != 5);
+    }
 };
+
+
 
 void displayAdmin(){
     AdminPortal portal("admin", "123");
@@ -297,6 +341,8 @@ void displayAdmin(){
     if (portal.login(u, p)) {
         AdminDashboard dashboard;
         dashboard.tampilMenuDash();
+    }else{
+        displayAdmin();
     }
 }
 

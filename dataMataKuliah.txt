@@ -1,0 +1,529 @@
+====MATA KULIAH SEMESTER 1====
+Kode :IF101
+   Nama :Dasar Pemrograman
+   SKS :3
+   Deskripsi :Dasar-dasar pemrograman
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF102
+   Nama :Dasar Sistem Komputer
+   SKS :3
+   Deskripsi :Dasar Dasar Komputer
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF103
+   Nama :Kalkulus Informatika
+   SKS :3
+   Deskripsi :Dasar-dasar Perhitungan 
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF104
+   Nama :Logika Informatika 
+   SKS :3
+   Deskripsi :Dasar Logika Pemprograman
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF105
+   Nama :Manajemen Data dan Informasi
+   SKS :3
+   Deskripsi :Dasar Manajemen data
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF106
+   Nama :Pancasila
+   SKS :2
+   Deskripsi :Pemahaman Tata Negara
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF107
+   Nama :Praktikum Dasar Pempograman
+   SKS :1
+   Deskripsi :Praktikum 
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF108
+   Nama :AL-Qur'an dan Hadits
+   SKS :2
+   Deskripsi :Pengertian Al-Qur'an 
+   Semester :1
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 2====
+Kode :IF111
+   Nama :Pemrograman Web
+   SKS :3
+   Deskripsi : Dasar Pemprograman Web 
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF112
+   Nama :Matematika Diskrit
+   SKS :3
+   Deskripsi :Perhitungan Berbasis program
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF113
+   Nama :Bahasa Indonesia
+   SKS :3
+   Deskripsi :Penerapan Dasar Bahasa Indonesia
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF114
+   Nama :Aljabar Linear Matrik
+   SKS :2
+   Deskripsi :Perhitungan aljabar
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF115
+   Nama :Algoritma Pemprograman
+   SKS :3
+   Deskripsi :Dasar dasar Pemprograman
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF116
+   Nama :Aristektur Komputer
+   SKS :3
+   Deskripsi :Dasar Susunan komputer
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF117
+   Nama :Kemuhammadiyahan
+   SKS :2
+   Deskripsi :Pembelajaran Muhammadiyah
+   Semester :2
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 3====
+Kode :IF121
+   Nama :Algoritma dan Pemrograman
+   SKS :3
+   Deskripsi :Dasar-dasar pemrograman
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF122
+   Nama :Struktur Data
+   SKS :3
+   Deskripsi :Pengelolaan data dalam memori
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF123
+   Nama :Basis Data
+   SKS :4
+   Deskripsi :Dasar-dasar basis data
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF124
+   Nama :Pemrograman Berorientasi Objek
+   SKS :3
+   Deskripsi :Konsep OOP
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF125
+   Nama :Sistem Operasi
+   SKS :3
+   Deskripsi :Operasi Sistem Komputer
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF126
+   Nama :Bahasa Inggris
+   SKS :2
+   Deskripsi :Pembelajarann bahasa Inggris IT
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF127
+   Nama :Statistika Informatika
+   SKS :4
+   Deskripsi :Konsep penerapan statistik 
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF128
+   Nama :Akidah Akhlak
+   SKS :2
+   Deskripsi :Perbaikan Akhlak 
+   Semester :3
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 4====
+Kode :IF131
+   Nama :AnalisiS Dan Perancangan Perangkat Lunak
+   SKS :3
+   Deskripsi :Konsep Perancangan Perangkat Lunak
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF132
+   Nama :Grafika Komputer
+   SKS :3
+   Deskripsi :Penerapan Grafik Komputer
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF133
+   Nama :Interaksi Manusia dan Komputer
+   SKS :3
+   Deskripsi :Interaksi Manusia dan Sistem Komputer
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF134
+   Nama :Islam Inerdisipliner
+   SKS :3
+   Deskripsi :Pengajaran Islam 
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF135
+   Nama :Kecedarsan Buatan
+   SKS :3
+   Deskripsi :Operasi sistem cerdas
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF136
+   Nama :Komunikasi Data dan Jaringan Komputer
+   SKS :3
+   Deskripsi :Komunikasi data jaringan
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF137
+   Nama :Strategi Algoritma
+   SKS :3
+   Deskripsi :Strategi Pemprograman 
+   Semester :4
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 5====
+Kode :IF141
+   Nama :Forensik Digital
+   SKS :3
+   Deskripsi :Pemeriksa Kasus Digital
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF142
+   Nama :Keamanan Komputer
+   SKS :3
+   Deskripsi :Computer Security
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF143
+   Nama :Pembelajar Mesin
+   SKS :3
+   Deskripsi :Pembelajaran Konsep Mesin Learning
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF144
+   Nama :Pemprograman Mobile
+   SKS :3
+   Deskripsi :Pembuatan Aplikasi Mobile 
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF145
+   Nama :Pemprograman Web Dinamis
+   SKS :3
+   Deskripsi :Pembuatan Web
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF146
+   Nama :Data Mining
+   SKS :3
+   Deskripsi :Penambangan Data
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF147
+   Nama :Pengantar Manajemen dan Prinsip Proyek
+   SKS :2
+   Deskripsi :Penerapan Managemen Konsep Dalam Proyek 
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF148
+   Nama :Penjaminan Kualitas Perangkat Lunak
+   SKS :3
+   Deskripsi :Penjamin Kualitas Perangkat Lunak 
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF149
+   Nama :Robotika Informatika
+   SKS :3
+   Deskripsi :Perancangan Robot
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF150
+   Nama :Sistem Pendukung Keputusan
+   SKS :3
+   Deskripsi :Pendukung Keputusan
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF151
+   Nama :Sistem Temu Balik Informasi
+   SKS :3
+   Deskripsi :Temu Balik 
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF152
+   Nama :FTI Optimasi
+   SKS :3
+   Deskripsi :Optimasi
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF153
+   Nama :Teori Bahasa Otomata
+   SKS :2
+   Deskripsi :Bahasa Otomata 
+   Semester :5
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 6====
+Kode :IF156
+   Nama :Manajemen Proyek Teknologi Informasi
+   SKS :2
+   Deskripsi :Konsep Perancangan Perangkat Lunak
+   Semester :6
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF157
+   Nama :Pengajaran TPQ
+   SKS :0
+   Deskripsi :NGaji
+   Semester :6
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF158
+   Nama :Tahsinul Quran
+   SKS :0
+   Deskripsi :Perbaikan Cara baca AL-Qur'an
+   Semester :6
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 7====
+Kode :IF161
+   Nama :Bahasa Inggris Profesional
+   SKS :2
+   Deskripsi :Bahasa Internasional
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF162
+   Nama :Fiqih Ibadah
+   SKS :0
+   Deskripsi :Fikih
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF163
+   Nama :Kapita Selekta
+   SKS :2
+   Deskripsi :Kapita Selekta
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF164
+   Nama :Kewirausahaan
+   SKS :2
+   Deskripsi :Pelatihan Ber wirausahaan 
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF165
+   Nama :komunikasi Interpersonal
+   SKS :2
+   Deskripsi :Komunikasi
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF166
+   Nama :Pengukuran Arah Kiblat
+   SKS :0
+   Deskripsi :Penentu Arah Kiblat
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF167
+   Nama :Pra Nikah
+   SKS :0
+   Deskripsi :Pra Nikah 
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF168
+   Nama :Praktek Magang
+   SKS :3
+   Deskripsi :Magang 
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF169
+   Nama :Sosio Informatika
+   SKS :2
+   Deskripsi :Sosio
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+Kode :IF170
+   Nama :Kuliah Kerja Nyata
+   SKS :4
+   Deskripsi :KKN
+   Semester :7
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+
+====MATA KULIAH SEMESTER 8====
+Kode :IF181
+   Nama :Skripsi
+   SKS :6
+   Deskripsi :Tugas Akhir
+   Semester :8
+   Jurusan :Informatika
+   Fakultas :FTI
+   Wajib :Ya
+------------------------------------------------------
+

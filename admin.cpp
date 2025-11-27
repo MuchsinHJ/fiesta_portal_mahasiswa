@@ -2086,6 +2086,11 @@ class ManajemenKelas{
         }
 };
 
+
+
+
+
+
 class ManajemenKelasMahasiswa{
 private:
     struct NodeKelasMahasiswa {
@@ -2093,19 +2098,60 @@ private:
         NodeKelasMahasiswa* next;
         NodeKelasMahasiswa* prev;
     };
+
+    
+    ManajemenMahasiswa* mhsMgr = nullptr;
+    ManajemenKelas* kelasMgr = nullptr;
+
+    
     Mahasiswa dataMhs[1000];
     Kelas dataKelas[100];
     int jumlahMhs = 0;
     int jumlahKelas = 0;
+
 public:
-    NodeKelasMahasiswa* head = nullptr, *tail = nullptr;
+    NodeKelasMahasiswa* head = nullptr;
+    NodeKelasMahasiswa* tail = nullptr;
+
+    
     ManajemenKelasMahasiswa() {
+        
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018008"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018002"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018005"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018001"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018006"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018003"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018007"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018006"});
+        tambahKelasMahasiswaLangsung({"IF101-A", "2400018005"});
+
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018011"});
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018012"});
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018013"});
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018011"});
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018012"});
+        tambahKelasMahasiswaLangsung({"IF101-B", "2400018013"});
+        updateFileKelasMahasiswa();
+    }
+
+   
+    ManajemenKelasMahasiswa(ManajemenMahasiswa* mhsManager, ManajemenKelas* kelasManager)
+        : mhsMgr(mhsManager), kelasMgr(kelasManager)
+    {
+        
+        if (mhsMgr) mhsMgr->tarikMahasiswadarifile();
+        if (kelasMgr) kelasMgr->tarikDataDariFileKelas();
+        
         tarikDataDariFileKelasMahasiswa();
-        tarikDataDariFileKelas();
+    }
 
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018234"});
-
-        tarikDataDariFileKelas();
+   
+    void setManagers(ManajemenMahasiswa* m, ManajemenKelas* k) {
+        mhsMgr = m;
+        kelasMgr = k;
+        if (mhsMgr) mhsMgr->tarikMahasiswadarifile();
+        if (kelasMgr) kelasMgr->tarikDataDariFileKelas();
     }
 
     void tambahKelasMahasiswaLangsung(const KelasMahasiswa& km) {
@@ -2113,16 +2159,14 @@ public:
         newNode->data = km;
         newNode->next = nullptr;
         newNode->prev = nullptr;
-
         if (head == nullptr) {
-            head = newNode;
-            tail = newNode;
+            head = tail = newNode;
         } else {
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
         }
-        // updateFileKelasMahasiswa();
+        updateFileKelasMahasiswa();
     }
 
     void tambahKelasMahasiswa() {
@@ -2132,103 +2176,147 @@ public:
         cin >> km.kdKelas;
         cout << "Masukkan NIM Mahasiswa: ";
         cin >> km.nim;
-
         tambahKelasMahasiswaLangsung(km);
         cout << "Kelas Mahasiswa berhasil ditambahkan!" << endl;
     }
 
-    void editKelasMahasiswa() {
-        // Implementasi edit kelas mahasiswa jika diperlukan
-    }
-
-    void hapusKelasMahasiswa() {
-        // Implementasi hapus kelas mahasiswa jika diperlukan
-    }
-
-    void tampilSemuaKelasMahasiswa() {
-        // Implementasi tampil semua kelas mahasiswa jika diperlukan
-    }
-
-    void tarikDataDariFileKelasMahasiswa() {
-        jumlahMhs = 0; // Reset jumlah sebelum membaca ulang
+    
+    void tarikDataDariFileMahasiswa() {
+        jumlahMhs = 0;
         ifstream in("dataMahasiswa.txt");
-        
-        if (!in.is_open()) {
-            cout << "Gagal membuka file dataMahasiswa.txt\n";
-            return;
-        }
-
+        if (!in.is_open()) return;
         string line;
         Mahasiswa mhsSementara;
-
         while (getline(in, line)) {
-            if (line.find("Nama: ") != string::npos) {
-                mhsSementara.nama = line.substr(6);
-            } else if (line.find("NIM: ") != string::npos) {
-                mhsSementara.nim = line.substr(5);
-            } else if (line.find("Semester: ") != string::npos) {
-                mhsSementara.semester = stoi(line.substr(10));
-            } else if (line.find("Tahun Masuk: ") != string::npos) {
-                mhsSementara.tahunMasuk = stoi(line.substr(13));
-            } else if (line.find("Jurusan: ") != string::npos) {
-                mhsSementara.jurusan = line.substr(9);
-            } else if (line.find("Fakultas: ") != string::npos) {
-                mhsSementara.fakultas = line.substr(10);
-            } else if (line.find("Tempat Lahir: ") != string::npos) {
-                mhsSementara.tempatLahir = line.substr(14);
-            } else if (line.find("Tanggal Lahir: ") != string::npos) {
-                mhsSementara.tanggalLahir = line.substr(15);
-            } else if (line.find("Alamat: ") != string::npos) {
-                mhsSementara.alamat = line.substr(8);
-            } else if (line.find("Email: ") != string::npos) {
-                mhsSementara.email = line.substr(7);
-            } else if (line.find("No HP: ") != string::npos) {
-                mhsSementara.noHp = line.substr(6);
-            } else if (line.find("Jenis Kelamin: ") != string::npos) {
-                string genderStr = line.substr(14);
-                if (genderStr == "Laki-laki")
-                    mhsSementara.g = JenisKelamin::LakiLaki;
-                else
-                    mhsSementara.g = JenisKelamin::Perempuan;
-            } else if (line.find("Status: ") != string::npos) {
-                string statusStr = line.substr(8);
-                mhsSementara.aktif = (statusStr == "Aktif");
-            } else if (line.find("--------------------------") != string::npos) {
-                // Tambahkan ke array setiap selesai 1 blok data mahasiswa
-                dataMhs[jumlahMhs] = mhsSementara;
-                jumlahMhs++;
+            if (line.find("NIM: ") != string::npos) mhsSementara.nim = line.substr(5);
+            else if (line.find("Nama: ") != string::npos) mhsSementara.nama = line.substr(6);
+            else if (line.find("Jurusan: ") != string::npos) mhsSementara.jurusan = line.substr(9);
+            else if (line.find("--------------------------") != string::npos) {
+                dataMhs[jumlahMhs++] = mhsSementara;
+                mhsSementara = Mahasiswa();
             }
         }
-
         in.close();
     }
 
     void tarikDataDariFileKelas() {
-        jumlahKelas = 0; // Reset jumlah sebelum membaca ulang
+        jumlahKelas = 0;
         ifstream in("dataKelas.txt");
-        
-        if (!in.is_open()) {
-            cout << "Gagal membuka file dataKelas.txt\n";
+        if (!in.is_open()) return;
+        string line;
+        Kelas kelasSementara;
+        while (getline(in, line)) {
+            if (line.find("Kode Kelas: ") != string::npos) kelasSementara.kdKelas = line.substr(13);
+            else if (line.find("Nama Kelas: ") != string::npos) kelasSementara.namaKelas = line.substr(13);
+            else if (line.find("Kapasitas: ") != string::npos) {
+                try { kelasSementara.batasKelas = stoi(line.substr(12)); } catch(...) { kelasSementara.batasKelas = 0; }
+            } else if (line.find("--------------------------") != string::npos) {
+                dataKelas[jumlahKelas++] = kelasSementara;
+                kelasSementara = Kelas();
+            }
+        }
+        in.close();
+    }
+
+    
+    void tarikDataDariFileKelasMahasiswa() {
+       
+        NodeKelasMahasiswa* cur = head;
+        while (cur) { NodeKelasMahasiswa* nx = cur->next; delete cur; cur = nx; }
+        head = tail = nullptr;
+
+        ifstream in("dataKelasMahasiswa.txt");
+        if (!in.is_open()) return;
+        string line;
+        KelasMahasiswa km;
+        while (getline(in, line)) {
+            if (line.find("Kode Kelas: ") != string::npos) km.kdKelas = line.substr(13);
+            else if (line.find("NIM Mahasiswa: ") != string::npos) km.nim = line.substr(15);
+            else if (line.find("--------------------------") != string::npos) {
+                tambahKelasMahasiswaLangsung(km);
+                km = KelasMahasiswa();
+            }
+        }
+        in.close();
+    }
+
+   
+    string findNamaMahasiswaByNIM(const string& nim) {
+        if (mhsMgr) {
+            for (int i = 0; i < mhsMgr->jumlah; ++i) {
+                if (mhsMgr->data[i].nim == nim) return mhsMgr->data[i].nama;
+            }
+        } else {
+           
+            if (jumlahMhs == 0) tarikDataDariFileMahasiswa();
+            for (int i = 0; i < jumlahMhs; ++i) {
+                if (dataMhs[i].nim == nim) return dataMhs[i].nama;
+            }
+        }
+        return string("[Nama tidak ditemukan]");
+    }
+
+    
+    Kelas* findKelasByKode(const string& kode) {
+        if (kelasMgr) {
+            auto node = kelasMgr->head;
+            while (node) {
+                if (node->dataKelas.kdKelas == kode) return &node->dataKelas;
+                node = node->next;
+            }
+            return nullptr;
+        } else {
+            if (jumlahKelas == 0) tarikDataDariFileKelas();
+            for (int i = 0; i < jumlahKelas; ++i) {
+                if (dataKelas[i].kdKelas == kode) return &dataKelas[i];
+            }
+            return nullptr;
+        }
+    }
+
+    
+    void tampilSemuaKelasMahasiswa() {
+        if (head == nullptr) {
+            cout << "Belum ada relasi kelas-mahasiswa." << endl;
             return;
         }
 
-        string line;
-        Kelas kelasSementara;
+        cout << "\n=== Daftar Kelas Mahasiswa ===" << endl;
+        NodeKelasMahasiswa* temp = head;
+        int idx = 1;
+        while (temp != nullptr) {
+            string nim = temp->data.nim;
+            string kdKelas = temp->data.kdKelas;
+            string nama = findNamaMahasiswaByNIM(nim);
+            Kelas* k = findKelasByKode(kdKelas);
 
-        while (getline(in, line)) {
-            if (line.find("Kode Kelas: ") != string::npos) {
-                kelasSementara.kdKelas = line.substr(13);
-            } else if (line.find("Nama Kelas: ") != string::npos) {
-                kelasSementara.namaKelas = line.substr(13);
-            } else if (line.find("Kapasitas: ") != string::npos) {
-                kelasSementara.batasKelas = stoi(line.substr(12));
-            } else if (line.find("--------------------------") != string::npos) {
-                // Tambahkan ke array setiap selesai 1 blok data kelas
-                dataKelas[jumlahKelas] = kelasSementara;
-                jumlahKelas++;
-            }
+            cout << "Relasi ke-" << idx++ << ":\n";
+            cout << "  Kode Kelas : " << kdKelas;
+            cout << "\n  NIM        : " << nim << "\n";
+            cout << "  Nama       : " << nama << "\n";
+            cout << "---------------------------------" << endl;
+
+            temp = temp->next;
         }
+    }
 
-        in.close();
+    
+    void updateFileKelasMahasiswa() {
+        ofstream outFile("dataKelasMahasiswa.txt", ios::trunc);
+        if (!outFile.is_open()) {
+            cout << "Gagal membuka file untuk menyimpan data kelas mahasiswa." << endl;
+            return;
+        }
+        NodeKelasMahasiswa* temp = head;
+        while (temp != nullptr) {
+            
+            outFile << "Kode Kelas: " << temp->data.kdKelas << endl;
+            outFile << "NIM Mahasiswa: " << temp->data.nim << endl;
+            outFile << "Nama Mahasiswa: " << findNamaMahasiswaByNIM(temp->data.nim) << endl;
+            outFile << "--------------------------" << endl;
+            temp = temp->next;
+        }
+        outFile.close();
     }
 };
+// ...existing code...

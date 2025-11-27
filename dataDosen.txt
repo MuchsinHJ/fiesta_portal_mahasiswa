@@ -1,0 +1,510 @@
+Dosen ke-1:
+Nama: Dr. Ahmad Santoso
+NIDN: 1234567801
+NIP: 196501011234
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr.
+Gelar Belakang: M.Kom
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: ahmad.santoso@univ.ac.id
+No HP: 081200000001
+Alamat: Jl. Pendidikan No. 123
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2005
+Status: Aktif
+-------------------------------------
+Dosen ke-2:
+Nama: Prof. Siti Rahayu
+NIDN: 1234567802
+NIP: 196602021235
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Prof.
+Gelar Belakang: Ph.D
+Jabatan Akademik: Guru Besar
+Pendidikan Terakhir: S3
+Email: siti.rahayu@univ.ac.id
+No HP: 081200000002
+Alamat: Jl. Akademik No. 45
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2000
+Status: Aktif
+-------------------------------------
+Dosen ke-3:
+Nama: Drs. Bambang Wijaya
+NIDN: 1234567803
+NIP: 197003031236
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Drs.
+Gelar Belakang: M.T
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: bambang.wijaya@univ.ac.id
+No HP: 081200000003
+Alamat: Jl. Teknologi No. 67
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2008
+Status: Aktif
+-------------------------------------
+Dosen ke-4:
+Nama: Ir. Maria Dewi
+NIDN: 1234567804
+NIP: 197104041237
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Ir.
+Gelar Belakang: M.Kom
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: maria.dewi@univ.ac.id
+No HP: 081200000004
+Alamat: Jl. Komputer No. 89
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2010
+Status: Aktif
+-------------------------------------
+Dosen ke-5:
+Nama: Dr. Rudi Hermawan
+NIDN: 1234567805
+NIP: 197205051238
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr.
+Gelar Belakang: M.Sc
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: rudi.hermawan@univ.ac.id
+No HP: 081200000005
+Alamat: Jl. Programmer No. 12
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2007
+Status: Aktif
+-------------------------------------
+Dosen ke-6:
+Nama: Diana Puspita, M.Kom
+NIDN: 1234567806
+NIP: 198306061239
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: diana.puspita@univ.ac.id
+No HP: 081200000006
+Alamat: Jl. Algorithm No. 34
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2015
+Status: Aktif
+-------------------------------------
+Dosen ke-7:
+Nama: Fajar Nugroho, M.T
+NIDN: 1234567807
+NIP: 198407071240
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.T
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: fajar.nugroho@univ.ac.id
+No HP: 081200000007
+Alamat: Jl. Database No. 56
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2016
+Status: Aktif
+-------------------------------------
+Dosen ke-8:
+Nama: Prof. Dr. Hendra Gunawan
+NIDN: 1234567808
+NIP: 196508081241
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Prof. Dr.
+Gelar Belakang: M.Eng
+Jabatan Akademik: Guru Besar
+Pendidikan Terakhir: S3
+Email: hendra.gunawan@univ.ac.id
+No HP: 081200000008
+Alamat: Jl. Network No. 78
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 1998
+Status: Aktif
+-------------------------------------
+Dosen ke-9:
+Nama: Lina Marlina, M.Kom
+NIDN: 1234567809
+NIP: 198609091242
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: lina.marlina@univ.ac.id
+No HP: 081200000009
+Alamat: Jl. Software No. 90
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2017
+Status: Aktif
+-------------------------------------
+Dosen ke-10:
+Nama: Eko Prasetyo, M.Sc
+NIDN: 1234567810
+NIP: 197710101243
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Sc
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: eko.prasetyo@univ.ac.id
+No HP: 081200000010
+Alamat: Jl. Hardware No. 11
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2012
+Status: Aktif
+-------------------------------------
+Dosen ke-11:
+Nama: Dr. Ir. Anita Sari
+NIDN: 1234567811
+NIP: 197811111244
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr. Ir.
+Gelar Belakang: M.T
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: anita.sari@univ.ac.id
+No HP: 081200000011
+Alamat: Jl. Artificial No. 22
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2009
+Status: Aktif
+-------------------------------------
+Dosen ke-12:
+Nama: Rizki Maulana, M.Kom
+NIDN: 1234567812
+NIP: 198912121245
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: rizki.maulana@univ.ac.id
+No HP: 081200000012
+Alamat: Jl. Intelligence No. 33
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2018
+Status: Aktif
+-------------------------------------
+Dosen ke-13:
+Nama: Dewi Anggraeni, M.T
+NIDN: 1234567813
+NIP: 199013131246
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.T
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: dewi.anggraeni@univ.ac.id
+No HP: 081200000013
+Alamat: Jl. Machine No. 44
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2019
+Status: Aktif
+-------------------------------------
+Dosen ke-14:
+Nama: Prof. Dr. Ir. Joko Susilo
+NIDN: 1234567814
+NIP: 196114141247
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Prof. Dr. Ir.
+Gelar Belakang: Ph.D
+Jabatan Akademik: Guru Besar
+Pendidikan Terakhir: S3
+Email: joko.susilo@univ.ac.id
+No HP: 081200000014
+Alamat: Jl. Learning No. 55
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 1995
+Status: Aktif
+-------------------------------------
+Dosen ke-15:
+Nama: Maya Sari, M.Kom
+NIDN: 1234567815
+NIP: 199215151248
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: maya.sari@univ.ac.id
+No HP: 081200000015
+Alamat: Jl. Data No. 66
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2020
+Status: Aktif
+-------------------------------------
+Dosen ke-16:
+Nama: Dr. Adi Saputra
+NIDN: 1234567816
+NIP: 197316161249
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr.
+Gelar Belakang: M.Eng
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: adi.saputra@univ.ac.id
+No HP: 081200000016
+Alamat: Jl. Science No. 77
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2011
+Status: Aktif
+-------------------------------------
+Dosen ke-17:
+Nama: Nina Permata, M.T
+NIDN: 1234567817
+NIP: 199417171250
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.T
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: nina.permata@univ.ac.id
+No HP: 081200000017
+Alamat: Jl. Computing No. 88
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2021
+Status: Aktif
+-------------------------------------
+Dosen ke-18:
+Nama: Drs. Toni Gunawan
+NIDN: 1234567818
+NIP: 197518181251
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Drs.
+Gelar Belakang: M.Kom
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: toni.gunawan@univ.ac.id
+No HP: 081200000018
+Alamat: Jl. Information No. 99
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2006
+Status: Aktif
+-------------------------------------
+Dosen ke-19:
+Nama: Fitri Handayani, M.Sc
+NIDN: 1234567819
+NIP: 199619191252
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Sc
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: fitri.handayani@univ.ac.id
+No HP: 081200000019
+Alamat: Jl. Technology No. 100
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2022
+Status: Aktif
+-------------------------------------
+Dosen ke-20:
+Nama: Prof. Dr. Rendra Mahesa
+NIDN: 1234567820
+NIP: 196720201253
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Prof. Dr.
+Gelar Belakang: Ph.D
+Jabatan Akademik: Guru Besar
+Pendidikan Terakhir: S3
+Email: rendra.mahesa@univ.ac.id
+No HP: 081200000020
+Alamat: Jl. Innovation No. 111
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 1999
+Status: Aktif
+-------------------------------------
+Dosen ke-21:
+Nama: Ir. Sari Indah, M.T
+NIDN: 1234567821
+NIP: 197821211254
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Ir.
+Gelar Belakang: M.T
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: sari.indah@univ.ac.id
+No HP: 081200000021
+Alamat: Jl. Digital No. 122
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2013
+Status: Aktif
+-------------------------------------
+Dosen ke-22:
+Nama: Budi Santoso, M.Kom
+NIDN: 1234567822
+NIP: 198922221255
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: budi.santoso@univ.ac.id
+No HP: 081200000022
+Alamat: Jl. Programming No. 133
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2023
+Status: Aktif
+-------------------------------------
+Dosen ke-23:
+Nama: Dr. Citra Dewi
+NIDN: 1234567823
+NIP: 197023231256
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr.
+Gelar Belakang: M.Sc
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: citra.dewi@univ.ac.id
+No HP: 081200000023
+Alamat: Jl. Development No. 144
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2014
+Status: Aktif
+-------------------------------------
+Dosen ke-24:
+Nama: Agus Setiawan, M.T
+NIDN: 1234567824
+NIP: 199124241257
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.T
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: agus.setiawan@univ.ac.id
+No HP: 081200000024
+Alamat: Jl. Engineering No. 155
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2024
+Status: Aktif
+-------------------------------------
+Dosen ke-25:
+Nama: Prof. Dr. Wulan Sari
+NIDN: 1234567825
+NIP: 196225251258
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Prof. Dr.
+Gelar Belakang: Ph.D
+Jabatan Akademik: Guru Besar
+Pendidikan Terakhir: S3
+Email: wulan.sari@univ.ac.id
+No HP: 081200000025
+Alamat: Jl. Research No. 166
+Jenis Kelamin: Perempuan
+Tahun Masuk: 1997
+Status: Aktif
+-------------------------------------
+Dosen ke-26:
+Nama: Drs. Heri Prabowo
+NIDN: 1234567826
+NIP: 197326261259
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Drs.
+Gelar Belakang: M.Kom
+Jabatan Akademik: Lektor
+Pendidikan Terakhir: S2
+Email: heri.prabowo@univ.ac.id
+No HP: 081200000026
+Alamat: Jl. Analysis No. 177
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2004
+Status: Cuti
+-------------------------------------
+Dosen ke-27:
+Nama: Yuni Astuti, M.Sc
+NIDN: 1234567827
+NIP: 199427271260
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Sc
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: yuni.astuti@univ.ac.id
+No HP: 081200000027
+Alamat: Jl. Design No. 188
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2023
+Status: Aktif
+-------------------------------------
+Dosen ke-28:
+Nama: Dr. Ir. Farid Rahman
+NIDN: 1234567828
+NIP: 196528281261
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: Dr. Ir.
+Gelar Belakang: M.Eng
+Jabatan Akademik: Lektor Kepala
+Pendidikan Terakhir: S3
+Email: farid.rahman@univ.ac.id
+No HP: 081200000028
+Alamat: Jl. System No. 199
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 1990
+Status: Pensiun
+-------------------------------------
+Dosen ke-29:
+Nama: Gita Permatasari, M.Kom
+NIDN: 1234567829
+NIP: 199629291262
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.Kom
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: gita.permatasari@univ.ac.id
+No HP: 081200000029
+Alamat: Jl. Architecture No. 200
+Jenis Kelamin: Perempuan
+Tahun Masuk: 2022
+Status: Aktif
+-------------------------------------
+Dosen ke-30:
+Nama: Hadi Nugroho, M.T
+NIDN: 1234567830
+NIP: 198730301263
+Fakultas: FTI
+Jurusan: Informatika
+Gelar Depan: 
+Gelar Belakang: M.T
+Jabatan Akademik: Asisten Ahli
+Pendidikan Terakhir: S2
+Email: hadi.nugroho@univ.ac.id
+No HP: 081200000030
+Alamat: Jl. Security No. 211
+Jenis Kelamin: Laki-laki
+Tahun Masuk: 2021
+Status: Aktif
+-------------------------------------
