@@ -1,1 +1,40 @@
 Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018008
+Nama Mahasiswa: Hana Wijaya
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018002
+Nama Mahasiswa: Bunga Sari
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018005
+Nama Mahasiswa: Eko Prasetyo
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018001
+Nama Mahasiswa: Adi Pratama
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018006
+Nama Mahasiswa: Fitri Handayani
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018003
+Nama Mahasiswa: Cahyo Nugroho
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018007
+Nama Mahasiswa: Gilang Ramadhan
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018011
+Nama Mahasiswa: Kurniawan
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018012
+Nama Mahasiswa: Lestari
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018013
+Nama Mahasiswa: Mulyadi
+--------------------------

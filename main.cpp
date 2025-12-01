@@ -1,4 +1,5 @@
 #include "admin.cpp"
+#include "mahasiswa.cpp"
 using namespace std;
 
 // class history nav
@@ -52,7 +53,7 @@ public:
         mnjKelasMahasiswa.tarikDataDariFileKelasMahasiswa();
     }
 
-    void tampilMenuDash() {
+    void tampilMenuDashAdmin() {
         nav.push("Dashboard Admin");
         tarikData();
         
@@ -290,7 +291,7 @@ public:
                     cout << "Pilihan tidak valid!" << endl;
                     break;
             }
-        } while (pilih != 3);
+        } while (pilih != 6);
     }
 
     void tampilMenuKelasMahasiswa() {
@@ -330,6 +331,65 @@ public:
     }
 };
 
+// ...existing code...
+class MahasiswaDashboard {
+public:
+    void tampilMenuDashMahasiswa() {
+        int pilih;
+        do {
+            cout << "\n=== DASHBOARD MAHASISWA ===" << endl;
+            cout << "1. Profile" << endl;
+            cout << "2. Pelayanan Online" << endl;
+            cout << "3. Perkuliahan" << endl;
+            cout << "4. KRS dan KHS" << endl;
+            cout << "5. Mata Kuliah" << endl;
+            cout << "6. Keluar" << endl;
+            cout << "Pilih: ";
+            cin >> pilih;
+
+            switch (pilih) {
+                case 1:
+                 tampilProfile();
+                    break;
+                case 2:
+                tampilPelayananOnline();
+                    break;
+                case 3:
+                tampilPerkuliahan();
+                    break;
+                case 4: 
+                tampilKRSKHS();
+                    break;
+                case 5: 
+                tampilMataKuliah();
+                    break;
+                case 6:
+                    cout << "Keluar dari dashboard mahasiswa...\n";
+                    return;
+                default:
+                    cout << "Pilihan tidak valid!\n";
+                    break;
+            }
+        } while (pilih != 6);
+    }
+
+private:
+    void tampilProfile() {
+        cout << "Menampilkan profile mahasiswa" << endl;
+    }
+    void tampilPelayananOnline() {
+        cout << "Menampilkan pelayanan online" << endl;
+    }
+    void tampilPerkuliahan() {
+        cout << "Menampilkan perkuliahan" << endl;
+    }
+    void tampilKRSKHS() {
+        cout << "Menampilkan KRS dan KHS" << endl;
+    }
+    void tampilMataKuliah() {
+        cout << "Menampilkan mata kuliah" << endl;
+    }
+};
 
 
 void displayAdmin(){
@@ -340,13 +400,55 @@ void displayAdmin(){
 
     if (portal.login(u, p)) {
         AdminDashboard dashboard;
-        dashboard.tampilMenuDash();
+        dashboard.tampilMenuDashAdmin();
     }else{
         displayAdmin();
     }
 }
 
+void displayMahasiswa(){
+    MahasiswaPortal portal;
+    string u, p;
+    cout << "NIM: "; cin >> u;
+    cout << "Password: "; cin >> p;
+    bool loggedIn = portal.login(u, p);
+    cout << "cek";
+    if (loggedIn) {
+        MahasiswaDashboard dashboard;
+        dashboard.tampilMenuDashMahasiswa();
+    }else{
+        cout << "Login gagal! Silakan coba lagi.\n";
+        displayMahasiswa();
+    }
+}
+
+void displayMainMenu(){
+    int pilih;
+    cout << "=== SISTEM INFORMASI AKADEMIK ===" << endl;
+    cout << "1. Login sebagai Admin" << endl;
+    cout << "2. Login sebagai Mahasiswa" << endl;
+    cout << "3. Keluar" << endl;
+    cout << "Pilih: ";
+    cin >> pilih;
+
+    switch (pilih) {
+        case 1:
+            displayAdmin();
+            break;
+        case 2:
+            displayMahasiswa();
+            break;
+        case 3:
+            cout << "Keluar dari sistem...\n";
+            break;
+        default:
+            cout << "Pilihan tidak valid!\n";
+            displayMainMenu();
+            break;
+    }
+}
+
 int main(){
-    displayAdmin();
+    displayMainMenu();
     return 0;
 }
