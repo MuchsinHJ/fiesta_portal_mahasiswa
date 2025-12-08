@@ -1,4 +1,3 @@
-#include "admin.cpp"
 #include "mahasiswa.cpp"
 using namespace std;
 
@@ -230,7 +229,7 @@ public:
             cout << "6. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
-
+            
             switch(pilih) {
                 case 1:
                     mnjdsmatkul.tambahDosenMataKuliah();
@@ -264,9 +263,9 @@ public:
         do {
             cout << "1. Tambah Kelas" << endl;
             cout << "2. Lihat Semua Kelas" << endl;
-            cout << "4. Edit Kelas" << endl;
-            cout << "5. Hapus Kelas" << endl;
-            cout << "6. Keluar" << endl;
+            cout << "3. Edit Kelas" << endl;
+            cout << "4. Hapus Kelas" << endl;
+            cout << "5. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
@@ -323,103 +322,158 @@ public:
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n";
                     return;
-                default:
+                    default:
                     cout << "Pilihan tidak valid!" << endl;
                     break;
-            }
-        } while (pilih != 5);
-    }
-};
-
-// ...existing code...
+                }
+            } while (pilih != 5);
+        }
+    };
+    
+    // ...existing code...
 class MahasiswaDashboard {
+private:
+    NavigationStack nav;
 public:
     void tampilMenuDashMahasiswa() {
+        nav.push("Dashboard Mahasiswa");
         int pilih;
         do {
             cout << "\n=== DASHBOARD MAHASISWA ===" << endl;
             cout << "1. Profile" << endl;
-            cout << "2. Pelayanan Online" << endl;
-            cout << "3. Perkuliahan" << endl;
-            cout << "4. KRS dan KHS" << endl;
-            cout << "5. Mata Kuliah" << endl;
-            cout << "6. Keluar" << endl;
+            cout << "2. Perkuliahan" << endl;
+            cout << "3. KRS dan KHS" << endl;
+            cout << "4. Mata Kuliah" << endl;
+            cout << "5. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
             switch (pilih) {
                 case 1:
-                 tampilProfile();
+                 tampilProfil();
                     break;
                 case 2:
-                tampilPelayananOnline();
-                    break;
-                case 3:
                 tampilPerkuliahan();
                     break;
-                case 4: 
+                case 3:
                 tampilKRSKHS();
                     break;
-                case 5: 
+                case 4: 
                 tampilMataKuliah();
                     break;
-                case 6:
-                    cout << "Keluar dari dashboard mahasiswa...\n";
-                    return;
+                case 5: 
+                cout << "Keluar dari dashboard mahasiswa...\n";
+                return;
+                    break;
                 default:
                     cout << "Pilihan tidak valid!\n";
                     break;
             }
-        } while (pilih != 6);
+        } while (pilih != 5);
     }
 
-private:
-    void tampilProfile() {
-        cout << "Menampilkan profile mahasiswa" << endl;
+
+    void tampilProfil(){
+    nav.push("Tampil Menu Profil Mahasiswa");
+        int pilih;
+        do{
+            cout<<"====MENU MANAJEMEN PROFIL MAHASISWA===="<<endl;
+            cout<<"1. Biodata"<<endl;
+            cout<<"2. Tagihan"<<endl;
+            cout<<"3. Keluar"<<endl;
+            cout<<"Masukkan Pilihan:";
+            cin>>pilih;
+
+            switch(pilih){
+                case 1:
+                    cout << "Menampilkan biodata..." << endl;
+                    break;
+                case 2:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 3:
+                    nav.pop();
+                    cout<<"Kembalikan ke dashboard mahasiswa...\n";
+                    return;
+                default:
+                    cout<<"Pilihan tidak valid!"<<endl;
+                break;
+            }
+        }while(pilih!=3);
     }
-    void tampilPelayananOnline() {
-        cout << "Menampilkan pelayanan online" << endl;
+
+    void tampilPelayananOnline(){
+        cout << "Menampilkan pelayanan online..." << endl;
     }
-    void tampilPerkuliahan() {
-        cout << "Menampilkan perkuliahan" << endl;
+
+    void tampilPerkuliahan(){
+        cout << "Menampilkan perkuliahan..." << endl;
     }
-    void tampilKRSKHS() {
-        cout << "Menampilkan KRS dan KHS" << endl;
+
+    void tampilKRSKHS(){
+        cout << "Menampilkan KRS dan KHS..." << endl;
     }
-    void tampilMataKuliah() {
-        cout << "Menampilkan mata kuliah" << endl;
+
+    void tampilMataKuliah(){
+        cout << "Menampilkan mata kuliah..." << endl;
     }
+
+    
 };
+
+
+
 
 
 void displayAdmin(){
     AdminPortal portal("admin", "123");
     string u, p;
+    int pilihan;
+    bool kondisi = false;
+    do{
     cout << "Username: "; cin >> u;
     cout << "Password: "; cin >> p;
-
     if (portal.login(u, p)) {
+        kondisi = true;
         AdminDashboard dashboard;
         dashboard.tampilMenuDashAdmin();
     }else{
-        displayAdmin();
+        cout << "Login gagal! Silakan coba lagi.\n";
+        cout << "1. Coba lagi\n2. Keluar\nPilih: ";
+        cin >> pilihan;
+        if(pilihan==2){
+            kondisi = true;
+            return;
+        }
     }
+    }while(!kondisi);
 }
 
 void displayMahasiswa(){
-    MahasiswaPortal portal;
+    MahasiswaPortal portal(new DataMahasiswa());
     string u, p;
-    cout << "NIM: "; cin >> u;
-    cout << "Password: "; cin >> p;
-    bool loggedIn = portal.login(u, p);
-    cout << "cek";
-    if (loggedIn) {
-        MahasiswaDashboard dashboard;
-        dashboard.tampilMenuDashMahasiswa();
-    }else{
-        cout << "Login gagal! Silakan coba lagi.\n";
-        displayMahasiswa();
-    }
+    bool kondisi = false;
+    int pilihan;
+    do
+    {
+        cout << "NIM: "; cin >> u;
+        cout << "Password: "; cin >> p;
+        bool loggedIn = portal.login(u, p);
+        cout << "cek";
+        if (loggedIn) {
+            kondisi = true;
+            MahasiswaDashboard dashboard;
+            dashboard.tampilMenuDashMahasiswa();
+        }else{
+            cout << "Login gagal! Silakan coba lagi.\n";
+            cout << "1. Coba lagi\n2. Keluar\nPilih: ";
+            cin >> pilihan;
+            if(pilihan==2){
+                kondisi = true;
+                return;
+            }
+        }
+    } while (!kondisi);
 }
 
 void displayMainMenu(){

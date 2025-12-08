@@ -1,124 +1,47 @@
-#include <iostream>
-#include <string>
-#include <fstream>
+#include "admin.cpp"
 using namespace std;
 
-// enum class StatusAkademik { Aktif, Cuti, Lulus, DropOut };
-// enum class StatusDosen { Aktif, Cuti, Pensiun, TidakAktif };
-enum class JenisKelamina { LakiLaki, Perempuan };
-
-struct Mahasiswaa {
-    string nama;
-    string nim;
-    int semester;
-    int tahunMasuk;
-    string jurusan;
-    string fakultas;
-
-    // Informasi pribadi
-    string tempatLahir;
-    string tanggalLahir;
-    string alamat;
-    string email;
-    string noHp;
-    JenisKelamina g;
-    bool aktif = true;
-
-    // password
-    string password;
-
+struct NodeMHS{
+    NodeMHS* next;
+    NodeMHS* prev;
+    Mahasiswa mhs;
 };
 
-// struct Dosen {
-//     // Identitas dasar
-//     string nama;
-//     string nidn;        // Nomor Induk Dosen Nasional
-//     string nip;         // Nomor Induk Pegawai (jika PNS)
-//     string gelarDepan;  // misal: "Dr.", "Prof."
-//     string gelarBelakang; // misal: "M.Kom", "Ph.D"
+class DataMahasiswa {
+    private :
 
-//     // Informasi akademik
-//     string fakultas;
-//     string jurusan;
-//     string jabatanAkademik; // misal: "Lektor", "Guru Besar", "Asisten Ahli"
-//     string pendidikanTerakhir; // misal: "S2", "S3"
+    public :
+    NodeMHS* head = NULL;
+    NodeMHS* tail = NULL;
 
-//     // Data pribadi
-//     JenisKelamina gender;
-//     string email;
-//     string noHp;
-//     string alamat;
+    DataMahasiswa (){
 
-//     // Status kepegawaian
-//     StatusDosen status = StatusDosen::Aktif;
-//     int tahunMasuk;
-//     bool aktif = true;
+    }
 
-// };
+    void TambahMhs(Mahasiswa mhsBaru){
+        NodeMHS* newNode = new NodeMHS();
+        newNode->mhs = mhsBaru;
+        newNode->next = NULL;
+        newNode->prev = NULL;
 
-// struct MataKuliah {
-//     string kodeMK;         // Kode unik, contoh: "IF1234"
-//     string namaMK;         // Nama mata kuliah, contoh: "Algoritma & Struktur Data"
-//     int sks;               // Jumlah SKS
-//     string deskripsi;      // Keterangan singkat mata kuliah
-//     int semester;          // Semester disarankan, contoh: 2
-//     string jurusan;       // Jurusan pemilik mata kuliah
-//     string fakultas;       // Fakultas terkait
+        if(head == NULL){
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
 
-//     // Akademik
-//     bool wajib;            // true = wajib, false = pilihan
-
-//     // Status
-//     bool aktif = true;     // apakah MK masih dibuka semester ini
-// };
-
-// // Relasi dosen dengan mata kuliah
-// struct DosenMataKuliah {
-//     string nidnDosen;
-//     string kodeMK;
-//     string kdDosenMk;
-// };
-
-// // Relasi mahasiswa dengan mata kuliah (KRS)
-// struct Krs {
-//     string nimMahasiswa;
-//     string kdDosenMk;
-//     string semesterDiambil; // contoh: "Ganjil 2023/2024"
-//     char nilaiHuruf;        // contoh: 'A', 'B', 'C', 'D', 'E', 'F'
-//     float nilaiAngka;      // contoh: 4.0, 3.5, dst.
-// };
-
-// struct Kelas {
-//     string kdKelas;
-//     string namaKelas;      // 
-//     int batasKelas = 40;        // jumlah maksimum mahasiswa
-// };
-
-// struct KelasMahasiswa{
-//     string kdKelas;
-//     string nim;
-// };
-
-// struct Usernamepw{
-//     string Username;
-//     string Password;
-// };
-
-Mahasiswaa mhs;
-Mahasiswaa data[1000]; // Assuming a maximum of 1000 students
-int jumlah = 0;
-
-void tarikDataMahasiswa(){
-    // Implementasi untuk menarik data mahasiswa dari file
+    void TarikMhsdariFile(){
         ifstream in("dataMahasiswa.txt");
-        
         if (!in.is_open()) {
             cout << "Gagal membuka file dataMahasiswa.txt\n";
             return;
         }
-
         string line;
-        Mahasiswaa mhsSementara;
+        Mahasiswa mhsSementara;
 
         while (getline(in, line)) {
             if (line.find("Nama: ") != string::npos) {
@@ -146,41 +69,75 @@ void tarikDataMahasiswa(){
             } else if (line.find("Jenis Kelamin: ") != string::npos) {
                 string genderStr = line.substr(14);
                 if (genderStr == "Laki-laki")
-                    mhsSementara.g = JenisKelamina::LakiLaki;
+                    mhsSementara.g = JenisKelamin::LakiLaki;
                 else
-                    mhsSementara.g = JenisKelamina::Perempuan;
+                    mhsSementara.g = JenisKelamin::Perempuan;
             } else if (line.find("Status: ") != string::npos) {
                 string statusStr = line.substr(8);
                 mhsSementara.aktif = (statusStr == "Aktif");
             } else if (line.find("Password: ") != string::npos) {
                 mhsSementara.password = line.substr(10);
             } else if (line.find("--------------------------") != string::npos) {
-                // Tambahkan ke array setiap selesai 1 blok data mahasiswa
-                data[jumlah] = mhsSementara;
-                jumlah++;
+                // Tambahkan ke linked list setiap selesai 1 blok data mahasiswa
+                TambahMhs(mhsSementara);
             }
-        }
 
-        in.close();
+    }
+ 
+    in.close();
 }
 
-class MahasiswaPortal {
-  private:
-    string username;
-    string password;
-  public:
-    MahasiswaPortal(){
-        tarikDataMahasiswa();
-    }
-    bool login(string u, string p) {
-      for (int i = 0; i < jumlah; i++) {
-        if (u == data[i].nim && p == data[i].password) {
-          mhs = data[i];
-          return true;
+    Mahasiswa* cariMahasiswaBynim(string nim) {
+        NodeMHS* current = head;
+        while (current != NULL) {
+            if (current->mhs.nim == nim) {
+                return &current->mhs;
+            }
+            current = current->next;
         }
-      }
-      return false;
+        
+        return NULL; 
     }
+};
+
+
+
+class MahasiswaPortal {
+ private:
+        DataMahasiswa * mhsDasboard;  
+        string username;
+        string password;
+        Mahasiswa mhsLogin;  
+
+    public:
+       
+        MahasiswaPortal(DataMahasiswa * mhsDasboard) {
+            this->mhsDasboard = mhsDasboard;
+            mhsDasboard->TarikMhsdariFile();
+        }
+
+       
+        bool login(string nim, string password) {
+            if (mhsDasboard == NULL) {
+                cout << "Error: DataMahasiswa  tidak diinisialisasi\n";
+                return false;
+            }
+
+          
+            Mahasiswa* mhs = mhsDasboard->cariMahasiswaBynim(nim);
+            
+            if (mhs != NULL && password == mhs->password) {
+                this->mhsLogin = *mhs;
+                this->username = nim;
+                this->password = password;
+                cout << "Login berhasil! Selamat datang " << mhs->nama << "\n";
+                return true;
+            }
+            
+            cout << "Login gagal! NIM atau password salah\n";
+            return false;
+        }
+
 };
 
 

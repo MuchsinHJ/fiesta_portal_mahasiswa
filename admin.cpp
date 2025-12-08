@@ -1,105 +1,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <cctype>
-#include <algorithm>
+#include "dataStruct.h"
+#include "doubleLinkedList.h"
 using namespace std;
-
-enum class StatusAkademik { Aktif, Cuti, Lulus, DropOut };
-enum class StatusDosen { Aktif, Cuti, Pensiun, TidakAktif };
-enum class JenisKelamin { LakiLaki, Perempuan };
-
-struct Mahasiswa {
-    string nama;
-    string nim;
-    int semester;
-    int tahunMasuk;
-    string jurusan;
-    string fakultas;
-
-    // Informasi pribadi
-    string tempatLahir;
-    string tanggalLahir;
-    string alamat;
-    string email;
-    string noHp;
-    JenisKelamin g;
-    bool aktif = true;
-
-    // password
-    string password;
-
-};
-
-struct Dosen {
-    // Identitas dasar
-    string nama;
-    string nidn;        // Nomor Induk Dosen Nasional
-    string nip;         // Nomor Induk Pegawai (jika PNS)
-    string gelarDepan;  // misal: "Dr.", "Prof."
-    string gelarBelakang; // misal: "M.Kom", "Ph.D"
-
-    // Informasi akademik
-    string fakultas;
-    string jurusan;
-    string jabatanAkademik; // misal: "Lektor", "Guru Besar", "Asisten Ahli"
-    string pendidikanTerakhir; // misal: "S2", "S3"
-
-    // Data pribadi
-    JenisKelamin gender;
-    string email;
-    string noHp;
-    string alamat;
-
-    // Status kepegawaian
-    StatusDosen status = StatusDosen::Aktif;
-    int tahunMasuk;
-    bool aktif = true;
-
-};
-
-struct MataKuliah {
-    string kodeMK;         // Kode unik, contoh: "IF1234"
-    string namaMK;         // Nama mata kuliah, contoh: "Algoritma & Struktur Data"
-    int sks;               // Jumlah SKS
-    string deskripsi;      // Keterangan singkat mata kuliah
-    int semester;          // Semester disarankan, contoh: 2
-    string jurusan;       // Jurusan pemilik mata kuliah
-    string fakultas;       // Fakultas terkait
-
-    // Akademik
-    bool wajib;            // true = wajib, false = pilihan
-
-    // Status
-    bool aktif = true;     // apakah MK masih dibuka semester ini
-};
-
-// Relasi dosen dengan mata kuliah
-struct DosenMataKuliah {
-    string nidnDosen;
-    string kodeMK;
-    string kdDosenMk;
-};
-
-// Relasi mahasiswa dengan mata kuliah (KRS)
-struct Krs {
-    string nimMahasiswa;
-    string kdDosenMk;
-    string semesterDiambil; // contoh: "Ganjil 2023/2024"
-    char nilaiHuruf;        // contoh: 'A', 'B', 'C', 'D', 'E', 'F'
-    float nilaiAngka;      // contoh: 4.0, 3.5, dst.
-};
-
-struct Kelas {
-    string kdKelas;
-    string namaKelas;      // 
-    int batasKelas = 40;        // jumlah maksimum mahasiswa
-};
-
-struct KelasMahasiswa{
-    string kdKelas;
-    string nim;
-};
 
 // CLASS UNTUK LOGIN PORTAL ADMIN DAN AUTENTIKASI
 class AdminPortal {
@@ -1825,20 +1729,15 @@ public:
 
 };
 
-class ManajemenKelas{
-    private:
-        struct NodeKelas{
-            Kelas dataKelas;
-            NodeKelas* next;
-            NodeKelas* prev;
 
-            NodeKelas(const Kelas& kelas) : dataKelas(kelas), next(nullptr), prev(nullptr) {}
-        };
-    public:
-        NodeKelas* head = nullptr, *tail = nullptr;
-        ManajemenKelas() {
-            // Inisialisasi dengan beberapa data kelas
-            if (head == nullptr) {
+class ManajemenKelas {
+private:
+    DoubleLinkedList<Kelas> daftarKelas;
+
+public:
+    ManajemenKelas() {
+        // Inisialisasi dengan beberapa data kelas jika list masih kosong
+        if (daftarKelas.size() == 0) {
             tambahKelasLangsung({"IF101-A", "A", 30});
             tambahKelasLangsung({"IF101-B", "B", 30});
             tambahKelasLangsung({"IF101-C", "C", 30});
@@ -1870,223 +1769,235 @@ class ManajemenKelas{
             tambahKelasLangsung({"IF108-A", "A", 20});
             tambahKelasLangsung({"IF108-B", "B", 20});
             tambahKelasLangsung({"IF108-C", "C", 20});
+        }
+        updateFileKelas();
+    }
+
+    void tambahKelasLangsung(const Kelas& kelasBaru) {
+        daftarKelas.tambahData(kelasBaru);
+    }
+
+    void tambahKelas() {    
+        Kelas kelasBaru;
+        cout << "\n=== Tambah Kelas Baru ===" << endl;
+        cout << "Masukkan kode kelas: ";
+        cin >> kelasBaru.kdKelas;
+        cin.ignore();
+        cout << "Masukkan nama kelas: ";
+        getline(cin, kelasBaru.namaKelas);
+        cout << "Masukkan batas kapasitas kelas: ";
+        cin >> kelasBaru.batasKelas;
+        cin.ignore();
+
+        tambahKelasLangsung(kelasBaru);
+        cout << "Kelas berhasil ditambahkan!" << endl;
+        updateFileKelas();
+    }
+
+    void editKelas() {
+        string kodeCari;
+        cout << "\n=== Edit Kelas ===" << endl;
+        cout << "Masukkan kode kelas yang akan diedit: ";
+        cin >> kodeCari;
+
+        // akses Node internal (Node dan head publik di implementasimu)
+        DoubleLinkedList<Kelas>::Node* temp = daftarKelas.head;
+        bool ditemukan = false;
+        while (temp != nullptr) {
+            if (temp->data.kdKelas == kodeCari) {
+                ditemukan = true;
+                cout << "Masukkan nama kelas baru: ";
+                cin.ignore();
+                getline(cin, temp->data.namaKelas);
+                cout << "Masukkan batas kapasitas kelas baru: ";
+                cin >> temp->data.batasKelas;
+                cin.ignore();
+                cout << "Kelas berhasil diperbarui!" << endl;
+                updateFileKelas();
+                break;
             }
-            updateFileKelas();
+            temp = temp->next;
         }
 
-        void tambahKelasLangsung(const Kelas& kelasBaru) {
-            NodeKelas* newNode = new NodeKelas(kelasBaru);
-            // newNode->dataKelas = kelasBaru;
-            // newNode->next = nullptr;
-            // newNode->prev = nullptr;
-
-            if (head == nullptr) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                tail->next = newNode;
-                newNode->prev = tail;
-                tail = newNode;
-                tail->next = nullptr;
-            }
+        if (!ditemukan) {
+            cout << "Kelas dengan kode " << kodeCari << " tidak ditemukan." << endl;
         }
+    }
 
-        void tambahKelas() {
-            Kelas kelasBaru;
-            cout << "\n=== Tambah Kelas Baru ===" << endl;
-            cout << "Masukkan kode kelas: ";
-            cin >> kelasBaru.kdKelas;
-            cin.ignore();
-            cout << "Masukkan nama kelas: ";
-            getline(cin, kelasBaru.namaKelas);
-            cout << "Masukkan batas kapasitas kelas: ";
-            cin >> kelasBaru.batasKelas;
-            cin.ignore();
+    void hapusKelas() {
+        string kodeCari;
+        cout << "\n=== Hapus Kelas ===" << endl;
+        cout << "Masukkan kode kelas yang akan dihapus: ";
+        cin >> kodeCari;
 
-            tambahKelasLangsung(kelasBaru);
-            cout << "Kelas berhasil ditambahkan!" << endl;
-            updateFileKelas();
-        }
+        DoubleLinkedList<Kelas>::Node* temp = daftarKelas.head;
+        DoubleLinkedList<Kelas>::Node* prev = nullptr;
+        bool ditemukan = false;
 
-        void editKelas() {
-            string kodeCari;
-            cout << "\n=== Edit Kelas ===" << endl;
-            cout << "Masukkan kode kelas yang akan diedit: ";
-            cin >> kodeCari;
-
-            NodeKelas* temp = head;
-            bool ditemukan = false;
-            while (temp != nullptr) {
-                if (temp->dataKelas.kdKelas == kodeCari) {
-                    ditemukan = true;
-                    cout << "Masukkan nama kelas baru: ";
-                    cin.ignore();
-                    getline(cin, temp->dataKelas.namaKelas);
-                    cout << "Masukkan batas kapasitas kelas baru: ";
-                    cin >> temp->dataKelas.batasKelas;
-                    cin.ignore();
-                    cout << "Kelas berhasil diperbarui!" << endl;
-                    updateFileKelas();
-                    break;
-                }
-                temp = temp->next;
-            }
-
-            if (!ditemukan) {
-                cout << "Kelas dengan kode " << kodeCari << " tidak ditemukan." << endl;
-            }
-        }
-
-        void hapusKelas() {
-            string kodeCari;
-            cout << "\n=== Hapus Kelas ===" << endl;
-            cout << "Masukkan kode kelas yang akan dihapus: ";
-            cin >> kodeCari;
-
-            NodeKelas* temp = head;
-            NodeKelas* prev = nullptr;
-            bool ditemukan = false;
-
-            while (temp != nullptr) {
-                if (temp->dataKelas.kdKelas == kodeCari) {
-                    ditemukan = true;
-                    if (prev == nullptr) {
-                        head = temp->next;
-                        if (head != nullptr) {
-                            head->prev = nullptr;
-                        } else {
-                            tail = nullptr; // List menjadi kosong
-                        }
+        while (temp != nullptr) {
+            if (temp->data.kdKelas == kodeCari) {
+                ditemukan = true;
+                if (prev == nullptr) {
+                    // hapus head
+                    daftarKelas.head = temp->next;
+                    if (daftarKelas.head != nullptr) {
+                        daftarKelas.head->prev = nullptr;
                     } else {
-                        prev->next = temp->next;
-                        if (temp->next != nullptr) {
-                            temp->next->prev = prev;
-                        } else {
-                            tail = prev; // Hapus tail
-                        }
+                        daftarKelas.tail = nullptr; // list jadi kosong
                     }
-                    delete temp;
-                    updateFileKelas();
-                    cout << "Kelas dengan kode " << kodeCari << " berhasil dihapus." << endl;
-                    break;
-                }
-                prev = temp;
-                temp = temp->next;
-            }
-
-            if (!ditemukan) {
-                cout << "Kelas dengan kode " << kodeCari << " tidak ditemukan." << endl;
-            }
-        }
-
-        void tampilSemuaKelas() {
-            if (head == nullptr) {
-                cout << "Belum ada kelas yang terdaftar." << endl;
-                return;
-            }
-
-            cout << "\n=== Daftar Semua Kelas ===" << endl;
-            NodeKelas* temp = head;
-            while (temp != nullptr) {
-                cout << "Kode Kelas: " << temp->dataKelas.kdKelas
-                     << ", Nama Kelas: " << temp->dataKelas.namaKelas
-                     << ", Kapasitas: " << temp->dataKelas.batasKelas << endl;
-                temp = temp->next;
-            }
-        }
-        
-        void clearKelas(){
-            NodeKelas* current = head;
-            NodeKelas* nextNode;
-
-            while(current != nullptr){
-                nextNode = current->next;
-                delete current;
-                current = nextNode;
-            }
-
-            head = nullptr;
-            tail = nullptr;
-            cout<<"Semua data kelas telah dihapus dari memory."<<endl;
-         
-        }
-
-        void tampilKelasByKode(const string& kodeKelas) {
-            NodeKelas* temp = head;
-            bool ditemukan = false;
-            while (temp != nullptr) {
-                if (temp->dataKelas.kdKelas == kodeKelas) {
-                    ditemukan = true;
-                    cout << "Kode Kelas: " << temp->dataKelas.kdKelas
-                         << ", Nama Kelas: " << temp->dataKelas.namaKelas
-                         << ", Kapasitas: " << temp->dataKelas.batasKelas << endl;
-                    updateFileKelas();
-                    break;
-                }
-                temp = temp->next;
-            }
-
-            if (!ditemukan) {
-                cout << "Kelas dengan kode " << kodeKelas << " tidak ditemukan." << endl;
-            }
-        }
-
-        void tarikDataDariFileKelas(){
-            ifstream inFile("dataKelas.txt");
-            if(!inFile.is_open()){
-                cout<<"File dataKelas.txt tidak ditemukan. Akan dibuat file baru."<<endl;
-                return;
-            }
-
-            clearKelas(); // Hapus data existing sebelum memuat dari file
-
-            string line;
-            Kelas kelasSementara;
-
-            while(getline(inFile, line)){
-                if(line.find("Kode Kelas: ") != string::npos){
-                    kelasSementara.kdKelas = line.substr(13);
-                } else if(line.find("Nama Kelas: ") != string::npos){
-                    kelasSementara.namaKelas = line.substr(13);
-                } else if(line.find("Kapasitas: ") != string::npos){
-                    try{
-                        kelasSementara.batasKelas = stoi(line.substr(12));
-                    } catch(...){
-                        kelasSementara.batasKelas = 0;
+                } else {
+                    // hapus di tengah atau tail
+                    prev->next = temp->next;
+                    if (temp->next != nullptr) {
+                        temp->next->prev = prev;
+                    } else {
+                        daftarKelas.tail = prev; // dihapus tail
                     }
-                } else if(line.find("--------------------------") != string::npos){
-                    // Akhir dari satu data kelas, tambahkan ke linked list
-                    tambahKelasLangsung(kelasSementara);
-                    kelasSementara = Kelas(); // Reset untuk data berikutnya
                 }
-            }
 
-            inFile.close();
+                delete temp;
+                // update ukuran karena kita manipulasi langsung struktur internal
+                if (daftarKelas.sz > 0) daftarKelas.sz--;
+
+                updateFileKelas();
+                cout << "Kelas dengan kode " << kodeCari << " berhasil dihapus." << endl;
+                break;
+            }
+            prev = temp;
+            temp = temp->next;
         }
 
-        void updateFileKelas(){
-            ofstream outFile("dataKelas.txt", ios::trunc);
-            if(!outFile.is_open()){
-                cout<<"Gagal membuka file untuk menyimpan data kelas."<<endl;
-                return;
-            }
-
-            NodeKelas* temp = head;
-            while(temp != nullptr){
-                outFile<<"Kode Kelas: "<<temp->dataKelas.kdKelas<<endl;
-                outFile<<"Nama Kelas: "<<temp->dataKelas.namaKelas<<endl;
-                outFile<<"Kapasitas: "<<temp->dataKelas.batasKelas<<endl;
-                outFile<<"--------------------------"<<endl;
-                temp = temp->next;
-            }
-
-            outFile.close();
+        if (!ditemukan) {
+            cout << "Kelas dengan kode " << kodeCari << " tidak ditemukan." << endl;
         }
+    }
+
+    void tampilSemuaKelas() {
+        if (daftarKelas.size() == 0) {
+            cout << "Belum ada kelas yang terdaftar." << endl;
+            return;
+        }
+
+        cout << "\n=== Daftar Semua Kelas ===" << endl;
+        DoubleLinkedList<Kelas>::Node* temp = daftarKelas.head;
+        while (temp != nullptr) {
+            cout << "Kode Kelas: " << temp->data.kdKelas
+                 << ", Nama Kelas: " << temp->data.namaKelas
+                 << ", Kapasitas: " << temp->data.batasKelas << endl;
+            temp = temp->next;
+        }
+    }
+    
+    void clearKelas() {
+        // gunakan clear() dari DoubleLinkedList agar konsisten (menghapus node + set ukuran)
+        daftarKelas.clear();
+        cout << "Semua data kelas telah dihapus dari memory." << endl;
+    }
+
+    void tampilKelasByKode(const string& kodeKelas) {
+        DoubleLinkedList<Kelas>::Node* temp = daftarKelas.head;
+        bool ditemukan = false;
+        while (temp != nullptr) {
+            if (temp->data.kdKelas == kodeKelas) {
+                ditemukan = true;
+                cout << "Kode Kelas: " << temp->data.kdKelas
+                     << ", Nama Kelas: " << temp->data.namaKelas
+                     << ", Kapasitas: " << temp->data.batasKelas << endl;
+                // tidak perlu update file di sini; tetap sesuai konsep aslinya
+                break;
+            }
+            temp = temp->next;
+        }
+
+        if (!ditemukan) {
+            cout << "Kelas dengan kode " << kodeKelas << " tidak ditemukan." << endl;
+        }
+    }
+
+    void tarikDataDariFileKelas() {
+    ifstream inFile("dataKelas.txt");
+    if (!inFile.is_open()) {
+        cout << "File dataKelas.txt tidak ditemukan. Akan dibuat file baru." << endl;
+        return;
+    }
+
+    // Hapus data existing sebelum memuat dari file
+    daftarKelas.clear();
+
+    auto trim = [](string &s) {
+        // trim leading
+        size_t start = 0;
+        while (start < s.size() && isspace(static_cast<unsigned char>(s[start]))) ++start;
+        // trim trailing
+        size_t end = s.size();
+        while (end > start && isspace(static_cast<unsigned char>(s[end - 1]))) --end;
+        if (start == 0 && end == s.size()) return; // tidak perlu ubah
+        s = s.substr(start, end - start);
+    };
+
+    string line;
+    Kelas kelasSementara;
+    bool adaDataSementara = false;
+
+    while (getline(inFile, line)) {
+        // cari delimiter ": "
+        size_t pos = line.find(": ");
+        string value;
+        if (pos != string::npos) {
+            value = line.substr(pos + 2);
+            trim(value);
+        } else {
+            value = "";
+        }
+
+        if (line.find("Kode Kelas") != string::npos) {
+            kelasSementara.kdKelas = value;
+            adaDataSementara = true;
+        } else if (line.find("Nama Kelas") != string::npos) {
+            kelasSementara.namaKelas = value;
+        } else if (line.find("Kapasitas") != string::npos) {
+            try {
+                kelasSementara.batasKelas = stoi(value);
+            } catch (...) {
+                kelasSementara.batasKelas = 0;
+            }
+        } else if (line.find("--------------------------") != string::npos) {
+            // akhir dari satu data kelas -> tambahkan bila ada data
+            if (adaDataSementara) {
+                tambahKelasLangsung(kelasSementara);
+                kelasSementara = Kelas();
+                adaDataSementara = false;
+            }
+        }
+    }
+
+    // jika file tidak diakhiri separator, tambahkan data terakhir
+    if (adaDataSementara) {
+        tambahKelasLangsung(kelasSementara);
+    }
+
+    inFile.close();
+}
+
+    void updateFileKelas() {
+        ofstream outFile("dataKelas.txt", ios::trunc);
+        if (!outFile.is_open()) {
+            cout << "Gagal membuka file untuk menyimpan data kelas." << endl;
+            return;
+        }
+
+        DoubleLinkedList<Kelas>::Node* temp = daftarKelas.head;
+        while (temp != nullptr) {
+            outFile << "Kode Kelas: " << temp->data.kdKelas << endl;
+            outFile << "Nama Kelas: " << temp->data.namaKelas << endl;
+            outFile << "Kapasitas: " << temp->data.batasKelas << endl;
+            outFile << "--------------------------" << endl;
+            temp = temp->next;
+        }
+
+        outFile.close();
+    }
 };
-
-
-
-
 
 class ManajemenKelasMahasiswa{
 private:
@@ -2280,22 +2191,22 @@ public:
     }
 
     
-    Kelas* findKelasByKode(const string& kode) {
-        if (kelasMgr) {
-            auto node = kelasMgr->head;
-            while (node) {
-                if (node->dataKelas.kdKelas == kode) return &node->dataKelas;
-                node = node->next;
-            }
-            return nullptr;
-        } else {
-            if (jumlahKelas == 0) tarikDataDariFileKelas();
-            for (int i = 0; i < jumlahKelas; ++i) {
-                if (dataKelas[i].kdKelas == kode) return &dataKelas[i];
-            }
-            return nullptr;
-        }
-    }
+    // Kelas* findKelasByKode(const string& kode) {
+    //     if (kelasMgr) {
+    //         auto node = kelasMgr->head;
+    //         while (node) {
+    //             if (node->dataKelas.kdKelas == kode) return &node->dataKelas;
+    //             node = node->next;
+    //         }
+    //         return nullptr;
+    //     } else {
+    //         if (jumlahKelas == 0) tarikDataDariFileKelas();
+    //         for (int i = 0; i < jumlahKelas; ++i) {
+    //             if (dataKelas[i].kdKelas == kode) return &dataKelas[i];
+    //         }
+    //         return nullptr;
+    //     }
+    // }
 
     
     void tampilSemuaKelasMahasiswa() {
@@ -2311,7 +2222,7 @@ public:
             string nim = temp->data.nim;
             string kdKelas = temp->data.kdKelas;
             string nama = findNamaMahasiswaByNIM(nim);
-            Kelas* k = findKelasByKode(kdKelas);
+            // Kelas* k = findKelasByKode(kdKelas);
 
             // cout << "Relasi ke-" << idx++ << ":\n";
             cout<<"---------------------------------"<<endl;
