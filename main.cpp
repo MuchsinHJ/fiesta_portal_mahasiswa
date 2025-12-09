@@ -330,11 +330,15 @@ public:
         }
     };
     
-    // ...existing code...
+    
 class MahasiswaDashboard {
 private:
     NavigationStack nav;
+    MahasiswaPortal* mhsPortal;
 public:
+    MahasiswaDashboard(MahasiswaPortal* portal) : mhsPortal(portal) {
+    }
+
     void tampilMenuDashMahasiswa() {
         nav.push("Dashboard Mahasiswa");
         int pilih;
@@ -374,7 +378,7 @@ public:
 
 
     void tampilProfil(){
-    nav.push("Tampil Menu Profil Mahasiswa");
+        nav.push("Tampil Menu Profil Mahasiswa");
         int pilih;
         do{
             cout<<"====MENU MANAJEMEN PROFIL MAHASISWA===="<<endl;
@@ -386,7 +390,7 @@ public:
 
             switch(pilih){
                 case 1:
-                    cout << "Menampilkan biodata..." << endl;
+                    mhsPortal->tampilProfil();
                     break;
                 case 2:
                     cout << "Menampilkan tagihan..." << endl;
@@ -402,20 +406,133 @@ public:
         }while(pilih!=3);
     }
 
-    void tampilPelayananOnline(){
-        cout << "Menampilkan pelayanan online..." << endl;
-    }
 
     void tampilPerkuliahan(){
-        cout << "Menampilkan perkuliahan..." << endl;
+        nav.push("Tampil Menu Perkuliahan Mahasiswa");
+        int pilih;
+        do{
+            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"1. Mata Kuliah Aktif"<<endl;
+            cout<<"2. Sertifikat Seminar"<<endl;
+            cout<<"3. Sertifikat Prestasi"<<endl;
+            cout<<"4. Presensi Kuliah"<<endl;
+            cout<<"5. Informasi"<<endl;
+            cout<<"6. Keluar"<<endl;
+            cout<<"Masukkan Pilihan:";
+            cin>>pilih;
+
+            switch(pilih){
+                case 1:
+                    cout << "Menampilkan biodata..." << endl;
+                    break;
+                case 2:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 3:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 4:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 5:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 6:
+                    nav.pop();
+                    cout<<"Kembalikan ke dashboard mahasiswa...\n";
+                    return;
+                default:
+                    cout<<"Pilihan tidak valid!"<<endl;
+                break;
+            }
+        }while(pilih!=6);
     }
 
     void tampilKRSKHS(){
-        cout << "Menampilkan KRS dan KHS..." << endl;
+        nav.push("Tampil Menu KRS dan KHS Mahasiswa");
+        int pilih;
+        do{
+            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"1. KRS Reguler"<<endl;
+            cout<<"2. KRS Aktivitas Mahasiswa"<<endl;
+            cout<<"3. Cetak KRS"<<endl;
+            cout<<"4. Cek Nilai"<<endl;
+            cout<<"5. Pendaftaran Seminar"<<endl;
+            cout<<"6. Pendaftaran Ujian"<<endl;
+            cout<<"7. Keluar"<<endl;
+            cout<<"Masukkan Pilihan:";
+            cin>>pilih;
+
+            switch(pilih){
+                case 1:
+                    cout << "Menampilkan biodata..." << endl;
+                    break;
+                case 2:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 3:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 4:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 5:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 6:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 7:
+                    nav.pop();
+                    cout<<"Kembalikan ke dashboard mahasiswa...\n";
+                    return;
+                default:
+                    cout<<"Pilihan tidak valid!"<<endl;
+                break;
+            }
+        }while(pilih!=7);
     }
 
     void tampilMataKuliah(){
-        cout << "Menampilkan mata kuliah..." << endl;
+        nav.push("Tampil Menu Perkuliahan Mahasiswa");
+        int pilih;
+        do{
+            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"1. Mata Kuliah Semester Gasal"<<endl;
+            cout<<"2. Mata Kuliah Semester Genap"<<endl;
+            cout<<"3. Seluruh Mahasiswa"<<endl;
+            cout<<"4. Keluar"<<endl;
+            cout<<"Masukkan Pilihan:";
+            cin>>pilih;
+
+            switch(pilih){
+                case 1:
+                    cout << "Menampilkan biodata..." << endl;
+                    break;
+                case 2:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 3:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 4:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 5:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 6:
+                    cout << "Menampilkan tagihan..." << endl;
+                    break;
+                case 7:
+                    nav.pop();
+                    cout<<"Kembalikan ke dashboard mahasiswa...\n";
+                    return;
+                default:
+                    cout<<"Pilihan tidak valid!"<<endl;
+                break;
+            }
+        }while(pilih!=4);
     }
 
     
@@ -462,7 +579,7 @@ void displayMahasiswa(){
         cout << "cek";
         if (loggedIn) {
             kondisi = true;
-            MahasiswaDashboard dashboard;
+            MahasiswaDashboard dashboard(&portal);
             dashboard.tampilMenuDashMahasiswa();
         }else{
             cout << "Login gagal! Silakan coba lagi.\n";
