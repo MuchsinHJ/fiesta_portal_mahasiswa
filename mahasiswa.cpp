@@ -169,30 +169,48 @@ class MahasiswaPortal {
 
             // Tampilkan profil jika semua validasi berhasil
             system("cls");
-            cout << "\n╔════════════════════════════════════════╗\n";
-            cout << "║         PROFIL MAHASISWA              ║\n";
-            cout << "╚════════════════════════════════════════╝\n\n";
+            cout << "\n========================================\n";
+            cout << "           PROFIL MAHASISWA            \n";
+            cout << "========================================\n\n";
             
-            cout << "┌─ Data Pribadi ─────────────────────────┐\n";
-            cout << "│ Nama              : " << mhs->nama << endl;
-            cout << "│ NIM               : " << mhs->nim << endl;
-            cout << "│ Tempat Lahir      : " << mhs->tempatLahir << endl;
-            cout << "│ Tanggal Lahir     : " << mhs->tanggalLahir << endl;
-            cout << "│ Jenis Kelamin     : " << (mhs->g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << endl;
-            cout << "│ Alamat            : " << mhs->alamat << endl;
-            cout << "│ Email             : " << mhs->email << endl;
-            cout << "│ No HP             : " << mhs->noHp << endl;
-            cout << "└────────────────────────────────────────┘\n\n";
+            cout << "----------------------------------------\n";
+            cout << " Nama              : " << mhs->nama << endl;
+            cout << " NIM               : " << mhs->nim << endl;
+            cout << " Tempat Lahir      : " << mhs->tempatLahir << endl;
+            cout << " Tanggal Lahir     : " << mhs->tanggalLahir << endl;
+            cout << " Jenis Kelamin     : " << (mhs->g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << endl;
+            cout << " Alamat            : " << mhs->alamat << endl;
+            cout << " Email             : " << mhs->email << endl;
+            cout << " No HP             : " << mhs->noHp << endl;
+            cout << "----------------------------------------\n";
             
-            cout << "┌─ Data Akademik ────────────────────────┐\n";
-            cout << "│ Fakultas          : " << mhs->fakultas << endl;
-            cout << "│ Jurusan           : " << mhs->jurusan << endl;
-            cout << "│ Semester          : " << mhs->semester << endl;
-            cout << "│ Tahun Masuk       : " << mhs->tahunMasuk << endl;
-            cout << "│ Status            : " << (mhs->aktif ? "Aktif" : "Tidak Aktif") << endl;
-            cout << "└────────────────────────────────────────┘\n";
+            cout << "\nData Akademik:\n";
+            cout << "----------------------------------------\n";
+            cout << " Fakultas          : " << mhs->fakultas << endl;
+            cout << " Jurusan           : " << mhs->jurusan << endl;
+            cout << " Semester          : " << mhs->semester << endl;
+            cout << " Tahun Masuk       : " << mhs->tahunMasuk << endl;
+            cout << " Status            : " << (mhs->aktif ? "Aktif" : "Tidak Aktif") << endl;
+            cout << "\n========================================\n";
             
             cout << "\n✓ Data terverifikasi untuk username: " << username << endl;
+        }
+
+        void logout() {
+            username.clear();
+            password.clear();
+            cout << "Anda telah logout.\n";
+        }
+
+        void Tagihanmhs(){
+            cout << "================================\n";
+            cout << "        DATA TAGIHAN MHS        \n";
+            cout << "================================\n";
+            cout << "Nama: " << mhsLogin.nama << endl;
+            cout << "NIM: " << mhsLogin.nim << endl;
+            cout << "Tagihan Semester " << mhsLogin.semester << "Belum ada tagihan\n";
+            cout << "================================\n";
+
         }
 
 };

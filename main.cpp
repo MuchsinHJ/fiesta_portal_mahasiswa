@@ -348,7 +348,7 @@ public:
             cout << "2. Perkuliahan" << endl;
             cout << "3. KRS dan KHS" << endl;
             cout << "4. Mata Kuliah" << endl;
-            cout << "5. Keluar" << endl;
+            cout << "5. Logout" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
@@ -365,7 +365,9 @@ public:
                 case 4: 
                 tampilMataKuliah();
                     break;
-                case 5: 
+                case 5:
+                mhsPortal->logout();
+                nav.pop(); 
                 cout << "Keluar dari dashboard mahasiswa...\n";
                 return;
                     break;
@@ -375,6 +377,8 @@ public:
             }
         } while (pilih != 5);
     }
+
+    
 
 
     void tampilProfil(){
@@ -393,7 +397,7 @@ public:
                     mhsPortal->tampilProfil();
                     break;
                 case 2:
-                    cout << "Menampilkan tagihan..." << endl;
+                    mhsPortal->Tagihanmhs();
                     break;
                 case 3:
                     nav.pop();
