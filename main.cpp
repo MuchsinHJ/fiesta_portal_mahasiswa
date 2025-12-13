@@ -41,6 +41,7 @@ private:
     ManajemenDosenMataKuliah mnjdsmatkul;
     ManajemenKelas mnjKelas;
     ManajemenKelasMahasiswa mnjKelasMahasiswa;
+    ManajemenKrs mnjKrs;
 public:
 
     void tarikData(){
@@ -50,6 +51,7 @@ public:
         mnjdsmatkul.tarikDataDariFileDosenMataKuliah();
         mnjKelas.tarikDataDariFileKelas();
         mnjKelasMahasiswa.tarikDataDariFileKelasMahasiswa();
+        mnjKrs.tarikDataDariFileKrs();
     }
 
     void tampilMenuDashAdmin() {
@@ -92,6 +94,9 @@ public:
                     break;
                 case 6:
                     tampilMenuKelasMahasiswa();
+                    break;
+                case 7:
+                    tampilMenuKrs();
                     break;
                 case 10: 
                     nav.pop();
@@ -307,10 +312,10 @@ public:
 
             switch(pilih) {
                 case 1:
-                     mnjKelasMahasiswa.tambahKelasMahasiswa();
+                    //  mnjKrs.tambahKrsMahasiswa();
                     break;
                 case 2:
-                     mnjKelasMahasiswa.tampilSemuaKelasMahasiswa();
+                    //  mnjKrs.tampilSemuaKKrs();
                     break;
                 case 3:
                     // mnjKelasMahasiswa.editKelasMahasiswa();
@@ -325,6 +330,42 @@ public:
                     default:
                     cout << "Pilihan tidak valid!" << endl;
                     break;
+                }
+            } while (pilih != 5);
+        }
+
+        void tampilMenuKrs(){
+            nav.push("Dashboard Manajemen KRS");
+            int pilih;
+            do {
+                cout << "1. Tambah krs mahasiswa" << endl;
+                cout << "2. Lihat Semua krs berdasarkan kelas dan semester" << endl;
+                cout << "3. Edit krs mahasiswa" << endl;
+                cout << "4. Hapus krs mahasiswa" << endl;
+                cout << "5. Keluar" << endl;
+                cout << "Pilih: ";
+                cin >> pilih;
+
+                switch(pilih) {
+                    case 1:
+                        // mnjKrs.tambahKrs();
+                        break;
+                    case 2:
+                        mnjKrs.tampilKrsByKelas();
+                        break;
+                    case 3:
+                        // mnjKrs.editKrsMahasiswa();
+                        break;
+                    case 4:
+                        // mnjKrs.hapusKrsMahasiswa();
+                        break;
+                    case 5:
+                        nav.pop();
+                        cout << "Kembalikan ke dashboard admin...\n";
+                        return;
+                    default:
+                        cout << "Pilihan tidak valid!" << endl;
+                        break;
                 }
             } while (pilih != 5);
         }

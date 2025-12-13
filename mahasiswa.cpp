@@ -98,8 +98,6 @@ class DataMahasiswa {
         
         return NULL; 
     }
-
-    
     
 };
 
@@ -142,6 +140,14 @@ class MahasiswaPortal {
             
             cout << "Login gagal! NIM atau password salah\n";
             return false;
+        }
+
+        
+
+        void logout() {
+            username.clear();
+            password.clear();
+            cout << "Anda telah logout.\n";
         }
 
         void tampilProfil() {
@@ -195,31 +201,32 @@ class MahasiswaPortal {
             
             cout << "\n✓ Data terverifikasi untuk username: " << username << endl;
         }
-
-        void logout() {
-            username.clear();
-            password.clear();
-            cout << "Anda telah logout.\n";
-        }
-
         void Tagihanmhs(){
             cout << "================================\n";
             cout << "        DATA TAGIHAN MHS        \n";
             cout << "================================\n";
             cout << "Nama: " << mhsLogin.nama << endl;
             cout << "NIM: " << mhsLogin.nim << endl;
-            cout << "Tagihan Semester " << mhsLogin.semester << "Belum ada tagihan\n";
+            cout << "Tagihan Semester " << mhsLogin.semester << ": Belum ada tagihan\n";
             cout << "================================\n";
 
         }
-
 };
 
-
-
-
-
-
+class Perkuliahan {
+    public:
+        void mataKuliahAktif(Mahasiswa mhsLogin) {
+            cout << "================================\n";
+            cout << "      MATA KULIAH AKTIF        \n";
+            cout << "================================\n";
+            cout << "Nama: " << mhsLogin.nama << endl;
+            cout << "NIM: " << mhsLogin.nim << endl;
+            cout << "Semester: " << mhsLogin.semester << endl;
+            cout << "Mata Kuliah Aktif: \n";
+            
+            cout << "================================\n";
+        }
+};
 
 
 

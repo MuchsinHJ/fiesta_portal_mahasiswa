@@ -518,7 +518,7 @@ class ManajemenDosen{
         if (jumlahDosen == 0)
         {
 
-            TambahDosenLangsung({"Dr. Ahmad Santoso", "1234567801", "196501011234", "Dr.", "M.Kom", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "ahmad.santoso@univ.ac.id", "081200000001", "Jl. Pendidikan No. 123", StatusDosen::Aktif, 2005});
+            TambahDosenLangsung({"Dr. Ahmad Santoso","1234567801", "196501011234", "Dr.", "M.Kom", "FTI", "Informatika", "Lektor Kepala", "S3", JenisKelamin::LakiLaki, "ahmad.santoso@univ.ac.id", "081200000001", "Jl. Pendidikan No. 123", StatusDosen::Aktif, 2005});
             TambahDosenLangsung({"Prof. Siti Rahayu", "1234567802", "196602021235", "Prof.", "Ph.D", "FTI", "Informatika", "Guru Besar", "S3", JenisKelamin::Perempuan, "siti.rahayu@univ.ac.id", "081200000002", "Jl. Akademik No. 45", StatusDosen::Aktif, 2000});
             TambahDosenLangsung({"Drs. Bambang Wijaya", "1234567803", "197003031236", "Drs.", "M.T", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::LakiLaki, "bambang.wijaya@univ.ac.id", "081200000003", "Jl. Teknologi No. 67", StatusDosen::Aktif, 2008});
             TambahDosenLangsung({"Ir. Maria Dewi", "1234567804", "197104041237", "Ir.", "M.Kom", "FTI", "Informatika", "Lektor", "S2", JenisKelamin::Perempuan, "maria.dewi@univ.ac.id", "081200000004", "Jl. Komputer No. 89", StatusDosen::Aktif, 2010});
@@ -1397,6 +1397,31 @@ public:
     tambahDosenMataKuliahLangsung({"1234567815", "IF146", "DMK036"});
     tambahDosenMataKuliahLangsung({"1234567815", "IF147", "DMK037"});
     tambahDosenMataKuliahLangsung({"1234567815", "IF148", "DMK038"});
+
+    tambahDosenMataKuliahLangsung({"1234567819", "IF121", "DMK038"});
+tambahDosenMataKuliahLangsung({"1234567827", "IF121", "DMK039"});
+
+tambahDosenMataKuliahLangsung({"1234567803", "IF122", "DMK040"});
+tambahDosenMataKuliahLangsung({"1234567829", "IF122", "DMK041"});
+
+tambahDosenMataKuliahLangsung({"1234567811", "IF123", "DMK042"});
+tambahDosenMataKuliahLangsung({"1234567808", "IF123", "DMK043"});
+
+tambahDosenMataKuliahLangsung({"1234567824", "IF124", "DMK044"});
+tambahDosenMataKuliahLangsung({"1234567801", "IF124", "DMK045"});
+
+tambahDosenMataKuliahLangsung({"1234567814", "IF125", "DMK046"});
+tambahDosenMataKuliahLangsung({"1234567830", "IF125", "DMK047"});
+
+tambahDosenMataKuliahLangsung({"1234567806", "IF126", "DMK048"});
+tambahDosenMataKuliahLangsung({"1234567821", "IF126", "DMK049"});
+
+tambahDosenMataKuliahLangsung({"1234567817", "IF127", "DMK050"});
+tambahDosenMataKuliahLangsung({"1234567809", "IF127", "DMK051"});
+
+tambahDosenMataKuliahLangsung({"1234567826", "IF128", "DMK052"});
+tambahDosenMataKuliahLangsung({"1234567804", "IF128", "DMK053"});
+
     }
     updateFileDosenMataKuliah();
     }
@@ -2025,17 +2050,17 @@ public:
     
     ManajemenKelasMahasiswa() {
         if (head == nullptr) {
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018008"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018002"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018005"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018001"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018006"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018003"});
-        tambahKelasMahasiswaLangsung({"IF101-A", "2400018007"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018008"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018002"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018005"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018001"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018006"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018003"});
+        tambahKelasMahasiswaLangsung({"IF103-A", "2400018007"});
 
-        tambahKelasMahasiswaLangsung({"IF101-B", "2400018011"});
-        tambahKelasMahasiswaLangsung({"IF101-B", "2400018012"});
-        tambahKelasMahasiswaLangsung({"IF101-B", "2400018013"});
+        tambahKelasMahasiswaLangsung({"IF103-B", "2400018011"});
+        tambahKelasMahasiswaLangsung({"IF103-B", "2400018012"});
+        tambahKelasMahasiswaLangsung({"IF103-B", "2400018013"});
         }
         updateFileKelasMahasiswa();
     }
@@ -2191,24 +2216,6 @@ public:
     }
 
     
-    // Kelas* findKelasByKode(const string& kode) {
-    //     if (kelasMgr) {
-    //         auto node = kelasMgr->head;
-    //         while (node) {
-    //             if (node->dataKelas.kdKelas == kode) return &node->dataKelas;
-    //             node = node->next;
-    //         }
-    //         return nullptr;
-    //     } else {
-    //         if (jumlahKelas == 0) tarikDataDariFileKelas();
-    //         for (int i = 0; i < jumlahKelas; ++i) {
-    //             if (dataKelas[i].kdKelas == kode) return &dataKelas[i];
-    //         }
-    //         return nullptr;
-    //     }
-    // }
-
-    
     void tampilSemuaKelasMahasiswa() {
         if (head == nullptr) {
             cout << "Belum ada relasi kelas-mahasiswa." << endl;
@@ -2282,3 +2289,244 @@ public:
     }
 };
 
+class ManajemenKrs {
+private:
+    DoubleLinkedList<Krs> daftarKrs;
+    DoubleLinkedList<KelasMahasiswa> daftarKelasMahasiswa;
+public:
+    ManajemenKrs() {
+        // Inisialisasi dengan beberapa data KRS jika list masih kosong
+        if (daftarKrs.size() == 0) {
+            // # KELAS A
+            tambahKrsLangsung({"IF103-A", "DMK054"});
+            tambahKrsLangsung({"IF103-A", "DMK055"});
+            tambahKrsLangsung({"IF103-A", "DMK056"});
+            tambahKrsLangsung({"IF103-A", "DMK057"});
+            tambahKrsLangsung({"IF103-A", "DMK058"});
+            tambahKrsLangsung({"IF103-A", "DMK059"});
+            tambahKrsLangsung({"IF103-A", "DMK060"});
+            tambahKrsLangsung({"IF103-A", "DMK061"});
+
+            // # KELAS B
+            tambahKrsLangsung({"IF103-B", "DMK062"});
+            tambahKrsLangsung({"IF103-B", "DMK063"});
+            tambahKrsLangsung({"IF103-B", "DMK064"});
+            tambahKrsLangsung({"IF103-B", "DMK065"});
+            tambahKrsLangsung({"IF103-B", "DMK066"});
+            tambahKrsLangsung({"IF103-B", "DMK067"});
+            tambahKrsLangsung({"IF103-B", "DMK068"});
+            tambahKrsLangsung({"IF103-B", "DMK069"});
+
+            // # KELAS C
+            tambahKrsLangsung({"IF103-C", "DMK070"});
+            tambahKrsLangsung({"IF103-C", "DMK071"});
+            tambahKrsLangsung({"IF103-C", "DMK072"});
+            tambahKrsLangsung({"IF103-C", "DMK073"});
+            tambahKrsLangsung({"IF103-C", "DMK074"});
+            tambahKrsLangsung({"IF103-C", "DMK075"});
+            tambahKrsLangsung({"IF103-C", "DMK076"});
+            tambahKrsLangsung({"IF103-C", "DMK077"});
+
+            // # KELAS D
+            tambahKrsLangsung({"IF103-D", "DMK078"});
+            tambahKrsLangsung({"IF103-D", "DMK079"});
+            tambahKrsLangsung({"IF103-D", "DMK080"});
+            tambahKrsLangsung({"IF103-D", "DMK081"});
+            tambahKrsLangsung({"IF103-D", "DMK082"});
+            tambahKrsLangsung({"IF103-D", "DMK083"});
+            tambahKrsLangsung({"IF103-D", "DMK084"});
+            tambahKrsLangsung({"IF103-D", "DMK085"});
+            updateFileKrs();
+        }
+    }
+    void tambahKrsLangsung(const Krs& krsBaru) {
+        daftarKrs.tambahData(krsBaru);
+    }
+    void tarikDataKelasMahasiswa(const DoubleLinkedList<KelasMahasiswa>& kelasMhs) {
+        DoubleLinkedList<KelasMahasiswa>::Node* cur = kelasMhs.head;
+        while (cur) {
+            daftarKelasMahasiswa.tambahData(cur->data);
+            cur = cur->next;
+        }
+
+        ifstream in("dataKelasMahasiswa.txt");
+        if (!in.is_open()) return;
+        string line;
+        KelasMahasiswa km;
+        while (getline(in, line)) {
+            if (line.find("Kode Kelas: ") != string::npos) km.kdKelas = line.substr(13);
+            else if (line.find("NIM Mahasiswa: ") != string::npos) km.nim = line.substr(15);
+            else if (line.find("--------------------------") != string::npos) {
+                daftarKelasMahasiswa.tambahData(km);
+                km = KelasMahasiswa();
+            }
+        }
+        in.close();
+    }
+
+    void tampilKrsByKelasMahasiswa(const string& kdKelas, const string& nim) {
+        DoubleLinkedList<Krs>::Node* temp = daftarKrs.head;
+        bool ditemukan = false;
+        cout << "\n=== Daftar KRS untuk Kelas " << kdKelas << " dan NIM " << nim << " ===" << endl;
+        while (temp != nullptr) {
+            if (temp->data.kdKelasMahasiswa == kdKelas && daftarKelasMahasiswa.head->data.nim == nim) {
+                ditemukan = true;
+                cout << "  Kode Dosen Mata Kuliah: " << temp->data.kdDosenMk << endl;
+            }
+            temp = temp->next;
+            daftarKelasMahasiswa.head = daftarKelasMahasiswa.head->next;
+        }
+        if (!ditemukan) {
+            cout << "Tidak ada KRS yang ditemukan untuk Kelas " << kdKelas << " dan NIM " << nim << "." << endl;
+        }
+    }
+    void tambahKrs() {
+        Krs krsBaru;
+        cout << "\n=== Tambah KRS Baru ===" << endl;
+        cout << "Masukkan Kode Kelas Mahasiswa: ";
+        cin >> krsBaru.kdKelasMahasiswa;
+        cout << "Masukkan Kode Dosen Mata Kuliah: ";
+        cin >> krsBaru.kdDosenMk;
+
+        tambahKrsLangsung(krsBaru);
+        cout << "KRS berhasil ditambahkan!" << endl;
+    }
+    void tampilKrsByKelas() {
+        string kdKelasCari;
+        cout << "\n=== Tampil KRS berdasarkan Kelas ===" << endl;
+        cout << "Masukkan Kode Kelas Mahasiswa: ";
+        cin >> kdKelasCari;
+
+        DoubleLinkedList<Krs>::Node* temp = daftarKrs.head;
+        bool ditemukan = false;
+        cout << "\n=== Daftar KRS untuk Kelas " << kdKelasCari << " ===" << endl;
+        while (temp != nullptr) {
+            if (temp->data.kdKelasMahasiswa == kdKelasCari) {
+                ditemukan = true;
+                cout << "  Kode Kelas Mahasiswa: " << temp->data.kdKelasMahasiswa << endl;
+                cout << "  Kode Dosen Mata Kuliah: " << temp->data.kdDosenMk << endl;
+                cout << "---------------------------------" << endl;
+            }
+            temp = temp->next;
+        }
+        if (!ditemukan) {
+            cout << "Tidak ada KRS yang ditemukan untuk Kelas " << kdKelasCari << "." << endl;
+        }
+    }
+    void editKrs() {
+        string kdKelasCari;
+        cout << "\n=== Edit KRS ===" << endl;
+        cout << "Masukkan Kode Kelas Mahasiswa yang akan diedit: ";
+        cin >> kdKelasCari;
+
+        DoubleLinkedList<Krs>::Node* temp = daftarKrs.head;
+        bool ditemukan = false;
+        while (temp != nullptr) {
+            if (temp->data.kdKelasMahasiswa == kdKelasCari) {
+                ditemukan = true;
+                cout << "Masukkan Kode Dosen Mata Kuliah baru: ";
+                cin >> temp->data.kdDosenMk;
+                cout << "KRS berhasil diperbarui!" << endl;
+                break;
+            }
+            temp = temp->next;
+        }
+
+        if (!ditemukan) {
+            cout << "KRS dengan Kode Kelas Mahasiswa " << kdKelasCari << " tidak ditemukan." << endl;
+        }
+    }
+    void hapusKrs() {
+        string kdKelasCari;
+        cout << "\n=== Hapus KRS ===" << endl;
+        cout << "Masukkan Kode Kelas Mahasiswa yang akan dihapus: ";
+        cin >> kdKelasCari;
+
+        DoubleLinkedList<Krs>::Node* temp = daftarKrs.head;
+        DoubleLinkedList<Krs>::Node* prev = nullptr;
+        bool ditemukan = false;
+
+        while (temp != nullptr) {
+            if (temp->data.kdKelasMahasiswa == kdKelasCari) {
+                ditemukan = true;
+                if (prev == nullptr) {
+                    // hapus head
+                    daftarKrs.head = temp->next;
+                    if (daftarKrs.head != nullptr) {
+                        daftarKrs.head->prev = nullptr;
+                    } else {
+                        daftarKrs.tail = nullptr; // list jadi kosong
+                    }
+                } else {
+                    // hapus di tengah atau tail
+                    prev->next = temp->next;
+                    if (temp->next != nullptr) {
+                        temp->next->prev = prev;
+                    } else {
+                        daftarKrs.tail = prev; // dihapus tail
+                    }
+                }
+
+                delete temp;
+                // update ukuran karena kita manipulasi langsung struktur internal
+                if (daftarKrs.sz > 0) daftarKrs.sz--;
+
+                cout << "KRS dengan Kode Kelas Mahasiswa " << kdKelasCari << " berhasil dihapus." << endl;
+                break;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (!ditemukan) {
+            cout << "KRS dengan Kode Kelas Mahasiswa " << kdKelasCari << " tidak ditemukan." << endl;
+        }
+    }
+
+    void tarikDataDariFileKrs() {
+        ifstream inFile("dataKrs.txt");
+        if (!inFile.is_open()) {
+            cout << "File dataKrs.txt tidak ditemukan. Akan dibuat file baru." << endl;
+            return;
+        }
+
+        // Hapus data existing sebelum memuat dari file
+        daftarKrs.clear();
+
+        string line;
+        Krs krs;
+        while (getline(inFile, line)) {
+            if (line.find("Kode Kelas Mahasiswa: ") != string::npos) {
+                krs.kdKelasMahasiswa = line.substr(22);
+            } else if (line.find("Kode Dosen Mata Kuliah: ") != string::npos) {
+                krs.kdDosenMk = line.substr(24);
+            } else if (line.find("--------------------------") != string::npos) {
+                // Akhir dari satu data, tambahkan ke linked list
+                if (!krs.kdKelasMahasiswa.empty() && !krs.kdDosenMk.empty()) {
+                    tambahKrsLangsung(krs);
+                    krs = Krs(); // Reset untuk data berikutnya
+                }
+            }
+        }
+
+        inFile.close();
+    }
+
+    void updateFileKrs() {
+        ofstream outFile("dataKrs.txt", ios::trunc);
+        if (!outFile.is_open()) {
+            cout << "Gagal membuka file untuk menyimpan data KRS." << endl;
+            return;
+        }
+
+        DoubleLinkedList<Krs>::Node* temp = daftarKrs.head;
+        while (temp != nullptr) {
+            outFile << "Kode Kelas Mahasiswa: " << temp->data.kdKelasMahasiswa << endl;
+            outFile << "Kode Dosen Mata Kuliah: " << temp->data.kdDosenMk << endl;
+            outFile << "--------------------------" << endl;
+            temp = temp->next;
+        }
+
+        outFile.close();
+    }
+};

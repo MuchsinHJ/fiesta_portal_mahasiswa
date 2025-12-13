@@ -79,11 +79,8 @@ struct DosenMataKuliah {
 
 // Relasi mahasiswa dengan mata kuliah (KRS)
 struct Krs {
-    string nimMahasiswa;
+    string kdKelasMahasiswa;
     string kdDosenMk;
-    string semesterDiambil; // contoh: "Ganjil 2023/2024"
-    char nilaiHuruf;        // contoh: 'A', 'B', 'C', 'D', 'E', 'F'
-    float nilaiAngka;      // contoh: 4.0, 3.5, dst.
 };
 
 struct Kelas {

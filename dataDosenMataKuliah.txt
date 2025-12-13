@@ -1,5 +1,5 @@
 === DATA DOSEN MATA KULIAH ===
-Jumlah data: 38
+Jumlah data: 54
 ========================================
 Data ke-1:
   NIDN Dosen    : 1234567801
@@ -190,4 +190,84 @@ Data ke-38:
   NIDN Dosen    : 1234567815
   Kode MK       : IF148
   Kode Dosen MK : DMK038
+----------------------------------------
+Data ke-39:
+  NIDN Dosen    : 1234567819
+  Kode MK       : IF121
+  Kode Dosen MK : DMK038
+----------------------------------------
+Data ke-40:
+  NIDN Dosen    : 1234567827
+  Kode MK       : IF121
+  Kode Dosen MK : DMK039
+----------------------------------------
+Data ke-41:
+  NIDN Dosen    : 1234567803
+  Kode MK       : IF122
+  Kode Dosen MK : DMK040
+----------------------------------------
+Data ke-42:
+  NIDN Dosen    : 1234567829
+  Kode MK       : IF122
+  Kode Dosen MK : DMK041
+----------------------------------------
+Data ke-43:
+  NIDN Dosen    : 1234567811
+  Kode MK       : IF123
+  Kode Dosen MK : DMK042
+----------------------------------------
+Data ke-44:
+  NIDN Dosen    : 1234567808
+  Kode MK       : IF123
+  Kode Dosen MK : DMK043
+----------------------------------------
+Data ke-45:
+  NIDN Dosen    : 1234567824
+  Kode MK       : IF124
+  Kode Dosen MK : DMK044
+----------------------------------------
+Data ke-46:
+  NIDN Dosen    : 1234567801
+  Kode MK       : IF124
+  Kode Dosen MK : DMK045
+----------------------------------------
+Data ke-47:
+  NIDN Dosen    : 1234567814
+  Kode MK       : IF125
+  Kode Dosen MK : DMK046
+----------------------------------------
+Data ke-48:
+  NIDN Dosen    : 1234567830
+  Kode MK       : IF125
+  Kode Dosen MK : DMK047
+----------------------------------------
+Data ke-49:
+  NIDN Dosen    : 1234567806
+  Kode MK       : IF126
+  Kode Dosen MK : DMK048
+----------------------------------------
+Data ke-50:
+  NIDN Dosen    : 1234567821
+  Kode MK       : IF126
+  Kode Dosen MK : DMK049
+----------------------------------------
+Data ke-51:
+  NIDN Dosen    : 1234567817
+  Kode MK       : IF127
+  Kode Dosen MK : DMK050
+----------------------------------------
+Data ke-52:
+  NIDN Dosen    : 1234567809
+  Kode MK       : IF127
+  Kode Dosen MK : DMK051
+----------------------------------------
+Data ke-53:
+  NIDN Dosen    : 1234567826
+  Kode MK       : IF128
+  Kode Dosen MK : DMK052
+----------------------------------------
+Data ke-54:
+  NIDN Dosen    : 1234567804
+  Kode MK       : IF128
+  Kode Dosen MK : DMK053
 ----------------------------------------
