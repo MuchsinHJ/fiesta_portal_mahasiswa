@@ -375,9 +375,25 @@ public:
 class MahasiswaDashboard {
 private:
     NavigationStack nav;
+    KRSKHS* krs;
     MahasiswaPortal* mhsPortal;
+    ManajemenMatakuliah* mk;
+    ManajemenDosenMataKuliah* dmk;
+    ManajemenKelas* kls;
 public:
     MahasiswaDashboard(MahasiswaPortal* portal) : mhsPortal(portal) {
+        // Inisialisasi KRS dengan objek manajemen yang diperlukan
+        mk = new ManajemenMatakuliah();
+        mk->tarikDataDariFileMataKuliah();
+        
+        dmk = new ManajemenDosenMataKuliah();
+        dmk->tarikDataDariFileDosenMataKuliah();
+        
+        kls = new ManajemenKelas();
+        // ManajemenKelas sudah load data di constructor
+        
+        krs = new KRSKHS(mk, dmk, kls);
+        krs->bacaKRSdariFile();
     }
 
     void tampilMenuDashMahasiswa() {
@@ -510,13 +526,16 @@ public:
 
             switch(pilih){
                 case 1:
-                    cout << "Menampilkan biodata..." << endl;
+                    krs->menuKRS(mhsPortal->getNIMMahasiswa(), mhsPortal->getSemesterMahasiswa());
+                    system("pause");
                     break;
                 case 2:
-                    cout << "Menampilkan tagihan..." << endl;
+                    cout << "Menampilkan KRS Aktivitas Mahasiswa..." << endl;
+                    system("pause");
                     break;
                 case 3:
-                    cout << "Menampilkan tagihan..." << endl;
+                    krs->cetakKRS(mhsPortal->getNIMMahasiswa());
+                    system("pause");
                     break;
                 case 4:
                     cout << "Menampilkan tagihan..." << endl;
@@ -621,7 +640,6 @@ void displayMahasiswa(){
         cout << "NIM: "; cin >> u;
         cout << "Password: "; cin >> p;
         bool loggedIn = portal.login(u, p);
-        cout << "cek";
         if (loggedIn) {
             kondisi = true;
             MahasiswaDashboard dashboard(&portal);

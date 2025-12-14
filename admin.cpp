@@ -1442,7 +1442,6 @@ tambahDosenMataKuliahLangsung({"1234567804", "IF128", "DMK053"});
         head = nullptr;
         tail = nullptr;
         jumlah = 0;
-        cout << "Semua data dosen mata kuliah telah dihapus dari memory." << endl;
     }
 
     // Tambah data dosen mata kuliah ke circular linked list
@@ -1620,7 +1619,7 @@ tambahDosenMataKuliahLangsung({"1234567804", "IF128", "DMK053"});
         }
 
         NodeDosenMataKuliah* current = head;
-        int counter = 1;
+        int counter = 1;      
         
         cout << "Jumlah data: " << jumlah << endl;
         cout << "========================================" << endl;

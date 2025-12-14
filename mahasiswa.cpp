@@ -1,4 +1,5 @@
 #include "admin.cpp"
+#include <iomanip>
 using namespace std;
 
 struct NodeMHS{
@@ -115,9 +116,16 @@ class MahasiswaPortal {
 
     public:
        
-        MahasiswaPortal(DataMahasiswa * mhsDasboard) {
-            this->mhsDasboard = mhsDasboard;
-            mhsDasboard->TarikMhsdariFile();
+        MahasiswaPortal(DataMahasiswa * mhsData) {
+            if (mhsData != NULL) {
+                this->mhsDasboard = mhsData;
+                this->mhsDasboard->TarikMhsdariFile();
+            } else {
+                cout << "Error: DataMahasiswa NULL saat inisialisasi!\n";
+                this->mhsDasboard = NULL;
+            }
+            username = "";
+            password = "";
         }
 
        
@@ -211,6 +219,24 @@ class MahasiswaPortal {
             cout << "================================\n";
 
         }
+
+        // Getter methods untuk mengakses data mahasiswa yang login
+        string getNIMMahasiswa() {
+            return username;
+        }
+
+        int getSemesterMahasiswa() {
+            return mhsLogin.semester;
+        }
+
+        Mahasiswa getMahasiswaLogin() {
+            return mhsLogin;
+        }
+
+        // Cek apakah sudah login
+        bool isLogin() {
+            return !username.empty();
+        }
 };
 
 class Perkuliahan {
@@ -226,6 +252,564 @@ class Perkuliahan {
             
             cout << "================================\n";
         }
+};
+
+
+class KRSKHS{
+private:
+    struct KRSData {
+        string nimMahasiswa;
+        string kdDosenMk;
+        string semesterDiambil;
+        char nilaiHuruf;
+        float nilaiAngka;
+    };
+    
+    DoubleLinkedList<KRSData> listKRS;
+    
+    ManajemenMatakuliah* mataKuliah;
+    ManajemenDosenMataKuliah* dosenMataKuliah;
+    ManajemenKelas* kelas;
+    
+public:
+    KRSKHS(ManajemenMatakuliah* mk, ManajemenDosenMataKuliah* dmk, ManajemenKelas* k) {
+        this->mataKuliah = mk;
+        this->dosenMataKuliah = dmk;
+        this->kelas = k;
+        bacaKRSdariFile();
+    }
+
+    // Baca data KRS dari file
+    void bacaKRSdariFile() {
+        ifstream file("dataKRS.txt");
+        if (!file.is_open()) {
+            return;
+        }
+        
+        string line;
+        KRSData krsTemp;
+        
+        while (getline(file, line)) {
+            if (line.find("NIM: ") != string::npos) {
+                krsTemp.nimMahasiswa = line.substr(5);
+            } else if (line.find("Kode Dosen MK: ") != string::npos) {
+                krsTemp.kdDosenMk = line.substr(15);
+            } else if (line.find("Semester: ") != string::npos) {
+                krsTemp.semesterDiambil = line.substr(10);
+            } else if (line.find("Nilai Huruf: ") != string::npos) {
+                string nilai = line.substr(13);
+                krsTemp.nilaiHuruf = nilai.empty() ? '-' : nilai[0];
+            } else if (line.find("Nilai Angka: ") != string::npos) {
+                string nilaiStr = line.substr(13);
+                // Trim whitespace
+                nilaiStr.erase(0, nilaiStr.find_first_not_of(" \t\r\n"));
+                nilaiStr.erase(nilaiStr.find_last_not_of(" \t\r\n") + 1);
+                try {
+                    krsTemp.nilaiAngka = nilaiStr.empty() ? 0.0f : stof(nilaiStr);
+                } catch (...) {
+                    krsTemp.nilaiAngka = 0.0f;
+                }
+            } else if (line.find("---") != string::npos) {
+                tambahKRS(krsTemp);
+            }
+        }
+        file.close();
+    }
+
+    // Simpan KRS ke file
+    void simpanKRSkeFile() {
+        ofstream file("dataKRS.txt");
+        if (!file.is_open()) {
+            cout << "Error: Tidak dapat membuka file dataKRS.txt\n";
+            return;
+        }
+        
+        DoubleLinkedList<KRSData>::Node* current = listKRS.head;
+        while (current != nullptr) {
+            file << "NIM: " << current->data.nimMahasiswa << endl;
+            file << "Kode Dosen MK: " << current->data.kdDosenMk << endl;
+            file << "Semester: " << current->data.semesterDiambil << endl;
+            file << "Nilai Huruf: " << current->data.nilaiHuruf << endl;
+            file << "Nilai Angka: " << current->data.nilaiAngka << endl;
+            file << "----------------------------" << endl;
+            current = current->next;
+        }
+        file.close();
+    }
+
+    // Tambah KRS ke linked list
+    void tambahKRS(KRSData krsData) {
+        listKRS.tambahData(krsData);
+    }
+
+    // Tampilkan mata kuliah yang tersedia dengan dosen dan kelas
+    void tampilMataKuliahTersedia(int semesterMhs) {
+        cout << "\n==========================================================\n";
+        cout << "     DAFTAR MATA KULIAH TERSEDIA SEMESTER " << semesterMhs << "            ║\n";
+        cout << "==========================================================\n\n";
+        
+        // Tampilkan mata kuliah dari ManajemenMatakuliah
+        cout << "Daftar mata kuliah semester " << semesterMhs << ":\n";
+        cout << "Silakan gunakan menu admin untuk melihat detail mata kuliah.\n";
+    }
+
+    // Cek apakah mahasiswa sudah mengambil mata kuliah
+    bool sudahAmbilMK(string nim, string kdDosenMk) {
+        DoubleLinkedList<KRSData>::Node* current = listKRS.head;
+        while (current != nullptr) {
+            if (current->data.nimMahasiswa == nim && 
+                current->data.kdDosenMk == kdDosenMk) {
+                return true;
+            }
+            current = current->next;
+        }
+        return false;
+    }
+
+    // Hitung total SKS yang sudah diambil mahasiswa
+    int hitungTotalSKS(string nim, string semester) {
+        int totalSKS = 0;
+        DoubleLinkedList<KRSData>::Node* current = listKRS.head;
+        
+        while (current != nullptr) {
+            if (current->data.nimMahasiswa == nim && 
+                current->data.semesterDiambil == semester) {
+                // Ambil SKS dari mata kuliah
+                // Ini memerlukan method tambahan di ManajemenMatakuliah
+                totalSKS += 3; // Sementara default 3 SKS
+            }
+            current = current->next;
+        }
+        return totalSKS;
+    }
+
+    // Menu KRS Mahasiswa
+    void menuKRS(string nim, int semesterMhs) {
+        system("cls");
+        cout << "\n==========================================================\n";
+        cout << "           KARTU RENCANA STUDI (KRS)                  \n";
+        cout << "==========================================================\n\n";
+        
+        cout << "NIM: " << nim << " | Semester: " << semesterMhs << endl;
+        cout << "\n1. Lihat Mata Kuliah Tersedia\n";
+        cout << "2. Ambil Mata Kuliah (Isi KRS)\n";
+        cout << "3. Lihat KRS Saya\n";
+        cout << "4. Hapus Mata Kuliah dari KRS\n";
+        cout << "5. Kembali\n";
+        cout << "\nPilih: ";
+        
+        int pilihan;
+        cin >> pilihan;
+        cin.ignore();
+        
+        switch (pilihan) {
+            case 1:
+                tampilMataKuliahTersedia(semesterMhs);
+                cout << "\nTekan Enter untuk melanjutkan...";
+                cin.get();
+                menuKRS(nim, semesterMhs);
+                break;
+            case 2:
+                isiKRS(nim, semesterMhs);
+                menuKRS(nim, semesterMhs);
+                break;
+            case 3:
+                tampilKRSMahasiswa(nim);
+                cout << "\nTekan Enter untuk melanjutkan...";
+                cin.get();
+                menuKRS(nim, semesterMhs);
+                break;
+            case 4:
+                hapusKRS(nim);
+                menuKRS(nim, semesterMhs);
+                break;
+            case 5:
+                return;
+            default:
+                cout << "Pilihan tidak valid!\n";
+                menuKRS(nim, semesterMhs);
+                break;
+        }
+    }
+
+    // Isi KRS
+    void isiKRS(string nim, int semesterMhs) {
+        system("cls");
+        cout << "\n==========================================================\n";
+        cout << "              PENGISIAN KRS                            \n";
+        cout << "==========================================================\n\n";
+        
+        // Cek total SKS yang sudah diambil
+        string semesterStr = "Ganjil 2024/2025";
+        int totalSKS = hitungTotalSKS(nim, semesterStr);
+        int maxSKS = 24; // Batas maksimal SKS
+        
+        cout << "Total SKS saat ini: " << totalSKS << "/" << maxSKS << endl;
+        
+        if (totalSKS >= maxSKS) {
+            cout << "\nAnda sudah mencapai batas maksimal SKS!\n";
+            cout << "Tekan Enter untuk kembali...";
+            cin.get();
+            return;
+        }
+        
+        // Tampilkan mata kuliah dengan dosen
+        cout << "\n--- Pilih Mata Kuliah ---\n";
+        dosenMataKuliah->tampilSemuaDosenMataKuliah();
+        
+        cout << "\nMasukkan Kode Dosen-Mata Kuliah (misal: DMK001): ";
+        string kdDosenMk;
+        cin >> kdDosenMk;
+        cin.ignore();
+        
+        // Validasi apakah sudah diambil
+        if (sudahAmbilMK(nim, kdDosenMk)) {
+            cout << "\nAnda sudah mengambil mata kuliah ini!\n";
+            cout << "Tekan Enter untuk melanjutkan...";
+            cin.get();
+            return;
+        }
+        
+        // Konfirmasi
+        cout << "\nApakah Anda yakin ingin mengambil mata kuliah ini? (y/n): ";
+        char konfirmasi;
+        cin >> konfirmasi;
+        cin.ignore();
+        
+        if (konfirmasi == 'y' || konfirmasi == 'Y') {
+            KRSData krsData;
+            krsData.nimMahasiswa = nim;
+            krsData.kdDosenMk = kdDosenMk;
+            krsData.semesterDiambil = semesterStr;
+            krsData.nilaiHuruf = '-';
+            krsData.nilaiAngka = 0.0f;
+            
+            tambahKRS(krsData);
+            simpanKRSkeFile();
+            
+            cout << "\n✓ Berhasil menambahkan mata kuliah ke KRS!\n";
+        } else {
+            cout << "\nPengisian KRS dibatalkan.\n";
+        }
+        
+        cout << "Tekan Enter untuk melanjutkan...";
+        cin.get();
+    }
+
+    // Tampilkan KRS Mahasiswa
+    void tampilKRSMahasiswa(string nim) {
+        system("cls");
+        cout << "\n============================================================================\n";
+        cout << "|                KARTU RENCANA STUDI (KRS) MAHASISWA                        |  \n";
+        cout << " ===========================================================================\n\n";
+        
+        cout << "NIM      : " << nim << endl;
+        cout << "Semester : Ganjil 2024/2025\n\n";
+        
+        DoubleLinkedList<KRSData>::Node* current = listKRS.head;
+        int no = 1;
+        int totalSKS = 0;
+        bool adaData = false;
+        
+        cout << " ===================================================================================\n";
+        cout << "| No |   Kode MK   |      Nama Mata Kuliah      |     Nama Dosen     |SKS| Status   |\n";
+        cout << " ===================================================================================\n";
+        
+        while (current != nullptr) {
+            if (current->data.nimMahasiswa == nim) {
+                // Cari informasi dosen dan mata kuliah dari kdDosenMk
+                string kodeMK = "";
+                string nidnDosen = "";
+                string namaMK = "Mata Kuliah";
+                string namaDosen = "Dosen";
+                int sks = 3;
+                
+                // Baca file DosenMataKuliah untuk mendapatkan kodeMK dan nidn
+                ifstream fileDMK("dataDosenMataKuliah.txt");
+                if (fileDMK.is_open()) {
+                    string lineDMK;
+                    string kdDosenMkTemp = "";
+                    while (getline(fileDMK, lineDMK)) {
+                        if (lineDMK.find("Kode Dosen-MK: ") != string::npos) {
+                            kdDosenMkTemp = lineDMK.substr(15);
+                        } else if (lineDMK.find("NIDN Dosen: ") != string::npos && kdDosenMkTemp == current->data.kdDosenMk) {
+                            nidnDosen = lineDMK.substr(12);
+                        } else if (lineDMK.find("Kode Mata Kuliah: ") != string::npos && kdDosenMkTemp == current->data.kdDosenMk) {
+                            kodeMK = lineDMK.substr(18);
+                            break;
+                        }
+                    }
+                    fileDMK.close();
+                }
+                
+                // Baca file MataKuliah untuk mendapatkan nama dan SKS
+                if (!kodeMK.empty()) {
+                    ifstream fileMK("dataMataKuliah.txt");
+                    if (fileMK.is_open()) {
+                        string lineMK;
+                        string kodeTemp = "";
+                        while (getline(fileMK, lineMK)) {
+                            if (lineMK.find("Kode MK: ") != string::npos) {
+                                kodeTemp = lineMK.substr(9);
+                            } else if (lineMK.find("Nama MK: ") != string::npos && kodeTemp == kodeMK) {
+                                namaMK = lineMK.substr(9);
+                                if (namaMK.length() > 25) namaMK = namaMK.substr(0, 22) + "...";
+                            } else if (lineMK.find("SKS: ") != string::npos && kodeTemp == kodeMK) {
+                                sks = stoi(lineMK.substr(5));
+                                break;
+                            }
+                        }
+                        fileMK.close();
+                    }
+                }
+                
+                // Baca file Dosen untuk mendapatkan nama dosen
+                if (!nidnDosen.empty()) {
+                    ifstream fileDosen("dataDosen.txt");
+                    if (fileDosen.is_open()) {
+                        string lineDosen;
+                        string nidnTemp = "";
+                        while (getline(fileDosen, lineDosen)) {
+                            if (lineDosen.find("NIDN: ") != string::npos) {
+                                nidnTemp = lineDosen.substr(6);
+                            } else if (lineDosen.find("Nama: ") != string::npos && nidnTemp == nidnDosen) {
+                                namaDosen = lineDosen.substr(6);
+                                if (namaDosen.length() > 18) namaDosen = namaDosen.substr(0, 15) + "...";
+                                break;
+                            }
+                        }
+                        fileDosen.close();
+                    }
+                }
+                
+                cout << "║ " << setw(2) << no << " ║ " 
+                     << setw(11) << kodeMK << " ║ "
+                     << setw(26) << namaMK << " ║ "
+                     << setw(18) << namaDosen << " ║" 
+                     << setw(3) << sks << "║ Aktif    ║\n";
+                totalSKS += sks;
+                no++;
+                adaData = true;
+            }
+            current = current->next;
+        }
+        
+        cout << " ===================================================================================\n";
+        
+        if (!adaData) {
+            cout << "\nBelum ada mata kuliah yang diambil.\n";
+        } else {
+            cout << "\nTotal Mata Kuliah : " << (no - 1) << endl;
+            cout << "Total SKS        : " << totalSKS << " SKS\n\n";
+            
+            cout << "Status: AKTIF\n";
+        }
+    }
+
+    // Cetak KRS - Membaca dari file tanpa vector
+    void cetakKRS(string nim) {
+        system("cls");
+        cout << " __________________________________________________________\n";
+        cout << "|             CETAK KARTU RENCANA STUDI (KRS)              |\n";
+        cout << "|__________________________________________________________|\n\n";
+        
+        // Baca data dari file menggunakan array
+        ifstream file("dataKRS.txt");
+        if (!file.is_open()) {
+            cout << "Error: Tidak dapat membuka file dataKRS.txt\n";
+            cout << "Pastikan Anda sudah mengisi KRS terlebih dahulu.\n";
+            return;
+        }
+        
+        // Array untuk menyimpan data sementara (maksimal 50 mata kuliah)
+        KRSData daftarKRS[50];
+        int jumlahData = 0;
+        
+        string line;
+        KRSData krsTemp;
+        bool sedangBacaNIM = false;
+        
+        // Baca file dan filter berdasarkan NIM
+        while (getline(file, line) && jumlahData < 50) {
+            if (line.find("NIM: ") != string::npos) {
+                krsTemp.nimMahasiswa = line.substr(5);
+                sedangBacaNIM = true;
+            } else if (line.find("Kode Dosen MK: ") != string::npos && sedangBacaNIM) {
+                krsTemp.kdDosenMk = line.substr(15);
+            } else if (line.find("Semester: ") != string::npos && sedangBacaNIM) {
+                krsTemp.semesterDiambil = line.substr(10);
+            } else if (line.find("Nilai Huruf: ") != string::npos && sedangBacaNIM) {
+                string nilai = line.substr(13);
+                krsTemp.nilaiHuruf = nilai.empty() ? '-' : nilai[0];
+            } else if (line.find("Nilai Angka: ") != string::npos && sedangBacaNIM) {
+                string nilaiStr = line.substr(13);
+                krsTemp.nilaiAngka = nilaiStr.empty() ? 0.0f : stof(nilaiStr);
+            } else if (line.find("---") != string::npos && sedangBacaNIM) {
+                // Simpan data jika NIM sesuai
+                if (krsTemp.nimMahasiswa == nim) {
+                    daftarKRS[jumlahData] = krsTemp;
+                    jumlahData++;
+                }
+                sedangBacaNIM = false;
+            }
+        }
+        file.close();
+        
+        // Cek apakah ada data
+        if (jumlahData == 0) {
+            cout << "Tidak ada data KRS untuk NIM: " << nim << endl;
+            cout << "Silakan isi KRS terlebih dahulu.\n";
+            return;
+        }
+        
+        // Tampilkan header cetak KRS
+        cout << " __________________________________________________________\n";
+        cout << "│                   UNIVERSITAS AHMAD DAHLAN               |\n";
+        cout << "│                 FAKULTAS TEKNOLOGI INDUSTRI              |\n";
+        cout << "│                  KARTU RENCANA STUDI (KRS)               |\n";
+        cout << "│                  Semester Ganjil 2024/2025               |\n";
+        cout << "|__________________________________________________________|\n\n";
+        
+        cout << "NIM           : " << nim << endl;
+        cout << "Tanggal Cetak : 14 Desember 2025" << endl;
+        cout << "\n";
+        
+        // Tampilkan daftar mata kuliah dengan informasi lengkap
+        cout << " =============================================================================\n";
+        cout << "| No | Kode MK    | Nama Mata Kuliah          | Nama Dosen              | SKS |\n";
+        cout << " =============================================================================\n";
+        
+        int totalSKS = 0;
+        for (int i = 0; i < jumlahData; i++) {
+            // Cari informasi dosen dan mata kuliah dari kdDosenMk
+            string kodeMK = "";
+            string nidnDosen = "";
+            string namaMK = "Mata Kuliah";
+            string namaDosen = "Dosen";
+            int sks = 3;
+            
+            // Baca file DosenMataKuliah untuk mendapatkan kodeMK dan nidn
+            ifstream fileDMK("dataDosenMataKuliah.txt");
+            if (fileDMK.is_open()) {
+                string lineDMK;
+                string kdDosenMkTemp = "";
+                while (getline(fileDMK, lineDMK)) {
+                    if (lineDMK.find("Kode Dosen-MK: ") != string::npos) {
+                        kdDosenMkTemp = lineDMK.substr(15);
+                    } else if (lineDMK.find("NIDN Dosen: ") != string::npos && kdDosenMkTemp == daftarKRS[i].kdDosenMk) {
+                        nidnDosen = lineDMK.substr(12);
+                    } else if (lineDMK.find("Kode Mata Kuliah: ") != string::npos && kdDosenMkTemp == daftarKRS[i].kdDosenMk) {
+                        kodeMK = lineDMK.substr(18);
+                        break;
+                    }
+                }
+                fileDMK.close();
+            }
+            
+            // Baca file MataKuliah untuk mendapatkan nama dan SKS
+            if (!kodeMK.empty()) {
+                ifstream fileMK("dataMataKuliah.txt");
+                if (fileMK.is_open()) {
+                    string lineMK;
+                    string kodeTemp = "";
+                    while (getline(fileMK, lineMK)) {
+                        if (lineMK.find("Kode MK: ") != string::npos) {
+                            kodeTemp = lineMK.substr(9);
+                        } else if (lineMK.find("Nama MK: ") != string::npos && kodeTemp == kodeMK) {
+                            namaMK = lineMK.substr(9);
+                            if (namaMK.length() > 25) namaMK = namaMK.substr(0, 22) + "...";
+                        } else if (lineMK.find("SKS: ") != string::npos && kodeTemp == kodeMK) {
+                            sks = stoi(lineMK.substr(5));
+                            break;
+                        }
+                    }
+                    fileMK.close();
+                }
+            }
+            
+            // Baca file Dosen untuk mendapatkan nama dosen
+            if (!nidnDosen.empty()) {
+                ifstream fileDosen("dataDosen.txt");
+                if (fileDosen.is_open()) {
+                    string lineDosen;
+                    string nidnTemp = "";
+                    while (getline(fileDosen, lineDosen)) {
+                        if (lineDosen.find("NIDN: ") != string::npos) {
+                            nidnTemp = lineDosen.substr(6);
+                        } else if (lineDosen.find("Nama: ") != string::npos && nidnTemp == nidnDosen) {
+                            namaDosen = lineDosen.substr(6);
+                            if (namaDosen.length() > 23) namaDosen = namaDosen.substr(0, 20) + "...";
+                            break;
+                        }
+                    }
+                    fileDosen.close();
+                }
+            }
+            
+            cout << "║ " << setw(2) << (i+1) << " ║ " 
+                 << setw(10) << kodeMK << " ║ "
+                 << setw(25) << namaMK << " ║ "
+                 << setw(23) << namaDosen << " ║ "
+                 << setw(3) << sks << " ║\n";
+            totalSKS += sks;
+        }
+        
+        cout << " =============================================================================\n";
+        cout << "\nTotal Mata Kuliah: " << jumlahData << endl;
+        cout << "Total SKS        : " << totalSKS << " SKS" << endl;
+        cout << "\n";
+        
+        // Footer
+        cout << " __________________________________________________________\n";
+        cout << "| Catatan:                                                 |\n";
+        cout << "| - KRS ini sah apabila sudah mendapat persetujuan dosen   |\n";
+        cout << "| - Batas pengisian/perubahan KRS sesuai kalender akademik |\n";
+        cout << "| - Simpan KRS ini sebagai bukti pengisian                 |\n";
+        cout << "|__________________________________________________________|\n";
+        
+        cout << "\n✓ KRS berhasil dicetak dari file dataKRS.txt\n";
+    }
+
+    // Hapus mata kuliah dari KRS
+    void hapusKRS(string nim) {
+        system("cls");
+        cout << "\n==========================================================\n";
+        cout << "           HAPUS MATA KULIAH DARI KRS                    \n";
+        cout << "==========================================================\n\n";
+        
+        tampilKRSMahasiswa(nim);
+        
+        cout << "\nMasukkan Kode Dosen-Mata Kuliah yang ingin dihapus: ";
+        string kdDosenMk;
+        cin >> kdDosenMk;
+        cin.ignore();
+        
+        // Cari index data yang akan dihapus
+        size_t index = 0;
+        bool ditemukan = false;
+        DoubleLinkedList<KRSData>::Node* current = listKRS.head;
+        
+        while (current != nullptr) {
+            if (current->data.nimMahasiswa == nim && 
+                current->data.kdDosenMk == kdDosenMk) {
+                ditemukan = true;
+                break;
+            }
+            current = current->next;
+            index++;
+        }
+        
+        if (ditemukan) {
+            listKRS.hapusData(index);
+            simpanKRSkeFile();
+            cout << "\n✓ Mata kuliah berhasil dihapus dari KRS!\n";
+        } else {
+            cout << "\n✗ Mata kuliah tidak ditemukan dalam KRS Anda!\n";
+        }
+        
+        cout << "Tekan Enter untuk melanjutkan...";
+        cin.get();
+    }
 };
 
 
