@@ -71,7 +71,7 @@ public:
             cout << "8. Input dan Koreksi Nilai" << endl;
             cout << "9. Verifikasi Pembayaran" << endl;
             cout << "10. Layanan Akademik" << endl;
-            cout << "11. Keluar" << endl;
+            cout << "0. Logout" << endl;
             cout << "Pilih: ";
             cin >> pilih;
             switch (pilih) {
@@ -98,14 +98,18 @@ public:
                 case 7:
                     tampilMenuKrs();
                     break;
-                case 10: 
-                    nav.pop();
-                    cout << "Keluar dari dashboard admin...\n";
+                case 10:
+                    // Placeholder layanan akademik
+                    cout << "(Fitur Layanan Akademik belum tersedia)\n";
                     break;
+                case 0: 
+                    nav.pop();
+                    cout << "Logout admin...\n";
+                    return;
                 default: cout << "Pilihan tidak valid!\n";
                     break;
             }
-        } while (pilih != 10);
+        } while (true);
     }
 
     void tampilMenuDosen() {
@@ -117,7 +121,7 @@ public:
             cout << "2. Lihat Dosen" << endl;
             cout << "3. Edit data Dosen" << endl;
             cout << "4. Hapus Dosen" << endl;
-            cout << "5. Cek Keaktifan Dosen" << endl;
+            cout << "0. Logout" << endl;
             cout << "6. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
@@ -136,12 +140,15 @@ public:
                 case 6:
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n";
-                    return;  
-                break;
+                    return;
+                case 0:
+                    nav.pop();
+                    cout << "Logout admin...\n";
+                    return; 
                 default: cout << "Pilihan tidak valid!\n";
                 break;
             }
-        } while (pilih != 6);
+        } while (true);
     }
 
     void tampilMenuMhs() {
@@ -343,6 +350,7 @@ public:
                 cout << "3. Edit krs mahasiswa" << endl;
                 cout << "4. Hapus krs mahasiswa" << endl;
                 cout << "5. Keluar" << endl;
+                cout << "6. Validasi Permintaan KRS (Pending)" << endl;
                 cout << "Pilih: ";
                 cin >> pilih;
 
@@ -358,6 +366,9 @@ public:
                         break;
                     case 4:
                         // mnjKrs.hapusKrsMahasiswa();
+                        break;
+                    case 6:
+                        
                         break;
                     case 5:
                         nav.pop();
@@ -380,6 +391,11 @@ private:
     ManajemenMatakuliah* mk;
     ManajemenDosenMataKuliah* dmk;
     ManajemenKelas* kls;
+    ManajemenKelasMahasiswa* klsMhs;
+    ManajemenKrs* mnjKrs;
+    ManajemenMahasiswa* mhs;
+    
+
 public:
     MahasiswaDashboard(MahasiswaPortal* portal) : mhsPortal(portal) {
         // Inisialisasi KRS dengan objek manajemen yang diperlukan
@@ -392,8 +408,12 @@ public:
         kls = new ManajemenKelas();
         // ManajemenKelas sudah load data di constructor
         
-        krs = new KRSKHS(mk, dmk, kls);
-        krs->bacaKRSdariFile();
+        klsMhs = new ManajemenKelasMahasiswa();
+        mnjKrs = new ManajemenKrs();
+        
+        krs = new KRSKHS(mk, dmk, kls);  // bacaKRSdariFile() sudah dipanggil di constructor
+        krs->setManagers(klsMhs, mnjKrs);
+        krs->setMahasiswaPortal(mhsPortal);
     }
 
     void tampilMenuDashMahasiswa() {
@@ -412,27 +432,29 @@ public:
             switch (pilih) {
                 case 1:
                  tampilProfil();
+                 system("cls");
                     break;
                 case 2:
                 tampilPerkuliahan();
+                system("cls");
                     break;
                 case 3:
                 tampilKRSKHS();
+                system("cls");
                     break;
                 case 4: 
                 tampilMataKuliah();
                     break;
                 case 5:
-                mhsPortal->logout();
-                nav.pop(); 
-                cout << "Keluar dari dashboard mahasiswa...\n";
-                return;
-                    break;
+                    mhsPortal->logout();
+                    system("cls");
+                    nav.pop();
+                    return;
                 default:
                     cout << "Pilihan tidak valid!\n";
                     break;
             }
-        } while (pilih != 5);
+        } while (true);
     }
 
     
@@ -452,13 +474,16 @@ public:
             switch(pilih){
                 case 1:
                     mhsPortal->tampilProfil();
+                    system("cls");
                     break;
                 case 2:
                     mhsPortal->Tagihanmhs();
+                    system("cls");
                     break;
                 case 3:
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
+                    system("cls");
                     return;
                 default:
                     cout<<"Pilihan tidak valid!"<<endl;
@@ -526,19 +551,20 @@ public:
 
             switch(pilih){
                 case 1:
-                    krs->menuKRS(mhsPortal->getNIMMahasiswa(), mhsPortal->getSemesterMahasiswa());
-                    system("pause");
+                    krs->TampilDosenMatakuliahKrs();
+                    system("cls");
                     break;
                 case 2:
-                    cout << "Menampilkan KRS Aktivitas Mahasiswa..." << endl;
-                    system("pause");
+                    krs->tampilKrsAktivitas();
+                    system("cls");
                     break;
                 case 3:
-                    krs->cetakKRS(mhsPortal->getNIMMahasiswa());
+                  system("cls");
                     system("pause");
                     break;
                 case 4:
-                    cout << "Menampilkan tagihan..." << endl;
+                    krs->cekNilai(mhsPortal->getNIMMahasiswa());
+                    system("pause");
                     break;
                 case 5:
                     cout << "Menampilkan tagihan..." << endl;
@@ -557,6 +583,9 @@ public:
         }while(pilih!=7);
     }
 
+    
+    
+
     void tampilMataKuliah(){
         nav.push("Tampil Menu Perkuliahan Mahasiswa");
         int pilih;
@@ -571,24 +600,21 @@ public:
 
             switch(pilih){
                 case 1:
-                    cout << "Menampilkan biodata..." << endl;
+                system("cls");
+                    mk->tampilkanMatakuliahGanjil();
+                    system("pause");
                     break;
                 case 2:
-                    cout << "Menampilkan tagihan..." << endl;
+                system("cls");
+                    mk->tampilkanMatakuliahGenap();
+                    system("pause");
                     break;
                 case 3:
-                    cout << "Menampilkan tagihan..." << endl;
+                system("cls");
+                    mhs->TampilSemuaMahasiswa();
+                    system("pause");
                     break;
                 case 4:
-                    cout << "Menampilkan tagihan..." << endl;
-                    break;
-                case 5:
-                    cout << "Menampilkan tagihan..." << endl;
-                    break;
-                case 6:
-                    cout << "Menampilkan tagihan..." << endl;
-                    break;
-                case 7:
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
                     return;
@@ -657,28 +683,29 @@ void displayMahasiswa(){
 }
 
 void displayMainMenu(){
-    int pilih;
-    cout << "=== SISTEM INFORMASI AKADEMIK ===" << endl;
-    cout << "1. Login sebagai Admin" << endl;
-    cout << "2. Login sebagai Mahasiswa" << endl;
-    cout << "3. Keluar" << endl;
-    cout << "Pilih: ";
-    cin >> pilih;
+    while (true) {
+        int pilih;
+        cout << "=== SISTEM INFORMASI AKADEMIK ===" << endl;
+        cout << "1. Login sebagai Admin" << endl;
+        cout << "2. Login sebagai Mahasiswa" << endl;
+        cout << "3. Keluar" << endl;
+        cout << "Pilih: ";
+        cin >> pilih;
 
-    switch (pilih) {
-        case 1:
-            displayAdmin();
-            break;
-        case 2:
-            displayMahasiswa();
-            break;
-        case 3:
-            cout << "Keluar dari sistem...\n";
-            break;
-        default:
-            cout << "Pilihan tidak valid!\n";
-            displayMainMenu();
-            break;
+        switch (pilih) {
+            case 1:
+                displayAdmin(); // kembali ke menu ini setelah logout
+                break;
+            case 2:
+                displayMahasiswa(); // kembali ke menu ini setelah logout
+                break;
+            case 3:
+                cout << "Keluar dari sistem...\n";
+                return;
+            default:
+                cout << "Pilihan tidak valid!\n";
+                break;
+        }
     }
 }
 

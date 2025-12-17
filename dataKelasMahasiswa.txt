@@ -1,40 +1,600 @@
-Kode Kelas: IF103-A
-NIM Mahasiswa: 2400018008
-Nama Mahasiswa: Hana Wijaya
---------------------------
-Kode Kelas: IF103-A
-NIM Mahasiswa: 2400018002
-Nama Mahasiswa: Bunga Sari
---------------------------
-Kode Kelas: IF103-A
-NIM Mahasiswa: 2400018005
-Nama Mahasiswa: Eko Prasetyo
---------------------------
-Kode Kelas: IF103-A
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018001
 Nama Mahasiswa: Adi Pratama
 --------------------------
-Kode Kelas: IF103-A
-NIM Mahasiswa: 2400018006
-Nama Mahasiswa: Fitri Handayani
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018002
+Nama Mahasiswa: Bunga Sari
 --------------------------
-Kode Kelas: IF103-A
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018003
 Nama Mahasiswa: Cahyo Nugroho
 --------------------------
-Kode Kelas: IF103-A
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018004
+Nama Mahasiswa: Dewi Lestari
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018005
+Nama Mahasiswa: Eko Prasetyo
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018006
+Nama Mahasiswa: Fitri Handayani
+--------------------------
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018007
 Nama Mahasiswa: Gilang Ramadhan
 --------------------------
-Kode Kelas: IF103-B
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018008
+Nama Mahasiswa: Hana Wijaya
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018009
+Nama Mahasiswa: Irfan Setiawan
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018010
+Nama Mahasiswa: Jihan Amelia
+--------------------------
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018011
 Nama Mahasiswa: Kurniawan
 --------------------------
-Kode Kelas: IF103-B
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018012
 Nama Mahasiswa: Lestari
 --------------------------
-Kode Kelas: IF103-B
+Kode Kelas: IF101-A
 NIM Mahasiswa: 2400018013
 Nama Mahasiswa: Mulyadi
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018014
+Nama Mahasiswa: Nadia Putri
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018015
+Nama Mahasiswa: Oki Pratama
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018016
+Nama Mahasiswa: Putri Ayu
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018017
+Nama Mahasiswa: Rizki Maulana
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018018
+Nama Mahasiswa: Sari Dewi
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018019
+Nama Mahasiswa: Teguh Santoso
+--------------------------
+Kode Kelas: IF101-A
+NIM Mahasiswa: 2400018020
+Nama Mahasiswa: Umi Kulsum
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018021
+Nama Mahasiswa: Vino Gustomo
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018022
+Nama Mahasiswa: Wulan Sari
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018023
+Nama Mahasiswa: Yoga Perdana
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018024
+Nama Mahasiswa: Zahra Amanda
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018025
+Nama Mahasiswa: Agus Salim
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018026
+Nama Mahasiswa: Bella Nurul
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018027
+Nama Mahasiswa: Candra Wijaya
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018028
+Nama Mahasiswa: Dina Marlina
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018029
+Nama Mahasiswa: Eri Gunawan
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018030
+Nama Mahasiswa: Fajar Nugraha
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018031
+Nama Mahasiswa: Gita Purnama
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018032
+Nama Mahasiswa: Hendra Saputra
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018033
+Nama Mahasiswa: Indah Permata
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018034
+Nama Mahasiswa: Joko Susilo
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018035
+Nama Mahasiswa: Kartika Sari
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018036
+Nama Mahasiswa: Lukman Hakim
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018037
+Nama Mahasiswa: Mira Utami
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018038
+Nama Mahasiswa: Nugroho
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018039
+Nama Mahasiswa: Olivia Tan
+--------------------------
+Kode Kelas: IF101-B
+NIM Mahasiswa: 2400018040
+Nama Mahasiswa: Pandu Winata
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018041
+Nama Mahasiswa: Qory Sandioriva
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018042
+Nama Mahasiswa: Rendra Mahesa
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018043
+Nama Mahasiswa: Siska Wulandari
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018044
+Nama Mahasiswa: Taufik Hidayat
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018045
+Nama Mahasiswa: Uci Sanjaya
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018046
+Nama Mahasiswa: Viktor Siregar
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018047
+Nama Mahasiswa: Winda Puspita
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018048
+Nama Mahasiswa: Xavier Tanoto
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018049
+Nama Mahasiswa: Yuni Astuti
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018050
+Nama Mahasiswa: Zulkifli
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018051
+Nama Mahasiswa: Arya Dharma
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018052
+Nama Mahasiswa: Bimo Satrio
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018053
+Nama Mahasiswa: Cindy Laura
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018054
+Nama Mahasiswa: Dodi Pranata
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018055
+Nama Mahasiswa: Eva Yuliana
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018056
+Nama Mahasiswa: Fadli Zon
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018057
+Nama Mahasiswa: Gina Melati
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018058
+Nama Mahasiswa: Haryanto
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018059
+Nama Mahasiswa: Ira Wahyuni
+--------------------------
+Kode Kelas: IF101-C
+NIM Mahasiswa: 2400018060
+Nama Mahasiswa: Jefri Nicholas
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018061
+Nama Mahasiswa: Kurniawan
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018062
+Nama Mahasiswa: Lestari
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018063
+Nama Mahasiswa: Mulyadi
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018064
+Nama Mahasiswa: Nadia Putri
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018065
+Nama Mahasiswa: Oki Pratama
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018066
+Nama Mahasiswa: Putri Ayu
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018067
+Nama Mahasiswa: Rizki Maulana
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018068
+Nama Mahasiswa: Sari Dewi
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018069
+Nama Mahasiswa: Teguh Santoso
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018070
+Nama Mahasiswa: Umi Kulsum
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018071
+Nama Mahasiswa: Vino Gustomo
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018072
+Nama Mahasiswa: Wulan Sari
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018073
+Nama Mahasiswa: Yoga Perdana
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018074
+Nama Mahasiswa: Zahra Amanda
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018075
+Nama Mahasiswa: Agus Salim
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018076
+Nama Mahasiswa: Bella Nurul
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018077
+Nama Mahasiswa: Candra Wijaya
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018078
+Nama Mahasiswa: Dina Marlina
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018079
+Nama Mahasiswa: Eri Gunawan
+--------------------------
+Kode Kelas: IF102-A
+NIM Mahasiswa: 2400018080
+Nama Mahasiswa: Fajar Nugraha
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018081
+Nama Mahasiswa: Gita Purnama
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018082
+Nama Mahasiswa: Hendra Saputra
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018083
+Nama Mahasiswa: Indah Permata
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018084
+Nama Mahasiswa: Joko Susilo
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018085
+Nama Mahasiswa: Kartika Sari
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018086
+Nama Mahasiswa: Lukman Hakim
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018087
+Nama Mahasiswa: Mira Utami
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018088
+Nama Mahasiswa: Nugroho
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018089
+Nama Mahasiswa: Olivia Tan
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018090
+Nama Mahasiswa: Pandu Winata
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018091
+Nama Mahasiswa: Qory Sandioriva
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018092
+Nama Mahasiswa: Rendra Mahesa
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018093
+Nama Mahasiswa: Siska Wulandari
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018094
+Nama Mahasiswa: Taufik Hidayat
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018095
+Nama Mahasiswa: Uci Sanjaya
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018096
+Nama Mahasiswa: Viktor Siregar
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018097
+Nama Mahasiswa: Winda Puspita
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018098
+Nama Mahasiswa: Xavier Tanoto
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018099
+Nama Mahasiswa: Yuni Astuti
+--------------------------
+Kode Kelas: IF102-B
+NIM Mahasiswa: 2400018100
+Nama Mahasiswa: Zulkifli
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018101
+Nama Mahasiswa: Rina Marlina
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018102
+Nama Mahasiswa: Surya Aditya
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018103
+Nama Mahasiswa: Maya Sari
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018104
+Nama Mahasiswa: Doni Pratama
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018105
+Nama Mahasiswa: Lia Anggraini
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018106
+Nama Mahasiswa: Rizky Fadilah
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018107
+Nama Mahasiswa: Diana Putri
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018108
+Nama Mahasiswa: Fajar Ramadan
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018109
+Nama Mahasiswa: Nina Rosita
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018110
+Nama Mahasiswa: Hadi Susanto
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018111
+Nama Mahasiswa: Anisa Rahma
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018112
+Nama Mahasiswa: Bayu Kurniawan
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018113
+Nama Mahasiswa: Citra Dewi
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018114
+Nama Mahasiswa: Dodi Hermawan
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018115
+Nama Mahasiswa: Elsa Fitriani
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018116
+Nama Mahasiswa: Firman Syah
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018117
+Nama Mahasiswa: Gita Permatasari
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018118
+Nama Mahasiswa: Hendra Wijaya
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018119
+Nama Mahasiswa: Intan Permata
+--------------------------
+Kode Kelas: IF102-C
+NIM Mahasiswa: 2400018120
+Nama Mahasiswa: Joni Saputra
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018121
+Nama Mahasiswa: Kartika Sari
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018122
+Nama Mahasiswa: Luthfi Rahman
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018123
+Nama Mahasiswa: Melia Utami
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018124
+Nama Mahasiswa: Nando Pratama
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018125
+Nama Mahasiswa: Oktavia Nur
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018126
+Nama Mahasiswa: Pandu Setiawan
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018127
+Nama Mahasiswa: Queen Amelia
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018128
+Nama Mahasiswa: Rafi Akbar
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018129
+Nama Mahasiswa: Salsa Bila
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018130
+Nama Mahasiswa: Toni Gunawan
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018131
+Nama Mahasiswa: Umi Kalsum
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018132
+Nama Mahasiswa: Viktor Surya
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018133
+Nama Mahasiswa: Winda Puspita
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018134
+Nama Mahasiswa: Yoga Maulana
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018135
+Nama Mahasiswa: Zahra Nabila
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018136
+Nama Mahasiswa: Aldi Firmansyah
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018137
+Nama Mahasiswa: Bella Anastasia
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018138
+Nama Mahasiswa: Cakra Bumi
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018139
+Nama Mahasiswa: Dinda Maharani
+--------------------------
+Kode Kelas: IF103-A
+NIM Mahasiswa: 2400018140
+Nama Mahasiswa: Eko Purnomo
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018141
+Nama Mahasiswa: Fani Oktaviani
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018142
+Nama Mahasiswa: Gilang Persada
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018143
+Nama Mahasiswa: Hesti Wulandari
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018144
+Nama Mahasiswa: Ivan Kurnia
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018145
+Nama Mahasiswa: Jeni Anggraeni
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018146
+Nama Mahasiswa: Kevin Ardian
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018147
+Nama Mahasiswa: Lala Safitri
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018148
+Nama Mahasiswa: Miko Andika
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018149
+Nama Mahasiswa: Nia Kurniasih
+--------------------------
+Kode Kelas: IF103-B
+NIM Mahasiswa: 2400018150
+Nama Mahasiswa: Omar Syahputra
 --------------------------
