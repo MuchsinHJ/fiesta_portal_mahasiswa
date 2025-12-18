@@ -10,6 +10,7 @@ using namespace std;
 // CLASS UNTUK LOGIN PORTAL ADMIN DAN AUTENTIKASI
 class AdminPortal {
 private:
+
     string username;
     string password;
     bool statusLogin = false;
@@ -23,11 +24,22 @@ public:
         } else {
             cout << "Login gagal!" << endl;
         }
+
+        username="";
+        password="";
         return statusLogin;
     }
 
     bool isLogin() const {
         return statusLogin;
+    }
+
+    void logoutnih() {
+        username.clear();
+        password.clear();
+        cout << "Logout berhasil." << endl;
+        system("pause");
+        
     }
 };
 
@@ -2277,7 +2289,7 @@ public:
         updateFileKelasMahasiswa();
     }
 
-    void editKelasMaasiswa(){
+    void editKelasMahasiswa(){
         cout << "\n=== Edit Kelas Mahasiswa ===" << endl;
         string kodeCari, nimCari;
         cout << "Masukkan Kode Kelas yang akan diedit: ";
@@ -2361,6 +2373,51 @@ public:
             }
         }
         in.close();
+    }
+
+    void hapusKelasMahasiswa() {
+        string  nimCari;
+        cout << "\n=== Hapus Kelas Mahasiswa ===" << endl;
+        cout << "Masukkan NIM Mahasiswa yang akan dihapus: ";
+        cin >> nimCari;
+
+        DoubleLinkedList<KelasMahasiswa>::Node* temp = daftarKelasMahasiswa.head;
+        DoubleLinkedList<KelasMahasiswa>::Node* prev = nullptr;
+        bool ditemukan = false;
+
+        while (temp != nullptr) {
+            if ( temp->data.nim == nimCari) {
+                ditemukan = true;
+                if (prev == nullptr) {
+                    daftarKelasMahasiswa.head = temp->next;
+                    if (daftarKelasMahasiswa.head != nullptr) {
+                        daftarKelasMahasiswa.head->prev = nullptr;
+                    } else {
+                        daftarKelasMahasiswa.tail = nullptr;
+                    }
+                } else {
+                    prev->next = temp->next;
+                    if (temp->next != nullptr) {
+                        temp->next->prev = prev;
+                    } else {
+                        daftarKelasMahasiswa.tail = prev;
+                    }
+                }
+
+                delete temp;
+                if (daftarKelasMahasiswa.sz > 0) daftarKelasMahasiswa.sz--;
+
+                updateFileKelasMahasiswa();
+                cout << "Mahasiswa dengan Nim " << nimCari << " berhasil dihapus dari kelas." << endl;
+                break;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (!ditemukan) {
+            cout << "Mahasiswa dengan Nim" << nimCari << " tidak ditemukan di kelas Manapin." << endl;
+        }
     }
 
    
@@ -2558,6 +2615,8 @@ public:
         tambahKrsLangsung(krsBaru);
         cout << "KRS berhasil ditambahkan!" << endl;
     }
+
+
     void tampilKrsByKelas() {
         string kdKelasCari;
         cout << "\n=== Tampil KRS berdasarkan Kelas ===" << endl;
@@ -2580,6 +2639,8 @@ public:
             cout << "Tidak ada KRS yang ditemukan untuk Kelas " << kdKelasCari << "." << endl;
         }
     }
+
+
     void editKrs() {
         string kdKelasCari;
         cout << "\n=== Edit KRS ===" << endl;
@@ -2603,6 +2664,8 @@ public:
             cout << "KRS dengan Kode Kelas Mahasiswa " << kdKelasCari << " tidak ditemukan." << endl;
         }
     }
+
+
     void hapusKrs() {
         string kdKelasCari;
         cout << "\n=== Hapus KRS ===" << endl;
@@ -2697,71 +2760,6 @@ public:
         outFile.close();
     }
     
-    // Fungsi untuk menampilkan pengajuan KRS yang belum divalidasi (tanpa vector)
-    void tampilPengajuanKrsBelumValidasi() {
-        system("cls");
-        cout << "\n========================================================================\n";
-        cout << "                 DAFTAR PENGAJUAN KRS BELUM DIVALIDASI                  \n";
-        cout << "========================================================================\n\n";
-        
-        ifstream inFile("dataPengajuanKrs.txt");
-        if (!inFile.is_open()) {
-            cout << "Belum ada pengajuan KRS.\n\n";
-            system("pause");
-            return;
-        }
-        
-        string line;
-        int nomor = 1;
-        bool adaPengajuan = false;
-        bool sedangBacaBlok = false;
-        
-        string nama, nim, mataKuliah, statusPengajuan, statusValidasi;
-        
-        while (getline(inFile, line)) {
-            if (line.find("Nama: ") != string::npos) {
-                nama = line.substr(6);
-                sedangBacaBlok = true;
-            } else if (line.find("NIM: ") != string::npos) {
-                nim = line.substr(5);
-            } else if (line.find("Mata Kuliah: ") != string::npos) {
-                mataKuliah = line.substr(13);
-            } else if (line.find("Status Pengajuan: ") != string::npos) {
-                statusPengajuan = line.substr(18);
-            } else if (line.find("Status Validasi: ") != string::npos) {
-                statusValidasi = line.substr(17);
-            } else if (line.find("==========================================") != string::npos) {
-                // Akhir blok, tampilkan jika belum divalidasi
-                if (sedangBacaBlok && statusValidasi == "Belum Divalidasi") {
-                    adaPengajuan = true;
-                    cout << "Pengajuan #" << nomor++ << "\n";
-                    cout << "----------------------------------------\n";
-                    cout << "Nama           : " << nama << "\n";
-                    cout << "NIM            : " << nim << "\n";
-                    cout << "Mata Kuliah    : " << mataKuliah << "\n";
-                    cout << "Status Pengajuan : " << statusPengajuan << "\n";
-                    cout << "Status Validasi  : " << statusValidasi << "\n";
-                    cout << "========================================\n\n";
-                }
-                
-                // Reset untuk blok berikutnya
-                nama.clear();
-                nim.clear();
-                mataKuliah.clear();
-                statusPengajuan.clear();
-                statusValidasi.clear();
-                sedangBacaBlok = false;
-            }
-        }
-        
-        inFile.close();
-        
-        if (!adaPengajuan) {
-            cout << "Semua pengajuan KRS sudah divalidasi.\n\n";
-        }
-        
-        system("pause");
-    }
     
     // Fungsi untuk validasi pengajuan KRS (tanpa vector)
     void validasiPengajuanKrs() {
@@ -2914,9 +2912,47 @@ public:
     }
 
     
+};
 
-    
-    
 
-   
+class ManajemenInputDanKoreksiNilai{
+private:
+    DoubleLinkedList<InputDanKoreksiNilai> InputNilai;
+public:
+    ManajemenInputDanKoreksiNilai() {
+        // Inisialisasi dengan beberapa data jika list masih kosong
+        if (InputNilai.size() == 0) {
+            tambahInputDanKoreksiNilaiLangsung({"DMK001", "2400018001", 85, "IF101-A"});
+            tambahInputDanKoreksiNilaiLangsung({"DMK002", "2400018002", 90, "IF101-A"});
+            tambahInputDanKoreksiNilaiLangsung({"DMK009", "2400018003", 78, "IF101-B"});
+            tambahInputDanKoreksiNilaiLangsung({"DMK017", "2400018004", 88, "IF101-C"});
+            updateFileInputDanKoreksiNilai();
+        }
+    }
+
+    void tambahInputDanKoreksiNilaiLangsung(const InputDanKoreksiNilai& inputNilaiBaru) {
+        InputNilai.tambahData(inputNilaiBaru);
+    }
+
+    void updateFileInputDanKoreksiNilai() {
+        ofstream outFile("dataInputDanKoreksiNilai.txt", ios::trunc);
+        if (!outFile.is_open()) {
+            cout << "Gagal membuka file untuk menyimpan data input dan koreksi nilai." << endl;
+            return;
+        }
+
+        DoubleLinkedList<InputDanKoreksiNilai>::Node* temp = InputNilai.head;
+        while (temp != nullptr) {
+            outFile << "Kode Kelas: " << temp->data.kdKelas << endl;
+            outFile << "Kode Dosen Mata Kuliah: " << temp->data.kdDosenMk << endl;
+            outFile << "NIM Mahasiswa: " << temp->data.nim << endl;
+            outFile << "Nilai: " << temp->data.nilaiAkhir << endl;
+            outFile << "--------------------------" << endl;
+            temp = temp->next;
+        }
+
+        outFile.close();
+    }
+
+
 };

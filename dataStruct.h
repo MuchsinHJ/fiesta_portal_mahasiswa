@@ -93,3 +93,10 @@ struct KelasMahasiswa{
     string kdKelas;
     string nim;
 };
+
+struct InputDanKoreksiNilai{
+    string kdDosenMk;
+    string nim;
+    int nilaiAkhir;
+    string kdKelas;
+};

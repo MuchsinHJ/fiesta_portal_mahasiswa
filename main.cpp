@@ -9,6 +9,7 @@ private:
 
 public:
     NavigationStack() { top = -1; }
+    bool logoutRequested = false; // flag untuk meminta logout ke menu login
 
     bool isEmpty() { return top == -1; }
     bool isFull() { return top == 19; }
@@ -35,6 +36,7 @@ public:
 class AdminDashboard {
 private:
     NavigationStack nav;
+    AdminPortal* admin;
     ManajemenMahasiswa mnjMhs;
     ManajemenDosen mnjDosen;
     ManajemenMatakuliah mnjMatkul;
@@ -43,6 +45,10 @@ private:
     ManajemenKelasMahasiswa mnjKelasMahasiswa;
     ManajemenKrs mnjKrs;
 public:
+    
+    void setAdminPortal(AdminPortal* adminPortal) {
+        admin = adminPortal;
+    }
 
     void tarikData(){
         mnjMhs.tarikMahasiswadarifile();
@@ -60,7 +66,10 @@ public:
         
         int pilih;
         do {
-            cout << "\n=== DASHBOARD ADMIN ===" << endl;
+            cout<<endl;
+            cout<<"==============================================" << endl;
+            cout<<"           ==== DASHBOARD ADMIN ====          " << endl;
+            cout<<"==============================================" << endl;
             cout << "1. Manajemen Mahasiswa" << endl;
             cout << "2. Manajemen Dosen" << endl;
             cout << "3. Manajemen Mata Kuliah" << endl;
@@ -103,6 +112,10 @@ public:
                     cout << "(Fitur Layanan Akademik belum tersedia)\n";
                     break;
                 case 0: 
+                
+                        admin->logoutnih();
+                    
+                    system("cls");
                     nav.pop();
                     cout << "Logout admin...\n";
                     return;
@@ -116,6 +129,10 @@ public:
         nav.push("Dashboard Manajemen Dosen");
         int pilih;
         do {
+            cout<<endl;
+            cout<<"==============================================" << endl;
+            cout<<"      ==== DASHBOARD MANAJEMEN DOSEN ====  " << endl;
+            cout<<"==============================================" << endl;
             cout << "\n=== DASHBOARD MANAJEMEN DOSEN ===" << endl;
             cout << "1. Tambah Dosen" << endl;
             cout << "2. Lihat Dosen" << endl;
@@ -155,7 +172,9 @@ public:
         nav.push("Dashboard Manajemen Mahasiswa");
         int pilih;
         do {
-            cout << "\n=== DASHBOARD MANAJEMEN MAHASISWA ===" << endl;
+            cout<< "==============================================" << endl;
+            cout<< "  ==== DASHBOARD MANAJEMEN MAHASISWA ====  " << endl;
+            cout<< "==============================================" << endl;
             cout << "1. Tambah Mahasiswa" << endl;
             cout << "2. Lihat Mahasiswa" << endl;
             cout << "3. Edit data Mahasiswa" << endl;
@@ -190,7 +209,10 @@ public:
         nav.push("Dashboard Manajemen Mata Kuliah");
         int pilih;
         do{
-            cout<<"====MENU MANAJEMEN MATAKULIAH===="<<endl;
+            cout<<endl;
+             cout<<"==============================================" << endl;
+             cout<<"  ==== DASHBOARD MANAJEMEN MATA KULIAH ====  " << endl;
+             cout<<"==============================================" << endl;
             cout<<"1. Tambah Mata Kuliah"<<endl;
             cout<<"2. Lihat Mata Kuliah per Semester"<<endl;
             cout<<"3. Lihat Semua Mata Kuliah"<<endl;
@@ -232,7 +254,10 @@ public:
         nav.push("Dashboard Manajemen Dosen Mata Kuliah");
         int pilih;
         do {
-            cout << "\n==== MENU MANAJEMEN DOSEN MATA KULIAH ====" << endl;
+
+            cout << "===================================================" << endl;
+            cout << "  ==== DASHBOARD MANAJEMEN DOSEN MATA KULIAH ====  " << endl;
+            cout << "===================================================" << endl;
             cout << "1. Tambah Dosen Mata Kuliah" << endl;
             cout << "2. Lihat Semua Dosen Mata Kuliah" << endl;
             cout << "3. Cari Dosen Mata Kuliah" << endl;
@@ -273,6 +298,9 @@ public:
         nav.push("Dashboard Manajemen Kelas");
         int pilih;
         do {
+            cout << "===============================================" << endl;
+            cout << "      ==== DASHBOARD MANAJEMEN KELAS ====     " << endl;
+            cout << "===============================================" << endl;
             cout << "1. Tambah Kelas" << endl;
             cout << "2. Lihat Semua Kelas" << endl;
             cout << "3. Edit Kelas" << endl;
@@ -309,26 +337,30 @@ public:
         nav.push("Dashboard Manajemen Kelas Mahasiswa");
         int pilih;
         do {
+            cout<<"===============================================" << endl;
+            cout<<"  === DASHBOARD MANAJEMEN KELAS MAHASISWA ===" << endl;
+            cout<<"===============================================" << endl;
             cout << "1. Tambah Kelas Mahasiswa" << endl;
             cout << "2. Lihat Semua Kelas Mahasiswa" << endl;
             cout << "3. Edit Kelas Mahasiswa" << endl;
-            cout << "4. Hapus Kelas Mahasiswa" << endl;
+            cout << "4. Hapus Mahasiswa dari Kelas" << endl;
             cout << "5. Keluar" << endl;
             cout << "Pilih: ";
             cin >> pilih;
 
             switch(pilih) {
                 case 1:
-                    //  mnjKrs.tambahKrsMahasiswa();
+
+                    mnjKelasMahasiswa.tambahKelasMahasiswa();
                     break;
                 case 2:
-                    //  mnjKrs.tampilSemuaKKrs();
+                    mnjKelasMahasiswa.tampilSemuaKelasMahasiswa();
                     break;
                 case 3:
-                    // mnjKelasMahasiswa.editKelasMahasiswa();
+                    mnjKelasMahasiswa.editKelasMahasiswa();
                     break;
                 case 4:
-                    // mnjKelasMahasiswa.hapusKelasMahasiswa();
+                    mnjKelasMahasiswa.hapusKelasMahasiswa();
                     break;
                 case 5:
                     nav.pop();
@@ -345,32 +377,36 @@ public:
             nav.push("Dashboard Manajemen KRS");
             int pilih;
             do {
+                cout<<"===============================================" << endl;
+                cout<<"        ==== DASHBOARD MANAJEMEN KRS ====      " << endl;
+                cout<<"===============================================" << endl;
                 cout << "1. Tambah krs mahasiswa" << endl;
                 cout << "2. Lihat Semua krs berdasarkan kelas dan semester" << endl;
                 cout << "3. Edit krs mahasiswa" << endl;
                 cout << "4. Hapus krs mahasiswa" << endl;
-                cout << "5. Keluar" << endl;
-                cout << "6. Validasi Permintaan KRS (Pending)" << endl;
+                cout << "5. Validasi Permintaan KRS (Pending)" << endl;
+                cout << "6. Keluar" << endl;
                 cout << "Pilih: ";
                 cin >> pilih;
 
                 switch(pilih) {
                     case 1:
-                        // mnjKrs.tambahKrs();
+                         mnjKrs.tambahKrs();
                         break;
                     case 2:
                         mnjKrs.tampilKrsByKelas();
                         break;
                     case 3:
-                        // mnjKrs.editKrsMahasiswa();
+                         mnjKrs.editKrs();
                         break;
                     case 4:
-                        // mnjKrs.hapusKrsMahasiswa();
-                        break;
-                    case 6:
-                        
+                         mnjKrs.hapusKrs();
                         break;
                     case 5:
+                        mnjKrs.validasiPengajuanKrs();
+                        
+                        break;
+                    case 6:
                         nav.pop();
                         cout << "Kembalikan ke dashboard admin...\n";
                         return;
@@ -420,7 +456,9 @@ public:
         nav.push("Dashboard Mahasiswa");
         int pilih;
         do {
-            cout << "\n=== DASHBOARD MAHASISWA ===" << endl;
+            cout<<"===============================================" << endl;
+            cout<<"        ==== DASHBOARD MAHASISWA ====          " << endl;
+            cout<<"===============================================" << endl;
             cout << "1. Profile" << endl;
             cout << "2. Perkuliahan" << endl;
             cout << "3. KRS dan KHS" << endl;
@@ -464,7 +502,9 @@ public:
         nav.push("Tampil Menu Profil Mahasiswa");
         int pilih;
         do{
-            cout<<"====MENU MANAJEMEN PROFIL MAHASISWA===="<<endl;
+            cout<<"===============================================" << endl;
+            cout<<"   ==== MENU MANAJEMEN PROFIL MAHASISWA ====          " << endl;
+            cout<<"===============================================" << endl;
             cout<<"1. Biodata"<<endl;
             cout<<"2. Tagihan"<<endl;
             cout<<"3. Keluar"<<endl;
@@ -497,7 +537,9 @@ public:
         nav.push("Tampil Menu Perkuliahan Mahasiswa");
         int pilih;
         do{
-            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"================================================" << endl;
+            cout<<" ==== MENU MANAJEMEN PERKULIAHAN MAHASISWA ====          " << endl;
+            cout<<"================================================" << endl;
             cout<<"1. Mata Kuliah Aktif"<<endl;
             cout<<"2. Sertifikat Seminar"<<endl;
             cout<<"3. Sertifikat Prestasi"<<endl;
@@ -538,7 +580,9 @@ public:
         nav.push("Tampil Menu KRS dan KHS Mahasiswa");
         int pilih;
         do{
-            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"================================================" << endl;
+            cout<<" ==== MENU MANAJEMEN PERKULIAHAN MAHASISWA ====          " << endl;
+            cout<<"================================================" << endl;
             cout<<"1. KRS Reguler"<<endl;
             cout<<"2. KRS Aktivitas Mahasiswa"<<endl;
             cout<<"3. Cetak KRS"<<endl;
@@ -563,14 +607,14 @@ public:
                     system("pause");
                     break;
                 case 4:
-                    krs->cekNilai(mhsPortal->getNIMMahasiswa());
+                    krs->cekNilaiMhs(mhsPortal->getNIMMahasiswa());
                     system("pause");
                     break;
                 case 5:
-                    cout << "Menampilkan tagihan..." << endl;
+                    krs->PendaftaranSeminarMhs(mhsPortal->getNIMMahasiswa());
                     break;
                 case 6:
-                    cout << "Menampilkan tagihan..." << endl;
+                    krs->PendaftaranUjianMhs(mhsPortal->getNIMMahasiswa());
                     break;
                 case 7:
                     nav.pop();
@@ -590,7 +634,9 @@ public:
         nav.push("Tampil Menu Perkuliahan Mahasiswa");
         int pilih;
         do{
-            cout<<"====MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"==============================================" << endl;
+            cout<<"==== MENU MANAJEMEN PERKULIAHAN MAHASISWA===="<<endl;
+            cout<<"==============================================" << endl;
             cout<<"1. Mata Kuliah Semester Gasal"<<endl;
             cout<<"2. Mata Kuliah Semester Genap"<<endl;
             cout<<"3. Seluruh Mahasiswa"<<endl;
@@ -636,24 +682,30 @@ void displayAdmin(){
     AdminPortal portal("admin", "123");
     string u, p;
     int pilihan;
-    bool kondisi = false;
-    do{
-    cout << "Username: "; cin >> u;
-    cout << "Password: "; cin >> p;
-    if (portal.login(u, p)) {
-        kondisi = true;
-        AdminDashboard dashboard;
-        dashboard.tampilMenuDashAdmin();
-    }else{
-        cout << "Login gagal! Silakan coba lagi.\n";
-        cout << "1. Coba lagi\n2. Keluar\nPilih: ";
-        cin >> pilihan;
-        if(pilihan==2){
-            kondisi = true;
-            return;
+    
+    while(true){
+        cout<<"==============================================" << endl;
+        cout<<"             ==== LOGIN ADMIN ====            " << endl;
+        cout<<"==============================================" << endl;
+        cout << "Username: "; cin >> u;
+        cout << "Password: "; cin >> p;
+        
+        if (portal.login(u, p)) {
+            system("cls");
+            AdminDashboard dashboard;
+            dashboard.setAdminPortal(&portal);  // Pass AdminPortal pointer ke dashboard
+            dashboard.tampilMenuDashAdmin();
+            
+            // Setelah logout, loop kembali ke login form
+        }else{
+            cout << "\nLogin gagal! Silakan coba lagi.\n";
+            cout << "1. Coba lagi\n2. Kembali ke Menu Utama\nPilih: ";
+            cin >> pilihan;
+            if(pilihan==2){
+                return; // keluar ke main menu
+            }
         }
     }
-    }while(!kondisi);
 }
 
 void displayMahasiswa(){
@@ -663,6 +715,9 @@ void displayMahasiswa(){
     int pilihan;
     do
     {
+        cout<<"===============================================" << endl;
+        cout<<"           ==== LOGIN MAHASISWA ====           " << endl;
+        cout<<"===============================================" << endl;
         cout << "NIM: "; cin >> u;
         cout << "Password: "; cin >> p;
         bool loggedIn = portal.login(u, p);
@@ -685,7 +740,10 @@ void displayMahasiswa(){
 void displayMainMenu(){
     while (true) {
         int pilih;
-        cout << "=== SISTEM INFORMASI AKADEMIK ===" << endl;
+        
+        cout<<"==============================================" << endl;
+        cout<<"      ==== SISTEM INFORMASI AKADEMIK ====         " << endl;
+        cout<<"==============================================" << endl;
         cout << "1. Login sebagai Admin" << endl;
         cout << "2. Login sebagai Mahasiswa" << endl;
         cout << "3. Keluar" << endl;
