@@ -1,12 +1,10 @@
+
+ ----------------------------------------
+|          Data Pengajuan KRS            |
+ ----------------------------------------
 Nama: Bunga Sari
 NIM: 2400018002
 Mata Kuliah: Dasar Pemrograman, Dasar Sistem Komputer, Kalkulus Informatika, Logika Informatika, Manajemen Data dan Informasi, Pancasila, Praktikum Dasar Pempograman, AL-Qur'an dan Hadits
 Status Pengajuan: Diajukan
-Status Validasi: Sudah Divalidasi
-==========================================
-Nama: Bunga Sari
-NIM: 2400018002
-Mata Kuliah: Dasar Pemrograman, Dasar Sistem Komputer, Kalkulus Informatika, Logika Informatika, Manajemen Data dan Informasi, Pancasila, Praktikum Dasar Pempograman, AL-Qur'an dan Hadits
-Status Pengajuan: Diajukan
-Status Validasi: Sudah Divalidasi
-==========================================
+Status Validasi: Sudah di setujui
+====================================================================

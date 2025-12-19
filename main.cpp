@@ -44,6 +44,7 @@ private:
     ManajemenKelas mnjKelas;
     ManajemenKelasMahasiswa mnjKelasMahasiswa;
     ManajemenKrs mnjKrs;
+    ManajemenInputDanKoreksiNilai mnjik;
 public:
     
     void setAdminPortal(AdminPortal* adminPortal) {
@@ -84,28 +85,39 @@ public:
             cout << "Pilih: ";
             cin >> pilih;
             switch (pilih) {
-                case 1: 
+                case 1:
+                    system("cls"); 
                     tampilMenuMhs(); 
                     break;
 
-                case 2: 
+                case 2:
+                    system("cls"); 
                     tampilMenuDosen();
                     break;
 
                 case 3:
+                    system("cls");
                     tampilMenuMatakuliah();
                     break; 
                 case 4:
+                    system("cls");
                     tampilMenuDosenMataKuliah();
                     break;
                 case 5:
+                    system("cls");
                     tampilMenuKelas();
                     break;
                 case 6:
+                    system("cls");
                     tampilMenuKelasMahasiswa();
                     break;
                 case 7:
+                    system("cls");
                     tampilMenuKrs();
+                    break;
+                case 8:
+                    system("cls");
+                    menuInputDanKoreksiNilai();
                     break;
                 case 10:
                     // Placeholder layanan akademik
@@ -144,15 +156,25 @@ public:
             cin >> pilih;
 
             switch (pilih) {
-                case 1: mnjDosen.tambahDosen(); 
+                case 1: 
+                system("cls");
+                    mnjDosen.tambahDosen();
                 break;
-                case 2: mnjDosen.tampilDosen();
+                case 2: 
+                    system("cls");
+                    mnjDosen.tampilDosen();
                 break;
-                case 3: mnjDosen.editDosen();
+                case 3: 
+                    system("cls");
+                    mnjDosen.editDosen();
                 break;
-                case 4: mnjDosen.hapusDosen(); 
+                case 4: 
+                    system("cls");
+                    mnjDosen.hapusDosen(); 
                 break;
-                case 5: mnjDosen.cekKeaktifanDosen();
+                case 5: 
+                    system("cls");
+                    mnjDosen.cekKeaktifanDosen();
                 break;
                 case 6:
                     nav.pop();
@@ -185,15 +207,26 @@ public:
             cin >> pilih;
 
             switch (pilih) {
-                case 1: mnjMhs.tambahMahasiswa(); 
+                case 1: 
+                system("cls");
+                mnjMhs.tambahMahasiswa(); 
                 break;
-                case 2: mnjMhs.tampilMahasiswa(); 
+                case 2: 
+                system("cls");
+                mnjMhs.tampilMahasiswa(); 
                 break;
-                case 3: mnjMhs.editMahasiswa(); 
+                case 3:
+                system("cls");
+                 mnjMhs.editMahasiswa(); 
                 break;
-                case 4: mnjMhs.hapusMahasiswa();
+                case 4: 
+                system("cls");
+                    mnjMhs.hapusMahasiswa();
                 break;
-                case 5: mnjMhs.cekKeaktifanMahasiswa();
+                
+                case 5:
+                 system("cls");
+                    mnjMhs.cekKeaktifanMahasiswa();
                 break;
                 case 6: 
                     nav.pop();
@@ -224,18 +257,23 @@ public:
 
             switch(pilih){
                 case 1:
+                system("cls");
                     mnjMatkul.tambahMataKuliah();
                     break;
                 case 2:
+                system("cls");
                     mnjMatkul.tampilMataKuliahPerSemester();
                     break;
                 case 3:
+                system("cls");
                     mnjMatkul.tampilSemuaMataKuliah();
                     break;
                 case 4:
+                system("cls");
                     mnjMatkul.editMataKuliah();
                     break;
                 case 5:
+                system("cls");
                     mnjMatkul.hapusMataKuliah();
                     break;
                 case 6:
@@ -269,18 +307,23 @@ public:
             
             switch(pilih) {
                 case 1:
+                system("cls");
                     mnjdsmatkul.tambahDosenMataKuliah();
                     break;
                 case 2:
+                system("cls");
                     mnjdsmatkul.tampilSemuaDosenMataKuliah();
                     break;
                 case 3:
+                system("cls");
                     mnjdsmatkul.cariDosenMataKuliah();
                     break;
                 case 4:
+                system("cls");
                     mnjdsmatkul.editDosenMataKuliah();
                     break;
                 case 5:
+                system("cls");
                     mnjdsmatkul.hapusDosenMataKuliah();
                     break;
                 case 6:
@@ -311,15 +354,19 @@ public:
 
             switch(pilih) {
                 case 1:
+                system("cls");
                     mnjKelas.tambahKelas();
                     break;
                 case 2:
+                system("cls");
                     mnjKelas.tampilSemuaKelas();
                     break;
                 case 3:
+                system("cls");
                     mnjKelas.editKelas();
                     break;
                 case 4:
+                system("cls");
                     mnjKelas.hapusKelas();
                     break;
                 case 5:
@@ -350,16 +397,19 @@ public:
 
             switch(pilih) {
                 case 1:
-
+                system("cls");
                     mnjKelasMahasiswa.tambahKelasMahasiswa();
                     break;
                 case 2:
+                system("cls");
                     mnjKelasMahasiswa.tampilSemuaKelasMahasiswa();
                     break;
                 case 3:
+                system("cls");
                     mnjKelasMahasiswa.editKelasMahasiswa();
                     break;
                 case 4:
+                system("cls");
                     mnjKelasMahasiswa.hapusKelasMahasiswa();
                     break;
                 case 5:
@@ -391,18 +441,23 @@ public:
 
                 switch(pilih) {
                     case 1:
+                    system("cls");
                          mnjKrs.tambahKrs();
                         break;
                     case 2:
+                    system("cls");
                         mnjKrs.tampilKrsByKelas();
                         break;
                     case 3:
+                    system("cls");
                          mnjKrs.editKrs();
                         break;
                     case 4:
+                    system("cls");
                          mnjKrs.hapusKrs();
                         break;
                     case 5:
+                    system("cls");
                         mnjKrs.validasiPengajuanKrs();
                         
                         break;
@@ -416,8 +471,54 @@ public:
                 }
             } while (pilih != 5);
         }
+
+        void menuInputDanKoreksiNilai() {
+        int pilihan;
+        do {
+            system("cls");
+            cout << "\n========================================\n";
+            cout << "      MENU INPUT DAN KOREKSI NILAI\n";
+            cout << "========================================\n";
+            cout << "1. Input Nilai oleh Dosen\n";
+            cout << "2. Status Validasi (Belum/Divalidasi/Revisi)\n";
+            cout << "3. Edit dan Koreksi Nilai\n";
+            cout << "4. Rekap Nilai per Kelas/Mata Kuliah\n";
+            cout << "0. Kembali\n";
+            cout << "========================================\n";
+            cout << "Pilihan: ";
+            cin >> pilihan;
+
+            switch (pilihan) {
+                case 1:
+                    system("cls");
+                    mnjik.inputNilaiOlehDosen();
+                    break;
+                case 2:
+                    system("cls");
+                    mnjik.tampilStatusValidasi();
+                    break;
+                case 3:
+                    system("cls");
+                    mnjik.editDanKoreksiNilai();
+                    break;
+                case 4:
+                    system("cls");
+                    mnjik.rekapNilaiPerKelas();
+                    break;
+                case 0:
+                    nav.pop();
+                    cout << "Kembali ke menu utama admin...\n";
+                    return;
+                default:
+                    cout << "Pilihan tidak valid!\n";
+                    system("pause");
+            }
+        } while (pilihan != 0);
+    }
     };
     
+
+
     
 class MahasiswaDashboard {
 private:
@@ -434,7 +535,6 @@ private:
 
 public:
     MahasiswaDashboard(MahasiswaPortal* portal) : mhsPortal(portal) {
-        // Inisialisasi KRS dengan objek manajemen yang diperlukan
         mk = new ManajemenMatakuliah();
         mk->tarikDataDariFileMataKuliah();
         
@@ -442,12 +542,11 @@ public:
         dmk->tarikDataDariFileDosenMataKuliah();
         
         kls = new ManajemenKelas();
-        // ManajemenKelas sudah load data di constructor
         
         klsMhs = new ManajemenKelasMahasiswa();
         mnjKrs = new ManajemenKrs();
         
-        krs = new KRSKHS(mk, dmk, kls);  // bacaKRSdariFile() sudah dipanggil di constructor
+        krs = new KRSKHS(mk, dmk, kls);
         krs->setManagers(klsMhs, mnjKrs);
         krs->setMahasiswaPortal(mhsPortal);
     }
@@ -469,21 +568,26 @@ public:
 
             switch (pilih) {
                 case 1:
+                system("cls");
                  tampilProfil();
                  system("cls");
                     break;
                 case 2:
+                system("cls");
                 tampilPerkuliahan();
                 system("cls");
                     break;
                 case 3:
+                system("cls");
                 tampilKRSKHS();
                 system("cls");
                     break;
                 case 4: 
+                system("cls");
                 tampilMataKuliah();
                     break;
                 case 5:
+                
                     mhsPortal->logout();
                     system("cls");
                     nav.pop();
@@ -513,10 +617,12 @@ public:
 
             switch(pilih){
                 case 1:
+                system("cls");
                     mhsPortal->tampilProfil();
                     system("cls");
                     break;
                 case 2:
+                system("cls");
                     mhsPortal->Tagihanmhs();
                     system("cls");
                     break;
@@ -586,7 +692,7 @@ public:
             cout<<"1. KRS Reguler"<<endl;
             cout<<"2. KRS Aktivitas Mahasiswa"<<endl;
             cout<<"3. Cetak KRS"<<endl;
-            cout<<"4. Cek Nilai"<<endl;
+            cout<<"4. Cek Nilai(KHS)"<<endl;
             cout<<"5. Pendaftaran Seminar"<<endl;
             cout<<"6. Pendaftaran Ujian"<<endl;
             cout<<"7. Keluar"<<endl;
@@ -595,16 +701,20 @@ public:
 
             switch(pilih){
                 case 1:
+                system("cls");
                     krs->TampilDosenMatakuliahKrs();
                     system("cls");
                     break;
                 case 2:
+                system("cls");
                     krs->tampilKrsAktivitas();
                     system("cls");
                     break;
                 case 3:
+                system("cls");
+                    krs->cetakKrsMahasiswa(mhsPortal->getNIMMahasiswa());
                   system("cls");
-                    system("pause");
+                    
                     break;
                 case 4:
                     krs->cekNilaiMhs(mhsPortal->getNIMMahasiswa());
@@ -649,16 +759,19 @@ public:
                 system("cls");
                     mk->tampilkanMatakuliahGanjil();
                     system("pause");
+                    system("cls");
                     break;
                 case 2:
                 system("cls");
                     mk->tampilkanMatakuliahGenap();
                     system("pause");
+                    system("cls");
                     break;
                 case 3:
                 system("cls");
-                    mhs->TampilSemuaMahasiswa();
+                    mhs->tampilMahasiswaPerSemester();
                     system("pause");
+                    system("cls");
                     break;
                 case 4:
                     nav.pop();

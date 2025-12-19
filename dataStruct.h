@@ -85,8 +85,8 @@ struct Krs {
 
 struct Kelas {
     string kdKelas;
-    string namaKelas;      // 
-    int batasKelas = 40;        // jumlah maksimum mahasiswa
+    string namaKelas;       
+    int batasKelas = 40;      
 };
 
 struct KelasMahasiswa{
@@ -97,6 +97,7 @@ struct KelasMahasiswa{
 struct InputDanKoreksiNilai{
     string kdDosenMk;
     string nim;
-    int nilaiAkhir;
+    float nilaiAkhir;
     string kdKelas;
+    bool statusValidasi;
 };

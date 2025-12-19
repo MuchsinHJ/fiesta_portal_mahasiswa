@@ -554,6 +554,9 @@ public:
 
                         ofstream outFile("dataPengajuanKrs.txt", ios::app);
                         if (outFile.is_open()) {
+                            outFile << " ----------------------------------------\n";
+                            outFile << "|          Data Pengajuan KRS            |\n";
+                            outFile << " ----------------------------------------\n";
                             outFile << "Nama: " << mhs.nama << "\n";
                             outFile << "NIM: " << mhs.nim << "\n";
                             outFile << "Mata Kuliah: ";
@@ -652,8 +655,8 @@ public:
                             
                             outFile << "\n";
                             outFile << "Status Pengajuan: Diajukan\n";
-                            outFile << "Status Validasi: \n"<<(status?"Disetujui":"Belum di setujui")<<"\n"; 
-                            outFile << "==========================================\n";
+                            outFile << "Status Validasi: "<<(status?"Disetujui":"Belum di setujui")<<"\n"; 
+                            outFile << "====================================================================\n";
                             outFile.close();
                             
                             cout << "\nPengajuan KRS berhasil disimpan!\n";
@@ -664,6 +667,224 @@ public:
                         cout << "\nPengajuan KRS dibatalkan.\n";
                     }
                 }
+            }
+        }
+        
+     
+
+        
+        
+        cout << "\n";
+        system("pause");
+    }
+
+
+    void cetakKrsMahasiswa(const string& nim) {
+        system("cls");
+        cout<<string(82,'=')<<endl;
+        cout << "==================================== KRS MAHASISWA ======================================="<<endl;
+        cout<<string(82,'=')<<endl;
+        cout << "NIM: " << nim << "\n";
+
+        string kdKelas = cariKelasMahasiswa(nim);
+        if (kdKelas.empty()) {
+            cout << "Mahasiswa belum terdaftar dalam kelas mana pun.\n\n";
+            system("pause");
+            return;
+        }
+        cout << "Kelas: " << kdKelas << "\n\n";
+
+        cout << left << setw(6) << "No"
+             << setw(12) << "Kode MK"
+             << setw(34) << "Nama Mata Kuliah"
+             << setw(24) << "Nama Dosen"
+             << "SKS" << "\n";
+        cout << string(82, '-') << "\n";
+
+        ifstream inFile("dataKrs.txt");
+        if (!inFile.is_open()) {
+            cout << "Gagal membuka file dataKrs.txt\n\n";
+            system("pause");
+            return;
+        }
+
+        string line;
+        string currentKelas;
+        bool adaData = false;
+        int no = 1;
+
+        while (getline(inFile, line)) {
+            if (line.find("Kode Kelas Mahasiswa:") != string::npos) {
+                size_t pos = line.find(":");
+                currentKelas = (pos != string::npos) ? line.substr(pos+1) : string();
+                while (!currentKelas.empty() && isspace((unsigned char)currentKelas.front())) currentKelas.erase(0,1);
+                while (!currentKelas.empty() && isspace((unsigned char)currentKelas.back())) currentKelas.pop_back();
+            } else if (line.find("Kode Dosen Mata Kuliah:") != string::npos) {
+                size_t pos = line.find(":");
+                string kd = (pos != string::npos) ? line.substr(pos+1) : string();
+                while (!kd.empty() && isspace((unsigned char)kd.front())) kd.erase(0,1);
+                while (!kd.empty() && isspace((unsigned char)kd.back())) kd.pop_back();
+
+                if (currentKelas == kdKelas) {
+                    adaData = true;
+
+                    string kodeMK;
+                    string nidn;
+                    {
+                        ifstream fdmk("dataDosenMataKuliah.txt");
+                        if (fdmk.is_open()) {
+                            string dmkLine;
+                            string curKodeMK;
+                            string curNidn;
+                            bool matchBlock = false;
+                            while (getline(fdmk, dmkLine)) {
+                                if (dmkLine.find("Kode MK") != string::npos && dmkLine.find(":") != string::npos) {
+                                    size_t pos = dmkLine.find(":");
+                                    curKodeMK = dmkLine.substr(pos+1);
+                                    while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.front())) curKodeMK.erase(0,1);
+                                    while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.back())) curKodeMK.pop_back();
+                                } else if (dmkLine.find("NIDN Dosen") != string::npos && dmkLine.find(":") != string::npos) {
+                                    size_t pos = dmkLine.find(":");
+                                    curNidn = dmkLine.substr(pos+1);
+                                    while (!curNidn.empty() && isspace((unsigned char)curNidn.front())) curNidn.erase(0,1);
+                                    while (!curNidn.empty() && isspace((unsigned char)curNidn.back())) curNidn.pop_back();
+                                } else if (dmkLine.find("Kode Dosen MK") != string::npos && dmkLine.find(":") != string::npos) {
+                                    size_t pos = dmkLine.find(":");
+                                    string curKd = dmkLine.substr(pos+1);
+                                    while (!curKd.empty() && isspace((unsigned char)curKd.front())) curKd.erase(0,1);
+                                    while (!curKd.empty() && isspace((unsigned char)curKd.back())) curKd.pop_back();
+                                    // mark this block matched
+                                    matchBlock = (curKd == kd);
+                                } else if (dmkLine.find("----------------------------------------") != string::npos) {
+                                    if (matchBlock) {
+                                        kodeMK = curKodeMK;
+                                        nidn = curNidn;
+                                        break;
+                                    }
+                                    // reset for next block
+                                    curKodeMK.clear();
+                                    curNidn.clear();
+                                    matchBlock = false;
+                                }
+                            }
+                            fdmk.close();
+                        }
+                    }
+
+                    string namaMK = "-";
+                    string Sksmk = "-";
+                    {
+                        ifstream fm("dataMataKuliah.txt");
+                        if (fm.is_open()) {
+                            string mline;
+                            string currentKode;
+                            string currentNama;
+                            string currentSks;
+                            bool matchBlock = false;
+                            
+                            while (getline(fm, mline)) {
+                                if (mline.find("Kode :") != string::npos) {
+                                    currentKode = mline.substr(mline.find("Kode :") + 6);
+                                    while (!currentKode.empty() && isspace((unsigned char)currentKode.front())) currentKode.erase(0,1);
+                                    while (!currentKode.empty() && isspace((unsigned char)currentKode.back())) currentKode.pop_back();
+                                    matchBlock = (!currentKode.empty() && currentKode == kodeMK);
+
+                                } else if (mline.find("Nama :") != string::npos) {
+                                    currentNama = mline.substr(mline.find("Nama :") + 6);
+                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
+                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
+                                    if (matchBlock) namaMK = currentNama;
+
+                                } else if (mline.find("SKS :") != string::npos) {
+                                    currentSks = mline.substr(mline.find("SKS :") + 5);
+                                    while (!currentSks.empty() && isspace((unsigned char)currentSks.front())) currentSks.erase(0,1);
+                                    while (!currentSks.empty() && isspace((unsigned char)currentSks.back())) currentSks.pop_back();  
+                                    if (matchBlock) Sksmk = currentSks;
+                                    
+                                } else if (mline.find("------------------------------------------------------") != string::npos) {
+                                   
+                                    if (matchBlock && !namaMK.empty() && Sksmk != "-") {
+                                        break;
+                                    }
+                                   
+                                    currentKode.clear();
+                                    currentNama.clear();
+                                    currentSks.clear();
+                                    matchBlock = false;
+                                }
+                            }
+                            fm.close();
+                        }
+                    }
+
+                    string namaDosen = "-";
+                    {
+                        ifstream fd("dataDosen.txt");
+                        if (fd.is_open()) {
+                            string dline;
+                            string currentNama;
+                            string currentNidn;
+                            
+                            while (getline(fd, dline)) {
+                                if (dline.find("Nama: ") != string::npos) {
+                                    currentNama = dline.substr(6);
+                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
+                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
+                                } else if (dline.find("NIDN: ") != string::npos) {
+                                    currentNidn = dline.substr(6);
+                                    while (!currentNidn.empty() && isspace((unsigned char)currentNidn.front())) currentNidn.erase(0,1);
+                                    while (!currentNidn.empty() && isspace((unsigned char)currentNidn.back())) currentNidn.pop_back();
+                                    if (!currentNidn.empty() && currentNidn == nidn) {
+                                        namaDosen = currentNama;
+                                        break;
+                                    }
+                                } else if (dline.find("-------------------------------------") != string::npos) {
+                                    currentNama.clear();
+                                    currentNidn.clear();
+                                }
+                            }
+                            fd.close();
+                        }
+                    }
+
+                    cout << left << setw(6) << no++
+                         << setw(12) << (kodeMK.empty() ? "-" : kodeMK)
+                         << setw(34) << (namaMK.empty() ? "-" : namaMK)
+                         << setw(24) << (namaDosen.empty() ? "-" : namaDosen)
+                         << (Sksmk.empty() ? "-":Sksmk) << "\n";
+                }
+            }
+        }
+        inFile.close();
+
+        if (!adaData) {
+            cout << "(Tidak ada data KRS untuk kelas ini)\n";
+        }
+           cout << "===================================================================================\n\n";
+        
+        ifstream dp("dataPengajuanKrs.txt");
+        if( dp.is_open()) {
+            string line;
+            bool found = false;
+            while (getline(dp, line)) {
+                if (line.find("NIM: ") != string::npos) {
+                    string nimLine = line.substr(5);
+                    if (nimLine == nim) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            dp.close();
+            if (found) {
+                cout << "\n";
+                cout << " ______________________________________________________________________\n";
+                cout << "|                                                                      |\n";
+                cout << "|                   SISTEM KRS (Kartu Rencana Studi)                   |\n";
+                cout << "|                     SUDAH AKTIF & SIAP DIGUNAKAN                     |\n";
+                cout << "|                                                                      |\n";
+                cout << " ======================================================================\n";
+                cout << "\n";
             }
         }
         
@@ -715,22 +936,49 @@ public:
 
     void cekNilaiMhs(const string& nim) {
         system("cls");
-        ifstream dp("dataPengajuanKrs.txt");
-        if( dp.is_open()) {
+        bool nimAdaDiKHS = false;
+        bool adaNilaiTervalidasi = false;
+        
+        ifstream khsCheck("dataKHS.txt");
+        if(khsCheck.is_open()) {
             string line;
-            bool found = false;
-            while (getline(dp, line)) {
-                if (line.find("NIM: ") != string::npos) {
-                    string nimLine = line.substr(5);
+            bool inTargetNIM = false;
+            
+            while (getline(khsCheck, line)) {
+                if (line.find("NIM :") != string::npos) {
+                    string nimLine = line.substr(line.find(":") + 1);
+                    while (!nimLine.empty() && isspace((unsigned char)nimLine.front())) nimLine.erase(0,1);
+                    while (!nimLine.empty() && isspace((unsigned char)nimLine.back())) nimLine.pop_back();
+                    
                     if (nimLine == nim) {
-                        found = true;
+                        nimAdaDiKHS = true;
+                        inTargetNIM = true;
+                    } else {
+                        inTargetNIM = false;
+                    }
+                } else if (inTargetNIM && (line.find("Status Validasi:") != string::npos || line.find("status :") != string::npos)) {
+                    string statusLine = line.substr(line.find(":") + 1);
+                    while (!statusLine.empty() && isspace((unsigned char)statusLine.front())) statusLine.erase(0,1);
+                    while (!statusLine.empty() && isspace((unsigned char)statusLine.back())) statusLine.pop_back();
+                    
+                    if (statusLine.find("Sudah") != string::npos || statusLine.find("Divalidasi") != string::npos) {
+                        adaNilaiTervalidasi = true;
                         break;
                     }
                 }
             }
-            dp.close();
+            khsCheck.close();
+        }
 
-            if (found) {
+        
+        if (nimAdaDiKHS && adaNilaiTervalidasi) {
+                
+                ifstream inFile("dataKHS.txt");
+                if(!inFile.is_open()) {
+                    cout << "Gagal membuka file dataKHS.txt\n\n";
+                    system("pause");
+                    return;
+                }
 
                 cout << "                ============================================================================\n";
                 cout << "                |                                                                          |\n";
@@ -739,13 +987,14 @@ public:
                 cout << "                ============================================================================\n\n";
                 cout << "Nim: " << mhsPortal->getNIMMahasiswa() << "\n";
                 string kdKelas = cariKelasMahasiswa(nim);
+
                 if (kdKelas.empty()) {
                     cout << "Mahasiswa belum terdaftar dalam kelas mana pun.\n\n";
                     system("pause");
                     return;
                 }
                 cout << "Kelas: " << kdKelas << "\n\n";
-                cout<<string(104,'-')<<"\n";
+                cout<<string(114,'-')<<"\n";
                 cout<<left<<setw(6)<<"No"
                     <<setw(12)<<"Kode MK"
                     <<setw(34)<<"Nama Mata Kuliah"
@@ -754,228 +1003,399 @@ public:
                     <<setw(8)<<"Nilai"
                     <<setw(8)<<"Angka"
                     <<"Status"<<"\n";
-                    cout<<string(104,'-')<<"\n";
+                    cout<<string(114,'-')<<"\n";
+                    
+                string line;
+                string currentNim;
+                string kodeMK, namaMK, namaDosen, sks, nilai, angka, status;
+                bool inTargetNIM = false;
+                int no = 1;
 
-                    ifstream inFile("dataKrs.txt");
-                    if (!inFile.is_open()) {
-                        cout << "Gagal membuka file dataKrs.txt\n\n";
+                while(getline(inFile, line)) {
+                    if (line.find("NIM :") != string::npos) {
+                        size_t pos = line.find(":");
+                        currentNim = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!currentNim.empty() && isspace((unsigned char)currentNim.front())) currentNim.erase(0,1);
+                        while (!currentNim.empty() && isspace((unsigned char)currentNim.back())) currentNim.pop_back();
+                        
+                        // Jika ketemu NIM berbeda setelah membaca target NIM, stop
+                        if (inTargetNIM && currentNim != nim) {
+                            break;
+                        }
+                        inTargetNIM = (currentNim == nim);
+                    } else if (inTargetNIM && line.find("kode MK :") != string::npos) {
+                        if (!kodeMK.empty() && !status.empty()) {
+                            if (status.find("Sudah") != string::npos || status.find("Divalidasi") != string::npos) {
+                                cout << left << setw(6) << no++
+                                     << setw(12) << kodeMK
+                                     << setw(34) << namaMK
+                                     << setw(24) << namaDosen
+                                     << setw(6) << sks
+                                     << setw(8) << nilai
+                                     << setw(8) << angka
+                                     << status << "\n";
+                            }
+                        }
+                        size_t pos = line.find(":");
+                        kodeMK = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!kodeMK.empty() && isspace((unsigned char)kodeMK.front())) kodeMK.erase(0,1);
+                        while (!kodeMK.empty() && isspace((unsigned char)kodeMK.back())) kodeMK.pop_back();
+                        namaMK.clear(); namaDosen.clear(); sks.clear(); nilai.clear(); angka.clear(); status.clear();
+                    } else if (inTargetNIM && line.find("nama MK :") != string::npos) {
+                        size_t pos = line.find(":");
+                        namaMK = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!namaMK.empty() && isspace((unsigned char)namaMK.front())) namaMK.erase(0,1);
+                        while (!namaMK.empty() && isspace((unsigned char)namaMK.back())) namaMK.pop_back();
+                    } else if(inTargetNIM && line.find("nama Dosen :") != string::npos) {
+                        size_t pos = line.find(":");
+                        namaDosen = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!namaDosen.empty() && isspace((unsigned char)namaDosen.front())) namaDosen.erase(0,1);
+                        while (!namaDosen.empty() && isspace((unsigned char)namaDosen.back())) namaDosen.pop_back();
+                    } else if(inTargetNIM && line.find("SKS :") != string::npos) {
+                        size_t pos = line.find(":");
+                        sks = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!sks.empty() && isspace((unsigned char)sks.front())) sks.erase(0,1);
+                        while (!sks.empty() && isspace((unsigned char)sks.back())) sks.pop_back();
+                    } else if(inTargetNIM && line.find("nilai :") != string::npos) {
+                        size_t pos = line.find(":");
+                        nilai = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!nilai.empty() && isspace((unsigned char)nilai.front())) nilai.erase(0,1);
+                        while (!nilai.empty() && isspace((unsigned char)nilai.back())) nilai.pop_back();
+                    } else if(inTargetNIM && line.find("angka :") != string::npos) {
+                        size_t pos = line.find(":");
+                        angka = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!angka.empty() && isspace((unsigned char)angka.front())) angka.erase(0,1);
+                        while (!angka.empty() && isspace((unsigned char)angka.back())) angka.pop_back();
+                    } else if(inTargetNIM && (line.find("Status Validasi:") != string::npos || line.find("status :") != string::npos)) {
+                        size_t pos = line.find(":");
+                        status = (pos != string::npos) ? line.substr(pos+1) : string();
+                        while (!status.empty() && isspace((unsigned char)status.front())) status.erase(0,1);
+                        while (!status.empty() && isspace((unsigned char)status.back())) status.pop_back();
+                    } else if (line.find("------------------------------------------") != string::npos && inTargetNIM && !kodeMK.empty() && !status.empty()) {
+                        
+                        if (status.find("Sudah") != string::npos || status.find("Divalidasi") != string::npos) {
+                            cout << left << setw(6) << no++
+                                 << setw(12) << kodeMK
+                                 << setw(34) << namaMK
+                                 << setw(24) << namaDosen
+                                 << setw(6) << sks
+                                 << setw(8) << nilai
+                                 << setw(8) << angka
+                                 << status << "\n";
+                        }
+                        kodeMK.clear(); namaMK.clear(); namaDosen.clear(); sks.clear(); nilai.clear(); angka.clear(); status.clear();
+                    }
+                }
+                
+                if (inTargetNIM && !kodeMK.empty() && !status.empty()) {
+                    if (status.find("Sudah") != string::npos || status.find("Divalidasi") != string::npos) {
+                        cout << left << setw(6) << no++
+                             << setw(12) << kodeMK
+                             << setw(34) << namaMK
+                             << setw(24) << namaDosen
+                             << setw(6) << sks
+                             << setw(8) << nilai
+                             << setw(8) << angka
+                             << status << "\n";
+                    }
+                }
+                
+                inFile.close();
+                cout<<string(114,'=')<<"\n\n";
+                system("pause");
+                
+        } else {
+             ifstream dp("dataPengajuanKrs.txt");
+            if( dp.is_open()) {
+                string line;
+                bool found = false;
+                while (getline(dp, line)) {
+                    if (line.find("NIM: ") != string::npos) {
+                        string nimLine = line.substr(5);
+                        if (nimLine == nim) {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                dp.close();
+
+                if (found) {
+                    ofstream ofile("dataKHS.txt", ios::app);
+                    if (!ofile.is_open()) {
+                        cout << "Gagal membuka file dataKHS.txt untuk penulisan.\n\n";
                         system("pause");
                         return;
                     }
-                    string line;
-                    string currentKelas;
-                    bool adaData = false;
-                    int no = 1;
+                    ofile<<"===========================================================================\n";
+                    ofile<<"|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |\n";
+                    ofile<<"===========================================================================\n\n";
+                    ofile << "NIM :" << mhsPortal->getNIMMahasiswa() << "\n";
+                    ofile << "Kelas: " << cariKelasMahasiswa(nim) << "\n\n";
+                    ofile<<"------------------------------------------\n";
 
-                    while(getline(inFile, line)) {
-                        if (line.find("Kode Kelas Mahasiswa:") != string::npos) {
-                            size_t pos = line.find(":");
-                            currentKelas = (pos != string::npos) ? line.substr(pos+1) : string();
-                            while (!currentKelas.empty() && isspace((unsigned char)currentKelas.front())) currentKelas.erase(0,1);
-                            while (!currentKelas.empty() && isspace((unsigned char)currentKelas.back())) currentKelas.pop_back();
-                        } else if (line.find("Kode Dosen Mata Kuliah:") != string::npos) {
-                            size_t pos = line.find(":");
-                            string kd = (pos != string::npos) ? line.substr(pos+1) : string();
-                            while (!kd.empty() && isspace((unsigned char)kd.front())) kd.erase(0,1);
-                            while (!kd.empty() && isspace((unsigned char)kd.back())) kd.pop_back();
+                    cout << "                ============================================================================\n";
+                    cout << "                |                                                                          |\n";
+                    cout << "                |                  KARTU HASIL STUDI (KHS) MAHASISWA                       |\n";
+                    cout << "                |                                                                          |\n";
+                    cout << "                ============================================================================\n\n";
+                    cout << "Nim: " << mhsPortal->getNIMMahasiswa() << "\n";
+                    string kdKelas = cariKelasMahasiswa(nim);
 
-                            if (currentKelas == kdKelas) {
-                                adaData = true;
+                    if (kdKelas.empty()) {
+                        cout << "Mahasiswa belum terdaftar dalam kelas mana pun.\n\n";
+                        system("pause");
+                        return;
+                    }
+                    cout << "Kelas: " << kdKelas << "\n\n";
+                    cout<<string(114,'-')<<"\n";
+                    cout<<left<<setw(6)<<"No"
+                        <<setw(12)<<"Kode MK"
+                        <<setw(34)<<"Nama Mata Kuliah"
+                        <<setw(24)<<"Nama Dosen"
+                        <<setw(6)<<"SKS"
+                        <<setw(8)<<"Nilai"
+                        <<setw(8)<<"Angka"
+                        <<"Status"<<"\n";
+                        cout<<string(114,'-')<<"\n";
 
-                                string kodeMK;
-                                string nidn;
-                                {
-                                    ifstream fdmk("dataDosenMataKuliah.txt");
-                                    if (fdmk.is_open()) {
-                                        string dmkLine;
-                                        string curKodeMK;
-                                        string curNidn;
-                                        bool matchBlock = false;
-                                        while (getline(fdmk, dmkLine)) {
-                                            if (dmkLine.find("Kode MK") != string::npos && dmkLine.find(":") != string::npos) {
-                                                size_t pos = dmkLine.find(":");
-                                                curKodeMK = dmkLine.substr(pos+1);
-                                                while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.front())) curKodeMK.erase(0,1);
-                                                while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.back())) curKodeMK.pop_back();
-                                            } else if (dmkLine.find("NIDN Dosen") != string::npos && dmkLine.find(":") != string::npos) {
-                                                size_t pos = dmkLine.find(":");
-                                                curNidn = dmkLine.substr(pos+1);
-                                                while (!curNidn.empty() && isspace((unsigned char)curNidn.front())) curNidn.erase(0,1);
-                                                while (!curNidn.empty() && isspace((unsigned char)curNidn.back())) curNidn.pop_back();
-                                            } else if (dmkLine.find("Kode Dosen MK") != string::npos && dmkLine.find(":") != string::npos) {
-                                                size_t pos = dmkLine.find(":");
-                                                string curKd = dmkLine.substr(pos+1);
-                                                while (!curKd.empty() && isspace((unsigned char)curKd.front())) curKd.erase(0,1);
-                                                while (!curKd.empty() && isspace((unsigned char)curKd.back())) curKd.pop_back();
-                                                // mark this block matched
-                                                matchBlock = (curKd == kd);
-                                            } else if (dmkLine.find("----------------------------------------") != string::npos) {
-                                                if (matchBlock) {
-                                                    kodeMK = curKodeMK;
-                                                    nidn = curNidn;
-                                                    break;
+                        ifstream inFile("dataKrs.txt");
+                        if (!inFile.is_open()) {
+                            cout << "Gagal membuka file dataKrs.txt\n\n";
+                            system("pause");
+                            return;
+                        }
+                        string line;
+                        string currentKelas;
+                        bool adaData = false;
+                        int no = 1;
+
+                        while(getline(inFile, line)) {
+                            if (line.find("Kode Kelas Mahasiswa:") != string::npos) {
+                                size_t pos = line.find(":");
+                                currentKelas = (pos != string::npos) ? line.substr(pos+1) : string();
+                                while (!currentKelas.empty() && isspace((unsigned char)currentKelas.front())) currentKelas.erase(0,1);
+                                while (!currentKelas.empty() && isspace((unsigned char)currentKelas.back())) currentKelas.pop_back();
+                            } else if (line.find("Kode Dosen Mata Kuliah:") != string::npos) {
+                                size_t pos = line.find(":");
+                                string kd = (pos != string::npos) ? line.substr(pos+1) : string();
+                                while (!kd.empty() && isspace((unsigned char)kd.front())) kd.erase(0,1);
+                                while (!kd.empty() && isspace((unsigned char)kd.back())) kd.pop_back();
+
+                                if (currentKelas == kdKelas) {
+                                    adaData = true;
+
+                                    string kodeMK;
+                                    string nidn;
+                                    {
+                                        ifstream fdmk("dataDosenMataKuliah.txt");
+                                        if (fdmk.is_open()) {
+                                            string dmkLine;
+                                            string curKodeMK;
+                                            string curNidn;
+                                            bool matchBlock = false;
+                                            while (getline(fdmk, dmkLine)) {
+                                                if (dmkLine.find("Kode MK") != string::npos && dmkLine.find(":") != string::npos) {
+                                                    size_t pos = dmkLine.find(":");
+                                                    curKodeMK = dmkLine.substr(pos+1);
+                                                    while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.front())) curKodeMK.erase(0,1);
+                                                    while (!curKodeMK.empty() && isspace((unsigned char)curKodeMK.back())) curKodeMK.pop_back();
+                                                } else if (dmkLine.find("NIDN Dosen") != string::npos && dmkLine.find(":") != string::npos) {
+                                                    size_t pos = dmkLine.find(":");
+                                                    curNidn = dmkLine.substr(pos+1);
+                                                    while (!curNidn.empty() && isspace((unsigned char)curNidn.front())) curNidn.erase(0,1);
+                                                    while (!curNidn.empty() && isspace((unsigned char)curNidn.back())) curNidn.pop_back();
+                                                } else if (dmkLine.find("Kode Dosen MK") != string::npos && dmkLine.find(":") != string::npos) {
+                                                    size_t pos = dmkLine.find(":");
+                                                    string curKd = dmkLine.substr(pos+1);
+                                                    while (!curKd.empty() && isspace((unsigned char)curKd.front())) curKd.erase(0,1);
+                                                    while (!curKd.empty() && isspace((unsigned char)curKd.back())) curKd.pop_back();
+                                                    // mark this block matched
+                                                    matchBlock = (curKd == kd);
+                                                } else if (dmkLine.find("----------------------------------------") != string::npos) {
+                                                    if (matchBlock) {
+                                                        kodeMK = curKodeMK;
+                                                        nidn = curNidn;
+                                                        break;
+                                                    }
+                                                    // reset for next block
+                                                    curKodeMK.clear();
+                                                    curNidn.clear();
+                                                    matchBlock = false;
                                                 }
-                                                // reset for next block
-                                                curKodeMK.clear();
-                                                curNidn.clear();
-                                                matchBlock = false;
                                             }
+                                            fdmk.close();
                                         }
-                                        fdmk.close();
                                     }
-                                }
 
-                                string namaMK = "-";
-                                string Sksmk = "-";
-                                {
-                                    ifstream fm("dataMataKuliah.txt");
-                                    if (fm.is_open()) {
-                                        string mline;
-                                        string currentKode;
-                                        string currentNama;
-                                        string currentSks;
-                                        bool matchBlock = false;
-                                        
-                                        while (getline(fm, mline)) {
-                                            if (mline.find("Kode :") != string::npos) {
-                                                currentKode = mline.substr(mline.find("Kode :") + 6);
-                                                while (!currentKode.empty() && isspace((unsigned char)currentKode.front())) currentKode.erase(0,1);
-                                                while (!currentKode.empty() && isspace((unsigned char)currentKode.back())) currentKode.pop_back();
-                                                matchBlock = (!currentKode.empty() && currentKode == kodeMK);
+                                    string namaMK = "-";
+                                    string Sksmk = "-";
+                                    {
+                                        ifstream fm("dataMataKuliah.txt");
+                                        if (fm.is_open()) {
+                                            string mline;
+                                            string currentKode;
+                                            string currentNama;
+                                            string currentSks;
+                                            bool matchBlock = false;
+                                            
+                                            while (getline(fm, mline)) {
+                                                if (mline.find("Kode :") != string::npos) {
+                                                    currentKode = mline.substr(mline.find("Kode :") + 6);
+                                                    while (!currentKode.empty() && isspace((unsigned char)currentKode.front())) currentKode.erase(0,1);
+                                                    while (!currentKode.empty() && isspace((unsigned char)currentKode.back())) currentKode.pop_back();
+                                                    matchBlock = (!currentKode.empty() && currentKode == kodeMK);
 
-                                            } else if (mline.find("Nama :") != string::npos) {
-                                                currentNama = mline.substr(mline.find("Nama :") + 6);
-                                                while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
-                                                while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
-                                                if (matchBlock) namaMK = currentNama;
+                                                } else if (mline.find("Nama :") != string::npos) {
+                                                    currentNama = mline.substr(mline.find("Nama :") + 6);
+                                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
+                                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
+                                                    if (matchBlock) namaMK = currentNama;
 
-                                            } else if (mline.find("SKS :") != string::npos) {
-                                                currentSks = mline.substr(mline.find("SKS :") + 5);
-                                                while (!currentSks.empty() && isspace((unsigned char)currentSks.front())) currentSks.erase(0,1);
-                                                while (!currentSks.empty() && isspace((unsigned char)currentSks.back())) currentSks.pop_back();  
-                                                if (matchBlock) Sksmk = currentSks;
+                                                } else if (mline.find("SKS :") != string::npos) {
+                                                    currentSks = mline.substr(mline.find("SKS :") + 5);
+                                                    while (!currentSks.empty() && isspace((unsigned char)currentSks.front())) currentSks.erase(0,1);
+                                                    while (!currentSks.empty() && isspace((unsigned char)currentSks.back())) currentSks.pop_back();  
+                                                    if (matchBlock) Sksmk = currentSks;
+                                                    
+                                                } else if (mline.find("------------------------------------------------------") != string::npos) {
                                                 
-                                            } else if (mline.find("------------------------------------------------------") != string::npos) {
-                                            
-                                                if (matchBlock && !namaMK.empty() && Sksmk != "-") {
-                                                    break;
+                                                    if (matchBlock && !namaMK.empty() && Sksmk != "-") {
+                                                        break;
+                                                    }
+                                                
+                                                    currentKode.clear();
+                                                    currentNama.clear();
+                                                    currentSks.clear();
+                                                    matchBlock = false;
                                                 }
-                                            
-                                                currentKode.clear();
-                                                currentNama.clear();
-                                                currentSks.clear();
-                                                matchBlock = false;
                                             }
+                                            fm.close();
                                         }
-                                        fm.close();
                                     }
-                                }
 
-                                string namaDosen = "-";
-                                {
-                                    ifstream fd("dataDosen.txt");
-                                    if (fd.is_open()) {
-                                        string dline;
-                                        string currentNama;
-                                        string currentNidn;
-                                        
-                                        while (getline(fd, dline)) {
-                                            if (dline.find("Nama: ") != string::npos) {
-                                                currentNama = dline.substr(6);
-                                                while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
-                                                while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
-                                            } else if (dline.find("NIDN: ") != string::npos) {
-                                                currentNidn = dline.substr(6);
-                                                while (!currentNidn.empty() && isspace((unsigned char)currentNidn.front())) currentNidn.erase(0,1);
-                                                while (!currentNidn.empty() && isspace((unsigned char)currentNidn.back())) currentNidn.pop_back();
-                                                if (!currentNidn.empty() && currentNidn == nidn) {
-                                                    namaDosen = currentNama;
-                                                    break;
+                                    string namaDosen = "-";
+                                    {
+                                        ifstream fd("dataDosen.txt");
+                                        if (fd.is_open()) {
+                                            string dline;
+                                            string currentNama;
+                                            string currentNidn;
+                                            
+                                            while (getline(fd, dline)) {
+                                                if (dline.find("Nama: ") != string::npos) {
+                                                    currentNama = dline.substr(6);
+                                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.front())) currentNama.erase(0,1);
+                                                    while (!currentNama.empty() && isspace((unsigned char)currentNama.back())) currentNama.pop_back();
+                                                } else if (dline.find("NIDN: ") != string::npos) {
+                                                    currentNidn = dline.substr(6);
+                                                    while (!currentNidn.empty() && isspace((unsigned char)currentNidn.front())) currentNidn.erase(0,1);
+                                                    while (!currentNidn.empty() && isspace((unsigned char)currentNidn.back())) currentNidn.pop_back();
+                                                    if (!currentNidn.empty() && currentNidn == nidn) {
+                                                        namaDosen = currentNama;
+                                                        break;
+                                                    }
+                                                } else if (dline.find("-------------------------------------") != string::npos) {
+                                                    currentNama.clear();
+                                                    currentNidn.clear();
                                                 }
-                                            } else if (dline.find("-------------------------------------") != string::npos) {
-                                                currentNama.clear();
-                                                currentNidn.clear();
                                             }
+                                            fd.close();
                                         }
-                                        fd.close();
                                     }
-                                }
 
-                                string nilai = "-";
-                                string angka = "-";
-                                string status = "Aktif";
-                                {
-                                    ifstream fnilai("DataKHSMahasiswa.txt");
-                                    if (fnilai.is_open()) {
-                                        string nline;
-                                        bool matchBlock = false;
-                                        while (getline(fnilai, nline)) {
-                                            if (nline.find("NIM: " + nim) != string::npos) {
-                                                matchBlock = true;
-                                            } else if (matchBlock && nline.find(kodeMK) != string::npos) {
-                                                size_t posNilai = nline.find("Nilai:");
-                                                size_t posAngka = nline.find("Angka:");
-                                                size_t posStatus = nline.find("Status:");
-                                                if (posNilai != string::npos) {
-                                                    nilai = nline.substr(posNilai + 6, nline.find(" ", posNilai + 6) - (posNilai + 6));
-                                                    while (!nilai.empty() && isspace((unsigned char)nilai.front())) nilai.erase(0,1);
-                                                    while (!nilai.empty() && isspace((unsigned char)nilai.back())) nilai.pop_back();
+                                    string nilai = "-";
+                                    string angka = "-";
+                                    string status = "Belum Validasi";
+                                    {
+                                        ifstream fnilai("DataKHSMahasiswa.txt");
+                                        if (fnilai.is_open()) {
+                                            string nline;
+                                            bool matchBlock = false;
+                                            while (getline(fnilai, nline)) {
+                                                if (nline.find("NIM: " + nim) != string::npos) {
+                                                    matchBlock = true;
+                                                } else if (matchBlock && nline.find(kodeMK) != string::npos) {
+                                                    size_t posNilai = nline.find("Nilai:");
+                                                    size_t posAngka = nline.find("Angka:");
+                                                    size_t posStatus = nline.find("Status:");
+                                                    if (posNilai != string::npos) {
+                                                        nilai = nline.substr(posNilai + 6, nline.find(" ", posNilai + 6) - (posNilai + 6));
+                                                        while (!nilai.empty() && isspace((unsigned char)nilai.front())) nilai.erase(0,1);
+                                                        while (!nilai.empty() && isspace((unsigned char)nilai.back())) nilai.pop_back();
+                                                    }
+                                                    if (posAngka != string::npos) {
+                                                        angka = nline.substr(posAngka + 6, nline.find(" ", posAngka + 6) - (posAngka + 6));
+                                                        while (!angka.empty() && isspace((unsigned char)angka.front())) angka.erase(0,1);
+                                                        while (!angka.empty() && isspace((unsigned char)angka.back())) angka.pop_back();
+                                                    }
+                                                    if (posStatus != string::npos) {
+                                                        status = nline.substr(posStatus + 7);
+                                                        while (!status.empty() && isspace((unsigned char)status.front())) status.erase(0,1);
+                                                        while (!status.empty() && isspace((unsigned char)status.back())) status.pop_back();
+                                                    }
+                                                    break;
+                                                } else if (nline.find("==========================================") != string::npos) {
+                                                    matchBlock = false;
                                                 }
-                                                if (posAngka != string::npos) {
-                                                    angka = nline.substr(posAngka + 6, nline.find(" ", posAngka + 6) - (posAngka + 6));
-                                                    while (!angka.empty() && isspace((unsigned char)angka.front())) angka.erase(0,1);
-                                                    while (!angka.empty() && isspace((unsigned char)angka.back())) angka.pop_back();
-                                                }
-                                                if (posStatus != string::npos) {
-                                                    status = nline.substr(posStatus + 7);
-                                                    while (!status.empty() && isspace((unsigned char)status.front())) status.erase(0,1);
-                                                    while (!status.empty() && isspace((unsigned char)status.back())) status.pop_back();
-                                                }
-                                                break;
-                                            } else if (nline.find("==========================================") != string::npos) {
-                                                matchBlock = false;
                                             }
+                                            fnilai.close();
                                         }
-                                        fnilai.close();
                                     }
+                                    cout << left << setw(6) << no++
+                                        << setw(12) << (kodeMK.empty() ? "-" : kodeMK)
+                                        << setw(34) << (namaMK.empty() ? "-" : namaMK)
+                                        << setw(24) << (namaDosen.empty() ? "-" : namaDosen)
+                                        << setw(6) << (Sksmk.empty() ? "-" : Sksmk)
+                                        << setw(8) << (nilai.empty() ? "-" : nilai)
+                                        << setw(8) << (angka.empty() ? "-" : angka)
+                                        << (status.empty() ? "-" : status) << "\n";
+                                    ofile<<"kode MK : "<<kodeMK<<"\n";
+                                    ofile<<"nama MK : "<<namaMK<<"\n";
+                                    ofile<<"nama Dosen : "<<namaDosen<<"\n";
+                                    ofile<<"SKS : "<<Sksmk<<"\n";
+                                    ofile<<"nilai : "<<nilai<<"\n";
+                                    ofile<<"angka : "<<angka<<"\n";
+                                    ofile<<"status : "<<status<<"\n";
+                                    ofile<<"------------------------------------------\n";
+
                                 }
-                                cout << left << setw(6) << no++
-                                    << setw(12) << (kodeMK.empty() ? "-" : kodeMK)
-                                    << setw(34) << (namaMK.empty() ? "-" : namaMK)
-                                    << setw(24) << (namaDosen.empty() ? "-" : namaDosen)
-                                    << setw(6) << (Sksmk.empty() ? "-" : Sksmk)
-                                    << setw(8) << (nilai.empty() ? "-" : nilai)
-                                    << setw(8) << (angka.empty() ? "-" : angka)
-                                    << (status.empty() ? "-" : status) << "\n";
                             }
                         }
+                    inFile.close();
+                    if (!adaData) {
+                        cout << "(Tidak ada data KRS untuk kelas ini)\n";
                     }
-                inFile.close();
-                if (!adaData) {
-                    cout << "(Tidak ada data KRS untuk kelas ini)\n";
+                    cout<<string(114,'=')<<"\n";
+                    cout << "\n";
+
+
+
+                }else{
+                    cout << "\n";
+                    cout << " ___________________________________________________________________\n";
+                    cout << "|                                                                   |\n";
+                    cout << "|    KARTU HASIL STUDI BELUM TERSEDIA                               |\n";
+                    cout << "|    AKTIFKAN KRS DAHULU UNTUK MENGAKSES KHS                        |\n";
+                    cout << "|    TERIMA KASIH!!!!                                               |\n";
+                    cout << "|                                                                   |\n";
+                    cout << " ===================================================================\n";
+                    cout << "\n";
                 }
-                cout<<string(104,'=')<<"\n";
-                cout << "\n";
 
-
-
-            }else{
-                cout << "\n";
-                cout << " ___________________________________________________________________\n";
-                cout << "|                                                                   |\n";
-                cout << "|    KARTU HASIL STUDI BELUM TERSEDIA                               |\n";
-                cout << "|    AKTIFKAN KRS DAHULU UNTUK MENGAKSES KHS                        |\n";
-                cout << "|    TERIMA KASIH!!!!                                               |\n";
-                cout << "|                                                                   |\n";
-                cout << " ===================================================================\n";
-                cout << "\n";
             }
-
         }
+
+        
+       
         
 
 
     }
+
+  
+
+
 
 
     void PendaftaranUjianMhs(const string& nim) {
@@ -1003,7 +1423,7 @@ public:
         cout << "(Fitur pendaftaran ujian belum tersedia.)\n\n";
         system("pause");
     }
-    
+
 
     void PendaftaranSeminarMhs(const string& nim) {
         system("cls");

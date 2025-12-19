@@ -1,0 +1,577 @@
+
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : A
+angka : 91
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : A
+angka : 94
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : B
+angka : 85
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : C
+angka : 79
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : B
+angka : 80
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : B
+angka : 89
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : B
+angka : 88
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : A
+angka : 99
+Status Validasi: Sudah Divalidasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+===========================================================================
+|                  KARTU HASIL STUDI (KHS) MAHASISWA                       |
+===========================================================================
+
+NIM :2400018002
+Kelas: IF101-A
+
+------------------------------------------
+kode MK : IF101
+nama MK : Dasar Pemrograman
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF102
+nama MK : Dasar Sistem Komputer
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF103
+nama MK : Kalkulus Informatika
+nama Dosen : Dr. Ahmad Santoso
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF104
+nama MK : Logika Informatika
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF105
+nama MK : Manajemen Data dan Informasi
+nama Dosen : Prof. Siti Rahayu
+SKS : 3
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF106
+nama MK : Pancasila
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF107
+nama MK : Praktikum Dasar Pempograman
+nama Dosen : Drs. Bambang Wijaya
+SKS : 1
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
+kode MK : IF108
+nama MK : AL-Qur'an dan Hadits
+nama Dosen : Drs. Bambang Wijaya
+SKS : 2
+nilai : -
+angka : -
+status : Belum Validasi
+------------------------------------------
