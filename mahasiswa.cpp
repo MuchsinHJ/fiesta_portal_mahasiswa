@@ -241,32 +241,12 @@ class MahasiswaPortal {
         }
 };
 
-class Perkuliahan {
-    public:
-        void mataKuliahAktif(Mahasiswa mhsLogin) {
-            cout << "================================\n";
-            cout << "      MATA KULIAH AKTIF        \n";
-            cout << "================================\n";
-            cout << "Nama: " << mhsLogin.nama << endl;
-            cout << "NIM: " << mhsLogin.nim << endl;
-            cout << "Semester: " << mhsLogin.semester << endl;
-            cout << "Mata Kuliah Aktif: \n";
-            
-            cout << "================================\n";
-        }
-};
+
 
 
 class KRSKHS{
 private:
-    struct KRSData {
-        string nimMahasiswa;
-        string kdDosenMk;
-        string semesterDiambil;
-        char nilaiHuruf;
-        float nilaiAngka;
-        
-    };
+    
     int jumlah=0;
     
     DoubleLinkedList<KRSData> listKRS;
@@ -289,7 +269,6 @@ public:
         this->mhsPortal = nullptr;
     }
 
-    // Set manager pointers setelah objek dibuat
     void setManagers(ManajemenKelasMahasiswa* km, ManajemenKrs* mkrs) {
         this->kelasMahasiswa = km;
         this->manajemenKrs = mkrs;
@@ -507,21 +486,40 @@ public:
         }
            cout << "===================================================================================\n\n";
         
+        bool nimAdaDikrs = false;
+        bool adaNilaiTervalidasi = false;
+
         ifstream dp("dataPengajuanKrs.txt");
         if( dp.is_open()) {
             string line;
-            bool found = false;
+            bool inTargetNIM = false;
+            
             while (getline(dp, line)) {
-                if (line.find("NIM: ") != string::npos) {
-                    string nimLine = line.substr(5);
+                if (line.find("NIM:") != string::npos) {
+                    string nimLine = line.substr(line.find(":") + 1);
+                    while (!nimLine.empty() && isspace((unsigned char)nimLine.front())) nimLine.erase(0,1);
+                    while (!nimLine.empty() && isspace((unsigned char)nimLine.back())) nimLine.pop_back();
+                    
                     if (nimLine == nim) {
-                        found = true;
+                        nimAdaDikrs = true;
+                        inTargetNIM = true;
+                    } else {
+                        inTargetNIM = false;
+                    }
+                } else if (inTargetNIM && (line.find("Status Validasi:") != string::npos || line.find("status :") != string::npos)) {
+                    string statusLine = line.substr(line.find(":") + 1);
+                    while (!statusLine.empty() && isspace((unsigned char)statusLine.front())) statusLine.erase(0,1);
+                    while (!statusLine.empty() && isspace((unsigned char)statusLine.back())) statusLine.pop_back();
+                    
+                    if (statusLine.find("Sudah") != string::npos || statusLine.find("di setujui") != string::npos) {
+                        adaNilaiTervalidasi = true;
                         break;
                     }
                 }
             }
+            
             dp.close();
-            if (found) {
+            if (nimAdaDikrs && adaNilaiTervalidasi) {
                 cout << "\n";
                 cout << " ______________________________________________________________________\n";
                 cout << "|                                                                      |\n";
@@ -682,7 +680,7 @@ public:
     void cetakKrsMahasiswa(const string& nim) {
         system("cls");
         cout<<string(82,'=')<<endl;
-        cout << "==================================== KRS MAHASISWA ======================================="<<endl;
+        cout << "================================= KRS MAHASISWA =================================="<<endl;
         cout<<string(82,'=')<<endl;
         cout << "NIM: " << nim << "\n";
 
@@ -880,7 +878,7 @@ public:
                 cout << "\n";
                 cout << " ______________________________________________________________________\n";
                 cout << "|                                                                      |\n";
-                cout << "|                   SISTEM KRS (Kartu Rencana Studi)                   |\n";
+                cout << "|                CETAK SISTEM KRS (Kartu Rencana Studi)                |\n";
                 cout << "|                     SUDAH AKTIF & SIAP DIGUNAKAN                     |\n";
                 cout << "|                                                                      |\n";
                 cout << " ======================================================================\n";
@@ -894,6 +892,7 @@ public:
         
         cout << "\n";
         system("pause");
+        system("cls");
     }
 
 
@@ -1388,7 +1387,8 @@ public:
 
         
        
-        
+        system("pause");
+        system("cls");
 
 
     }
@@ -1451,6 +1451,429 @@ public:
         system("pause");
 
     }
+};
+
+
+
+// Struct untuk menyimpan data presensi
+struct Presensi {
+    string nim;
+    string kodeMK;
+    int hadir = 0;
+    int izin = 0;
+    int sakit = 0;
+    int alfa = 0;
+    int totalPertemuan = 0;
+};
+
+// Struct untuk sertifikat
+struct Sertifikat {
+    string nim;
+    string jenis; // "Seminar" atau "Prestasi"
+    string judul;
+    string tanggal;
+    string penyelenggara;
+};
+
+class Perkuliahan {
+private:
+    DoubleLinkedList<Presensi> dataPresensi;
+    DoubleLinkedList<Sertifikat> dataSertifikat;
+    DoubleLinkedList<MataKuliah> mataKuliahAktif;
+    ManajemenMatakuliah* manajemenMK;
+    MahasiswaPortal* mhsPortal;
+
+public:
+    Perkuliahan() {
+        manajemenMK = nullptr;
+        mhsPortal = nullptr;
+    }
+
+    void setManajemenMatakuliah(ManajemenMatakuliah* mk) {
+        manajemenMK = mk;
+    }
+
+    void setMahasiswaPortal(MahasiswaPortal* portal) {
+        mhsPortal = portal;
+    }
+
+    void tampilMataKuliahAktif(const string& nim) {
+        system("cls");
+        cout << "================================================\n";
+        cout << "         MATA KULIAH AKTIF - SEMESTER INI\n";
+        cout << "================================================\n\n";
+
+        if (manajemenMK == nullptr) {
+            cout << "Error: Manajemen Matakuliah belum diinisialisasi.\n";
+            system("pause");
+            return;
+        }
+
+        cout << left
+             << setw(5)  << "No"
+             << setw(15) << "Kode MK"
+             << setw(30) << "Nama Mata Kuliah"
+             << setw(5)  << "SKS"
+             << setw(10) << "Semester"
+             << setw(15) << "Jurusan"
+             << setw(12) << "Wajib"
+             << "\n";
+        cout << string(92, '-') << "\n";
+
+        int idx = 1;
+        for (DoubleLinkedList<MataKuliah>::Node* temp = mataKuliahAktif.head; temp != nullptr; temp = temp->next) {
+            cout << left
+                 << setw(5)  << idx++
+                 << setw(15) << temp->data.kodeMK
+                 << setw(30) << temp->data.namaMK
+                 << setw(5)  << temp->data.sks
+                 << setw(10) << temp->data.semester
+                 << setw(15) << temp->data.jurusan
+                 << setw(12) << (temp->data.wajib ? "Ya" : "Tidak")
+                 << "\n";
+        }
+        cout << "\n";
+        system("pause");
+    }
+
+
+    void tampilSertifikatSeminar(const string& nim) {
+        system("cls");
+        cout << "================================================\n";
+        cout << "         SERTIFIKAT SEMINAR MAHASISWA\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        cout << "Nama: " << m.nama << "\n";
+        cout << "NIM : " << m.nim << "\n\n";
+
+        cout << left
+             << setw(5)  << "No"
+             << setw(20) << "Judul Seminar"
+             << setw(20) << "Tanggal"
+             << setw(25) << "Penyelenggara"
+             << "\n";
+        cout << string(70, '-') << "\n";
+
+        int idx = 1;
+        int count = 0;
+        for (DoubleLinkedList<Sertifikat>::Node* temp = dataSertifikat.head; temp != nullptr; temp = temp->next) {
+            if (temp->data.nim == m.nim && temp->data.jenis == "Seminar") {
+                cout << left
+                     << setw(5)  << idx++
+                     << setw(20) << temp->data.judul
+                     << setw(20) << temp->data.tanggal
+                     << setw(25) << temp->data.penyelenggara
+                     << "\n";
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            cout << "Belum memiliki sertifikat seminar.\n";
+        }
+
+        cout << "\n";
+
+        cout<<"Apakah anda ingin Menambah Sertifikat Seminar Baru? (y/n): ";
+        char choice;
+        cin >> choice;
+        if (choice == 'y' || choice == 'Y') {
+            tambahSertifikatSeminar();
+        } else {
+            cout << "Kembali ke menu sebelumnya.\n";
+        }
+        system("pause");
+    }
+
+    void tambahSertifikatSeminar() {
+        system("cls");
+        cout << "================================================\n";
+        cout << "    PENDAFTARAN SERTIFIKAT SEMINAR\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Sertifikat sertif;
+        sertif.nim = m.nim;
+        sertif.jenis = "Seminar";
+
+        cin.ignore();
+        cout << "Masukkan judul seminar: ";
+        getline(cin, sertif.judul);
+
+        cout << "Masukkan tanggal (DD-MM-YYYY): ";
+        getline(cin, sertif.tanggal);
+
+        cout << "Masukkan penyelenggara: ";
+        getline(cin, sertif.penyelenggara);
+
+        dataSertifikat.tambahData(sertif);
+        cout << "\nSertifikat seminar berhasil didaftarkan!\n";
+        system("pause");
+    }
+
+    // ===== 3. SERTIFIKAT PRESTASI =====
+    void tampilSertifikatPrestasi(const string& nim) {
+        system("cls");
+        cout << "================================================\n";
+        cout << "        SERTIFIKAT PRESTASI MAHASISWA\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        cout << "Nama: " << m.nama << "\n";
+        cout << "NIM : " << m.nim << "\n\n";
+
+        cout << left
+             << setw(5)  << "No"
+             << setw(25) << "Judul Prestasi"
+             << setw(20) << "Tanggal"
+             << setw(20) << "Penyelenggara"
+             << "\n";
+        cout << string(70, '-') << "\n";
+
+        int idx = 1;
+        int count = 0;
+        for (DoubleLinkedList<Sertifikat>::Node* temp = dataSertifikat.head; temp != nullptr; temp = temp->next) {
+            if (temp->data.nim == m.nim && temp->data.jenis == "Prestasi") {
+                cout << left
+                     << setw(5)  << idx++
+                     << setw(25) << temp->data.judul
+                     << setw(20) << temp->data.tanggal
+                     << setw(20) << temp->data.penyelenggara
+                     << "\n";
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            cout << "Belum memiliki sertifikat prestasi.\n";
+        }
+
+        cout << "\n";
+
+        cout<<"Apakah anda ingin Menambah Sertifikat Prestasi Baru? (y/n): ";
+        char choice;
+        cin >> choice;
+        if (choice == 'y' || choice == 'Y') {
+            tambahSertifikatPrestasi();
+        } else {
+            cout << "Kembali ke menu sebelumnya.\n";
+        }
+        system("pause");
+    }
+
+    void tambahSertifikatPrestasi() {
+        system("cls");
+        cout << "================================================\n";
+        cout << "    PENDAFTARAN SERTIFIKAT PRESTASI\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Sertifikat sertif;
+        sertif.nim = m.nim;
+        sertif.jenis = "Prestasi";
+
+        cin.ignore();
+        cout << "Masukkan judul prestasi: ";
+        getline(cin, sertif.judul);
+
+        cout << "Masukkan tanggal (DD-MM-YYYY): ";
+        getline(cin, sertif.tanggal);
+
+        cout << "Masukkan penyelenggara: ";
+        getline(cin, sertif.penyelenggara);
+
+        dataSertifikat.tambahData(sertif);
+        cout << "\nSertifikat prestasi berhasil didaftarkan!\n";
+        system("pause");
+    }
+
+    void tampilPresensiKuliah(const string& nim) {
+        system("cls");
+        cout << "================================================\n";
+        cout << "         PRESENSI KULIAH MAHASISWA\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        cout << "Nama: " << m.nama << "\n";
+        cout << "NIM : " << m.nim << "\n\n";
+
+        cout << left
+             << setw(5)  << "No"
+             << setw(15) << "Kode MK"
+             << setw(25) << "Mata Kuliah"
+             << setw(8)  << "Hadir"
+             << setw(8)  << "Izin"
+             << setw(8)  << "Sakit"
+             << setw(8)  << "Alfa"
+             << setw(10) << "Total"
+             << "\n";
+        cout << string(85, '-') << "\n";
+
+        int idx = 1;
+        int count = 0;
+        for (DoubleLinkedList<Presensi>::Node* temp = dataPresensi.head; temp != nullptr; temp = temp->next) {
+            if (temp->data.nim == m.nim) {
+                cout << left
+                     << setw(5)  << idx++
+                     << setw(15) << temp->data.kodeMK
+                     << setw(25) << "Mata Kuliah"
+                     << setw(8)  << temp->data.hadir
+                     << setw(8)  << temp->data.izin
+                     << setw(8)  << temp->data.sakit
+                     << setw(8)  << temp->data.alfa
+                     << setw(10) << temp->data.totalPertemuan
+                     << "\n";
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            cout << "Belum ada data presensi kuliah.\n";
+        }
+
+        cout << "\n";
+        system("pause");
+    }
+
+    void inputPresensiKuliah() {
+        system("cls");
+        cout << "================================================\n";
+        cout << "    INPUT PRESENSI KULIAH (DOSEN ONLY)\n";
+        cout << "================================================\n\n";
+
+        Presensi presensi;
+
+        cout << "Masukkan NIM mahasiswa: ";
+        cin >> presensi.nim;
+
+        cout << "Masukkan kode mata kuliah: ";
+        cin >> presensi.kodeMK;
+
+        cout << "Jumlah hadir: ";
+        cin >> presensi.hadir;
+
+        cout << "Jumlah izin: ";
+        cin >> presensi.izin;
+
+        cout << "Jumlah sakit: ";
+        cin >> presensi.sakit;
+
+        cout << "Jumlah alfa: ";
+        cin >> presensi.alfa;
+
+        cout << "Total pertemuan: ";
+        cin >> presensi.totalPertemuan;
+
+        dataPresensi.tambahData(presensi);
+        cout << "\nData presensi berhasil disimpan!\n";
+        system("pause");
+    }
+
+    // ===== 5. INFORMASI =====
+    void tampilInformasi() {
+        system("cls");
+        cout << "================================================\n";
+        cout << "    INFORMASI AKADEMIK MAHASISWA\n";
+        cout << "================================================\n\n";
+
+        if (!mhsPortal || !mhsPortal->isLogin()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        Mahasiswa m = mhsPortal->getMahasiswaLogin();
+        if (m.nim.empty()) {
+            cout << "Error: Tidak ada mahasiswa yang login.\n";
+            system("pause");
+            return;
+        }
+
+        cout << "========== IDENTITAS MAHASISWA ==========\n";
+        cout << "Nama                : " << m.nama << "\n";
+        cout << "NIM                 : " << m.nim << "\n";
+        cout << "Semester            : " << m.semester << "\n";
+        cout << "Tahun Masuk         : " << m.tahunMasuk << "\n";
+        cout << "Jurusan             : " << m.jurusan << "\n";
+        cout << "Fakultas            : " << m.fakultas << "\n";
+
+        cout << "\n========== DATA PRIBADI ==========\n";
+        cout << "Tempat Lahir        : " << m.tempatLahir << "\n";
+        cout << "Tanggal Lahir       : " << m.tanggalLahir << "\n";
+        cout << "Jenis Kelamin       : " << (m.g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan") << "\n";
+        cout << "Email               : " << m.email << "\n";
+        cout << "No HP               : " << m.noHp << "\n";
+        cout << "Alamat              : " << m.alamat << "\n";
+
+        cout << "\n========== STATUS AKADEMIK ==========\n";
+        cout << "Status              : " << (m.aktif ? "Aktif" : "Tidak Aktif") << "\n";
+
+        cout << "\n";
+        system("pause");
+    }
+
+   
 };
 
 

@@ -330,7 +330,6 @@ void tambahMahasiswa() {
         ifstream in("dataMahasiswa.txt");
         
         if (!in.is_open()) {
-            cout << "Gagal membuka file dataMahasiswa.txt\n";
             return;
         }
 
@@ -343,62 +342,78 @@ void tambahMahasiswa() {
         Mahasiswa mhsSementara;
 
         while (getline(in, line)) {
+            
+            trim(line);
+            
+            if (line.empty() || line.find("Data Mahasiswa ke-") == 0) {
+                continue;
+            }
+
+            if (line.find("--------------------------") != string::npos) {
+                if (!mhsSementara.nim.empty()) {
+                    tambahMahasiswaLangsung(mhsSementara);
+                    mhsSementara = Mahasiswa();
+                }
+                continue;
+            }
+
             size_t pos = line.find(":");
             if (pos == string::npos) continue;
 
+            string key = line.substr(0, pos);
             string value = line.substr(pos + 1);
+            trim(key);
             trim(value);
 
-            if (line.find("Nama: ") == 0) {
+            if (key == "Nama") {
                 mhsSementara.nama = value;
-            } else if (line.find("NIM: ") == 0) {
+            } else if (key == "NIM") {
                 mhsSementara.nim = value;
-            } else if (line.find("Semester: ") == 0) {
+            } else if (key == "Semester") {
                 try {
                     mhsSementara.semester = stoi(value);
                 } catch (...) {
                     mhsSementara.semester = 0;
                 }
-            } else if (line.find("Tahun Masuk: ") == 0) {
+            } else if (key == "Tahun Masuk") {
                 try {
                     mhsSementara.tahunMasuk = stoi(value);
                 } catch (...) {
                     mhsSementara.tahunMasuk = 0;
                 }
-            } else if (line.find("Jurusan: ") == 0) {
+            } else if (key == "Jurusan") {
                 mhsSementara.jurusan = value;
-            } else if (line.find("Fakultas: ") == 0) {
+            } else if (key == "Fakultas") {
                 mhsSementara.fakultas = value;
-            } else if (line.find("Tempat Lahir: ") == 0) {
+            } else if (key == "Tempat Lahir") {
                 mhsSementara.tempatLahir = value;
-            } else if (line.find("Tanggal Lahir: ") == 0) {
+            } else if (key == "Tanggal Lahir") {
                 mhsSementara.tanggalLahir = value;
-            } else if (line.find("Alamat: ") == 0) {
+            } else if (key == "Alamat") {
                 mhsSementara.alamat = value;
-            } else if (line.find("Email: ") == 0) {
+            } else if (key == "Email") {
                 mhsSementara.email = value;
-            } else if (line.find("No HP: ") == 0) {
+            } else if (key == "No HP") {
                 mhsSementara.noHp = value;
-            } else if (line.find("Jenis Kelamin: ") == 0) {
+            } else if (key == "Jenis Kelamin") {
                 mhsSementara.g = (value == "Laki-laki") ? JenisKelamin::LakiLaki : JenisKelamin::Perempuan;
-            } else if (line.find("Status: ") == 0) {
+            } else if (key == "Status") {
                 mhsSementara.aktif = (value == "Aktif");
-            } else if (line.find("Password: ") == 0) {
+            } else if (key == "Password") {
                 mhsSementara.password = value;
-            } else if (line.find("--------------------------") != string::npos) {
-                
-                if (!mhsSementara.nim.empty()) {
-                    tambahMahasiswaLangsung(mhsSementara);
-                    mhsSementara = Mahasiswa(); 
-                }
             }
+        }
+
+       
+        if (!mhsSementara.nim.empty()) {
+            tambahMahasiswaLangsung(mhsSementara);
         }
 
         in.close();
     }
 
     void updateFileMhs() {
-    ofstream in("dataMahasiswa.txt", ios::trunc); // hapus isi lama
+    ofstream in("dataMahasiswa.txt", ios::trunc);
     if (!in.is_open()) {
         cout << "Gagal membuka file untuk menyimpan data.\n";
         return;
@@ -439,48 +454,83 @@ void tambahMahasiswa() {
             return s.substr(0, w-3) + "...";
         };
 
-        cout << string(180,'=') << "\n";
-        cout << "                                          DATA MAHASISWA\n";
-        cout << string(180,'=') << "\n";
+        cout << string(90,'=') << "\n";
+        cout << "                                  DATA MAHASISWA\n";
+        cout << string(90,'=') << "\n";
         cout << left
              << setw(4)  << "No"
              << setw(25) << "Nama"
              << setw(13) << "NIM"
              << setw(5)  << "Sem"
-             << setw(7)  << "Tahun"
              << setw(15) << "Jurusan"
-             << setw(10) << "Fakultas"
-             << setw(18) << "Tempat Lahir"
-             << setw(13) << "Tgl Lahir"
-             << setw(25) << "Alamat"
-             << setw(20) << "Email"
-             << setw(14) << "No HP"
-             << setw(10) << "Gender"
              << setw(8)  << "Status"
              << "\n";
-        cout << string(180,'-') << "\n";
+        cout << string(90,'-') << "\n";
 
-        int idx = 1;
-        for (DoubleLinkedList<Mahasiswa>::Node* temp=listMahasiswa.head; temp!=nullptr; temp=temp->next) {
-            cout << left
-                 << setw(4)  << idx++
-                 << setw(25) << clip(temp->data.nama, 25)
-                 << setw(13) << clip(temp->data.nim, 13)
-                 << setw(5)  << temp->data.semester
-                 << setw(7)  << temp->data.tahunMasuk
-                 << setw(15) << clip(temp->data.jurusan, 15)
-                 << setw(10) << clip(temp->data.fakultas, 10)
-                 << setw(18) << clip(temp->data.tempatLahir, 18)
-                 << setw(13) << clip(temp->data.tanggalLahir, 13)
-                 << setw(25) << clip(temp->data.alamat, 25)
-                 << setw(20) << clip(temp->data.email, 20)
-                 << setw(14) << clip(temp->data.noHp, 14)
-                 << setw(10) << (temp->data.g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan")
-                 << setw(8)  << (temp->data.aktif ? "Aktif" : "Non-Aktif")
-                 << "\n";
+        ifstream in("dataMahasiswa.txt");
+        if(!in.is_open()){
+            cout << "Gagal membuka file dataMahasiswa.txt\n";
+            return;
         }
-        cout << string(180,'=') << "\n";
+
+        string line;
+        string nama, nim, sem, jurusan, status;
+        int idx = 1;
+
+        while (getline(in, line)) {
+            if (line.find("Nama: ") != string::npos && line.find(":") != string::npos) {
+                size_t pos = line.find(":");
+                nama = line.substr(pos+1);
+                while (!nama.empty() && isspace((unsigned char)nama.front())) nama.erase(0,1);
+                while (!nama.empty() && isspace((unsigned char)nama.back())) nama.pop_back();
+            } else if (line.find("NIM: ") != string::npos && line.find(":") != string::npos) {
+                size_t pos = line.find(":");
+                nim = line.substr(pos+1);
+                while (!nim.empty() && isspace((unsigned char)nim.front())) nim.erase(0,1);
+                 while (!nim.empty() && isspace((unsigned char)nim.back())) nim.pop_back();
+            } else if (line.find("Semester: ") != string::npos && line.find(":") != string::npos) {
+                size_t pos = line.find(":");
+                sem = line.substr(pos+1);
+                while (!sem.empty() && isspace((unsigned char)sem.front())) sem.erase(0,1);
+                 while (!sem.empty() && isspace((unsigned char)sem.back())) sem.pop_back();
+            } else if (line.find("Jurusan: ") != string::npos && line.find(":") != string::npos) {
+                size_t pos = line.find(":");
+                jurusan = line.substr(pos+1);
+                while (!jurusan.empty() && isspace((unsigned char)jurusan.front())) jurusan.erase(0,1);
+                 while (!jurusan.empty() && isspace((unsigned char)jurusan.back())) jurusan.pop_back();
+            } else if (line.find("Status: ") != string::npos && line.find(":") != string::npos) {
+                size_t pos = line.find(":");
+                status = line.substr(pos+1);
+                while (!status.empty() && isspace((unsigned char)status.front())) status.erase(0,1);
+                 while (!status.empty() && isspace((unsigned char)status.back())) status.pop_back();
+            } else if (line.find("--------------------------") != string::npos) {
+                
+                cout << left
+                     << setw(4)  << idx++
+                     << setw(25) << clip(nama, 25)
+                     << setw(13) << clip(nim, 13)
+                     << setw(5)  << sem
+                     << setw(15) << clip(jurusan, 15)
+                     << setw(8)  << clip(status, 8)
+                     << "\n";
+                
+                nama.clear();
+                nim.clear();
+                sem.clear();
+                jurusan.clear();
+                status.clear();
+            }
+
+            
+        }
+        
+        cout << string(90,'=') << "\n";
+        in.close();
+        
+        
     }
+
+
 
     void editMahasiswa() {
         updateFileMhs();
@@ -569,89 +619,7 @@ void tambahMahasiswa() {
         }
     }
 
-    void TampilSemuaMahasiswa() {
-        tarikMahasiswadarifile();
-        tampilMahasiswa();
-    }
-
-    void tampilMahasiswaPerSemester() {
-        tarikMahasiswadarifile();
-
-        auto clip = [](const string& s, size_t w){
-            if (s.size() <= w) return s;
-            if (w <= 3) return s.substr(0, w);
-            return s.substr(0, w-3) + "...";
-        };
-
-        cout << "\n" << string(180,'=') << "\n";
-        cout << "                              DAFTAR MAHASISWA PER SEMESTER\n";
-        cout << string(180,'=') << "\n\n";
-
-        
-        for (int semester = 1; semester <= 8; semester++) {
-            bool ditemukan = false;
-            int jumlah = 0;
-
-            
-            for (DoubleLinkedList<Mahasiswa>::Node* temp=listMahasiswa.head; temp!=nullptr; temp=temp->next) {
-                if (temp->data.semester == semester) {
-                    jumlah++;
-                    ditemukan = true;
-                }
-            }
-
-            if (!ditemukan) {
-                continue; // Skip semester yang tidak ada mahasiswanya
-            }
-
-            // Header per semester
-            cout << string(180,'-') << "\n";
-            cout << "SEMESTER " << semester << " (Total: " << jumlah << " mahasiswa)\n";
-            cout << string(180,'-') << "\n";
-            cout << left
-                 << setw(4)  << "No"
-                 << setw(25) << "Nama"
-                 << setw(13) << "NIM"
-                 << setw(5)  << "Sem"
-                 << setw(7)  << "Tahun"
-                 << setw(15) << "Jurusan"
-                 << setw(10) << "Fakultas"
-                 << setw(18) << "Tempat Lahir"
-                 << setw(13) << "Tgl Lahir"
-                 << setw(25) << "Alamat"
-                 << setw(20) << "Email"
-                 << setw(14) << "No HP"
-                 << setw(10) << "Gender"
-                 << setw(8)  << "Status"
-                 << "\n";
-            cout << string(180,'-') << "\n";
-
-            int idx = 1;
-            for (DoubleLinkedList<Mahasiswa>::Node* temp=listMahasiswa.head; temp!=nullptr; temp=temp->next) {
-                if (temp->data.semester == semester) {
-                    cout << left
-                         << setw(4)  << idx++
-                         << setw(25) << clip(temp->data.nama, 25)
-                         << setw(13) << clip(temp->data.nim, 13)
-                         << setw(5)  << temp->data.semester
-                         << setw(7)  << temp->data.tahunMasuk
-                         << setw(15) << clip(temp->data.jurusan, 15)
-                         << setw(10) << clip(temp->data.fakultas, 10)
-                         << setw(18) << clip(temp->data.tempatLahir, 18)
-                         << setw(13) << clip(temp->data.tanggalLahir, 13)
-                         << setw(25) << clip(temp->data.alamat, 25)
-                         << setw(20) << clip(temp->data.email, 20)
-                         << setw(14) << clip(temp->data.noHp, 14)
-                         << setw(10) << (temp->data.g == JenisKelamin::LakiLaki ? "Laki-laki" : "Perempuan")
-                         << setw(8)  << (temp->data.aktif ? "Aktif" : "Non-Aktif")
-                         << "\n";
-                }
-            }
-            cout << "\n";
-        }
-        
-        cout << string(180,'=') << "\n";
-    }
+    
 };
 
 //CLASS UNTUK MENU UTAMA DOSEN
@@ -3832,4 +3800,9 @@ public:
     }
 
     
+};
+
+
+class ManajemenPerkuliahan{
+
 };

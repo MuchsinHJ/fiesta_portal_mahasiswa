@@ -101,3 +101,32 @@ struct InputDanKoreksiNilai{
     string kdKelas;
     bool statusValidasi;
 };
+
+struct KRSData {
+        string nimMahasiswa;
+        string kdDosenMk;
+        string semesterDiambil;
+        char nilaiHuruf;
+        float nilaiAngka;
+        
+};
+
+
+struct Presensi {
+    string nim;
+    string kodeMK;
+    int hadir = 0;
+    int izin = 0;
+    int sakit = 0;
+    int alfa = 0;
+    int totalPertemuan = 0;
+};
+
+
+struct Sertifikat {
+    string nim;
+    string jenis;
+    string judul;
+    string tanggal;
+    string penyelenggara;
+};

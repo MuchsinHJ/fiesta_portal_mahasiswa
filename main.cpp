@@ -120,11 +120,11 @@ public:
                     menuInputDanKoreksiNilai();
                     break;
                 case 10:
-                    // Placeholder layanan akademik
+                    
                     cout << "(Fitur Layanan Akademik belum tersedia)\n";
                     break;
                 case 0: 
-                
+                    system("cls");
                         admin->logoutnih();
                     
                     system("cls");
@@ -181,6 +181,7 @@ public:
                     cout << "Kembalikan ke dashboard admin...\n";
                     return;
                 case 0:
+                system("cls");
                     nav.pop();
                     cout << "Logout admin...\n";
                     return; 
@@ -229,6 +230,7 @@ public:
                     mnjMhs.cekKeaktifanMahasiswa();
                 break;
                 case 6: 
+                system("cls");
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n"; 
                     return;
@@ -277,6 +279,7 @@ public:
                     mnjMatkul.hapusMataKuliah();
                     break;
                 case 6:
+                system("cls");
                     nav.pop();
                     cout<<"Kembalikan ke dashboard admin...\n";
                     return;
@@ -327,6 +330,7 @@ public:
                     mnjdsmatkul.hapusDosenMataKuliah();
                     break;
                 case 6:
+                system("cls");
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n";
                     return;
@@ -370,6 +374,7 @@ public:
                     mnjKelas.hapusKelas();
                     break;
                 case 5:
+                system("cls");
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n";
                     return;
@@ -413,6 +418,7 @@ public:
                     mnjKelasMahasiswa.hapusKelasMahasiswa();
                     break;
                 case 5:
+                system("cls");
                     nav.pop();
                     cout << "Kembalikan ke dashboard admin...\n";
                     return;
@@ -462,6 +468,7 @@ public:
                         
                         break;
                     case 6:
+                    system("cls");
                         nav.pop();
                         cout << "Kembalikan ke dashboard admin...\n";
                         return;
@@ -506,6 +513,7 @@ public:
                     mnjik.rekapNilaiPerKelas();
                     break;
                 case 0:
+                system("cls");
                     nav.pop();
                     cout << "Kembali ke menu utama admin...\n";
                     return;
@@ -531,6 +539,7 @@ private:
     ManajemenKelasMahasiswa* klsMhs;
     ManajemenKrs* mnjKrs;
     ManajemenMahasiswa* mhs;
+    Perkuliahan* per;
     
 
 public:
@@ -587,7 +596,7 @@ public:
                 tampilMataKuliah();
                     break;
                 case 5:
-                
+                    system("cls");
                     mhsPortal->logout();
                     system("cls");
                     nav.pop();
@@ -627,6 +636,7 @@ public:
                     system("cls");
                     break;
                 case 3:
+                system("cls");
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
                     system("cls");
@@ -657,21 +667,33 @@ public:
 
             switch(pilih){
                 case 1:
-                    cout << "Menampilkan biodata..." << endl;
+                system("cls");
+                per->tampilMataKuliahAktif(mhsPortal->getNIMMahasiswa());
+                system("cls");
                     break;
+                    
                 case 2:
-                    cout << "Menampilkan tagihan..." << endl;
+                    system("cls");
+                    per->tampilSertifikatSeminar(mhsPortal->getNIMMahasiswa());
+                    system("cls");
                     break;
                 case 3:
-                    cout << "Menampilkan tagihan..." << endl;
+                    system("cls");
+                    per->tampilSertifikatPrestasi(mhsPortal->getNIMMahasiswa());
+                    system("cls");
                     break;
                 case 4:
-                    cout << "Menampilkan tagihan..." << endl;
+                    system("cls");
+                    per->tampilPresensiKuliah(mhsPortal->getNIMMahasiswa());
+                    system("cls");
                     break;
                 case 5:
-                    cout << "Menampilkan tagihan..." << endl;
+                    system("cls");
+                    per->tampilInformasi();
+                    system("cls");
                     break;
                 case 6:
+                system("cls");
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
                     return;
@@ -717,8 +739,8 @@ public:
                     
                     break;
                 case 4:
+                system("cls");
                     krs->cekNilaiMhs(mhsPortal->getNIMMahasiswa());
-                    system("pause");
                     break;
                 case 5:
                     krs->PendaftaranSeminarMhs(mhsPortal->getNIMMahasiswa());
@@ -727,6 +749,7 @@ public:
                     krs->PendaftaranUjianMhs(mhsPortal->getNIMMahasiswa());
                     break;
                 case 7:
+                system("cls");
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
                     return;
@@ -769,11 +792,12 @@ public:
                     break;
                 case 3:
                 system("cls");
-                    mhs->tampilMahasiswaPerSemester();
+                    mhs->tampilMahasiswa();
                     system("pause");
                     system("cls");
                     break;
                 case 4:
+                system("cls");
                     nav.pop();
                     cout<<"Kembalikan ke dashboard mahasiswa...\n";
                     return;
@@ -865,10 +889,10 @@ void displayMainMenu(){
 
         switch (pilih) {
             case 1:
-                displayAdmin(); // kembali ke menu ini setelah logout
+                displayAdmin();
                 break;
             case 2:
-                displayMahasiswa(); // kembali ke menu ini setelah logout
+                displayMahasiswa();
                 break;
             case 3:
                 cout << "Keluar dari sistem...\n";
