@@ -3049,7 +3049,7 @@ public:
                         isTargetBlock = (currentNim == targetNim);
                         tempFile << line << "\n";
                     } else if (line.find("Status Validasi: ") != string::npos && isTargetBlock) {
-                        tempFile << "Status Validasi: Sudah Divalidasi\n";
+                        tempFile << "Status Validasi: Sudah di setujui\n";
                     } else {
                         tempFile << line << "\n";
                     }
