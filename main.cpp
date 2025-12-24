@@ -45,10 +45,12 @@ private:
     ManajemenKelasMahasiswa mnjKelasMahasiswa;
     ManajemenKrs mnjKrs;
     ManajemenInputDanKoreksiNilai mnjik;
+    
 public:
     
     void setAdminPortal(AdminPortal* adminPortal) {
         admin = adminPortal;
+
     }
 
     void tarikData(){
@@ -77,10 +79,8 @@ public:
             cout << "4. Manajemen Dosen Mata Kuliah" << endl;
             cout << "5. Manajemen Kelas" << endl;
             cout << "6. Manajemen Kelas Mahasiswa" << endl;
-            cout << "7. Validasi KRS" << endl;
+            cout << "7. Manajemen KRS" << endl;
             cout << "8. Input dan Koreksi Nilai" << endl;
-            cout << "9. Verifikasi Pembayaran" << endl;
-            cout << "10. Layanan Akademik" << endl;
             cout << "0. Logout" << endl;
             cout << "Pilih: ";
             cin >> pilih;
@@ -119,10 +119,7 @@ public:
                     system("cls");
                     menuInputDanKoreksiNilai();
                     break;
-                case 10:
-                    
-                    cout << "(Fitur Layanan Akademik belum tersedia)\n";
-                    break;
+
                 case 0: 
                     system("cls");
                         admin->logoutnih();
@@ -429,6 +426,8 @@ public:
             } while (pilih != 5);
         }
 
+        
+
         void tampilMenuKrs(){
             nav.push("Dashboard Manajemen KRS");
             int pilih;
@@ -539,7 +538,7 @@ private:
     ManajemenKelasMahasiswa* klsMhs;
     ManajemenKrs* mnjKrs;
     ManajemenMahasiswa* mhs;
-    Perkuliahan* per;
+  //  Perkuliahan* per;
     
 
 public:
@@ -583,7 +582,7 @@ public:
                     break;
                 case 2:
                 system("cls");
-                tampilPerkuliahan();
+             //   tampilPerkuliahan();
                 system("cls");
                     break;
                 case 3:
@@ -648,61 +647,6 @@ public:
         }while(pilih!=3);
     }
 
-
-    void tampilPerkuliahan(){
-        nav.push("Tampil Menu Perkuliahan Mahasiswa");
-        int pilih;
-        do{
-            cout<<"================================================" << endl;
-            cout<<" ==== MENU MANAJEMEN PERKULIAHAN MAHASISWA ====          " << endl;
-            cout<<"================================================" << endl;
-            cout<<"1. Mata Kuliah Aktif"<<endl;
-            cout<<"2. Sertifikat Seminar"<<endl;
-            cout<<"3. Sertifikat Prestasi"<<endl;
-            cout<<"4. Presensi Kuliah"<<endl;
-            cout<<"5. Informasi"<<endl;
-            cout<<"6. Keluar"<<endl;
-            cout<<"Masukkan Pilihan:";
-            cin>>pilih;
-
-            switch(pilih){
-                case 1:
-                system("cls");
-                per->tampilMataKuliahAktif(mhsPortal->getNIMMahasiswa());
-                system("cls");
-                    break;
-                    
-                case 2:
-                    system("cls");
-                    per->tampilSertifikatSeminar(mhsPortal->getNIMMahasiswa());
-                    system("cls");
-                    break;
-                case 3:
-                    system("cls");
-                    per->tampilSertifikatPrestasi(mhsPortal->getNIMMahasiswa());
-                    system("cls");
-                    break;
-                case 4:
-                    system("cls");
-                    per->tampilPresensiKuliah(mhsPortal->getNIMMahasiswa());
-                    system("cls");
-                    break;
-                case 5:
-                    system("cls");
-                    per->tampilInformasi();
-                    system("cls");
-                    break;
-                case 6:
-                system("cls");
-                    nav.pop();
-                    cout<<"Kembalikan ke dashboard mahasiswa...\n";
-                    return;
-                default:
-                    cout<<"Pilihan tidak valid!"<<endl;
-                break;
-            }
-        }while(pilih!=6);
-    }
 
     void tampilKRSKHS(){
         nav.push("Tampil Menu KRS dan KHS Mahasiswa");
@@ -830,16 +774,15 @@ void displayAdmin(){
         if (portal.login(u, p)) {
             system("cls");
             AdminDashboard dashboard;
-            dashboard.setAdminPortal(&portal);  // Pass AdminPortal pointer ke dashboard
+            dashboard.setAdminPortal(&portal);  
             dashboard.tampilMenuDashAdmin();
             
-            // Setelah logout, loop kembali ke login form
         }else{
             cout << "\nLogin gagal! Silakan coba lagi.\n";
             cout << "1. Coba lagi\n2. Kembali ke Menu Utama\nPilih: ";
             cin >> pilihan;
             if(pilihan==2){
-                return; // keluar ke main menu
+                return;
             }
         }
     }

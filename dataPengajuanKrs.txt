@@ -8,3 +8,12 @@ Mata Kuliah: Dasar Pemrograman, Dasar Sistem Komputer, Kalkulus Informatika, Log
 Status Pengajuan: Diajukan
 Status Validasi: Sudah di setujui
 ====================================================================
+ ----------------------------------------
+|          Data Pengajuan KRS            |
+ ----------------------------------------
+Nama: Umi Kulsum
+NIM: 2400018020
+Mata Kuliah: Dasar Pemrograman, Dasar Sistem Komputer, Kalkulus Informatika, Logika Informatika, Manajemen Data dan Informasi, Pancasila, Praktikum Dasar Pempograman, AL-Qur'an dan Hadits
+Status Pengajuan: Diajukan
+Status Validasi: Sudah Divalidasi
+====================================================================

@@ -2959,7 +2959,7 @@ public:
             } else if (line.find("Status Validasi: ") != string::npos) {
                 statusValidasi = line.substr(17);
             } else if (line.find("==========================================") != string::npos) {
-                if (sedangBacaBlok && statusValidasi == "Belum Divalidasi") {
+                if (sedangBacaBlok && statusValidasi == "Belum di setujui") {
                     totalBelumValidasi++;
                     cout << nomorTampil++ << ". " << nama << " (" << nim << ")\n";
                 }
@@ -3007,7 +3007,7 @@ public:
             } else if (line.find("Status Validasi: ") != string::npos) {
                 statusValidasi = line.substr(17);
             } else if (line.find("==========================================") != string::npos) {
-                if (sedangBacaBlok && statusValidasi == "Belum Divalidasi") {
+                if (sedangBacaBlok && statusValidasi == "Belum di setujui") {
                     nomorBaca++;
                     if (nomorBaca == pilihan) {
                         targetNim = nim;
@@ -3802,7 +3802,3 @@ public:
     
 };
 
-
-class ManajemenPerkuliahan{
-
-};
